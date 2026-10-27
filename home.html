@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{TITLE}}</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+
+<style>
+/* Hector's personal design: Apple grouped look, light first, graphite for structure. Dark is an in-page choice (Appearance: System, Light, Dark). */
+:root{
+  color-scheme:light;
+  --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
+  --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
+  --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
+  --accent:#000000; --on-accent:#ffffff;
+  --accent-selection:color-mix(in srgb,var(--accent) 10%,transparent);
+  --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
+  --accent-wash:rgb(118 118 128 / .10);
+  --success:var(--ink); --error:var(--ink-2); --warning:var(--ink-3);
+  --go:#248a3d; --warn:#c93400; --stop:#d70015;
+  --space-tight:4px; --space-inline:8px; --space-row:12px; --space-group:20px; --space-page:16px; --space-s:32px; --space-m:48px;
+  --radius-control:10px; --radius-capsule:999px; --radius-group:12px; --radius-surface:16px;
+  --motion-state:.12s ease-out; --motion-disclosure:.22s ease-out; --motion-content:.2s ease-in-out; --motion-arrival:.28s cubic-bezier(.2,.9,.3,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
+  --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+  --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+  --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+  --accent:#ffffff; --on-accent:#000000;
+  --accent-wash:rgb(118 118 128 / .24);
+  --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="system"]{
+    color-scheme:dark;
+    --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+    --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+    --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+    --accent:#ffffff; --on-accent:#000000;
+    --accent-wash:rgb(118 118 128 / .24);
+    --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.47 var(--font);-webkit-font-smoothing:antialiased}
+main{max-width:760px;margin:0 auto;padding-block:var(--space-m) var(--space-m);padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:var(--space-group)}
+h1{font-size:34px;line-height:41px;font-weight:700;margin:0;text-wrap:balance}
+.sub{color:var(--ink-2);margin:4px 0 0}
+.eyebrow{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.unit{display:grid;gap:10px;background:var(--surface);border:1px solid transparent;border-radius:var(--radius-surface);padding:var(--space-group);text-decoration:none;color:inherit;transition:border-color var(--motion-state),transform var(--motion-state)}
+.unit:hover{border-color:var(--ink-4)}
+.unit .top{display:flex;align-items:baseline;gap:var(--space-row);flex-wrap:wrap}
+.unit h2{font-size:19px;font-weight:600;margin:0;flex:1;min-width:0}
+.unit .topics{color:var(--ink-2);font-size:14px;margin:0}
+.meter{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.meter .track{flex:1;height:4px;border-radius:2px;background:var(--line-edge);overflow:hidden}
+.meter .fill{display:block;height:100%;background:var(--ink);width:0;transition:width .6s cubic-bezier(.2,.9,.3,1)}
+.chip{font-size:12px;color:var(--ink-2);background:var(--accent-wash);border-radius:var(--radius-capsule);padding:3px 10px;white-space:nowrap}
+.review{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.review .topics,.review .eyebrow{color:color-mix(in srgb,var(--on-accent) 70%,transparent)}
+.review:hover{border-color:var(--accent)}
+.how{color:var(--ink-3);font-size:13px;margin:0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.how select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-control);padding:6px 8px;min-height:36px}
+:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<!-- SITE_START -->
+{{BODY}}
+<!-- SITE_END -->
+<p class="how"><span>Progress is saved in this browser only.</span><label>Appearance <select id="ap"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></p>
+<script>(function(){const s=document.getElementById("ap");s.value=document.documentElement.dataset.theme||"light";s.onchange=()=>{document.documentElement.dataset.theme=s.value;try{localStorage.setItem("studynow:appearance",s.value)}catch(e){}}})()</script>
+</main>
+<script>
+document.querySelectorAll(".meter[data-key]").forEach(m=>{let s=null;try{s=JSON.parse(localStorage.getItem(m.dataset.key)||"null")}catch(e){}
+  const n=+m.dataset.n,done=s&&s.sec?Object.values(s.sec).filter(x=>x&&x.status==="done").length:0;
+  if(done){m.querySelector(".lbl").textContent=done+" of "+n+" sections done";m.querySelector(".fill").style.width=(100*done/n)+"%"}});
+</script>
+</body>
+</html>
