@@ -303,7 +303,12 @@ const DECK = {
    "**Electrons per level** = 2n² (2, 8, 18, 32). **s2 p6 d10 f14**",
    "**Gold foil:** most went through → mostly empty space. A few bounced → tiny, dense, positive nucleus",
    "**Model order:** Dogs Trust Really Big Squirrels (Dalton, Thomson, Rutherford, Bohr, Schrödinger)",
-   "**Quantum numbers:** n (level), l (shape, 0 to n − 1), mₗ (orbital, −l to +l), mₛ (spin ±½)"
+   "**Quantum numbers:** n (level), l (shape, 0 to n − 1), mₗ (orbital, −l to +l), mₛ (spin ±½)",
+   "**Ion charge** = protons − electrons. Cation +, anion −",
+   "**Filling order:** 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
+   "**Aufbau builds, Pauli pairs, Hund spreads**",
+   "**Exceptions:** Cr [Ar] 4s¹ 3d⁵, Cu [Ar] 4s¹ 3d¹⁰",
+   "**Valence electrons:** groups 1, 2 → 1, 2. Groups 13 to 18 → group − 10"
   ],
   "secs": {
    "dalton": [
@@ -340,6 +345,39 @@ const DECK = {
     "n level, l shape (0 s, 1 p, 2 d, 3 f), mₗ orbital (−l to +l), mₛ spin (±½)",
     "**Pauli**: no two electrons share all four, so 2 per orbital",
     "n = 3 → l = 0, 1, 2. l = 1 → mₗ = −1, 0, +1"
+   ],
+   "ions": [
+    "**Cation** lost electrons (+), **anion** gained electrons (−). Protons never change",
+    "Al³⁺ has 10 e⁻, S²⁻ has 18 e⁻. Symbol: mass top left, atomic number bottom left, charge top right",
+    "Proton 1.0073, neutron 1.0087, electron 0.0005 amu. Atom is about 10,000 times wider than the nucleus"
+   ],
+   "excited": [
+    "**Ground state** matches the reference table. **Excited:** same electrons, one moved up (S 2-8-5-1)",
+    "Up = **absorb**, down = **release** light (spectral lines)",
+    "Unknown spectrum: an element is there only if all its lines match"
+   ],
+   "econfig": [
+    "**Aufbau:** lowest energy first, 4s before 3d",
+    "Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Superscripts add to the electrons",
+    "Skipping a sublevel breaks Aufbau, overfilling breaks Pauli"
+   ],
+   "orbdiag": [
+    "**Pauli:** max 2 arrows per box, opposite spins",
+    "**Hund:** one in each box first, then pair",
+    "N 2p ↑ ↑ ↑, O 2p ↑↓ ↑ ↑"
+   ],
+   "noblegas": [
+    "[noble gas] + the rest: Ca = **[Ar] 4s²**",
+    "**Cr** [Ar] 4s¹ 3d⁵, **Cu** [Ar] 4s¹ 3d¹⁰",
+    "Ions: negative add electrons, positive remove from 4s first (Fe²⁺ = [Ar] 3d⁶)"
+   ],
+   "valence": [
+    "**Valence** = outermost s + p electrons, they react",
+    "Period = highest level, block = last sublevel filled",
+    "Dots = valence electrons. Metals lose, nonmetals gain"
+   ],
+   "packet": [
+    "Packet answer key, with the fixes listed at the top"
    ]
   }
  },
@@ -580,7 +618,7 @@ const DECK = {
     ],
     [
      "How big is the nucleus compared to the atom?",
-     "Tiny, about 1/100,000 of the atom's width. The rest is the electron cloud."
+     "Tiny. The atom is about 10,000 times wider than its nucleus. The rest is the electron cloud."
     ],
     [
      "Atomic number",
@@ -617,10 +655,6 @@ const DECK = {
     [
      "What holds the nucleus together?",
      "The strong nuclear force, which is stronger than the push between the positive protons"
-    ],
-    [
-     "An ion",
-     "An atom that gained or lost electrons. Charge = protons − electrons."
     ]
    ],
    "notes": [
@@ -671,7 +705,7 @@ const DECK = {
      "list": [
       "Oxygen-16: 8 protons, 16 − 8 = 8 neutrons, 8 electrons",
       "Sodium-23: 11 protons, 23 − 11 = 12 neutrons, 11 electrons",
-      "An ion has gained or lost electrons. Charge = protons − electrons. Na⁺ has 11 protons and 10 electrons."
+      "Ions (atoms with a charge) get their own section next."
      ]
     }
    ],
@@ -683,6 +717,197 @@ const DECK = {
     "Atomic number = protons, it identifies the element",
     "Mass number = protons + neutrons, neutrons = mass number − atomic number",
     "Nuclear symbol: mass number on top, atomic number on the bottom"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "ions",
+   "title": "Ions, charges and the size of the atom",
+   "cards": [
+    [
+     "Ion",
+     "An atom with a charge because it gained or lost electrons. The protons never change."
+    ],
+    [
+     "Cation",
+     "A positive ion. It lost electrons. Examples: Na⁺, Ca²⁺, Al³⁺"
+    ],
+    [
+     "Anion",
+     "A negative ion. It gained electrons. Examples: Cl⁻, O²⁻, N³⁻"
+    ],
+    [
+     "Charge of an atom or ion",
+     "Protons − electrons. Each proton is +1, each electron is −1, neutrons are 0."
+    ],
+    [
+     "Electrons in a positive ion",
+     "Protons − charge. Al³⁺: 13 − 3 = 10 electrons"
+    ],
+    [
+     "Electrons in a negative ion",
+     "Protons + charge. S²⁻: 16 + 2 = 18 electrons"
+    ],
+    [
+     "Fe³⁺: protons and electrons",
+     "26 protons, 23 electrons"
+    ],
+    [
+     "Cl⁻: protons and electrons",
+     "17 protons, 18 electrons"
+    ],
+    [
+     "Pt²⁺: electrons",
+     "78 − 2 = 76"
+    ],
+    [
+     "Atom or ion: 19 p⁺ and 18 e⁻?",
+     "Ion (K⁺). Protons and electrons don't match. If they match, it's a neutral atom."
+    ],
+    [
+     "What happens if the number of protons changes?",
+     "It becomes a different element"
+    ],
+    [
+     "What do all atoms and ions of sodium have in common?",
+     "The same atomic number (11 protons)"
+    ],
+    [
+     "Hyphen notation",
+     "Element name then the mass number: carbon-14, cobalt-60"
+    ],
+    [
+     "Nuclear symbol with a charge",
+     "Mass number top left, atomic number bottom left, charge top right. Example: ³⁹₁₉K⁺"
+    ],
+    [
+     "Masses in amu: proton, neutron, electron",
+     "Proton 1.0073, neutron 1.0087, electron 0.0005"
+    ],
+    [
+     "1 amu in kilograms",
+     "1.66054 × 10⁻²⁷ kg"
+    ],
+    [
+     "Mass of a proton in kg",
+     "1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg"
+    ],
+    [
+     "Why is an atom's mass in amu close to, but not exactly, its mass number?",
+     "Protons and neutrons are each a little over 1 amu (1.0073 and 1.0087), and the electrons add a tiny bit"
+    ],
+    [
+     "Percent of carbon-12's mass in its nucleus",
+     "99.975%. The 6 electrons weigh only about 0.003 amu out of 12."
+    ],
+    [
+     "Which particles take up most of the atom's volume?",
+     "The electrons, in the cloud around the nucleus"
+    ],
+    [
+     "Atom size vs nucleus size",
+     "The atom is about 10,000 times wider than its nucleus"
+    ],
+    [
+     "If a Cl nucleus (4.0 fm) were a dime (17 mm), the atom (100 pm) would be...",
+     "About a football stadium. 100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "An **ion** is an atom that gained or lost **electrons**, so it has a charge. The protons never change, because changing protons changes the element."
+    },
+    {
+     "table": {
+      "head": [
+       "",
+       "What happened",
+       "Charge",
+       "Example"
+      ],
+      "rows": [
+       [
+        "**Cation**",
+        "Lost electrons",
+        "Positive",
+        "Na⁺: 11 p⁺, 10 e⁻"
+       ],
+       [
+        "**Anion**",
+        "Gained electrons",
+        "Negative",
+        "Cl⁻: 17 p⁺, 18 e⁻"
+       ],
+       [
+        "Neutral atom",
+        "Nothing",
+        "0",
+        "K: 19 p⁺, 19 e⁻"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Charge = protons − electrons**\nPositive ion: electrons = protons − charge (Fe³⁺ → 26 − 3 = **23**)\nNegative ion: electrons = protons + charge (P³⁻ → 15 + 3 = **18**)\n**Cat**ions are **paws**itive."
+    },
+    {
+     "h": "Writing the symbol"
+    },
+    {
+     "list": [
+      "**Nuclear symbol:** mass number top left, atomic number bottom left, charge top right. Sodium-24 cation = ²⁴₁₁Na⁺.",
+      "**Hyphen notation:** name and mass number, like bromine-81 or barium-137.",
+      "Potassium-39 atom = ³⁹₁₉K. Its ion with 18 electrons = ³⁹₁₉K⁺. Oxygen with 8 p⁺ and 8 n⁰ = ¹⁶₈O, and with 10 e⁻ it's ¹⁶₈O²⁻."
+     ]
+    },
+    {
+     "h": "Exact masses and the size of an atom"
+    },
+    {
+     "table": {
+      "head": [
+       "Particle",
+       "Mass (amu)",
+       "Mass (kg)",
+       "Charge"
+      ],
+      "rows": [
+       [
+        "Proton",
+        "1.0073",
+        "1.673 × 10⁻²⁷",
+        "+1"
+       ],
+       [
+        "Neutron",
+        "1.0087",
+        "1.675 × 10⁻²⁷",
+        "0"
+       ],
+       [
+        "Electron",
+        "0.0005",
+        "8.3 × 10⁻³¹",
+        "−1"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "To get kg, multiply the amu value by **1.66054 × 10⁻²⁷ kg**. The mass number is close to the mass in amu but not exact, because protons and neutrons are each slightly more than 1 amu."
+    },
+    {
+     "p": "**Mass:** in carbon-12, the nucleus holds (12 − 0.003) ÷ 12 = **99.975%** of the mass. **Size:** the atom is about **10,000 times wider** than the nucleus. If a chlorine nucleus were a dime, the whole atom would be a football stadium (100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m)."
+    }
+   ],
+   "points": [
+    "Ion: gained or lost electrons, protons stay the same",
+    "Cation is positive (lost electrons), anion is negative (gained electrons)",
+    "Charge = protons − electrons",
+    "Al³⁺ has 10 electrons, S²⁻ has 18",
+    "Symbol: mass number top left, atomic number bottom left, charge top right",
+    "Proton 1.0073 amu, neutron 1.0087 amu, electron 0.0005 amu, 1 amu = 1.66054 × 10⁻²⁷ kg",
+    "Nucleus holds about 99.97% of the mass, the atom is about 10,000 times wider than the nucleus"
    ],
    "quizlet": ""
   },
@@ -737,6 +962,38 @@ const DECK = {
     [
      "Mass number vs atomic mass",
      "Mass number is a whole number for one isotope (protons + neutrons). Atomic mass is the average of all isotopes, a decimal."
+    ],
+    [
+     "Why aren't carbon-14 and nitrogen-14 isotopes?",
+     "They have different numbers of protons (6 and 7), so they're different elements. Isotopes must have the same protons."
+    ],
+    [
+     "Same mass number, different element. Isotopes?",
+     "No. Isotopes are the same element with different mass numbers."
+    ],
+    [
+     "Lithium averages 6.941 amu (Li-6 and Li-7). Most abundant?",
+     "Lithium-7, because the average is much closer to 7"
+    ],
+    [
+     "Silicon averages 28.086 amu (Si-28, 29, 30). What does that tell you?",
+     "Silicon-28 is by far the most common. Si-29 and Si-30 are rare."
+    ],
+    [
+     "Cesium: 75% Cs-133, 20% Cs-132, 5% Cs-134",
+     "0.75 × 133 + 0.20 × 132 + 0.05 × 134 = 132.85 amu"
+    ],
+    [
+     "Copper: 69.2% at 62.93 amu, 30.8% at 64.93 amu",
+     "43.548 + 19.998 = 63.546 amu"
+    ],
+    [
+     "Element Z averages 208.99 amu, 67% is Z-208. Other isotope?",
+     "0.67 × 208 = 139.36. 208.99 − 139.36 = 69.63. 69.63 ÷ 0.33 = 211, so Z-211."
+    ],
+    [
+     "Cl-35 (34.969 amu) and Cl-37 (36.966 amu) average 35.453. Abundances?",
+     "34.969x + 36.966(1 − x) = 35.453, so x = 0.7576. 75.76% Cl-35 and 24.24% Cl-37."
     ]
    ],
    "notes": [
@@ -797,6 +1054,25 @@ const DECK = {
     },
     {
      "key": "Check: the answer must land between the isotope masses, and closer to the most common one. 35.5 is between 35 and 37 and closer to 35, which is 75%."
+    },
+    {
+     "h": "The decimal way (what the packet uses)"
+    },
+    {
+     "p": "Turn each percent into a decimal (75% = 0.75), multiply by the mass, and add. No dividing by 100 at the end. Cesium: 0.75 × 133 + 0.20 × 132 + 0.05 × 134 = **132.85 amu**."
+    },
+    {
+     "h": "Working backwards"
+    },
+    {
+     "list": [
+      "**Missing isotope mass:** subtract the part you know from the average, then divide by the other percent. Z averages 208.99 with 67% Z-208: (208.99 − 0.67 × 208) ÷ 0.33 = **211**.",
+      "**Missing abundances (two isotopes):** call one fraction x and the other 1 − x. Chlorine: 34.969x + 36.966(1 − x) = 35.453 → x = 0.7576, so **75.76% Cl-35, 24.24% Cl-37**.",
+      "**Which is most abundant?** No math needed: it's the isotope the average is closest to. Lithium 6.941 → Li-7. Silicon 28.086 → Si-28."
+     ]
+    },
+    {
+     "p": "**Not isotopes:** carbon-14 and nitrogen-14 have the same mass number but different protons, so they are different elements."
     }
    ],
    "points": [
@@ -806,7 +1082,10 @@ const DECK = {
     "Formula: (mass × % + mass × %) ÷ 100",
     "Chlorine example: 35.5 amu",
     "The average is closest to the most abundant isotope",
-    "Mass number is a whole number for one isotope, atomic mass is a decimal average"
+    "Mass number is a whole number for one isotope, atomic mass is a decimal average",
+    "Decimal way: 0.75 × 133 + 0.20 × 132 + ... with no ÷ 100",
+    "Backwards: (average − known part) ÷ other fraction gives the missing mass",
+    "C-14 and N-14 are not isotopes, they have different protons"
    ],
    "quizlet": ""
   },
@@ -873,6 +1152,38 @@ const DECK = {
     [
      "Bohr model's weakness",
      "It only worked for hydrogen. Electrons don't really travel in neat circles."
+    ],
+    [
+     "How to draw a Bohr diagram",
+     "Protons and neutrons in the center, then electrons from the inside out: 2 in ring 1, 8 in ring 2, 8 in ring 3 (for the first 20 elements)"
+    ],
+    [
+     "Bohr diagram: carbon (6)",
+     "2-4"
+    ],
+    [
+     "Bohr diagram: silicon (14)",
+     "2-8-4"
+    ],
+    [
+     "Bohr diagram: argon (18)",
+     "2-8-8"
+    ],
+    [
+     "Bohr diagram: potassium (19)",
+     "2-8-8-1"
+    ],
+    [
+     "Bohr diagram: calcium (20)",
+     "2-8-8-2"
+    ],
+    [
+     "Bohr diagram: bromine (35)",
+     "2-8-18-7 (read it off the reference table)"
+    ],
+    [
+     "Where to find any element's shell configuration",
+     "On your reference table, printed under the atomic number in every box (Na says 2-8-1)"
     ]
    ],
    "notes": [
@@ -895,6 +1206,97 @@ const DECK = {
     },
     {
      "p": "Bohr explained hydrogen's spectrum, but the model fails for bigger atoms, and electrons don't really move in neat circles. That led to the quantum mechanical model."
+    },
+    {
+     "h": "Drawing Bohr diagrams"
+    },
+    {
+     "list": [
+      "Write the protons and neutrons in the nucleus (neutrons = mass number − atomic number).",
+      "Fill electrons from the inside out: **2, then 8, then 8**, then the rest. Never go over what a ring holds.",
+      "Past calcium (20), copy the configuration from the reference table, like Br **2-8-18-7** and I **2-8-18-18-7**."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Rings"
+      ],
+      "rows": [
+       [
+        "H",
+        "1",
+        "1"
+       ],
+       [
+        "Li",
+        "3",
+        "2-1"
+       ],
+       [
+        "C",
+        "6",
+        "2-4"
+       ],
+       [
+        "O",
+        "8",
+        "2-6"
+       ],
+       [
+        "Ne",
+        "10",
+        "2-8"
+       ],
+       [
+        "Na",
+        "11",
+        "2-8-1"
+       ],
+       [
+        "Mg",
+        "12",
+        "2-8-2"
+       ],
+       [
+        "Al",
+        "13",
+        "2-8-3"
+       ],
+       [
+        "Si",
+        "14",
+        "2-8-4"
+       ],
+       [
+        "P",
+        "15",
+        "2-8-5"
+       ],
+       [
+        "Cl",
+        "17",
+        "2-8-7"
+       ],
+       [
+        "Ar",
+        "18",
+        "2-8-8"
+       ],
+       [
+        "K",
+        "19",
+        "2-8-8-1"
+       ],
+       [
+        "Ca",
+        "20",
+        "2-8-8-2"
+       ]
+      ]
+     }
     }
    ],
    "points": [
@@ -903,7 +1305,112 @@ const DECK = {
     "Falling back gives off light, making a bright line spectrum unique to each element",
     "Max electrons per level is 2n²: 2, 8, 18, 32",
     "Configurations like 2-8-1, the last number is the valence electrons",
-    "It only worked for hydrogen"
+    "It only worked for hydrogen",
+    "Bohr diagrams fill 2, 8, 8 from the inside out",
+    "K is 2-8-8-1, Ca is 2-8-8-2, bigger ones come from the reference table"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "excited",
+   "title": "Ground state, excited state and spectra",
+   "cards": [
+    [
+     "Ground state configuration",
+     "Every electron in the lowest level possible. It matches the reference table, like sulfur 2-8-6."
+    ],
+    [
+     "Excited state configuration",
+     "Same number of electrons, but at least one has jumped up a level. Sulfur excited: 2-8-5-1."
+    ],
+    [
+     "How to spot an excited state",
+     "The electrons add up to the right total, but an inner level isn't full or it doesn't match the reference table"
+    ],
+    [
+     "Is 2-7-1 excited or ground? (neon)",
+     "Excited. Neon's ground state is 2-8."
+    ],
+    [
+     "Electron moves to a higher level",
+     "It absorbs energy"
+    ],
+    [
+     "Electron falls to a lower level",
+     "It releases energy as light"
+    ],
+    [
+     "Compared to the ground state, an excited atom has...",
+     "An electron with more energy. Same number of electrons."
+    ],
+    [
+     "Spectral lines come from...",
+     "Electrons falling from higher to lower energy levels and releasing light"
+    ],
+    [
+     "Most energy absorbed: 2 to 4, 2 to 5, 4 to 2, or 5 to 2?",
+     "2 to 5. Absorbing means moving up, and the biggest jump up takes the most energy."
+    ],
+    [
+     "Most energy released",
+     "The biggest jump down, like 5 to 2"
+    ],
+    [
+     "Bright line spectrum",
+     "The pattern of colored lines an element gives off. Every element has its own, like a fingerprint."
+    ],
+    [
+     "Finding elements in an unknown spectrum",
+     "An element is in the mixture only if every one of its lines shows up in the unknown"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Ground state:** every electron is in the lowest level it can be. That's the configuration printed on the reference table."
+    },
+    {
+     "p": "**Excited state:** the atom took in energy and an electron jumped up. The total number of electrons doesn't change, but the pattern does."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Ground state",
+       "An excited state"
+      ],
+      "rows": [
+       [
+        "Sulfur (16)",
+        "2-8-6",
+        "2-8-5-1"
+       ],
+       [
+        "Sodium (11)",
+        "2-8-1",
+        "2-7-2"
+       ],
+       [
+        "Neon (10)",
+        "2-8",
+        "2-7-1"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Up = absorb, down = release.**\nFalling down releases light, which makes the **spectral lines**. Bigger jump, more energy."
+    },
+    {
+     "p": "Each element's **bright line spectrum** is unique. To find which elements are in an unknown, an element counts only if **all** of its lines appear in the unknown's spectrum."
+    }
+   ],
+   "points": [
+    "Ground state: lowest levels, matches the reference table",
+    "Excited state: same electrons, one moved up (S 2-8-5-1)",
+    "Going up absorbs energy, coming down releases light",
+    "Spectral lines come from electrons falling to lower levels",
+    "Biggest jump means the most energy",
+    "Every element has a unique bright line spectrum, match all lines"
    ],
    "quizlet": ""
   },
@@ -1154,6 +1661,1666 @@ const DECK = {
     "mₗ is the orbital, −l to +l",
     "mₛ is spin, +½ or −½",
     "Pauli: no two electrons share all four, so 2 per orbital"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "econfig",
+   "title": "Electron configurations and the Aufbau principle",
+   "cards": [
+    [
+     "Electron configuration",
+     "A list of which sublevels an atom's electrons are in, like 1s² 2s² 2p⁴"
+    ],
+    [
+     "In 2p⁴, what do the 2, the p and the 4 mean?",
+     "2 is the energy level, p is the sublevel, 4 is the number of electrons in it"
+    ],
+    [
+     "Aufbau principle",
+     "Electrons fill the lowest energy sublevel first, building up from the bottom"
+    ],
+    [
+     "Filling order",
+     "1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f"
+    ],
+    [
+     "Why does 4s fill before 3d?",
+     "4s is lower in energy than 3d, so Aufbau fills it first"
+    ],
+    [
+     "How to check a configuration",
+     "The superscripts must add up to the number of electrons. Mg: 2 + 2 + 6 + 2 = 12."
+    ],
+    [
+     "Max electrons in s, p, d, f",
+     "2, 6, 10, 14"
+    ],
+    [
+     "Nitrogen (7)",
+     "1s² 2s² 2p³"
+    ],
+    [
+     "Sodium (11)",
+     "1s² 2s² 2p⁶ 3s¹"
+    ],
+    [
+     "Chlorine (17)",
+     "1s² 2s² 2p⁶ 3s² 3p⁵"
+    ],
+    [
+     "Calcium (20)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²"
+    ],
+    [
+     "Iron (26)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+    ],
+    [
+     "Bromine (35)",
+     "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵"
+    ],
+    [
+     "What element is 1s² 2s² 2p⁶ 3s² 3p⁴?",
+     "Sulfur (2 + 2 + 6 + 2 + 4 = 16 electrons)"
+    ],
+    [
+     "What element is ...4s² 3d¹⁰ 4p⁶ 5s¹?",
+     "Rubidium (37)"
+    ],
+    [
+     "What's wrong with ...3p⁶ 4s² 4d¹⁰ 4p⁵?",
+     "It skips 3d. After 4s comes 3d, not 4d. It breaks Aufbau."
+    ],
+    [
+     "What's wrong with 1s² 2s² 2p⁶ 3s³ 3d⁵?",
+     "An s sublevel can only hold 2 electrons (Pauli), and 3p was skipped (Aufbau)"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "An **electron configuration** lists where every electron is. In **3p⁵**, 3 is the energy level, p is the sublevel and 5 is how many electrons are in it."
+    },
+    {
+     "p": "**Aufbau principle:** electrons fill the **lowest energy** sublevel first. The order isn't just 1, 2, 3: **4s comes before 3d** because it's lower in energy. Follow the diagonal arrows."
+    },
+    {
+     "img": "../img/u2/aufbau-order.png",
+     "alt": "Aufbau diagonal chart showing the filling order of sublevels"
+    },
+    {
+     "list": [
+      "**Step 1.** Find the number of electrons (atomic number for a neutral atom).",
+      "**Step 2.** Follow the arrows: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f.",
+      "**Step 3.** Fill each sublevel to its max (s 2, p 6, d 10, f 14) until you run out.",
+      "**Step 4.** Check that the superscripts add up to the number of electrons."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Configuration"
+      ],
+      "rows": [
+       [
+        "Nitrogen",
+        "7",
+        "1s² 2s² 2p³"
+       ],
+       [
+        "Oxygen",
+        "8",
+        "1s² 2s² 2p⁴"
+       ],
+       [
+        "Sodium",
+        "11",
+        "1s² 2s² 2p⁶ 3s¹"
+       ],
+       [
+        "Silicon",
+        "14",
+        "1s² 2s² 2p⁶ 3s² 3p²"
+       ],
+       [
+        "Chlorine",
+        "17",
+        "1s² 2s² 2p⁶ 3s² 3p⁵"
+       ],
+       [
+        "Calcium",
+        "20",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²"
+       ],
+       [
+        "Titanium",
+        "22",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
+       ],
+       [
+        "Iron",
+        "26",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+       ],
+       [
+        "Nickel",
+        "28",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸"
+       ],
+       [
+        "Bromine",
+        "35",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Strontium",
+        "38",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s²"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Spotting a wrong configuration"
+    },
+    {
+     "list": [
+      "Skipping a sublevel in the order (4s² 4d¹⁰ instead of 4s² 3d¹⁰) breaks **Aufbau**.",
+      "Too many electrons in a sublevel (3s³) breaks **Pauli**: s holds 2, p holds 6.",
+      "Using a core that isn't a noble gas ([Ra] instead of [Rn]) is not allowed."
+     ]
+    }
+   ],
+   "points": [
+    "Configuration like 3p⁵: level, sublevel, number of electrons",
+    "Aufbau: fill the lowest energy first",
+    "Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
+    "4s fills before 3d because it's lower in energy",
+    "s 2, p 6, d 10, f 14",
+    "Superscripts add up to the number of electrons",
+    "Iron: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "orbdiag",
+   "title": "Orbital diagrams, Pauli and Hund's rule",
+   "cards": [
+    [
+     "Orbital diagram",
+     "A box or line for every orbital, with arrows for electrons. ↑ and ↓ are the two spins."
+    ],
+    [
+     "Boxes per sublevel",
+     "s 1, p 3, d 5, f 7"
+    ],
+    [
+     "Pauli exclusion principle (in a diagram)",
+     "A box holds at most 2 arrows, and they point opposite ways: ↑↓"
+    ],
+    [
+     "Hund's rule",
+     "In a sublevel, put one electron in each box first, all pointing up, then start pairing"
+    ],
+    [
+     "Hund's rule picture",
+     "The bus seat rule: nobody sits next to someone until every seat has one person"
+    ],
+    [
+     "The three filling rules in one line",
+     "Aufbau builds from the bottom, Pauli pairs opposite spins, Hund spreads out before pairing"
+    ],
+    [
+     "Nitrogen orbital diagram",
+     "1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑"
+    ],
+    [
+     "Oxygen orbital diagram",
+     "1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"
+    ],
+    [
+     "Nitrogen drawn as 2p ↑↓ ↑ _",
+     "Wrong, breaks Hund's rule. Each p box gets one electron before any pairs."
+    ],
+    [
+     "A box drawn ↑↑",
+     "Wrong, breaks Pauli. Two electrons in one orbital must have opposite spins."
+    ],
+    [
+     "Unpaired electrons in nitrogen",
+     "3"
+    ],
+    [
+     "Iron's 3d orbital diagram",
+     "↑↓ ↑ ↑ ↑ ↑ (6 electrons, 4 unpaired)"
+    ],
+    [
+     "Orbital diagram of an ion",
+     "Same as the neutral atom with arrows added (negative) or removed (positive). Na⁺: 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑↓ ↑↓"
+    ]
+   ],
+   "notes": [
+    {
+     "table": {
+      "head": [
+       "Rule",
+       "What it says",
+       "In the diagram"
+      ],
+      "rows": [
+       [
+        "**Aufbau**",
+        "Fill the lowest energy first",
+        "Fill boxes left to right in the filling order"
+       ],
+       [
+        "**Pauli exclusion**",
+        "Max 2 electrons per orbital, opposite spins",
+        "Never more than ↑↓ in one box"
+       ],
+       [
+        "**Hund's rule**",
+        "Spread out before pairing",
+        "One ↑ in every box of a sublevel, then go back and add ↓"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Aufbau builds, Pauli pairs, Hund spreads.**\nBus seat rule: nobody shares a seat until every seat has one person."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "1s",
+       "2s",
+       "2p",
+       "3s",
+       "3p"
+      ],
+      "rows": [
+       [
+        "Be (4)",
+        "↑↓",
+        "↑↓",
+        "_ _ _",
+        "",
+        ""
+       ],
+       [
+        "N (7)",
+        "↑↓",
+        "↑↓",
+        "↑ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "O (8)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "Ne (10)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "",
+        ""
+       ],
+       [
+        "Na (11)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑",
+        ""
+       ],
+       [
+        "Si (14)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑ ↑ _"
+       ],
+       [
+        "Cl (17)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑"
+       ],
+       [
+        "Ar (18)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "For the 4s and 3d part (everything up to 3p is full, like argon):"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "4s",
+       "3d (5 boxes)"
+      ],
+      "rows": [
+       [
+        "Ti (22)",
+        "↑↓",
+        "↑ ↑ _ _ _"
+       ],
+       [
+        "V (23)",
+        "↑↓",
+        "↑ ↑ ↑ _ _"
+       ],
+       [
+        "Fe (26)",
+        "↑↓",
+        "↑↓ ↑ ↑ ↑ ↑"
+       ],
+       [
+        "Ni (28)",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓ ↑ ↑"
+       ],
+       [
+        "Cu (29)",
+        "↑",
+        "↑↓ ↑↓ ↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Ions:** draw the neutral atom, then add arrows (negative ion) or remove them (positive ion). Ca²⁺ looks like argon, O²⁻ looks like neon."
+    }
+   ],
+   "points": [
+    "Orbital diagram: a box per orbital, arrows for electrons",
+    "s 1 box, p 3, d 5, f 7",
+    "Pauli: max 2 per box, opposite spins",
+    "Hund: one in each box first, then pair",
+    "Aufbau builds, Pauli pairs, Hund spreads",
+    "N is 2p ↑ ↑ ↑, O is 2p ↑↓ ↑ ↑"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "noblegas",
+   "title": "Noble gas notation, exceptions and ions",
+   "cards": [
+    [
+     "Noble gas notation",
+     "Put the noble gas before the element in brackets, then write only what comes after it. Ca = [Ar] 4s²"
+    ],
+    [
+     "Noble gas cores",
+     "[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86"
+    ],
+    [
+     "Core electrons vs valence electrons",
+     "The bracket is the core (inner electrons). What comes after holds the valence electrons."
+    ],
+    [
+     "Chlorine, noble gas notation",
+     "[Ne] 3s² 3p⁵"
+    ],
+    [
+     "Iron, noble gas notation",
+     "[Ar] 4s² 3d⁶"
+    ],
+    [
+     "Cobalt, noble gas notation",
+     "[Ar] 4s² 3d⁷"
+    ],
+    [
+     "Tin, noble gas notation",
+     "[Kr] 5s² 4d¹⁰ 5p²"
+    ],
+    [
+     "Silver, noble gas notation",
+     "[Kr] 5s¹ 4d¹⁰"
+    ],
+    [
+     "Lead, noble gas notation",
+     "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+    ],
+    [
+     "Radium, noble gas notation",
+     "[Rn] 7s²"
+    ],
+    [
+     "Chromium exception",
+     "[Ar] 4s¹ 3d⁵, not 4s² 3d⁴. A half full d sublevel is more stable."
+    ],
+    [
+     "Copper exception",
+     "[Ar] 4s¹ 3d¹⁰, not 4s² 3d⁹. A full d sublevel is more stable."
+    ],
+    [
+     "Other atoms that act like Cr and Cu",
+     "Mo [Kr] 5s¹ 4d⁵, Ag [Kr] 5s¹ 4d¹⁰, Au [Xe] 4f¹⁴ 5d¹⁰ 6s¹"
+    ],
+    [
+     "Negative ion configuration",
+     "Add electrons. O²⁻: 1s² 2s² 2p⁶, the same as neon."
+    ],
+    [
+     "Positive ion configuration",
+     "Take electrons from the outermost level first. Na⁺: 1s² 2s² 2p⁶"
+    ],
+    [
+     "Fe²⁺ configuration",
+     "[Ar] 3d⁶. The 2 electrons come out of 4s, not 3d."
+    ],
+    [
+     "Is [Ra] 7s² 5f⁸ valid?",
+     "No. Radium isn't a noble gas, so it can't be the core. Use [Rn]."
+    ],
+    [
+     "What element is [Kr] 5s² 4d¹⁰ 5p³?",
+     "Antimony, Sb (51)"
+    ],
+    [
+     "What element is [Xe] 6s² 4f¹⁴ 5d⁶?",
+     "Osmium, Os (76)"
+    ],
+    [
+     "Isoelectronic",
+     "Having the same electron configuration. Na⁺, Mg²⁺, O²⁻ and F⁻ all match neon."
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Noble gas notation** is the shortcut. Write the noble gas from the row above in brackets, then only the electrons after it."
+    },
+    {
+     "key": "Cores: **[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86**\nCa (20) = 20 − 18 → **[Ar] 4s²**"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Full",
+       "Noble gas"
+      ],
+      "rows": [
+       [
+        "Lithium",
+        "1s² 2s¹",
+        "[He] 2s¹"
+       ],
+       [
+        "Fluorine",
+        "1s² 2s² 2p⁵",
+        "[He] 2s² 2p⁵"
+       ],
+       [
+        "Magnesium",
+        "1s² 2s² 2p⁶ 3s²",
+        "[Ne] 3s²"
+       ],
+       [
+        "Chlorine",
+        "1s² 2s² 2p⁶ 3s² 3p⁵",
+        "[Ne] 3s² 3p⁵"
+       ],
+       [
+        "Potassium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
+        "[Ar] 4s¹"
+       ],
+       [
+        "Titanium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
+        "[Ar] 4s² 3d²"
+       ],
+       [
+        "Iron",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶",
+        "[Ar] 4s² 3d⁶"
+       ],
+       [
+        "Gallium",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p¹",
+        "[Ar] 4s² 3d¹⁰ 4p¹"
+       ],
+       [
+        "Bromine",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "[Ar] 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Silver",
+        "too long",
+        "[Kr] 5s¹ 4d¹⁰"
+       ],
+       [
+        "Tin",
+        "too long",
+        "[Kr] 5s² 4d¹⁰ 5p²"
+       ],
+       [
+        "Iodine",
+        "too long",
+        "[Kr] 5s² 4d¹⁰ 5p⁵"
+       ],
+       [
+        "Barium",
+        "too long",
+        "[Xe] 6s²"
+       ],
+       [
+        "Lead",
+        "too long",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Exceptions"
+    },
+    {
+     "p": "A **half full (d⁵)** or **full (d¹⁰)** d sublevel is extra stable, so one electron moves from s to d."
+    },
+    {
+     "list": [
+      "**Cr:** [Ar] 4s¹ 3d⁵ (not 4s² 3d⁴)",
+      "**Cu:** [Ar] 4s¹ 3d¹⁰ (not 4s² 3d⁹)",
+      "Same pattern: Mo [Kr] 5s¹ 4d⁵, Ag [Kr] 5s¹ 4d¹⁰, Au [Xe] 4f¹⁴ 5d¹⁰ 6s¹",
+      "Your handout's molybdenum line says [Ar] 5s¹ 4d⁵. That's a typo, it should be [Kr]."
+     ]
+    },
+    {
+     "h": "Ions"
+    },
+    {
+     "table": {
+      "head": [
+       "Ion",
+       "Electrons",
+       "Configuration",
+       "Same as"
+      ],
+      "rows": [
+       [
+        "O²⁻",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "F⁻",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "Na⁺",
+        "10",
+        "1s² 2s² 2p⁶",
+        "Ne"
+       ],
+       [
+        "Ca²⁺",
+        "18",
+        "1s² 2s² 2p⁶ 3s² 3p⁶",
+        "Ar"
+       ],
+       [
+        "K⁺",
+        "18",
+        "1s² 2s² 2p⁶ 3s² 3p⁶",
+        "Ar"
+       ],
+       [
+        "Li⁺",
+        "2",
+        "1s²",
+        "He"
+       ],
+       [
+        "Fe²⁺",
+        "24",
+        "[Ar] 3d⁶",
+        ""
+       ],
+       [
+        "Co³⁺",
+        "24",
+        "[Ar] 3d⁶",
+        ""
+       ],
+       [
+        "Ni²⁺",
+        "26",
+        "[Ar] 3d⁸",
+        ""
+       ],
+       [
+        "Ag⁺",
+        "46",
+        "[Kr] 4d¹⁰",
+        ""
+       ]
+      ]
+     }
+    },
+    {
+     "p": "For transition metals, electrons leave **4s before 3d**, because 4s is the outermost level."
+    }
+   ],
+   "points": [
+    "Noble gas notation: [noble gas] then the rest, Ca = [Ar] 4s²",
+    "Cores: He 2, Ne 10, Ar 18, Kr 36, Xe 54, Rn 86",
+    "Cr [Ar] 4s¹ 3d⁵ and Cu [Ar] 4s¹ 3d¹⁰, half full and full d are stable",
+    "Negative ions add electrons, positive ions remove them",
+    "Transition metal ions lose 4s electrons first: Fe²⁺ = [Ar] 3d⁶",
+    "Isoelectronic means same configuration, like Na⁺ and Ne"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "valence",
+   "title": "Valence electrons, blocks and dot diagrams",
+   "cards": [
+    [
+     "Valence electrons",
+     "The electrons in the outermost energy level (the highest s and p). They're the ones used in reactions and bonding."
+    ],
+    [
+     "Why valence electrons matter to chemists",
+     "They decide how an atom reacts and bonds"
+    ],
+    [
+     "Valence electrons from the group number",
+     "Groups 1 and 2: 1 and 2. Groups 13 to 18: subtract 10 (group 17 → 7). Helium has 2."
+    ],
+    [
+     "Most valence electrons an atom can have",
+     "8, a full s and p (an octet)"
+    ],
+    [
+     "Valence electrons in fluorine",
+     "7"
+    ],
+    [
+     "Valence electrons in gallium [Ar] 4s² 3d¹⁰ 4p¹",
+     "3 (the 4s² and 4p¹). The 3d doesn't count."
+    ],
+    [
+     "Lewis dot diagram",
+     "The element's symbol with one dot for each valence electron"
+    ],
+    [
+     "Dots for B, Cl and Fe",
+     "B 3, Cl 7, Fe 2 (from 4s²)"
+    ],
+    [
+     "Period from a configuration",
+     "The highest energy level number. [Ne] 3s² 3p⁵ is period 3."
+    ],
+    [
+     "Block from a configuration",
+     "The last sublevel being filled. [Ar] 4s² 3d⁶ is the d block."
+    ],
+    [
+     "s block",
+     "Groups 1 and 2, plus helium"
+    ],
+    [
+     "p block",
+     "Groups 13 to 18"
+    ],
+    [
+     "d block",
+     "Groups 3 to 12, the transition metals"
+    ],
+    [
+     "f block",
+     "The two rows at the bottom (lanthanides and actinides)"
+    ],
+    [
+     "[He] 2s² 2p¹",
+     "Period 2, p block, group 13, 3 valence electrons, boron"
+    ],
+    [
+     "[Ne] 3s² 3p⁵",
+     "Period 3, p block, group 17, 7 valence electrons, chlorine"
+    ],
+    [
+     "[Ar] 4s² 3d⁶",
+     "Period 4, d block, group 8, 2 valence electrons, iron"
+    ],
+    [
+     "[Kr] 5s¹",
+     "Period 5, s block, group 1, 1 valence electron, rubidium"
+    ],
+    [
+     "[Xe] 6s² 4f¹⁴ 5d¹⁰",
+     "Period 6, d block, group 12, 2 valence electrons, mercury"
+    ],
+    [
+     "Why atoms form ions",
+     "To get a full outer level like a noble gas. Metals lose electrons (Na → Na⁺), nonmetals gain (Cl → Cl⁻)."
+    ],
+    [
+     "Usual ion charge: O, Na, Al, N, Cl, Ca",
+     "O²⁻, Na⁺, Al³⁺, N³⁻, Cl⁻, Ca²⁺"
+    ]
+   ],
+   "notes": [
+    {
+     "p": "**Valence electrons** are in the outermost energy level, counting only s and p. They're the electrons that react, so they matter most to chemists."
+    },
+    {
+     "key": "Groups 1, 2 → **1, 2** valence electrons\nGroups 13 to 18 → **group − 10** (Cl in group 17 has 7)\nNoble gases have **8** (helium has 2)"
+    },
+    {
+     "img": "../img/u2/spdf-blocks.png",
+     "alt": "Periodic table split into s, p, d and f blocks"
+    },
+    {
+     "p": "Reading a noble gas configuration: the **period** is the biggest level number, the **block** is the last sublevel filled, and the element is the one at that spot."
+    },
+    {
+     "table": {
+      "head": [
+       "Configuration",
+       "Period",
+       "Block",
+       "Group",
+       "Valence",
+       "Element"
+      ],
+      "rows": [
+       [
+        "[He] 2s² 2p¹",
+        "2",
+        "p",
+        "13",
+        "3",
+        "B"
+       ],
+       [
+        "[Ne] 3s² 3p⁵",
+        "3",
+        "p",
+        "17",
+        "7",
+        "Cl"
+       ],
+       [
+        "[Ar] 4s² 3d⁶",
+        "4",
+        "d",
+        "8",
+        "2",
+        "Fe"
+       ],
+       [
+        "[Kr] 5s¹",
+        "5",
+        "s",
+        "1",
+        "1",
+        "Rb"
+       ],
+       [
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰",
+        "6",
+        "d",
+        "12",
+        "2",
+        "Hg"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Lewis dot diagram:** write the symbol and put one dot per valence electron around it (up to 8). Boron gets 3, chlorine 7, iron 2."
+    },
+    {
+     "h": "Gaining and losing electrons"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Shells",
+       "Lose or gain",
+       "Ion"
+      ],
+      "rows": [
+       [
+        "O",
+        "2-6",
+        "gain 2",
+        "O²⁻"
+       ],
+       [
+        "Na",
+        "2-8-1",
+        "lose 1",
+        "Na⁺"
+       ],
+       [
+        "S",
+        "2-8-6",
+        "gain 2",
+        "S²⁻"
+       ],
+       [
+        "K",
+        "2-8-8-1",
+        "lose 1",
+        "K⁺"
+       ],
+       [
+        "Al",
+        "2-8-3",
+        "lose 3",
+        "Al³⁺"
+       ],
+       [
+        "Cl",
+        "2-8-7",
+        "gain 1",
+        "Cl⁻"
+       ],
+       [
+        "Ca",
+        "2-8-8-2",
+        "lose 2",
+        "Ca²⁺"
+       ],
+       [
+        "N",
+        "2-5",
+        "gain 3",
+        "N³⁻"
+       ]
+      ]
+     }
+    }
+   ],
+   "points": [
+    "Valence electrons: outermost s and p, the ones that react",
+    "Groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10",
+    "Dot diagram: one dot per valence electron",
+    "Period = highest level, block = last sublevel filled",
+    "s block groups 1 to 2, p block 13 to 18, d block 3 to 12, f block the bottom rows",
+    "Metals lose electrons, nonmetals gain them, to look like a noble gas"
+   ],
+   "quizlet": ""
+  },
+  {
+   "id": "packet",
+   "title": "Atom practice packet answer key",
+   "steps": [
+    0
+   ],
+   "cards": [],
+   "notes": [
+    {
+     "p": "Answers to the Atom Practice Packet, by the page numbers you wrote on it. Use it to check your work, not to skip it. Every number here was recalculated."
+    },
+    {
+     "h": "Fix these (you had them wrong)"
+    },
+    {
+     "list": [
+      "**p. 9, Br-81:** make sure the atomic number under it reads 35.",
+      "**p. 10:** potassium is ³⁹₁₉K and its ion is ³⁹₁₉K⁺ (not 84). Both oxygens are ¹⁶₈O, and the one with 10 e⁻ is ¹⁶₈O²⁻.",
+      "**p. 11, 3c:** 12, 13, 14 are **mass numbers**, not atomic mass.",
+      "**p. 13, 6b:** isotopes differ in **neutrons** (and mass), not electrons.",
+      "**p. 14, sulfur:** 32.0574 amu.",
+      "**p. 15, Q3:** C-14 and N-14 aren't isotopes because they have **different protons**.",
+      "**p. 39, Q9 (Ca):** 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² (3p⁶, not 3p²)."
+     ]
+    },
+    {
+     "h": "Pages 4 to 7"
+    },
+    {
+     "list": [
+      "**p. 4, Q12:** an element can have many isotopes, but most are unstable (radioactive) and break down, so only a few occur in nature.",
+      "**p. 5, Q2:** proton 1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg, neutron 1.675 × 10⁻²⁷ kg, electron 8.3 × 10⁻³¹ kg.",
+      "**p. 6:** 99.975% of carbon-12's mass is in the nucleus, because electrons are so light.",
+      "**p. 7:** atom ÷ nucleus = 100 pm ÷ 4.0 fm = 25,000. 17 mm × 25,000 = 425 m, so **(c) a football stadium**."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "p. 5 Table 2",
+       "Symbol",
+       "Z",
+       "A",
+       "Neutrons",
+       "Electrons"
+      ],
+      "rows": [
+       [
+        "calcium-40 ion",
+        "⁴⁰₂₀Ca²⁺",
+        "20",
+        "40",
+        "20",
+        "18"
+       ],
+       [
+        "oxygen-16",
+        "¹⁶₈O",
+        "8",
+        "16",
+        "8",
+        "8"
+       ],
+       [
+        "uranium-238",
+        "²³⁸₉₂U",
+        "92",
+        "238",
+        "146",
+        "92"
+       ],
+       [
+        "fluorine-19",
+        "¹⁹₉F",
+        "9",
+        "19",
+        "10",
+        "9"
+       ],
+       [
+        "chlorine-35 ion",
+        "³⁵₁₇Cl⁻",
+        "17",
+        "35",
+        "18",
+        "18"
+       ],
+       [
+        "potassium-39",
+        "³⁹₁₉K",
+        "19",
+        "39",
+        "20",
+        "19"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Page 12"
+    },
+    {
+     "table": {
+      "head": [
+       "Isotope or ion",
+       "Z",
+       "Protons",
+       "Neutrons",
+       "Electrons",
+       "Mass #"
+      ],
+      "rows": [
+       [
+        "uranium-235",
+        "92",
+        "92",
+        "143",
+        "92",
+        "235"
+       ],
+       [
+        "uranium-238",
+        "92",
+        "92",
+        "146",
+        "92",
+        "238"
+       ],
+       [
+        "boron-10",
+        "5",
+        "5",
+        "5",
+        "5",
+        "10"
+       ],
+       [
+        "boron-11",
+        "5",
+        "5",
+        "6",
+        "5",
+        "11"
+       ],
+       [
+        "¹H",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1"
+       ],
+       [
+        "¹H⁺",
+        "1",
+        "1",
+        "0",
+        "0",
+        "1"
+       ],
+       [
+        "¹²C",
+        "6",
+        "6",
+        "6",
+        "6",
+        "12"
+       ],
+       [
+        "⁷Li",
+        "3",
+        "3",
+        "4",
+        "3",
+        "7"
+       ],
+       [
+        "³⁵Cl⁻",
+        "17",
+        "17",
+        "18",
+        "18",
+        "35"
+       ],
+       [
+        "³⁹K",
+        "19",
+        "19",
+        "20",
+        "19",
+        "39"
+       ],
+       [
+        "²⁴Mg²⁺",
+        "12",
+        "12",
+        "12",
+        "10",
+        "24"
+       ],
+       [
+        "⁷⁵As",
+        "33",
+        "33",
+        "42",
+        "33",
+        "75"
+       ],
+       [
+        "¹⁰⁸Ag⁺",
+        "47",
+        "47",
+        "61",
+        "46",
+        "108"
+       ],
+       [
+        "³²S²⁻",
+        "16",
+        "16",
+        "16",
+        "18",
+        "32"
+       ],
+       [
+        "⁶⁶Zn²⁺",
+        "30",
+        "30",
+        "36",
+        "28",
+        "66"
+       ],
+       [
+        "¹⁹⁰Os",
+        "76",
+        "76",
+        "114",
+        "76",
+        "190"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Part II:** an atom is negative when it has more electrons than protons, and positive when it has more protons than electrons. Isotopes are atoms of the same element with different numbers of neutrons. Changing the number of protons changes the element."
+    },
+    {
+     "h": "Pages 15 to 18, average atomic mass"
+    },
+    {
+     "list": [
+      "**p. 15, Q4:** ²³⁴₉₂U (142 neutrons) and ²³⁸₉₂U (146 neutrons).",
+      "**p. 16:** hydrogen 1.012 amu. Q9 is about 71.16 amu as printed, but its percents only add to 95%. Dividing by 0.95 gives about 74.9 amu, which is **arsenic**. Q10: 51.996 amu, **chromium**. Q11: **Ca-40**. Q12: 41.996 amu.",
+      "**p. 17:** Cu 63.62, S 32.09, Pb 207.21, Br 79.99 amu (whole number masses). Q5: Si-28 is most common. Q6: Li-7. Q7: **Z-211**.",
+      "**p. 18:** Q8: **Q-113**. Q9: **75.76% Cl-35, 24.24% Cl-37**."
+     ]
+    },
+    {
+     "h": "Pages 19 to 25, Bohr diagrams"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Protons",
+       "Neutrons",
+       "Electrons",
+       "Rings"
+      ],
+      "rows": [
+       [
+        "H",
+        "1",
+        "0",
+        "1",
+        "1"
+       ],
+       [
+        "C",
+        "6",
+        "6",
+        "6",
+        "2-4"
+       ],
+       [
+        "Be",
+        "4",
+        "5",
+        "4",
+        "2-2"
+       ],
+       [
+        "O",
+        "8",
+        "8",
+        "8",
+        "2-6"
+       ],
+       [
+        "Ne",
+        "10",
+        "10",
+        "10",
+        "2-8"
+       ],
+       [
+        "Na",
+        "11",
+        "12",
+        "11",
+        "2-8-1"
+       ],
+       [
+        "Mg",
+        "12",
+        "12",
+        "12",
+        "2-8-2"
+       ],
+       [
+        "Al",
+        "13",
+        "14",
+        "13",
+        "2-8-3"
+       ],
+       [
+        "Si",
+        "14",
+        "14",
+        "14",
+        "2-8-4"
+       ],
+       [
+        "P",
+        "15",
+        "16",
+        "15",
+        "2-8-5"
+       ],
+       [
+        "Cl",
+        "17",
+        "18",
+        "17",
+        "2-8-7"
+       ],
+       [
+        "Ar",
+        "18",
+        "22",
+        "18",
+        "2-8-8"
+       ],
+       [
+        "K",
+        "19",
+        "20",
+        "19",
+        "2-8-8-1"
+       ],
+       [
+        "Ca",
+        "20",
+        "20",
+        "20",
+        "2-8-8-2"
+       ],
+       [
+        "Li",
+        "3",
+        "4",
+        "3",
+        "2-1"
+       ],
+       [
+        "S",
+        "16",
+        "16",
+        "16",
+        "2-8-6"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Bromine is 2-8-18-7 and iodine is 2-8-18-18-7, from the reference table."
+    },
+    {
+     "h": "Pages 26 and 30, configurations"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Electrons",
+       "Configuration"
+      ],
+      "rows": [
+       [
+        "Na",
+        "11",
+        "1s² 2s² 2p⁶ 3s¹"
+       ],
+       [
+        "Pb",
+        "82",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ],
+       [
+        "Sr",
+        "38",
+        "[Kr] 5s²"
+       ],
+       [
+        "U",
+        "92",
+        "[Rn] 7s² 5f⁴"
+       ],
+       [
+        "N",
+        "7",
+        "1s² 2s² 2p³"
+       ],
+       [
+        "Ag",
+        "47",
+        "[Kr] 5s¹ 4d¹⁰"
+       ],
+       [
+        "Ti",
+        "22",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²"
+       ],
+       [
+        "Ce",
+        "58",
+        "[Xe] 6s² 4f²"
+       ],
+       [
+        "Cl",
+        "17",
+        "1s² 2s² 2p⁶ 3s² 3p⁵"
+       ],
+       [
+        "Hg",
+        "80",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "Uranium and cerium follow the filling order here. Their real configurations are slightly different, but your class uses the order."
+    },
+    {
+     "h": "Page 27"
+    },
+    {
+     "list": [
+      "**Q11:** (a) 13, aluminum. (b) 23, vanadium. (c) 9, fluorine. (d) 31, gallium. (e) 8, oxygen. Write the configuration for each from the boxes.",
+      "**Q12:** s block: groups 1 and 2 plus He. p block: groups 13 to 18. d block: groups 3 to 12. f block: the two bottom rows.",
+      "**Q13:** three d electrons: V (23). Complete d: Cu (29, it's 3d¹⁰), or Zn (30) if you ignore exceptions. Ten p electrons: S (16). An f electron: La (57) by the filling order. 13 d electrons: Nb (41). 23 p electrons: I (53). 7 s electrons: K (19).",
+      "**Q14:** 9 (2p⁶ + 3p³). **Q15:** 18 (2n² with n = 3)."
+     ]
+    },
+    {
+     "h": "Page 29"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Z",
+       "Shells",
+       "Configuration",
+       "Lost or gained",
+       "Left",
+       "Ion"
+      ],
+      "rows": [
+       [
+        "O",
+        "8",
+        "2-6",
+        "1s² 2s² 2p⁴",
+        "gain 2",
+        "10",
+        "2−"
+       ],
+       [
+        "Na",
+        "11",
+        "2-8-1",
+        "1s² 2s² 2p⁶ 3s¹",
+        "lose 1",
+        "10",
+        "1+"
+       ],
+       [
+        "S",
+        "16",
+        "2-8-6",
+        "1s² 2s² 2p⁶ 3s² 3p⁴",
+        "gain 2",
+        "18",
+        "2−"
+       ],
+       [
+        "K",
+        "19",
+        "2-8-8-1",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹",
+        "lose 1",
+        "18",
+        "1+"
+       ],
+       [
+        "Al",
+        "13",
+        "2-8-3",
+        "1s² 2s² 2p⁶ 3s² 3p¹",
+        "lose 3",
+        "10",
+        "3+"
+       ],
+       [
+        "Cl",
+        "17",
+        "2-8-7",
+        "1s² 2s² 2p⁶ 3s² 3p⁵",
+        "gain 1",
+        "18",
+        "1−"
+       ],
+       [
+        "Sr",
+        "38",
+        "2-8-18-8-2",
+        "[Kr] 5s²",
+        "lose 2",
+        "36",
+        "2+"
+       ],
+       [
+        "Ca",
+        "20",
+        "2-8-8-2",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²",
+        "lose 2",
+        "18",
+        "2+"
+       ],
+       [
+        "F",
+        "9",
+        "2-7",
+        "1s² 2s² 2p⁵",
+        "gain 1",
+        "10",
+        "1−"
+       ],
+       [
+        "Br",
+        "35",
+        "2-8-18-7",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "gain 1",
+        "36",
+        "1−"
+       ],
+       [
+        "N",
+        "7",
+        "2-5",
+        "1s² 2s² 2p³",
+        "gain 3",
+        "10",
+        "3−"
+       ],
+       [
+        "I",
+        "53",
+        "2-8-18-18-7",
+        "[Kr] 5s² 4d¹⁰ 5p⁵",
+        "gain 1",
+        "54",
+        "1−"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Page 31"
+    },
+    {
+     "list": [
+      "**E:** sodium 1s² 2s² 2p⁶ 3s¹. Iron 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Bromine 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵. Barium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s² 4d¹⁰ 5p⁶ 6s². Neptunium [Rn] 7s² 5f⁵ (written out in full it continues from 6p⁶).",
+      "**F:** cobalt [Ar] 4s² 3d⁷. Silver [Kr] 5s¹ 4d¹⁰. Tellurium [Kr] 5s² 4d¹⁰ 5p⁴. Radium [Rn] 7s². Lawrencium [Rn] 7s² 5f¹⁴ 6d¹.",
+      "**G:** 11) sulfur, 12) rubidium, 13) antimony, 14) osmium, 15) einsteinium."
+     ]
+    },
+    {
+     "h": "Page 32"
+    },
+    {
+     "list": [
+      "**16)** invalid: 4d after 4s, it should be 3d (Aufbau). **17)** invalid: 3s³, s holds only 2 (Pauli), and 3p was skipped. **18)** invalid: [Ra] isn't a noble gas, use [Rn]. **19)** valid, it's iodine. **20)** valid, it's xenon.",
+      "**I:** nitrogen 1s² 2s² 2p³ = [He] 2s² 2p³. Chlorine 1s² 2s² 2p⁶ 3s² 3p⁵ = [Ne] 3s² 3p⁵. Sodium 1s² 2s² 2p⁶ 3s¹ = [Ne] 3s¹. Neon 1s² 2s² 2p⁶ = [He] 2s² 2p⁶. The arrows are in the orbital diagrams section."
+     ]
+    },
+    {
+     "h": "Pages 33 and 34"
+    },
+    {
+     "list": [
+      "**B:** O²⁻ 1s² 2s² 2p⁶. Fe²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶. B³⁺ 1s². Ni²⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁸. K⁺ 1s² 2s² 2p⁶ 3s² 3p⁶. Co³⁺ 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶.",
+      "**C:** 17) selenium (or ions with 34 electrons, like Br⁺ or As⁻). 18) krypton, or Br⁻, Rb⁺, Sr²⁺, Se²⁻. 19) dysprosium (66 electrons). 20) manganese. 21) antimony. 22) potassium. 23) dysprosium. 24) aluminum.",
+      "**p. 34:** nickel 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁸. Vanadium 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d³. Copper 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d¹⁰ (the exception)."
+     ]
+    },
+    {
+     "h": "Pages 35 to 37"
+    },
+    {
+     "table": {
+      "head": [
+       "p. 35",
+       "Full",
+       "Noble gas"
+      ],
+      "rows": [
+       [
+        "Li",
+        "1s² 2s¹",
+        "[He] 2s¹"
+       ],
+       [
+        "F",
+        "1s² 2s² 2p⁵",
+        "[He] 2s² 2p⁵"
+       ],
+       [
+        "Ne",
+        "1s² 2s² 2p⁶",
+        "[He] 2s² 2p⁶"
+       ],
+       [
+        "Si",
+        "1s² 2s² 2p⁶ 3s² 3p²",
+        "[Ne] 3s² 3p²"
+       ],
+       [
+        "Ti",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²",
+        "[Ar] 4s² 3d²"
+       ],
+       [
+        "Br",
+        "1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁵",
+        "[Ar] 4s² 3d¹⁰ 4p⁵"
+       ],
+       [
+        "Pb",
+        "noble gas only",
+        "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+       ],
+       [
+        "U",
+        "noble gas only",
+        "[Rn] 7s² 5f⁴"
+       ]
+      ]
+     }
+    },
+    {
+     "list": [
+      "**p. 35, 9 to 13:** B, Cl, Fe, Rb, Hg (full table in the valence section). **Q14:** 4s is lower in energy than 3d, so Aufbau fills it first. **Q15:** valence electrons are the outermost s and p electrons, the ones that react. Use the group number: groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10.",
+      "**p. 36, Part I:** Fr [Rn] 7s¹ (1 valence), Sn [Kr] 5s² 4d¹⁰ 5p² (4 valence, 5s² 5p²), Sr [Kr] 5s² (2), P [Ne] 3s² 3p³ (5).",
+      "**p. 36, Part II:** N 1s² 2s² 2p³, Ti 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d², Rb 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ 5s¹, Cl 1s² 2s² 2p⁶ 3s² 3p⁵.",
+      "**p. 37, Part III:** K [Ar] 4s¹, 1 valence (4s¹). Mg [Ne] 3s², 2 (3s²). I [Kr] 5s² 4d¹⁰ 5p⁵, 7 (5s² 5p⁵). Ga [Ar] 4s² 3d¹⁰ 4p¹, 3 (4s² 4p¹)."
+     ]
+    },
+    {
+     "table": {
+      "head": [
+       "p. 37 Part IV",
+       "Max e⁻ (2n²)",
+       "Sublevels",
+       "Types",
+       "Orbitals each",
+       "e⁻ per orbital"
+      ],
+      "rows": [
+       [
+        "n = 1",
+        "2",
+        "1",
+        "s",
+        "s = 1",
+        "2"
+       ],
+       [
+        "n = 2",
+        "8",
+        "2",
+        "s, p",
+        "s = 1, p = 3",
+        "2"
+       ],
+       [
+        "n = 3",
+        "18",
+        "3",
+        "s, p, d",
+        "s = 1, p = 3, d = 5",
+        "2"
+       ],
+       [
+        "n = 4",
+        "32",
+        "4",
+        "s, p, d, f",
+        "s = 1, p = 3, d = 5, f = 7",
+        "2"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Pages 38 to 40"
+    },
+    {
+     "list": [
+      "**p. 38:** iron has 26 electrons, 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Be, Si, Ni, Ar and Ti diagrams are in the orbital diagrams section.",
+      "**p. 39:** Cr 1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹ 3d⁵ (exception). Mg 1s² 2s² 2p⁶ 3s². Ca [Ar] 4s². Cl [Ne] 3s² 3p⁵. Ag [Kr] 5s¹ 4d¹⁰. Sn [Kr] 5s² 4d¹⁰ 5p².",
+      "**p. 39 ions:** Ca²⁺ is drawn like argon, O²⁻ like neon. Be²⁺ 1s². Li⁺ 1s². F⁻ 1s² 2s² 2p⁶. Br⁻ [Kr]. Ba²⁺ [Xe]. Ag⁺ [Kr] 4d¹⁰. Dots: Fe 2, B 3, Cl 7.",
+      "**p. 40:** 1) 2 released. 2) 3 (seven). 3) 4 spectra. 4) match every line of each element to the unknown. 5) 3. 6) 2 (n = 2 to 5). 7) 2. 8) 4 (2-8-5-1). 9) 2."
+     ]
+    },
+    {
+     "h": "Handout typo"
+    },
+    {
+     "p": "The Examples page lists molybdenum as [Ar] 5s¹ 4d⁵. It should be **[Kr] 5s¹ 4d⁵**."
+    }
+   ],
+   "points": [
+    "Check your packet against this key, especially the fixes at the top"
    ],
    "quizlet": ""
   }
