@@ -2771,6 +2771,8 @@ let lastNarrow=matchMedia("(max-width:860px)").matches;
 addEventListener("resize",()=>{const n=matchMedia("(max-width:860px)").matches;if(n!==lastNarrow){lastNarrow=n;renderSide()}});
 document.title=DECK.title;
 render();
+function fromHash(){const h=decodeURIComponent((location.hash||"").slice(1));if(h&&(h==="jog"||secs.some(x=>x.id===h)))go(h)}
+fromHash();addEventListener("hashchange",fromHash);
 })();
 </script>
 </body>
