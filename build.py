@@ -139,6 +139,9 @@ for u in units:
 if review:
     body.append(f'<a class="unit review" href="review/index.html"><div class="top"><span class="eyebrow">{esc(join_labels([u["label"] for u in units]))}</span><h2>Review everything so far</h2></div>'
                 f'<p class="topics">Every section from every unit in one place, with a memory jog that covers all of it. Use it before a cumulative test or the final.</p></a>')
+for x in C.get("extras", []):
+    body.append(f'<a class="unit review" href="{esc(x["href"])}"><div class="top"><span class="eyebrow">{esc(x.get("eyebrow", ""))}</span><h2>{esc(x["title"])}</h2></div>'
+                f'<p class="topics">{esc(x.get("text", ""))}</p></a>')
 h = HOME.replace("{{TITLE}}", esc(C["name"])).replace("{{BODY}}", "\n".join(body))
 open(os.path.join(out, "index.html"), "w").write(h)
 
