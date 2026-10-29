@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry unit 2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("chem:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
 <style>
 /* Hector's personal design: Apple grouped look, light first, graphite for structure, green only for done. Dark is an in-app choice (Appearance: System, Light, Dark). */
@@ -287,7 +288,7 @@ textarea.dump:focus{outline:none;border-color:var(--accent-focus)}
 </head>
 <body>
 <header class="bar"><div class="bar-in">
-  <a class="home" id="home" href="../" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
+  <a class="home" id="home" href="../index.html" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
   <div class="meter" id="meter"></div>
 </div></header>
 <div class="wrap">
@@ -298,7 +299,7 @@ textarea.dump:focus{outline:none;border-color:var(--accent-focus)}
 <script>
 /* DECK_START */
 const DECK = {
- "home": "../",
+ "home": "../index.html",
  "review": {
   "must": [
    "**Atomic number** = protons (= electrons in a neutral atom)",
@@ -312,7 +313,9 @@ const DECK = {
    "**Filling order:** 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
    "**Aufbau builds, Pauli pairs, Hund spreads**",
    "**Exceptions:** Cr [Ar] 4s¹ 3d⁵, Cu [Ar] 4s¹ 3d¹⁰",
-   "**Valence electrons:** groups 1, 2 → 1, 2. Groups 13 to 18 → group − 10"
+   "**Valence electrons:** groups 1, 2 → 1, 2. Groups 13 to 18 → group − 10",
+   "**Isotopes:** same protons, different neutrons. Same chemistry, different mass",
+   "**Up = absorb** energy, **down = release** light (bright line spectrum)"
   ],
   "secs": {
    "dalton": [
@@ -386,7 +389,7 @@ const DECK = {
   }
  },
  "title": "Chemistry unit 2",
- "subtitle": "Atomic structure, in progress",
+ "subtitle": "Quiz Monday, Nov 2",
  "source": "From class, the Atom Practice Packet, CK-12, the class drive and the scribe notes. More topics get added as the unit goes on.",
  "breakMinutes": 5,
  "dumpMinutes": 7,
@@ -587,6 +590,9 @@ const DECK = {
     },
     {
      "h": "Rutherford's gold foil experiment (1909 to 1911)"
+    },
+    {
+     "p": "Your class scribe notes say \"In 1991\". That is a typo for **1911**."
     },
     {
      "img": "../img/u2/gold-foil.png",
@@ -984,8 +990,8 @@ const DECK = {
        ],
        [
         "Electron",
-        "0.0005",
-        "8.3 × 10⁻³¹",
+        "0.00055 (often rounded to 0.0005)",
+        "9.11 × 10⁻³¹",
         "−1"
        ]
       ]
@@ -2714,6 +2720,143 @@ const DECK = {
    "quizlet": ""
   },
   {
+   "id": "u2quiz",
+   "title": "Practice quiz",
+   "steps": [
+    0
+   ],
+   "notes": [
+    {
+     "p": "21 questions in the style of a class quiz, about a minute each. Cover the answers, write yours on paper with the work shown, then check. Redo the loop for any section you missed."
+    },
+    {
+     "list": [
+      "**1.** Put the atomic models in order and name the model that came right after Rutherford's.",
+      "**2.** In the gold foil experiment most alpha particles went straight through. What did that show?",
+      "**3.** A few alpha particles bounced straight back. What did that show, and why does it mean the nucleus is positive?",
+      "**4.** Which particle hardly adds to an atom's mass?",
+      "**5.** An atom or ion has 17 protons, 18 neutrons and 18 electrons. What is it, what is its mass number and what is its charge?",
+      "**6.** How many protons, neutrons and electrons are in ²⁷₁₃Al³⁺?",
+      "**7.** Carbon-12 and carbon-14 are isotopes. What is different about them, and what is the same?",
+      "**8.** Gallium is 60.1% Ga-69 (68.926 amu) and 39.9% Ga-71 (70.925 amu). Find the average atomic mass.",
+      "**9.** Element X is 19.9% X-10 (10.013 amu) and 80.1% X-11 (11.009 amu). Find its average atomic mass and name it.",
+      "**10.** Is 2-8-7-1 a ground state or an excited state? Which element is it?",
+      "**11.** An electron drops from level 4 to level 2. Does the atom absorb or release energy, and what do you see?",
+      "**12.** What is the most electrons energy level n = 4 can hold?",
+      "**13.** Write the full electron configuration of manganese (25).",
+      "**14.** Write the noble gas notation for selenium (34).",
+      "**15.** Which element is [Kr] 5s² 4d⁷?",
+      "**16.** Draw the 3p orbital diagram for phosphorus. How many unpaired electrons does it have, and which rule decides it?",
+      "**17.** A student draws nitrogen's 2p as ↑↓ ↑ _. Which rule is broken?",
+      "**18.** If n = 3, what values can l have, and how many orbitals are in level 3?",
+      "**19.** How many valence electrons does arsenic (group 15) have, and how many dots go in its Lewis dot diagram?",
+      "**20.** Write the electron configuration of S²⁻. Which noble gas has the same one?",
+      "**21.** Write chromium's configuration and say why it is an exception."
+     ]
+    },
+    {
+     "h": "Answers"
+    },
+    {
+     "table": {
+      "head": [
+       "#",
+       "Answer"
+      ],
+      "rows": [
+       [
+        "1",
+        "Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels). After Rutherford came **Bohr's planetary model** (1913)."
+       ],
+       [
+        "2",
+        "The atom is **mostly empty space**."
+       ],
+       [
+        "3",
+        "A **tiny, dense nucleus** holds the mass. Alpha particles are positive and like charges repel, so the nucleus is **positive**."
+       ],
+       [
+        "4",
+        "The **electron** (about 1/1840 of a proton)."
+       ],
+       [
+        "5",
+        "**Chlorine**, mass number **35**, charge **1−** (more electrons than protons), so ³⁵₁₇Cl⁻."
+       ],
+       [
+        "6",
+        "**13 protons, 14 neutrons, 10 electrons** (electrons = protons − charge)."
+       ],
+       [
+        "7",
+        "Different number of **neutrons** (6 and 8), so different mass numbers. Same protons (6), same electrons, same chemistry."
+       ],
+       [
+        "8",
+        "(68.926 × 60.1 + 70.925 × 39.9) ÷ 100 = **69.72 amu**. It is closer to 69 because Ga-69 is more common."
+       ],
+       [
+        "9",
+        "(10.013 × 19.9 + 11.009 × 80.1) ÷ 100 = **10.81 amu**, which is **boron**."
+       ],
+       [
+        "10",
+        "18 electrons, so it is **argon**. Its ground state is 2-8-8, so 2-8-7-1 is **excited**."
+       ],
+       [
+        "11",
+        "It **releases** energy as light of one color, a line in the **bright line spectrum**. Up = absorb, down = release."
+       ],
+       [
+        "12",
+        "2n² = 2 × 4² = **32**"
+       ],
+       [
+        "13",
+        "**1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵**"
+       ],
+       [
+        "14",
+        "**[Ar] 4s² 3d¹⁰ 4p⁴**"
+       ],
+       [
+        "15",
+        "36 + 2 + 7 = 45 electrons, so **rhodium (Rh)**."
+       ],
+       [
+        "16",
+        "3p **↑ ↑ ↑**, so **3 unpaired**. **Hund's rule**: one in each box before any pair up."
+       ],
+       [
+        "17",
+        "**Hund's rule.** It should be ↑ ↑ ↑."
+       ],
+       [
+        "18",
+        "l = **0, 1, 2** (s, p, d). n² = **9 orbitals**."
+       ],
+       [
+        "19",
+        "Group 15 − 10 = **5** valence electrons, so **5 dots** (4s² 4p³)."
+       ],
+       [
+        "20",
+        "16 + 2 = 18 electrons: **1s² 2s² 2p⁶ 3s² 3p⁶**, the same as **argon**."
+       ],
+       [
+        "21",
+        "**[Ar] 4s¹ 3d⁵**, not 4s² 3d⁴. A half full d sublevel is more stable, so one electron moves from 4s to 3d."
+       ]
+      ]
+     }
+    }
+   ],
+   "cards": [],
+   "points": [],
+   "quizlet": ""
+  },
+  {
    "id": "packet",
    "title": "Atom practice packet answer key",
    "steps": [
@@ -2744,7 +2887,7 @@ const DECK = {
     {
      "list": [
       "**p. 4, Q12:** an element can have many isotopes, but most are unstable (radioactive) and break down, so only a few occur in nature.",
-      "**p. 5, Q2:** proton 1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg, neutron 1.675 × 10⁻²⁷ kg, electron 8.3 × 10⁻³¹ kg.",
+      "**p. 5, Q2:** proton 1.0073 × 1.66054 × 10⁻²⁷ = 1.673 × 10⁻²⁷ kg, neutron 1.675 × 10⁻²⁷ kg, electron 0.000549 × 1.66054 × 10⁻²⁷ = 9.11 × 10⁻³¹ kg (if you round the electron to 0.0005 amu first you get 8.3 × 10⁻³¹, so use the value the packet gives).",
       "**p. 6:** 99.975% of carbon-12's mass is in the nucleus, because electrons are so light.",
       "**p. 7:** atom ÷ nucleus = 100 pm ÷ 4.0 fm = 25,000. 17 mm × 25,000 = 425 m, so **(c) a football stadium**."
      ]
@@ -3607,7 +3750,7 @@ function overview(){
 }
 function bindOverview(){
   document.querySelectorAll("#main [data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-  $("#ap").onchange=e=>{const v=e.target.value;document.documentElement.dataset.theme=v;try{localStorage.setItem("chem:appearance",v)}catch(er){}};
+  $("#ap").onchange=e=>{const v=e.target.value;document.documentElement.dataset.theme=v;try{localStorage.setItem("studynow:appearance",v)}catch(er){}};
   $("#bk").onchange=e=>{S.settings.breakMin=+e.target.value;save()};
   $("#dm").onchange=e=>{S.settings.dumpMin=+e.target.value;save()};
   $("#snd").onchange=e=>{S.settings.sound=e.target.checked;save()};

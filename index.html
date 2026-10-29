@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry, 10th grade</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("chem:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
 <style>
-/* Hector's personal design: Apple grouped look, light first, graphite for structure, green only for done. Dark is an in-app choice (Appearance: System, Light, Dark). */
+/* Hector's personal design: Apple grouped look, light first, graphite for structure. Dark is an in-page choice (Appearance: System, Light, Dark). */
 :root{
   color-scheme:light;
   --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
@@ -73,12 +73,14 @@ h1{font-size:34px;line-height:41px;font-weight:700;margin:0;text-wrap:balance}
 </head>
 <body>
 <main>
+<!-- SITE_START -->
 <div><span class="eyebrow">The Clinton School, 2026 to 2027</span><h1>Chemistry, 10th grade</h1><p class="sub">One study loop per unit. Every test in this class is cumulative, so the review page covers everything so far. Quizzes can be unannounced and run about 1 minute per point.</p></div>
-<a class="unit" href="unit-1/"><div class="top"><span class="eyebrow">Unit 1</span><h2>Matter and measurement</h2><span class="chip">Test was Friday, Oct 16</span></div><p class="topics">Classification of matter, properties and changes, states of matter, separation, lab tools, metric system, scientific notation, sig figs, density, accuracy and precision, graphs</p><div class="meter" data-key="studyloop:Chemistry unit 1" data-n="11"><span class="lbl">11 sections, 222 flashcards</span><span class="track"><span class="fill"></span></span></div></a>
-<a class="unit" href="unit-2/"><div class="top"><span class="eyebrow">Unit 2</span><h2>Atomic structure</h2><span class="chip">In progress</span></div><p class="topics">Dalton's theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund's rule, noble gas notation, valence electrons</p><div class="meter" data-key="studyloop:Chemistry unit 2" data-n="14"><span class="lbl">14 sections, 236 flashcards</span><span class="track"><span class="fill"></span></span></div></a>
-<a class="unit review" href="review/"><div class="top"><span class="eyebrow">Units 1 and 2</span><h2>Review everything so far</h2></div><p class="topics">Every section from every unit in one place, with a memory jog that covers all of it. Use it before a cumulative test or the final.</p></a>
+<a class="unit" href="unit-1/index.html"><div class="top"><span class="eyebrow">Unit 1</span><h2>Matter and measurement</h2><span class="chip">Test was Friday, Oct 16</span></div><p class="topics">Classification of matter, properties and changes, states of matter, separation, lab tools, metric system, scientific notation, sig figs, density, accuracy and precision, graphs</p><div class="meter" data-key="studyloop:Chemistry unit 1" data-n="11"><span class="lbl">11 sections, 222 flashcards</span><span class="track"><span class="fill"></span></span></div></a>
+<a class="unit" href="unit-2/index.html"><div class="top"><span class="eyebrow">Unit 2</span><h2>Atomic structure</h2><span class="chip">Quiz Monday, Nov 2</span></div><p class="topics">Dalton&#x27;s theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund&#x27;s rule, noble gas notation, valence electrons</p><div class="meter" data-key="studyloop:Chemistry unit 2" data-n="15"><span class="lbl">15 sections, 236 flashcards</span><span class="track"><span class="fill"></span></span></div></a>
+<a class="unit review" href="review/index.html"><div class="top"><span class="eyebrow">Units 1 and 2</span><h2>Review everything so far</h2></div><p class="topics">Every section from every unit in one place, with a memory jog that covers all of it. Use it before a cumulative test or the final.</p></a>
+<!-- SITE_END -->
 <p class="how"><span>Progress is saved in this browser only.</span><label>Appearance <select id="ap"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></p>
-<script>(function(){const s=document.getElementById("ap");s.value=document.documentElement.dataset.theme||"light";s.onchange=()=>{document.documentElement.dataset.theme=s.value;try{localStorage.setItem("chem:appearance",s.value)}catch(e){}}})()</script>
+<script>(function(){const s=document.getElementById("ap");s.value=document.documentElement.dataset.theme||"light";s.onchange=()=>{document.documentElement.dataset.theme=s.value;try{localStorage.setItem("studynow:appearance",s.value)}catch(e){}}})()</script>
 </main>
 <script>
 document.querySelectorAll(".meter[data-key]").forEach(m=>{let s=null;try{s=JSON.parse(localStorage.getItem(m.dataset.key)||"null")}catch(e){}

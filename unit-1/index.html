@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry unit 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("chem:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
 <style>
 /* Hector's personal design: Apple grouped look, light first, graphite for structure, green only for done. Dark is an in-app choice (Appearance: System, Light, Dark). */
@@ -287,7 +288,7 @@ textarea.dump:focus{outline:none;border-color:var(--accent-focus)}
 </head>
 <body>
 <header class="bar"><div class="bar-in">
-  <a class="home" id="home" href="../" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
+  <a class="home" id="home" href="../index.html" hidden>&lsaquo; All units</a><h1 id="title"></h1><span class="sub" id="sub"></span><span class="grow"></span>
   <div class="meter" id="meter"></div>
 </div></header>
 <div class="wrap">
@@ -298,7 +299,7 @@ textarea.dump:focus{outline:none;border-color:var(--accent-focus)}
 <script>
 /* DECK_START */
 const DECK = {
- "home": "../",
+ "home": "../index.html",
  "review": {
   "must": [
    "**Density** = mass ÷ volume (g/mL or g/cm³)",
@@ -1878,7 +1879,7 @@ const DECK = {
     ],
     [
      "Sign of the exponent",
-     "Positive if the number is more than 10, negative if it's less than 1"
+     "Positive if the number is 10 or more, zero from 1 up to 10, negative if it's less than 1"
     ]
    ],
    "notes": [
@@ -2541,7 +2542,7 @@ function overview(){
 }
 function bindOverview(){
   document.querySelectorAll("#main [data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
-  $("#ap").onchange=e=>{const v=e.target.value;document.documentElement.dataset.theme=v;try{localStorage.setItem("chem:appearance",v)}catch(er){}};
+  $("#ap").onchange=e=>{const v=e.target.value;document.documentElement.dataset.theme=v;try{localStorage.setItem("studynow:appearance",v)}catch(er){}};
   $("#bk").onchange=e=>{S.settings.breakMin=+e.target.value;save()};
   $("#dm").onchange=e=>{S.settings.dumpMin=+e.target.value;save()};
   $("#snd").onchange=e=>{S.settings.sound=e.target.checked;save()};
