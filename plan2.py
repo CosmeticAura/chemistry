@@ -1,0 +1,80 @@
+# Extra unit 2 loops used by the study plan: the five models, the explain answers, and two practice sets.
+MODELS = {"id": "models", "title": "The five models side by side", "quizlet": "",
+ "notes": [
+  {"key": "Order: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger."},
+  {"table": {"head": ["Scientist", "Year", "Model", "Key idea"], "rows": [
+   ["Dalton", "1803", "Solid sphere", "Atoms are tiny solid balls that can't be divided"],
+   ["Thomson", "1897 electron, 1904 model", "Plum pudding", "Negative electrons scattered in a positive sphere"],
+   ["Rutherford", "1911", "Nuclear", "Gold foil showed a tiny, dense, positive nucleus and mostly empty space"],
+   ["Bohr", "1913", "Planetary", "Electrons in fixed energy levels"],
+   ["Schrödinger", "1926", "Quantum (electron cloud)", "No fixed paths, only regions where electrons are likely to be (orbitals)"]]}},
+  {"h": "Picture each one"},
+  {"list": ["Dalton: a billiard ball, solid and unbreakable", "Thomson: a chocolate chip cookie, the chips are the electrons", "Rutherford: bullets fired through tissue paper", "Bohr: planets on fixed rings", "Schrödinger: a fan spinning so fast you only see a blur"]},
+  {"h": "Gold foil, word for word"},
+  {"list": ["**Observation 1:** most alpha particles went straight through. **Conclusion:** the atom is mostly empty space.", "**Observation 2:** a few bounced back. **Conclusion:** there is a tiny, dense, positive nucleus."]},
+  {"p": "Dalton is about 100 years before the rest. After that they come fast: 1904, 1911, 1913, 1926."}],
+ "cards": [["Order of the five models (mnemonic)", "Dogs Trust Really Big Squirrels: Dalton, Thomson, Rutherford, Bohr, Schrödinger"],
+  ["Dalton: year and model", "1803, solid sphere"], ["Dalton's key idea", "Atoms are tiny solid balls that can't be divided"],
+  ["Thomson: year and model", "Electron 1897, plum pudding model 1904"], ["Plum pudding model", "Negative electrons scattered in a positive sphere"],
+  ["Rutherford: year and model", "1911, nuclear model"], ["Gold foil: most particles went straight through, so...", "The atom is mostly empty space"],
+  ["Gold foil: a few bounced back, so...", "There is a tiny, dense, positive nucleus"],
+  ["Bohr: year and model", "1913, planetary model, electrons in fixed energy levels"],
+  ["Schrödinger: year and model", "1926, quantum mechanical (electron cloud) model"],
+  ["Quantum model's key idea", "No fixed paths, only regions where electrons are likely to be (orbitals)"],
+  ["Bohr vs quantum model", "Bohr: fixed orbits. Quantum: no fixed path, only probability regions (orbitals)"]],
+ "points": ["Order: Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels)",
+  "Dalton 1803, solid sphere, indivisible", "Thomson 1897/1904, plum pudding, electrons in a positive sphere",
+  "Rutherford 1911, nuclear model", "Gold foil: most went through, so mostly empty space",
+  "Gold foil: a few bounced back, so a tiny, dense, positive nucleus", "Bohr 1913, electrons in fixed energy levels",
+  "Schrödinger 1926, electron cloud, orbitals are probability regions"]}
+
+EXPLAIN = {"id": "explain", "title": "The four explain answers", "quizlet": "",
+ "notes": [
+  {"p": "Explain questions are 2 points: one for **what** happens, one for **why**. Use the key word every time."},
+  {"h": "Why are isotopes the same element but different masses?"},
+  {"p": "Same number of **protons**, so the same element. Different numbers of **neutrons**, so different masses. Same electrons, so the same chemistry."},
+  {"h": "How many electrons does Mg²⁺ have, and why?"},
+  {"p": "Protons can't change, Mg always has 12. A 2+ charge means 2 more protons than electrons, so 12 − 2 = **10 electrons**."},
+  {"h": "Why does 4s fill before 3d, but empty first?"},
+  {"p": "4s is **lower in energy**, so it fills first. But 4s is **farther from the nucleus**, so a positive ion loses its 4s electrons first."},
+  {"h": "Why are Cr and Cu exceptions?"},
+  {"p": "One 4s electron moves into 3d because a **half full (d⁵) or full (d¹⁰) d subshell is more stable**. Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰."},
+  {"key": "Every explain answer: what happens, then why, with the key word (neutrons, charge, energy, more stable)."}],
+ "cards": [["Why are isotopes the same element?", "Same number of protons"], ["Why do isotopes have different masses?", "Different numbers of neutrons"],
+  ["Why do isotopes react the same way?", "Same number of electrons"], ["Electrons in Mg²⁺ and why", "10. Protons stay 12, a 2+ charge means 2 fewer electrons"],
+  ["Why does 4s fill before 3d?", "4s is lower in energy"], ["Why does 4s empty before 3d in an ion?", "4s is farther from the nucleus"],
+  ["Why are Cr and Cu exceptions?", "A half full (d⁵) or full (d¹⁰) d subshell is more stable, so one 4s electron moves to 3d"],
+  ["Cr configuration", "[Ar] 4s¹ 3d⁵"], ["Cu configuration", "[Ar] 4s¹ 3d¹⁰"]],
+ "points": ["Isotopes: same protons, so same element", "Isotopes: different neutrons, so different masses",
+  "Mg²⁺ has 10 electrons: 12 protons minus a 2+ charge", "Protons never change in an ion, only electrons",
+  "4s fills first because it is lower in energy", "4s empties first because it is farther from the nucleus",
+  "Cr and Cu: a half full or full d subshell is more stable", "Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰"]}
+
+MASS = {"id": "mass", "title": "Average atomic mass practice", "quizlet": "", "steps": [0, 1, 4, 5], "cards": [],
+ "notes": [
+  {"key": "Average atomic mass = (mass × percent as a decimal) + (mass × percent as a decimal) + ..."},
+  {"list": ["Turn every percent into a decimal: 75.78% → 0.7578.", "Multiply each isotope's mass by its decimal, then add them all.",
+   "Check: the answer lands closest to the most common isotope's mass.", "Unknown element? Match the answer to the mass on the periodic table."]},
+  {"h": "Worked example"},
+  {"p": "Lithium: ⁶Li is 6.015 amu (7.5%), ⁷Li is 7.016 amu (92.5%). (6.015 × 0.075) + (7.016 × 0.925) = 0.451 + 6.490 = **6.94 amu**, close to 7 because ⁷Li is most common."}],
+ "dump": [{"p": "Solve these on paper with a calculator, then type your answers here."},
+  {"list": ["1. Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%)", "2. Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element?",
+   "3. Copper: 62.930 amu (69.15%), 64.928 amu (30.85%)", "4. Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%)"]}],
+ "points": ["Turned every percent into a decimal", "Multiplied each mass by its decimal and added", "1. Chlorine = 35.45 amu",
+  "2. X = 10.81 amu, boron", "3. Copper = 63.55 amu", "4. Silicon = 28.09 amu"]}
+
+DRILLS = {"id": "drills", "title": "Configuration drills", "quizlet": "", "steps": [0, 1, 4, 5], "cards": [],
+ "notes": [
+  {"key": "Filling order: 1s 2s 2p 3s 3p **4s 3d** 4p 5s 4d 5p. s holds 2, p holds 6, d holds 10."},
+  {"list": ["Noble gas notation: write the noble gas before the element in brackets, then the rest. Fe = [Ar] 4s² 3d⁶.",
+   "Check: the superscripts plus the noble gas's electrons equal the element's electrons.",
+   "**Exceptions:** Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰.",
+   "**Positive ions:** write the neutral atom first, then take electrons from **4s first**, then 3d. Fe²⁺ = [Ar] 3d⁶, Fe³⁺ = [Ar] 3d⁵.",
+   "**Negative ions:** add electrons to the next open spot. Cl⁻ = [Ar]."]}],
+ "dump": [{"p": "Write each one on paper in noble gas notation, then type them here."},
+  {"list": ["1. Cu", "2. Cr", "3. Ni", "4. Zn²⁺", "5. Mn²⁺", "6. Fe³⁺", "7. Co²⁺", "8. Cl⁻"]}],
+ "points": ["1. Cu = [Ar] 4s¹ 3d¹⁰", "2. Cr = [Ar] 4s¹ 3d⁵", "3. Ni = [Ar] 4s² 3d⁸", "4. Zn²⁺ = [Ar] 3d¹⁰",
+  "5. Mn²⁺ = [Ar] 3d⁵", "6. Fe³⁺ = [Ar] 3d⁵", "7. Co²⁺ = [Ar] 3d⁷", "8. Cl⁻ = [Ar]",
+  "Wrote the neutral atom first and took from 4s for every positive ion"]}
+
+PLAN_SECTIONS = [MODELS, EXPLAIN, MASS, DRILLS]

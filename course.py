@@ -4,12 +4,13 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unit1 import SECTIONS as U1, REVIEW as R1
 from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
+from plan2 import PLAN_SECTIONS
 MOCK = {"id": "mock2", "title": "Mock test (timed, grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
   {"p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type the final answers, then press Grade my test and send the results to Claude."},
   {"p": "**[Open the mock test](https://cosmeticaura.github.io/chemistry/mock-test/)**"},
   {"p": "Already took it? **[Mock test B](https://cosmeticaura.github.io/chemistry/mock-test-2/)** has all new questions, same format, for Sunday."}]}
-U2 = [MOCK] + [s for s in U2 if s["id"] != "packet"] + [QUIZ] + [s for s in U2 if s["id"] == "packet"]
+U2 = [MOCK] + PLAN_SECTIONS + [s for s in U2 if s["id"] != "packet"] + [QUIZ] + [s for s in U2 if s["id"] == "packet"]
 
 COURSE = {
  "name": "Chemistry, 10th grade",

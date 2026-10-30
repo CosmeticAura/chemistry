@@ -185,6 +185,7 @@ kbd{font:500 11px/1 var(--font);color:var(--ink-3);border:1px solid var(--line-e
 .notes figure{margin:0;display:grid;gap:6px}
 .notes figure img{width:100%;max-width:640px;border-radius:var(--radius-group);background:#fff;border:1px solid var(--line-edge)}
 .notes figcaption{font-size:13px;color:var(--ink-3)}
+.cornell{display:grid;gap:4px;border:1px solid var(--line-edge);border-radius:var(--radius-group);padding:var(--space-row) 14px;background:var(--accent-wash)}
 .focus{border:1px solid var(--accent-focus);border-radius:var(--radius-group);padding:var(--space-row) 14px;display:grid;gap:6px;background:var(--accent-wash)}
 .focus ul{margin:0;padding-left:20px;display:grid;gap:4px}
 
@@ -2535,7 +2536,7 @@ function overview(){
   const nextSec=secs.find(s=>statusOf(s.id)==="active")||secs.find(s=>statusOf(s.id)==="new")||secs.find(s=>statusOf(s.id)==="revisit");
   const rows=secs.map((s,i)=>{const st0=statusOf(s.id),g=lastGrade(s.id);return '<li><button class="row" data-go="'+esc(s.id)+'"><span class="n num">'+(i+1)+'</span><span class="t">'+esc(s.title)+'<br><span class="meta num">'+s.cards.length+" cards"+(secSteps(s).includes(5)?", "+s.points.length+" key points":", flashcards only")+(g===null?"":", last brain dump "+pct(g))+'</span></span><span class="chip '+st0+'">'+esc(statusLabel(s.id))+"</span></button></li>"}).join("");
   return '<div class="head"><div class="txt"><span class="eyebrow num">'+done+" of "+secs.length+' sections done</span><h2>'+esc(DECK.title)+"</h2>"+(DECK.source?'<span class="small">'+esc(DECK.source)+"</span>":"")+"</div></div>"+
-  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read the notes for the section.</li><li>Take a brain break.</li><li>Do the flashcards. Loop them as long as you want, or do them on Quizlet and skip this step.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
+  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 5 minute brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
   '<div class="actions"><button class="btn" data-go="jog">Memory jog, every topic fast</button>'+(nextSec?'<button class="btn primary" data-go="'+esc(nextSec.id)+'">'+(statusOf(nextSec.id)==="new"?"Start ":"Continue ")+(idx(nextSec.id)+1)+". "+esc(nextSec.title)+"</button>":'<span class="muted">Every section is done. Loop any one again to keep it fresh.</span>')+"</div>"+
   '<div class="settings"><label>Appearance <select id="ap">'+[["system","System"],["light","Light"],["dark","Dark"]].map(([v,n])=>'<option value="'+v+'"'+(document.documentElement.dataset.theme===v?" selected":"")+">"+n+"</option>").join("")+'</select></label><label>Breaks <select id="bk">'+[3,5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.breakMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label>Brain dump goal <select id="dm">'+[5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.dumpMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label><input type="checkbox" id="snd"'+(S.settings.sound?" checked":"")+"> Chime when a break ends</label></div></section>"+
   '<section class="panel"><h3>Sections</h3><ul class="rows">'+rows+'</ul><div class="actions"><span class="grow"></span><button class="btn quiet" id="reset">Reset progress</button></div><div id="confirm"></div></section>';
@@ -2552,14 +2553,15 @@ function bindOverview(){
 /* Step 1: read */
 function stepRead(sec,s){
   const focus=s.round>1&&s.focus.length?'<div class="focus"><b>Round '+s.round+": focus on what you missed</b><ul>"+s.focus.map(k=>"<li>"+rich(sec.points[k])+"</li>").join("")+"</ul></div>":"";
-  return '<section class="panel">'+focus+'<div class="notes">'+notesHTML(sec.notes)+'</div><div class="actions"><button class="btn primary" id="go">Done reading <kbd>Enter</kbd></button><span class="small">Next: a '+S.settings.breakMin+" minute brain break</span></div></section>";
+  const ss=secSteps(sec),nx=ss[ss.indexOf(0)+1],cor=ss.length>1&&ss.includes(4);
+  return '<section class="panel">'+focus+(cor?'<div class="cornell"><b>Read everything, then write it in Cornell notes on paper.</b><span class="small">Cue column on the left (questions and key terms), notes on the right, a two line summary at the bottom.</span></div>':"")+'<div class="notes">'+notesHTML(sec.notes)+'</div><div class="actions"><button class="btn primary" id="go">'+(cor?"Done, notes written":"Done reading")+' <kbd>Enter</kbd></button><span class="small">'+(nx===1?"Next: a "+S.settings.breakMin+" minute brain break, skippable":nx!=null?"Next: "+STEPS[nx].toLowerCase():"")+"</span></div></section>";
 }
 
 /* Steps 2 and 4: break */
 function stepBreak(sec,s){
-  const after=s.step===1?"flashcards":"brain dump";
+  const ss=secSteps(sec),nxs=ss[ss.indexOf(s.step)+1],after=(STEPS[nxs]||"brain dump").toLowerCase();
   return '<section class="panel"><div class="timer"><span class="eyebrow">Brain break</span><div class="dial" id="dial">'+dialSVG(100,"arc",true)+'<div class="clock num" id="clock"></div></div><p class="muted" style="margin:0;max-width:44ch">Stand up, get some water, look away from the screen. No notes and no phone.</p></div>'+
-  '<div class="actions" style="justify-content:center"><button class="btn quiet" id="plus">Add a minute</button><button class="btn" id="go">'+(s.step===1?"Start flashcards":"Start brain dump")+' <kbd>Enter</kbd></button></div><p class="small" style="text-align:center;margin:0" id="tnote">Next: '+after+"</p></section>";
+  '<div class="actions" style="justify-content:center"><button class="btn quiet" id="plus">Add a minute</button><button class="btn" id="go">Skip break, start '+after+' <kbd>Enter</kbd></button></div><p class="small" style="text-align:center;margin:0" id="tnote">Next: '+after+"</p></section>";
 }
 
 /* Step 3: flashcards */
@@ -2639,7 +2641,7 @@ function stepCards(sec,s){
 /* Step 5: brain dump */
 function stepDump(sec,s){
   return '<section class="panel"><div class="actions"><div class="mini" id="mini">'+dialSVG(18,"marc",false)+'</div><div class="dumptime"><b class="clock num" id="dt"></b><span class="small" id="goal">goal '+S.settings.dumpMin+' min</span></div><span class="grow"></span><span class="small">Notes stay hidden until you finish</span></div>'+
-  '<label for="dump" class="muted">Write everything you remember about '+esc(sec.title.toLowerCase())+'. Definitions, examples, anything.</label><textarea class="dump" id="dump" placeholder="Start anywhere...">'+esc(s.dump)+'</textarea>'+
+  (sec.dump?'<div class="notes"><label for="dump" class="muted">'+notesHTML(sec.dump)+'</label></div>':'<label for="dump" class="muted">Write everything you remember about '+esc(sec.title.toLowerCase())+'. Definitions, examples, anything.</label>')+'<textarea class="dump" id="dump" placeholder="Start anywhere...">'+esc(s.dump)+'</textarea>'+
   '<div class="sketch"><span class="muted">Sketch what you need to draw: flowcharts, particle diagrams, lab setups, graphs.</span><div class="tools"><button class="btn" id="tpen" aria-pressed="true">Pen <kbd>P</kbd></button><button class="btn" id="tera" aria-pressed="false">Eraser <kbd>E</kbd></button><span class="grow" style="flex:1"></span><button class="btn quiet" id="tundo">Undo <kbd>&#8984;Z</kbd></button><button class="btn quiet" id="tredo">Redo <kbd>&#8984;Y</kbd></button><button class="btn quiet" id="tclr">Clear</button></div><canvas class="pad" id="pad" tabindex="0" aria-label="Sketch area. P for pen, E for eraser, Command Z to undo, Command Y to redo"></canvas><div id="clrc"></div></div>'+
   '<div class="actions"><button class="btn primary" id="go">Done, check it <kbd>Ctrl Enter</kbd></button></div></section>';
 }
