@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chemistry unit 2 practice test</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<style>
+/* Same look as the studynow study sites: Apple grouped greys, light first, graphite for structure, green only for correct. Appearance is shared with the study sites (System, Light, Dark). */
+:root{
+  color-scheme:light;
+  --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
+  --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
+  --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
+  --accent:#000000; --on-accent:#ffffff;
+  --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
+  --accent-wash:rgb(118 118 128 / .10);
+  --go:#248a3d; --stop:#d70015;
+  --radius-control:10px; --radius-capsule:999px; --radius-group:12px; --radius-surface:16px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
+  --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+  --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+  --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+  --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+  --go:#30d158; --stop:#ff453a;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="system"]{
+    color-scheme:dark;
+    --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+    --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+    --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+    --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+    --go:#30d158; --stop:#ff453a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.47 var(--font);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button,select,input{font:inherit;color:inherit;accent-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+h1{margin:0;text-wrap:balance;font-weight:600}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-inner)}
+.bar .in{max-width:760px;margin:0 auto;min-height:56px;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bar .home{color:var(--ink-2);font-size:13px;text-decoration:none;white-space:nowrap;padding:4px 8px 4px 0;border-right:1px solid var(--line-inner)}
+.bar .home:hover{color:var(--ink)}
+.bar .bt{font-size:15px;font-weight:600;white-space:nowrap}
+.clock{font:600 22px/1 var(--font-round);font-variant-numeric:tabular-nums;min-width:4.2ch}
+.clock.low{color:var(--stop)}
+.bar .sp{flex:1}
+.bar .meta{color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font-size:26px;line-height:1.2}
+.lede{color:var(--ink-3);margin:6px 0 0;font-size:15px}
+.lede a{color:var(--ink-2)}
+.card{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.how{font-size:15px;color:var(--ink-2)}
+.how ul{margin:0;padding-left:20px;display:grid;gap:6px}
+code{font-family:var(--mono);font-size:.88em;background:var(--accent-wash);padding:1px 6px;border-radius:6px}
+.qh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.qn{font:600 17px var(--font-round);font-variant-numeric:tabular-nums}
+.tag{font-size:12px;color:var(--ink-3);border:1px solid var(--line-inner);border-radius:var(--radius-capsule);padding:2px 10px}
+.qt{margin:0}
+.fig{overflow-x:auto;border:1px solid var(--line-inner);border-radius:var(--radius-group);padding:8px;background:var(--raised)}
+.fig svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.fig svg text{fill:var(--ink);font:12px var(--font)}
+.fig svg .m{fill:var(--ink-3)}
+.figs3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.figs3 .fig{padding:4px}
+.figs3 .cap{text-align:center;font-weight:600;margin-top:4px}
+.part{display:grid;grid-template-columns:2.2em 1fr;gap:6px 8px;align-items:start}
+.part .pl{font-weight:600;color:var(--ink-3);padding-top:9px}
+.part .pb{display:flex;flex-direction:column;gap:6px;min-width:0}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+input[type=text]{font-size:17px;background:var(--raised);border:1px solid var(--line-edge);border-radius:var(--radius-control);padding:9px 12px;min-height:44px;width:100%;max-width:340px;min-width:0}
+input[type=text]:hover{border-color:var(--ink-4)}
+input.num{max-width:120px}
+.pre{color:var(--ink-3);font-variant-numeric:tabular-nums}
+.opts{display:grid;gap:6px}
+.opts.inline{grid-template-columns:repeat(auto-fit,minmax(64px,1fr))}
+label.opt{display:flex;gap:10px;align-items:center;border:1px solid var(--line-edge);border-radius:var(--radius-control);padding:9px 12px;min-height:44px;cursor:pointer;background:var(--raised)}
+label.opt:hover{border-color:var(--ink-4)}
+label.opt:has(input:checked){border-color:var(--accent);background:var(--accent-wash)}
+label.opt input{margin:0}
+label.opt:focus-within{outline:2px solid var(--accent-focus);outline-offset:2px}
+.yn{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border-top:1px solid var(--line-inner);padding-top:10px}
+.yn .ex{font-size:17px}
+.yn .opts{grid-template-columns:repeat(2,76px)}
+.fb{font-size:15px;border-radius:var(--radius-control);padding:8px 12px;background:var(--accent-wash);color:var(--ink-2)}
+.yn .fb{grid-column:1 / -1}
+.fb b{font-weight:600}
+.fb.ok b{color:var(--go)} .fb.no b{color:var(--stop)}
+button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:var(--radius-capsule);border:1px solid var(--line-edge);background:var(--raised);cursor:pointer;font-weight:500;font-size:14px}
+button:hover{border-color:var(--ink-4)}
+button:active{transform:scale(.98)}
+button.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+button:disabled{opacity:.4;cursor:default}
+.score{font:700 40px/1 var(--font-round);font-variant-numeric:tabular-nums}
+.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.ls{background:var(--accent-wash);border-radius:var(--radius-group);padding:12px}
+.ls .n{font:600 17px var(--font-round);font-variant-numeric:tabular-nums}
+.ls .b{height:4px;background:var(--line-edge);border-radius:2px;margin-top:8px;overflow:hidden}
+.ls .b i{display:block;height:100%;background:var(--ink)}
+textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink);background:var(--raised);border:1px solid var(--line-edge);border-radius:var(--radius-control);padding:10px;resize:vertical}
+.small{font-size:13px;color:var(--ink-3)}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.settings{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--ink-3);font-size:13px;padding:0 4px}
+.settings select{font-size:13px;min-height:32px;border-radius:8px;border:1px solid var(--line-edge);background:var(--raised);padding:0 8px}
+@media (max-width:420px){.figs3{grid-template-columns:1fr}.card{padding:16px}input.num{max-width:80px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+.ptbtn{min-height:36px;padding:0 14px;font-size:13px}
+
+.ptsearch{font-size:15px;min-height:36px;padding:6px 12px;border:1px solid var(--line-edge);border-radius:var(--radius-control);background:var(--raised);width:220px;max-width:100%}
+.el.hit{outline:3px solid var(--ink);outline-offset:-2px;z-index:1}
+.el.dim{opacity:.25}
+.pthead{flex-wrap:wrap}
+
+.calcwrap[hidden]{display:none}
+.calc{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:12px;width:calc(var(--ck)*5.6);max-width:100%;display:flex;flex-direction:column;gap:8px}
+.calc .ch{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-3)}
+.calc .ch button{min-height:32px;padding:0 10px;font-size:13px}
+.calc .disp{background:var(--raised);border:1px solid var(--line-inner);border-radius:var(--radius-control);padding:8px 10px;text-align:right;min-height:58px;display:flex;flex-direction:column;justify-content:center}
+.calc .ex{font-size:13px;color:var(--ink-3);word-break:break-all;min-height:16px}
+.calc .rs{font:600 calc(var(--ck)*.55) var(--font-round);font-variant-numeric:tabular-nums;word-break:break-all}
+.calc .keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.calc .keys button{min-height:var(--ck);padding:0;border-radius:12px;font-size:calc(var(--ck)*.4);font-weight:500}
+.calc .keys .op{background:var(--accent-wash)}
+.calc .keys .eq{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+:root{--cell:44px;--ck:44px;--dockw:min(720px,50vw)}
+.dock{position:fixed;top:calc(env(safe-area-inset-top,0px) + 64px);right:max(12px,env(safe-area-inset-right,0px));bottom:12px;width:var(--dockw);z-index:6;display:flex;flex-direction:column;gap:10px;overflow:auto;pointer-events:none}
+.dock > *{pointer-events:auto}
+.dock[hidden],.dock .ptwrap[hidden],.dock .calcwrap[hidden]{display:none}
+.calcwrap{align-self:flex-end;max-width:100%}
+.zoom{display:inline-flex;gap:4px}
+.zoom button{min-height:32px;min-width:36px;padding:0 8px;font-size:15px}
+body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
+@media (max-width:900px){
+  :root{--dockw:auto}
+  .dock{top:auto;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));bottom:max(8px,env(safe-area-inset-bottom,0px));max-height:52vh;width:auto}
+  body.docked .wrap{margin-right:auto;padding-bottom:54vh}
+  .calcwrap{align-self:stretch}.calc{width:auto}
+}
+
+.ptcard{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:14px;max-width:100%;display:flex;flex-direction:column;gap:10px}
+.pthead{display:flex;align-items:center;gap:10px}
+.pthead b{font-size:15px}.pthead .sp{flex:1}
+.ptinfo{font-size:13px;color:var(--ink-2);min-height:18px}
+.ptscroll{overflow-x:auto;max-width:100%}
+.ptgrid{display:grid;grid-template-columns:repeat(18,var(--cell));grid-template-rows:repeat(7,var(--cell)) calc(var(--cell)*.4) repeat(2,var(--cell));gap:2px;width:max-content}
+.el{position:relative;border:1px solid rgb(0 0 0 / .35);border-radius:4px;background:var(--cat);color:var(--cat-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;cursor:pointer;padding:0 2px;min-height:0;font-weight:400;overflow:hidden}
+.el:hover,.el.sel{outline:2px solid var(--ink);outline-offset:-1px}
+.ptgrid.tiny .el .nm{display:none}.ptgrid.tiny .el .s{margin-top:calc(var(--cell)*.18)}
+.el .z{position:absolute;top:2px;left:3px;font-size:calc(var(--cell)*.2)}.el .s{font-size:calc(var(--cell)*.44);font-weight:500;margin-top:calc(var(--cell)*.08)}.el .nm{font-size:calc(var(--cell)*.17);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ptgap{grid-column:1/-1;height:6px}
+.ptnote{font-size:12px;color:var(--ink-3)}
+.c-alk{--cat:#bfe0e2;--cat-ink:#10302f}.c-ae{--cat:#f0c9cf;--cat-ink:#3a141b}.c-tm{--cat:#d6d0f0;--cat-ink:#221a44}.c-pt{--cat:#c7e3d3;--cat-ink:#12321f}
+.c-md{--cat:#ece0b0;--cat-ink:#3a2e08}.c-nm{--cat:#c9d8f2;--cat-ink:#14254a}.c-ng{--cat:#ecc6d2;--cat-ink:#3d1422}.c-la{--cat:#bcd6ec;--cat-ink:#0e2c46}
+.c-ac{--cat:#ecd0bd;--cat-ink:#3d200c}.c-un{--cat:#dcdcdf;--cat-ink:#2a2a2e}
+:root[data-theme="dark"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="dark"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="dark"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="dark"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="dark"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="dark"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="dark"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="dark"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="dark"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="dark"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+@media (prefers-color-scheme:dark){
+:root[data-theme="system"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="system"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="system"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="system"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="system"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="system"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="system"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="system"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="system"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="system"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+}
+.ptlegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2)}
+.lgi{display:inline-flex;align-items:center;gap:6px}
+.lgi i{width:12px;height:12px;border-radius:50%;background:var(--cat);border:1px solid rgb(0 0 0 / .3)}
+
+</style>
+<style>
+.iso{border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;width:100%;max-width:420px}
+.iso th,.iso td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line-inner)}
+.iso th{color:var(--ink-3);font-weight:600;font-size:13px}
+.iso tr:last-child td{border-bottom:0}
+input.cfg{max-width:420px;font-family:var(--font)}
+.sym{font:600 22px/1.2 var(--font);font-variant-numeric:tabular-nums}
+.ptab{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:8px;align-items:center;max-width:460px}
+.ptab .h{color:var(--ink-3);font-size:13px;font-weight:600}
+.ptab input{max-width:none}
+textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
+.sc{display:grid;gap:8px;border-radius:var(--radius-control);padding:10px 12px;background:var(--accent-wash);font-size:15px}
+.sc .mod b{font-weight:600}
+.sc ul{margin:0;padding-left:20px;display:grid;gap:2px;color:var(--ink-2)}
+.sc .btns{display:flex;gap:8px;flex-wrap:wrap}
+.sc .btns button{min-height:40px;font-size:14px}
+.sc .btns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.sc .pts{color:var(--ink-3);font-size:13px}
+.confirm[hidden],#markBar [hidden],#results[hidden],#results [hidden],#markBar[hidden],#gate[hidden]{display:none}
+.ack{display:grid;gap:8px;border-top:1px solid var(--line-inner);padding-top:12px;margin-top:4px}
+.ack .ttl{font-size:15px;font-weight:600}
+.ack .hint{font-size:13px;color:var(--ink-3)}
+.ack .btns{display:flex;gap:8px;flex-wrap:wrap}
+.ack .btns button{min-height:44px;font-size:15px}
+.ack .btns button.sug{outline:2px dashed var(--ink-4);outline-offset:2px}
+.ack .btns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);outline:none}
+.card.need .ack .ttl::after{content:"  Not marked yet";font-weight:400;color:var(--stop);font-size:13px}
+.markbar{position:fixed;left:50%;transform:translateX(-50%);bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:5;display:flex;align-items:center;gap:12px;padding:6px 6px 6px 16px;border-radius:var(--radius-capsule);background:var(--raised);border:1px solid var(--line-edge);box-shadow:0 4px 16px rgb(0 0 0 / .14);font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;max-width:calc(100vw - 24px)}
+.markbar button{min-height:36px;font-size:14px}
+.markbar.done{color:var(--go)}
+body.graded main{padding-bottom:84px}
+.honest{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin-top:10px;cursor:pointer}
+.honest input{width:22px;height:22px;margin:0;flex:none;accent-color:var(--accent)}
+.study{margin-top:6px}.study h3{font-size:17px;margin:12px 0 6px}
+.study ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.study a{color:var(--ink)}
+
+.ob{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.ob .sub{display:grid;gap:4px;justify-items:center}
+.ob .sub .lab{font-size:13px;color:var(--ink-3)}
+.ob .bx{display:flex}
+.ob button.box{min-height:44px;min-width:44px;width:44px;height:44px;padding:0;border-radius:0;border:1.5px solid var(--ink);background:var(--raised);font-size:22px;line-height:1;margin-left:-1.5px}
+.ob button.box:first-child{margin-left:0}
+.ob button.box:active{transform:none}
+.diag{display:grid;gap:8px}
+.opts.rule{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+</style>
+
+</head>
+<body>
+<div class="bar"><div class="in">
+  <a class="home" href="../">&lsaquo; Study site</a><span class="bt">Practice test</span>
+  <span class="clock" id="clock">40:00</span>
+  <button id="startBtn" class="pri" type="button">Start timer</button>
+  <button type="button" class="ptbtn" id="ptOpen">Periodic table</button>
+  <button type="button" class="ptbtn" id="calcOpen">Calculator</button>
+  <span class="sp"></span>
+  <span class="meta" id="answered">0 of 26 answered</span>
+</div></div>
+
+<main class="wrap">
+  <header>
+    <h1>Chemistry unit 2 practice test</h1>
+    <p class="lede">Atomic theories, atoms and ions, isotopes, average atomic mass, configurations and orbital diagrams. All written, like the real test. 40 minutes, 30 points.</p>
+  </header>
+
+  <section class="card how">
+    <ul>
+      <li>Everything is written, no multiple choice. You grade your own test against the answer key.</li>
+      <li>Do the average atomic mass math on paper and show your work.</li>
+      <li>Configurations: type <code>1s2 2s2 2p6</code>, superscripts work too, spaces are optional, and noble gas cores like <code>[Ne]</code> count.</li>
+      <li>When you finish, press Done, grade my test. Every question then shows the answer and what to check for. Numbers, configurations and diagrams get a suggestion from an automatic check, but you still mark each question yourself with I got it, Half or I missed it. Be strict.</li>
+      <li>Your score shows once every question is marked and you confirm you graded honestly.</li>
+    </ul>
+  </section>
+
+  <form id="test" autocomplete="off">
+  <div style="display:flex;flex-direction:column;gap:14px">
+  <section class="card">
+    <div class="qh"><span class="qn">1</span><span class="tag">Atomic theories</span></div>
+    <p class="qt">Who discovered the electron, in what year, and what model of the atom did he propose? Describe the model.</p>
+    <textarea class="ans" id="t1" data-k="t1" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">2</span><span class="tag">Atomic theories</span></div>
+    <p class="qt">Rutherford fired alpha particles at thin gold foil (1911). Most went straight through, but a few bounced back. What two conclusions did he draw from these results? (2 points)</p>
+    <textarea class="ans" id="t2" data-k="t2" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">3</span><span class="tag">Atomic theories</span></div>
+    <p class="qt">How is Bohr's model (1913) different from Schrödinger's model (1926)? Name each model.</p>
+    <textarea class="ans" id="t3" data-k="t3" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">4</span><span class="tag">Atoms and ions</span></div>
+    <p class="qt">Fill in the protons, neutrons and electrons for each.</p>
+    <div class="ptab">
+      <span></span><span class="h">Protons</span><span class="h">Neutrons</span><span class="h">Electrons</span>
+      <span class="sym">⁵⁶Fe³⁺</span><input type="text" class="num" id="a1p" data-k="a1p"><input type="text" class="num" id="a1n" data-k="a1n"><input type="text" class="num" id="a1e" data-k="a1e">
+      <span class="sym">³²S²⁻</span><input type="text" class="num" id="a2p" data-k="a2p"><input type="text" class="num" id="a2n" data-k="a2n"><input type="text" class="num" id="a2e" data-k="a2e">
+    </div>
+    <p class="small" style="margin:0">Iron is element 26 and sulfur is element 16. The top number is the mass number.</p>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">5</span><span class="tag">Atoms and ions</span></div>
+    <p class="qt">A neutral atom gains 2 electrons. Write the charge of the ion it becomes.</p>
+    <div class="row"><span class="pre">charge</span><input type="text" class="num" id="a4" data-k="a4" autocapitalize="off" spellcheck="false"></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">6</span><span class="tag">Isotopes</span></div>
+    <p class="qt">Magnesium has three isotopes.</p>
+    <div class="fig" style="padding:4px 8px"><table class="iso"><tr><th>Isotope</th><th>Mass (amu)</th><th>Abundance</th></tr>
+      <tr><td>Mg-24</td><td>23.985</td><td>78.99%</td></tr><tr><td>Mg-25</td><td>24.986</td><td>10.00%</td></tr><tr><td>Mg-26</td><td>25.983</td><td>11.01%</td></tr></table></div>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Find the average atomic mass, to 2 decimal places. Show your work on paper.</span><div class="row"><input type="text" class="num" id="i2" data-k="i2" autocapitalize="off" spellcheck="false"><span class="pre">amu</span></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Which isotope is the most common? Write its name.</span><div class="row"><input type="text" class="num" id="i3" data-k="i3" autocapitalize="off" spellcheck="false"></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">7</span><span class="tag">Configurations</span></div>
+    <p class="qt">Write the electron configuration, in Aufbau order (4s before 3d). Type it like <code>1s2 2s2 2p6</code> or with superscripts.</p>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Phosphorus (P, 15 electrons), full configuration</span><div class="row"><input type="text" class="cfg" id="c1" data-k="c1" autocapitalize="off" spellcheck="false"></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Iron (Fe, 26 electrons), full configuration</span><div class="row"><input type="text" class="cfg" id="c2" data-k="c2" autocapitalize="off" spellcheck="false"></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">8</span><span class="tag">Configurations</span></div>
+    <p class="qt">Write the noble gas configuration. Type the core like <code>[Ar] 4s2 3d10 4p4</code>.</p>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Selenium (Se, 34 electrons)</span><div class="row"><input type="text" class="cfg" id="c3" data-k="c3" autocapitalize="off" spellcheck="false"></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Chromium (Cr, 24 electrons). Careful, it is one of the exceptions</span><div class="row"><input type="text" class="cfg" id="c4" data-k="c4" autocapitalize="off" spellcheck="false"></div></div></div>
+    <div class="part"><span class="pl">c</span><div class="pb"><span>The Fe²⁺ ion (iron is 26)</span><div class="row"><input type="text" class="cfg" id="c5" data-k="c5" autocapitalize="off" spellcheck="false"></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">9</span><span class="tag">Configurations</span></div>
+    <p class="qt">This Bohr diagram shows a neutral atom.</p>
+    <div class="fig"><svg id="bohr" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Bohr diagram with 2 electrons in the first ring, 8 in the second and 7 in the third, nucleus marked with a question mark"></svg></div>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Which element is it? Symbol or name.</span><div class="row"><input type="text" class="num" id="b1" data-k="b1" autocapitalize="off" spellcheck="false"></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Sodium (Na) has 11 electrons. Write how many electrons go in each shell of its Bohr diagram, like <code>2, 8, 7</code>.</span><div class="row"><input type="text" class="num" id="b3" data-k="b3" autocapitalize="off" spellcheck="false" style="max-width:160px"></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">10</span><span class="tag">Orbital diagrams</span></div>
+    <p class="qt">Build each orbital diagram. Tap a box to cycle it: empty, then ↑, then ↑↓, then empty again.</p>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Oxygen (8 electrons)</span><div class="ob" id="o1"><div class="sub"><div class="bx"><button type="button" class="box" data-s="1s" aria-label="1s box 1, empty"> </button></div><span class="lab">1s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2s" aria-label="2s box 1, empty"> </button></div><span class="lab">2s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2p" aria-label="2p box 1, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 2, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 3, empty"> </button></div><span class="lab">2p</span></div></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Nitrogen (7 electrons)</span><div class="ob" id="o2"><div class="sub"><div class="bx"><button type="button" class="box" data-s="1s" aria-label="1s box 1, empty"> </button></div><span class="lab">1s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2s" aria-label="2s box 1, empty"> </button></div><span class="lab">2s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2p" aria-label="2p box 1, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 2, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 3, empty"> </button></div><span class="lab">2p</span></div></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">11</span><span class="tag">Orbital diagrams</span></div>
+    <p class="qt">Each orbital diagram below breaks a rule. Name the rule and explain what is wrong.</p>
+    <div class="diag"><div class="fig"><svg id="svd1" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram A: 1s up down, 2s up down, 2p with one box up down and two empty boxes"></svg></div>
+    <div class="part"><span class="pl">A</span><div class="pb"><textarea class="ans" id="r1" data-k="r1" aria-label="Diagram A answer"></textarea></div></div></div>
+    <div class="diag"><div class="fig"><svg id="svd2" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram B: 1s with two up arrows, 2s up down"></svg></div>
+    <div class="part"><span class="pl">B</span><div class="pb"><textarea class="ans" id="r2" data-k="r2" aria-label="Diagram B answer"></textarea></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">12</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why two isotopes of the same element have different masses but react the same way in chemistry. (2 points)</p>
+    <textarea class="ans" id="e1" data-k="e1" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">13</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why the Mg²⁺ ion has 10 electrons. Magnesium is element 12. (2 points)</p>
+    <textarea class="ans" id="e2" data-k="e2" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">14</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why 4s fills before 3d, and what happens to the 4s electrons when iron forms an ion. (2 points)</p>
+    <textarea class="ans" id="e3" data-k="e3" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="confirm">
+      <button class="pri" type="button" id="gradeBtn">Done, grade my test</button>
+      <span class="small">You can grade with blanks. Blanks count as wrong.</span>
+    </div>
+    <div class="confirm" id="gradeConfirm" hidden>
+      <span class="small">Grade now? The answer key will show and the timer stops.</span>
+      <button class="pri" type="button" id="gradeYes">Grade it</button>
+      <button type="button" id="gradeNo">Keep working</button>
+    </div>
+  </section>
+  </div>
+  </form>
+  <section class="card" id="results" hidden>
+    <div id="gate">
+      <div class="small" id="gateMsg"></div>
+      <label class="honest" id="honestRow" hidden><input type="checkbox" id="honestBox"> <span>I graded every answer honestly against the answer key</span></label>
+    </div>
+    <div id="scoreArea" hidden>
+      <div class="row" style="justify-content:space-between;align-items:flex-end">
+        <div><div class="small">Score</div><div class="score" id="scoreBig">0 / 30</div></div>
+        <div class="small" id="timeUsed"></div>
+      </div>
+      <div class="lessons" id="lessonBars"></div>
+      <div id="studyBox"></div>
+    </div>
+    <div class="row">
+      <button type="button" id="resetBtn">Start over</button>
+    </div>
+    <div class="confirm" id="resetConfirm" hidden>
+      <span class="small">Clear every answer, mark and the timer?</span>
+      <button type="button" id="resetYes">Clear</button>
+      <button type="button" id="resetNo">Keep</button>
+    </div>
+  </section>
+  <div class="markbar" id="markBar" hidden role="status"><span id="markText">Marked 0 of 14</span><button type="button" id="markNext">Next unmarked</button></div>
+  <div class="settings"><label>Appearance <select id="ap"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div>
+</main>
+<div class="calcwrap" id="calcPanel" hidden role="dialog" aria-label="Calculator">
+  <div class="calc">
+    <div class="ch"><span>Calculator</span><span class="zoom"><button type="button" id="ckZo" aria-label="Zoom out">−</button><button type="button" id="ckZi" aria-label="Zoom in">+</button><button type="button" id="calcClose">Close</button></span></div>
+    <div class="disp"><div class="ex" id="calcEx"></div><div class="rs" id="calcRs" aria-live="polite">0</div></div>
+    <div class="keys" id="calcKeys"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var K = [['C','op'],['(','op'],[')','op'],['÷','op'],['7'],['8'],['9'],['×','op'],['4'],['5'],['6'],['−','op'],['1'],['2'],['3'],['+','op'],['0'],['.'],['⌫','op'],['=','eq']];
+  var keys = document.getElementById('calcKeys'), ex = document.getElementById('calcEx'), rs = document.getElementById('calcRs');
+  var cur = '', justDone = false;
+  function show(){ rs.textContent = cur || '0'; }
+  function evaluate(str){
+    var t = str.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-'), i = 0;
+    function peek(){ while(t[i] === ' ') i++; return t[i]; }
+    function num(){ var m = t.slice(i).match(/^\d*\.?\d+(e[+-]?\d+)?/i); if(!m) throw 0; i += m[0].length; return parseFloat(m[0]); }
+    function factor(){ var c = peek(); if(c === '-'){ i++; return -factor(); } if(c === '+'){ i++; return factor(); } if(c === '('){ i++; var v = expr(); if(peek() !== ')') throw 0; i++; return v; } return num(); }
+    function term(){ var v = factor(); for(;;){ var c = peek(); if(c === '*'){ i++; v *= factor(); } else if(c === '/'){ i++; v /= factor(); } else if(c === '(' ){ v *= factor(); } else return v; } }
+    function expr(){ var v = term(); for(;;){ var c = peek(); if(c === '+'){ i++; v += term(); } else if(c === '-'){ i++; v -= term(); } else return v; } }
+    var v = expr(); if(i < t.length) throw 0; if(!isFinite(v)) throw 0; return v;
+  }
+  function fmt(v){ var r = Math.round(v * 1e10) / 1e10; return String(r); }
+  function press(k){
+    if(k === 'C'){ cur = ''; ex.textContent = ''; justDone = false; return show(); }
+    if(k === '⌫'){ cur = cur.slice(0,-1); return show(); }
+    if(k === '='){ if(!cur) return; try{ var v = evaluate(cur); ex.textContent = cur + ' ='; cur = fmt(v); justDone = true; }catch(e){ ex.textContent = cur; rs.textContent = 'Error'; return; } return show(); }
+    if(justDone && /[0-9.(]/.test(k)){ cur = ''; ex.textContent = ''; }
+    justDone = false; cur += k; show();
+  }
+  K.forEach(function(k){ var b = document.createElement('button'); b.type = 'button'; b.textContent = k[0]; if(k[1]) b.className = k[1];
+    b.setAttribute('aria-label', {'÷':'divide','×':'times','−':'minus','⌫':'delete','C':'clear'}[k[0]] || k[0]);
+    b.onclick = function(){ press(k[0]); }; keys.appendChild(b); });
+  var panel = document.getElementById('calcPanel');
+  document.getElementById('calcOpen').onclick = function(){ panel.hidden = !panel.hidden; };
+  document.getElementById('calcClose').onclick = function(){ panel.hidden = true; };
+  document.addEventListener('keydown', function(e){
+    if(panel.hidden) return; var tag = (document.activeElement||{}).tagName; if(tag === 'INPUT' || tag === 'TEXTAREA') return;
+    var map = {'*':'×','x':'×','/':'÷','-':'−','+':'+','Enter':'=','=':'=','Backspace':'⌫','Escape':'C','(':'(',')':')','.':'.'};
+    var k = /^[0-9]$/.test(e.key) ? e.key : map[e.key]; if(!k) return; e.preventDefault(); press(k);
+  });
+})();
+</script>
+
+<div class="ptwrap" id="ptPanel" hidden role="dialog" aria-label="Periodic table">
+  <div class="ptcard">
+    <div class="pthead"><b>Periodic table</b><span class="sp"></span><span class="zoom"><button type="button" id="ptZo" aria-label="Zoom out">−</button><button type="button" id="ptZi" aria-label="Zoom in">+</button></span><button type="button" id="ptClose">Close</button></div>
+    <div class="pthead"><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span></div>
+    <div class="ptscroll"><div class="ptgrid" id="ptGrid"></div></div>
+    <div class="ptlegend" id="ptLegend"></div>
+    <div class="ptnote">Tap or search an element for its average atomic mass.</div>
+  </div>
+</div>
+<script>
+(function(){
+  var E = [[1, "H", "Hydrogen", "1.01"], [2, "He", "Helium", "4.00"], [3, "Li", "Lithium", "6.94"], [4, "Be", "Beryllium", "9.01"], [5, "B", "Boron", "10.81"], [6, "C", "Carbon", "12.01"], [7, "N", "Nitrogen", "14.01"], [8, "O", "Oxygen", "16.00"], [9, "F", "Fluorine", "19.00"], [10, "Ne", "Neon", "20.18"], [11, "Na", "Sodium", "22.99"], [12, "Mg", "Magnesium", "24.31"], [13, "Al", "Aluminum", "26.98"], [14, "Si", "Silicon", "28.09"], [15, "P", "Phosphorus", "30.97"], [16, "S", "Sulfur", "32.06"], [17, "Cl", "Chlorine", "35.45"], [18, "Ar", "Argon", "39.95"], [19, "K", "Potassium", "39.10"], [20, "Ca", "Calcium", "40.08"], [21, "Sc", "Scandium", "44.96"], [22, "Ti", "Titanium", "47.87"], [23, "V", "Vanadium", "50.94"], [24, "Cr", "Chromium", "52.00"], [25, "Mn", "Manganese", "54.94"], [26, "Fe", "Iron", "55.85"], [27, "Co", "Cobalt", "58.93"], [28, "Ni", "Nickel", "58.69"], [29, "Cu", "Copper", "63.55"], [30, "Zn", "Zinc", "65.38"], [31, "Ga", "Gallium", "69.72"], [32, "Ge", "Germanium", "72.63"], [33, "As", "Arsenic", "74.92"], [34, "Se", "Selenium", "78.97"], [35, "Br", "Bromine", "79.90"], [36, "Kr", "Krypton", "83.80"], [37, "Rb", "Rubidium", "85.47"], [38, "Sr", "Strontium", "87.62"], [39, "Y", "Yttrium", "88.91"], [40, "Zr", "Zirconium", "91.22"], [41, "Nb", "Niobium", "92.91"], [42, "Mo", "Molybdenum", "95.95"], [43, "Tc", "Technetium", "(98)"], [44, "Ru", "Ruthenium", "101.07"], [45, "Rh", "Rhodium", "102.91"], [46, "Pd", "Palladium", "106.42"], [47, "Ag", "Silver", "107.87"], [48, "Cd", "Cadmium", "112.41"], [49, "In", "Indium", "114.82"], [50, "Sn", "Tin", "118.71"], [51, "Sb", "Antimony", "121.76"], [52, "Te", "Tellurium", "127.60"], [53, "I", "Iodine", "126.90"], [54, "Xe", "Xenon", "131.29"], [55, "Cs", "Cesium", "132.91"], [56, "Ba", "Barium", "137.33"], [57, "La", "Lanthanum", "138.91"], [58, "Ce", "Cerium", "140.12"], [59, "Pr", "Praseodymium", "140.91"], [60, "Nd", "Neodymium", "144.24"], [61, "Pm", "Promethium", "(145)"], [62, "Sm", "Samarium", "150.36"], [63, "Eu", "Europium", "151.96"], [64, "Gd", "Gadolinium", "157.25"], [65, "Tb", "Terbium", "158.93"], [66, "Dy", "Dysprosium", "162.50"], [67, "Ho", "Holmium", "164.93"], [68, "Er", "Erbium", "167.26"], [69, "Tm", "Thulium", "168.93"], [70, "Yb", "Ytterbium", "173.05"], [71, "Lu", "Lutetium", "174.97"], [72, "Hf", "Hafnium", "178.49"], [73, "Ta", "Tantalum", "180.95"], [74, "W", "Tungsten", "183.84"], [75, "Re", "Rhenium", "186.21"], [76, "Os", "Osmium", "190.23"], [77, "Ir", "Iridium", "192.22"], [78, "Pt", "Platinum", "195.08"], [79, "Au", "Gold", "196.97"], [80, "Hg", "Mercury", "200.59"], [81, "Tl", "Thallium", "204.38"], [82, "Pb", "Lead", "207.20"], [83, "Bi", "Bismuth", "208.98"], [84, "Po", "Polonium", "(209)"], [85, "At", "Astatine", "(210)"], [86, "Rn", "Radon", "(222)"], [87, "Fr", "Francium", "(223)"], [88, "Ra", "Radium", "(226)"], [89, "Ac", "Actinium", "(227)"], [90, "Th", "Thorium", "232.04"], [91, "Pa", "Protactinium", "231.04"], [92, "U", "Uranium", "238.03"], [93, "Np", "Neptunium", "(237)"], [94, "Pu", "Plutonium", "(244)"], [95, "Am", "Americium", "(243)"], [96, "Cm", "Curium", "(247)"], [97, "Bk", "Berkelium", "(247)"], [98, "Cf", "Californium", "(251)"], [99, "Es", "Einsteinium", "(252)"], [100, "Fm", "Fermium", "(257)"], [101, "Md", "Mendelevium", "(258)"], [102, "No", "Nobelium", "(259)"], [103, "Lr", "Lawrencium", "(262)"], [104, "Rf", "Rutherfordium", "(261)"], [105, "Db", "Dubnium", "(262)"], [106, "Sg", "Seaborgium", "(266)"], [107, "Bh", "Bohrium", "(264)"], [108, "Hs", "Hassium", "(277)"], [109, "Mt", "Meitnerium", "(268)"], [110, "Ds", "Darmstadtium", "(281)"], [111, "Rg", "Roentgenium", "(272)"], [112, "Cn", "Copernicium", "(285)"], [113, "Nh", "Nihonium", "(286)"], [114, "Fl", "Flerovium", "(289)"], [115, "Mc", "Moscovium", "(289)"], [116, "Lv", "Livermorium", "(293)"], [117, "Ts", "Tennessine", "(294)"], [118, "Og", "Oganesson", "(294)"]];
+  function pos(z){
+    if(z===1) return [1,1]; if(z===2) return [1,18];
+    if(z<=4) return [2,z-2]; if(z<=10) return [2,z+8];
+    if(z<=12) return [3,z-10]; if(z<=18) return [3,z];
+    if(z<=36) return [4,z-18]; if(z<=54) return [5,z-36];
+    if(z<=56) return [6,z-54]; if(z===57) return [6,3]; if(z<=71) return [9,z-54]; if(z<=86) return [6,z-68];
+    if(z<=88) return [7,z-86]; if(z===89) return [7,3]; if(z<=103) return [10,z-86]; return [7,z-100];
+  }
+  var CAT = {}, CN = {alk:'Alkali metals', ae:'Alkaline earth metals', tm:'Transition metals', pt:'Post-transition metals', md:'Metalloids', nm:'Reactive nonmetals', ng:'Noble gases', la:'Lanthanides', ac:'Actinides', un:'Unknown properties'};
+  [[3,11,19,37,55,87,'alk'],[4,12,20,38,56,88,'ae'],[13,31,49,50,81,82,83,84,85,'pt'],[5,14,32,33,51,52,'md'],[1,6,7,8,9,15,16,17,34,35,53,'nm'],[2,10,18,36,54,86,'ng']].forEach(function(a){ var c = a.pop(); a.forEach(function(z){ CAT[z] = c; }); });
+  function cat(z){ if(CAT[z]) return CAT[z]; if(z>=57&&z<=71) return 'la'; if(z>=89&&z<=103) return 'ac'; if(z>=109) return 'un'; return 'tm'; }
+  var g = document.getElementById('ptGrid'), info = document.getElementById('ptInfo'), sel = null;
+  E.forEach(function(e){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'el c-' + cat(e[0]);
+    var p = pos(e[0]); b.style.gridRow = p[0] > 7 ? p[0] : p[0]; b.style.gridColumn = p[1];
+    b.innerHTML = '<span class="z">'+e[0]+'</span><span class="s">'+e[1]+'</span><span class="nm">'+e[2]+'</span>';
+    b.setAttribute('aria-label', e[2]+', atomic number '+e[0]+', mass '+e[3]);
+    b.onclick = function(){ if(sel) sel.classList.remove('sel'); sel = b; b.classList.add('sel'); info.textContent = e[2]+' ('+e[1]+'), atomic number '+e[0]+', mass '+e[3]+', '+CN[cat(e[0])].toLowerCase().replace(/s$/,''); };
+    g.appendChild(b);
+  });
+  var lg = document.getElementById('ptLegend'); Object.keys(CN).forEach(function(k){ var d = document.createElement('span'); d.className = 'lgi'; d.innerHTML = '<i class="c-'+k+'"></i>'+CN[k]; lg.appendChild(d); });
+  var gap = document.createElement('div'); gap.style.gridRow = 8; gap.style.gridColumn = '1 / -1'; gap.style.height = '6px'; g.appendChild(gap);
+  var cells = Array.prototype.slice.call(g.querySelectorAll('.el'));
+  var search = document.getElementById('ptSearch');
+  function norm(t){ return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim(); }
+  search.addEventListener('input', function(){
+    var q = norm(search.value), hits = [];
+    var exact = q && E.some(function(e){ return String(e[0]) === q || norm(e[1]) === q; });
+    cells.forEach(function(c, i){
+      var e = E[i], ok = false;
+      if(q){ ok = String(e[0]) === q || norm(e[1]) === q || (!exact && (norm(e[2]).indexOf(q) === 0 || (q.length > 2 && norm(e[2]).indexOf(q) >= 0))); }
+      c.classList.toggle('hit', ok); c.classList.toggle('dim', !!q && !ok);
+      if(ok) hits.push(i);
+    });
+    if(!q){ info.textContent = 'Tap an element for its name.'; return; }
+    if(!hits.length){ info.textContent = 'No element matches.'; return; }
+    var e = E[hits[0]];
+    info.textContent = hits.length === 1 ? e[2]+' ('+e[1]+'), atomic number '+e[0]+', mass '+e[3] : hits.length+' matches';
+    cells[hits[0]].scrollIntoView({block:'nearest', inline:'center'});
+  });
+  var panel = document.getElementById('ptPanel');
+  document.getElementById('ptOpen').onclick = function(){ panel.hidden = !panel.hidden; if(!panel.hidden){ search.focus(); search.select(); } };
+  document.getElementById('ptClose').onclick = function(){ panel.hidden = true; document.getElementById('ptOpen').focus(); };
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !panel.hidden){ panel.hidden = true; } });
+})();
+</script>
+
+
+<script>
+(function(){
+  var ap = document.getElementById('ap'); ap.value = document.documentElement.dataset.theme || 'light';
+  ap.onchange = function(){ document.documentElement.dataset.theme = ap.value; try{ localStorage.setItem('studynow:appearance', ap.value); }catch(e){} };
+  // ---------- diagrams ----------
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(svg, tag, attrs, text){ var n = document.createElementNS(NS, tag); for(var k in attrs) n.setAttribute(k, attrs[k]); if(text != null) n.textContent = text; svg.appendChild(n); return n; }
+  (function(){
+    var svg = document.getElementById('bohr'), cx = 120, cy = 120, rings = [2, 8, 7], radii = [42, 70, 100], RC = ['#2f6fd0', '#7a4fd6', '#1f8a5b'];
+    rings.forEach(function(n, i){
+      el(svg,'circle',{cx:cx,cy:cy,r:radii[i],fill:'none',stroke:RC[i],'stroke-opacity':.35,'stroke-width':1.5});
+      for(var k = 0; k < n; k++){ var a = -Math.PI/2 + k * 2 * Math.PI / n; el(svg,'circle',{cx:cx + radii[i]*Math.cos(a), cy:cy + radii[i]*Math.sin(a), r:6, fill:RC[i], stroke:'var(--surface)', 'stroke-width':1.5}); }
+    });
+    el(svg,'circle',{cx:cx,cy:cy,r:22,fill:'var(--accent-wash)',stroke:'var(--ink)','stroke-width':1.5});
+    el(svg,'text',{x:cx,y:cy+6,'text-anchor':'middle',style:'font-size:17px;font-weight:700'},'?');
+  })();
+  function boxes(id, groups){
+    var svg = document.getElementById(id), x = 34, W = 34, H = 34, y = 14;
+    el(svg,'text',{x:6,y:y+H/2+6,style:'font-size:17px;font-weight:700'}, id.slice(-1) === '1' ? 'A' : 'B');
+    groups.forEach(function(g){
+      el(svg,'text',{x:x + g[1].length*W/2, y:y+H+16, 'text-anchor':'middle', 'class':'m'}, g[0]);
+      g[1].forEach(function(b){
+        el(svg,'rect',{x:x,y:y,width:W,height:H,fill:'var(--raised)',stroke:'var(--ink)','stroke-width':1.3});
+        var t = b.replace(/u/g,'↑').replace(/d/g,'↓');
+        if(t) el(svg,'text',{x:x+W/2,y:y+H/2+7,'text-anchor':'middle',style:'font-size:20px'}, t);
+        x += W;
+      });
+      x += 18;
+    });
+    var w = x - 12; svg.setAttribute('viewBox', '0 0 ' + w + ' 72'); svg.setAttribute('width', w); svg.setAttribute('height', 72);
+  }
+  boxes('svd1', [['1s',['ud']],['2s',['ud']],['2p',['ud','','']]]);
+  boxes('svd2', [['1s',['uu']],['2s',['ud']]]);
+
+  // ---------- items ----------
+  var KEY = 'chem-u2-mock-share';
+  var T = {T:'Atomic theories', A:'Atoms and ions', I:'Isotopes', C:'Configurations', O:'Orbital diagrams', E:'Explain'};
+  var ITEMS = [
+    {id:'t1',L:'T',t:'sc',pts:1,what:'Q1 electron and plum pudding',model:'J.J. Thomson discovered the electron in 1897. His plum pudding model (1904) is a positive sphere with negative electrons scattered through it.',keys:['Thomson','1897','plum pudding','electrons spread in a positive sphere']},
+    {id:'t2',L:'T',t:'sc',pts:2,what:'Q2 gold foil conclusions',model:'Most went through, so the atom is mostly empty space. A few bounced back, so there is a tiny, dense, positive nucleus that repels the positive alpha particles.',keys:['mostly empty space','tiny, dense nucleus','nucleus is positive']},
+    {id:'t3',L:'T',t:'sc',pts:1,what:'Q3 Bohr vs Schrödinger',model:"Bohr's planetary model has electrons in fixed orbits (energy levels). Schrödinger's quantum (electron cloud) model has no fixed paths, only regions where electrons are likely to be (orbitals).",keys:['Bohr: fixed orbits or energy levels','Schrödinger: electron cloud or orbitals','probability, not exact paths']},
+    {id:'a1p',L:'A',t:'num',v:26,ans:'26 (atomic number)',what:'Q4 Fe-56 3+ protons'},
+    {id:'a1n',L:'A',t:'num',v:30,ans:'56 − 26 = 30',what:'Q4 Fe-56 3+ neutrons'},
+    {id:'a1e',L:'A',t:'num',v:23,ans:'26 − 3 = 23 (lost 3 electrons)',what:'Q4 Fe-56 3+ electrons'},
+    {id:'a2p',L:'A',t:'num',v:16,ans:'16',what:'Q4 S-32 2− protons'},
+    {id:'a2n',L:'A',t:'num',v:16,ans:'32 − 16 = 16',what:'Q4 S-32 2− neutrons'},
+    {id:'a2e',L:'A',t:'num',v:18,ans:'16 + 2 = 18 (gained 2 electrons)',what:'Q4 S-32 2− electrons'},
+    {id:'a4',L:'A',t:'chg',v:-2,ans:'2− (electrons are negative)',what:'Q5 charge after gaining 2 electrons'},
+    {id:'i2',L:'I',t:'num',v:24.31,tol:0.02,ans:'(23.985 × 78.99 + 24.986 × 10.00 + 25.983 × 11.01) ÷ 100 = 24.31 amu',what:'Q6a average atomic mass of Mg'},
+    {id:'i3',L:'I',t:'el',v:['mg24','magnesium24','24'],ans:'Mg-24 (78.99%, and the average is closest to 24)',what:'Q6b most common isotope'},
+    {id:'c1',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p3',ans:'1s² 2s² 2p⁶ 3s² 3p³',what:'Q7a phosphorus'},
+    {id:'c2',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p6 4s2 3d6',ans:'1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶',what:'Q7b iron'},
+    {id:'c3',L:'C',t:'cfg',v:'[Ar] 4s2 3d10 4p4',ans:'[Ar] 4s² 3d¹⁰ 4p⁴',what:'Q8a selenium noble gas'},
+    {id:'c4',L:'C',t:'cfg',v:'[Ar] 4s1 3d5',ans:'[Ar] 4s¹ 3d⁵ (exception: a half full d is more stable)',what:'Q8b chromium noble gas'},
+    {id:'c5',L:'C',t:'cfg',v:'[Ar] 3d6',ans:'[Ar] 3d⁶ (ions lose 4s first)',what:'Q8c Fe2+ noble gas'},
+    {id:'b1',L:'C',t:'el',v:['cl','chlorine'],ans:'Cl, chlorine (2 + 8 + 7 = 17)',what:'Q9a element from Bohr diagram'},
+    {id:'b3',L:'C',t:'shell',v:[2,8,1],ans:'2, 8, 1',what:'Q9b sodium shells'},
+    {id:'o1',L:'O',t:'ob',v:{'1s':[2],'2s':[2],'2p':[2,1,1]},ans:'1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑ (Hund: one in each 2p box first, then pair)',what:'Q10a oxygen diagram'},
+    {id:'o2',L:'O',t:'ob',v:{'1s':[2],'2s':[2],'2p':[1,1,1]},ans:'1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑ (Hund: spread out, no pairs)',what:'Q10b nitrogen diagram'},
+    {id:'r1',L:'O',t:'sc',pts:1,what:'Q11A rule broken',model:"Hund's rule. The 2p electrons should go one per box (↑ ↑ in two boxes) before any box gets a pair.",keys:["Hund's rule","spread out one per box before pairing"]},
+    {id:'r2',L:'O',t:'sc',pts:1,what:'Q11B rule broken',model:'Pauli exclusion principle. Two electrons in the same box must have opposite spins, ↑↓, not ↑↑.',keys:['Pauli','opposite spins in one box']},
+    {id:'e1',L:'E',t:'sc',pts:2,what:'Q12 isotopes',model:'Isotopes have the same number of protons and electrons but different numbers of neutrons. Neutrons add mass, so the masses differ. Chemistry depends on electrons, and the electrons are the same, so they react the same way.',keys:['same protons (same element)','different neutrons, so different mass','chemistry depends on electrons, which are the same']},
+    {id:'e2',L:'E',t:'sc',pts:2,what:'Q13 Mg2+ electrons',model:'Magnesium has 12 protons, so a neutral atom has 12 electrons. The 2+ charge means it lost 2 electrons (12 − 2 = 10). It now has 2 more protons than electrons.',keys:['12 protons, 12 electrons when neutral','2+ means it lost 2 electrons','12 − 2 = 10']},
+    {id:'e3',L:'E',t:'sc',pts:2,what:'Q14 4s before 3d',model:'4s is lower in energy than 3d, and Aufbau fills the lowest energy orbitals first, so 4s fills before 3d. When iron forms an ion, it loses its 4s electrons first (Fe²⁺ is [Ar] 3d⁶).',keys:['4s is lower energy','Aufbau: lowest energy first','ions lose 4s electrons first']}
+  ];
+  ITEMS.forEach(function(it){ if(!it.pts) it.pts = 1; });
+  var TOTAL = ITEMS.reduce(function(a,it){ return a + it.pts; }, 0);
+
+
+  var STUDY = {dalton:'Early atomic theory and Dalton', goldfoil:'Thomson, Rutherford and the gold foil', nucleus:'The nucleus, atomic number and mass number', ions:'Ions, charges and the size of the atom', isotopes:'Isotopes and average atomic mass', bohr:'Bohr model and energy levels', qmmodel:'Quantum mechanical model and orbitals', econfig:'Electron configurations and the Aufbau principle', orbdiag:"Orbital diagrams, Pauli and Hund's rule", noblegas:'Noble gas notation, exceptions and ions'};
+  var QSTUDY = [['goldfoil'],['goldfoil'],['bohr','qmmodel'],['nucleus','ions'],['ions'],['isotopes'],['econfig'],['noblegas','econfig'],['bohr'],['orbdiag'],['orbdiag'],['isotopes'],['ions'],['econfig','noblegas']];
+  var QS = [];
+  ITEMS.forEach(function(it){ var card = document.getElementById(it.id).closest('section.card'); var q = QS.find(function(x){ return x.card === card; }); if(!q){ q = {card:card, items:[], pts:0, L:it.L}; QS.push(q); } q.items.push(it); q.pts += it.pts; });
+  QS.forEach(function(q, i){ q.n = i + 1; q.study = QSTUDY[i] || []; });
+  var NQ = QS.length;
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+  function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+  var state = load(); state.a = state.a || {}; state.mk = state.mk || {};
+  var ARROW = [' ','↑','↑↓'], WORD = ['empty','one electron, up','two electrons, up and down'];
+  function setBox(btn, n){ btn.dataset.n = n; btn.textContent = ARROW[n]; btn.setAttribute('aria-label', btn.dataset.s + ' box ' + (btn.dataset.i) + ', ' + WORD[n]); }
+  document.querySelectorAll('.ob').forEach(function(ob){
+    var saved = state.a[ob.id] ? state.a[ob.id].split(',') : [];
+    ob.querySelectorAll('button.box').forEach(function(btn, i){
+      btn.dataset.i = Array.prototype.indexOf.call(btn.parentNode.children, btn) + 1;
+      setBox(btn, +(saved[i] || 0));
+      btn.addEventListener('click', function(){ setBox(btn, (+btn.dataset.n + 1) % 3); var it = ITEMS.find(function(x){ return x.id === ob.id; }); state.a[ob.id] = getVal(it); save(state); countAnswered(); });
+    });
+  });
+  ITEMS.forEach(function(it){
+    if(it.t === 'ob') return;
+    var v = state.a[it.id]; if(v == null) return;
+    var e = document.getElementById(it.id); if(e) e.value = v;
+  });
+  function getVal(it){
+    if(it.t === 'ob'){ var ns = Array.prototype.map.call(document.getElementById(it.id).querySelectorAll('button.box'), function(b){ return b.dataset.n || '0'; }); return ns.every(function(n){ return n === '0'; }) ? '' : ns.join(','); }
+    return (document.getElementById(it.id).value || '').trim();
+  }
+  function obRead(it){
+    var out = {}; document.getElementById(it.id).querySelectorAll('button.box').forEach(function(b){ (out[b.dataset.s] = out[b.dataset.s] || []).push(+b.dataset.n); }); return out;
+  }
+  function obText(m){ return Object.keys(m).map(function(k){ return k + ' ' + m[k].map(function(n){ return n === 0 ? '_' : ARROW[n]; }).join(' '); }).join(', '); }
+  function countAnswered(){ var n = ITEMS.filter(function(it){ return getVal(it) !== ''; }).length; document.getElementById('answered').textContent = n + ' of ' + ITEMS.length + ' answered'; }
+  function onChange(e){ var k = e.target.dataset.k; var it = ITEMS.find(function(i){ return i.id === k; }); if(!it) return; state.a[it.id] = getVal(it); save(state); countAnswered(); }
+  var form = document.getElementById('test');
+  form.addEventListener('input', onChange); form.addEventListener('change', onChange);
+  countAnswered();
+  document.getElementById('answered').textContent = document.getElementById('answered').textContent;
+
+  // ---------- parsing ----------
+  var SUP = {'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
+  function toNum(s){ s = String(s).replace(/[−–—]/g,'-').replace(/,/g,''); var m = s.match(/-?\d*\.?\d+/); return m ? parseFloat(m[0]) : NaN; }
+  var CORE = {he:'1s2', ne:'1s2 2s2 2p6', ar:'1s2 2s2 2p6 3s2 3p6', kr:'1s2 2s2 2p6 3s2 3p6 4s2 3d10 4p6'};
+  function tokens(s){
+    s = String(s).toLowerCase().replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g,function(c){ return SUP[c]; }).replace(/[\s,;]+/g,'');
+    var out = [], i = 0;
+    while(i < s.length){
+      if(s[i] === '['){ var j = s.indexOf(']', i); if(j < 0) return null; var c = CORE[s.slice(i+1,j)]; if(!c) return null; var t = tokens(c); if(!t) return null; out = out.concat(t); i = j + 1; continue; }
+      var m = s.slice(i).match(/^([1-7])([spdf])/); if(!m) return null; i += 2;
+      var cnt;
+      if((m[2] === 'd' && s.substr(i,2) === '10') || (m[2] === 'f' && /^1[0-4]/.test(s.substr(i,2)))) { cnt = s.substr(i,2); i += 2; }
+      else if(/\d/.test(s[i] || '')) { cnt = s[i]; i += 1; }
+      else return null;
+      out.push(m[1] + m[2] + parseInt(cnt,10));
+    }
+    return out;
+  }
+  function check(it, v){
+    if(v === '') return false;
+    if(it.t === 'chg'){ var c = String(v).replace(/[−–—]/g,'-').replace(/\s/g,''); var m = c.match(/^([+-]?)(\d*)([+-]?)$/); if(!m) return false; var sign = m[1] || m[3]; if(!sign || (m[1] && m[3])) return false; var mag = m[2] === '' ? 1 : +m[2]; return (sign === '-' ? -mag : mag) === it.v; }
+    if(it.t === 'shell'){ var arr = (String(v).match(/\d+/g) || []).map(Number); return arr.join(',') === it.v.join(','); }
+    if(it.t === 'ob'){ var got = obRead(it); return Object.keys(it.v).every(function(k){ var g = (got[k] || []).slice().sort().join(','), w = it.v[k].slice().sort().join(','); return g === w; }); }
+    if(it.t === 'num'){ var n = toNum(v); return isFinite(n) && Math.abs(n - it.v) <= (it.tol || 1e-6); }
+    if(it.t === 'cfg'){ var a = tokens(v), b = tokens(it.v); return !!a && a.join(' ') === b.join(' '); }
+    if(it.t === 'el'){ var w = v.trim().toLowerCase().replace(/[^a-z0-9]/g,''); return it.v.indexOf(w) >= 0; }
+    return false;
+  }
+
+  // ---------- timer ----------
+  var LIMIT = 40*60, tick = null, clock = document.getElementById('clock'), startBtn = document.getElementById('startBtn');
+  function elapsed(){ if(!state.start) return 0; var end = state.stop || Date.now(); return Math.floor((end - state.start)/1000); }
+  function fmt(sec){ sec = Math.abs(sec); return Math.floor(sec/60) + ':' + String(sec%60).padStart(2,'0'); }
+  function draw(){ var left = LIMIT - elapsed(); clock.textContent = left >= 0 ? fmt(left) : 'Over ' + fmt(left); clock.classList.toggle('low', left <= 300); }
+  function run(){ if(tick) clearInterval(tick); tick = setInterval(draw, 500); draw(); }
+  startBtn.addEventListener('click', function(){ if(!state.start){ state.start = Date.now(); state.stop = null; save(state); run(); startBtn.textContent = 'Running'; startBtn.disabled = true; } });
+  if(state.start){ startBtn.textContent = state.stop ? 'Stopped' : 'Running'; startBtn.disabled = true; if(state.stop) draw(); else run(); } else draw();
+
+  // ---------- grading ----------
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function autoPts(q){ var t = 0, n = 0; q.items.forEach(function(it){ if(it.t !== 'sc'){ n += it.pts; if(check(it, getVal(it))) t += it.pts; } }); return n ? [t, n] : null; }
+  function val(q, m){ return m === 'got' ? q.pts : m === 'half' ? q.pts / 2 : 0; }
+  function fmtPts(x){ return (Math.round(x * 2) / 2).toString(); }
+  function grade(scroll){
+    if(state.start && !state.stop){ state.stop = Date.now(); save(state); if(tick) clearInterval(tick); draw(); startBtn.textContent = 'Stopped'; }
+    document.querySelectorAll('.fb, .sc, .ack').forEach(function(n){ n.remove(); });
+    ITEMS.forEach(function(it){
+      var host = document.getElementById(it.id);
+      if(it.t === 'sc'){
+        var box = document.createElement('div'); box.className = 'sc'; box.dataset.for = it.id;
+        box.innerHTML = '<div class="mod"><b>Answer key.</b> ' + esc(it.model) + '</div><div><span class="pts">Check for</span><ul>' + it.keys.map(function(k){ return '<li>' + esc(k) + '</li>'; }).join('') + '</ul></div>';
+        host.insertAdjacentElement('afterend', box); return;
+      }
+      var v = getVal(it), ok = check(it, v);
+      var anchor = it.t === 'ob' ? host : (host.closest('.row') || host.closest('.ptab'));
+      var fb = document.createElement('div'); fb.className = 'fb ' + (ok ? 'ok' : 'no');
+      fb.innerHTML = '<b>' + (ok ? 'Looks right.' : v === '' ? 'Blank.' : 'Check this.') + '</b> ' + esc(it.what.replace(/^Q\S+ /,'')) + ': ' + esc(it.ans);
+      if(anchor.classList.contains('ptab')){ var last = anchor; while(last.nextElementSibling && last.nextElementSibling.classList.contains('fb')) last = last.nextElementSibling; last.insertAdjacentElement('afterend', fb); } else anchor.insertAdjacentElement('afterend', fb);
+    });
+    QS.forEach(function(q){
+      var ap = autoPts(q), sug = null, hint = '';
+      if(ap){ sug = ap[0] === ap[1] ? 'got' : ap[0] === 0 ? 'miss' : (q.pts >= 2 ? 'half' : 'miss'); hint = 'The automatic check found ' + ap[0] + ' of ' + ap[1] + ' point' + (ap[1] > 1 ? 's' : '') + ' right, so it suggests ' + (sug === 'got' ? 'I got it' : sug === 'half' ? 'Half' : 'I missed it') + '. Compare with the key, then mark it yourself.'; }
+      else hint = 'Compare your answer with the key and the checklist.' + (q.pts > 1 ? ' Mark I got it only if you had every point.' : '');
+      var a = document.createElement('div'); a.className = 'ack';
+      var opts = [['got','I got it']]; if(q.pts >= 2) opts.push(['half','Half']); opts.push(['miss','I missed it']);
+      a.innerHTML = '<div class="ttl">Mark question ' + q.n + ' (' + q.pts + ' point' + (q.pts > 1 ? 's' : '') + ')</div><div class="hint">' + esc(hint) + '</div><div class="btns" role="group" aria-label="Mark question ' + q.n + '">' +
+        opts.map(function(o){ return '<button type="button" data-v="' + o[0] + '"' + (o[0] === sug ? ' class="sug" title="Suggested"' : '') + '>' + o[1] + (o[0] === sug ? ' <span class="small">(suggested)</span>' : '') + '</button>'; }).join('') + '</div>';
+      a.querySelectorAll('button').forEach(function(btn){
+        btn.addEventListener('click', function(){ state.mk[q.n] = btn.dataset.v; save(state); paint(); tally(); });
+      });
+      q.card.appendChild(a); q.ack = a;
+    });
+    document.getElementById('results').hidden = false; document.getElementById('markBar').hidden = false; document.body.classList.add('graded');
+    state.graded = true; save(state);
+    paint(); tally();
+    if(scroll){ var first = QS.find(function(q){ return !state.mk[q.n]; }) || QS[0]; first.card.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'}); }
+  }
+  function paint(){
+    QS.forEach(function(q){ if(!q.ack) return; q.card.classList.toggle('need', !state.mk[q.n]); q.ack.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', state.mk[q.n] === b.dataset.v ? 'true' : 'false'); }); });
+  }
+  function tally(){
+    var marked = QS.filter(function(q){ return state.mk[q.n]; }).length, all = marked === NQ;
+    var mt = document.getElementById('markText'); mt.textContent = 'Marked ' + marked + ' of ' + NQ; document.getElementById('markBar').classList.toggle('done', all);
+    document.getElementById('markNext').hidden = all;
+    var honestRow = document.getElementById('honestRow'), hb = document.getElementById('honestBox'), msg = document.getElementById('gateMsg');
+    hb.checked = !!state.honest; honestRow.hidden = !all;
+    var show = all && !!state.honest;
+    msg.textContent = !all ? 'Your score shows after you mark every question. Marked ' + marked + ' of ' + NQ + '.' : (show ? '' : 'All marked. Tick the box to see your score.');
+    msg.hidden = show;
+    document.getElementById('scoreArea').hidden = !show;
+    if(!show){ document.getElementById('scoreBig').textContent = ''; document.getElementById('lessonBars').innerHTML = ''; document.getElementById('studyBox').innerHTML = ''; return; }
+    var per = {}, score = 0, weak = [];
+    Object.keys(T).forEach(function(k){ per[k] = [0,0]; });
+    QS.forEach(function(q){ var p = val(q, state.mk[q.n]); per[q.L][1] += q.pts; per[q.L][0] += p; score += p; if(state.mk[q.n] !== 'got') q.study.forEach(function(id){ if(weak.indexOf(id) < 0) weak.push(id); }); });
+    document.getElementById('scoreBig').textContent = fmtPts(score) + ' / ' + TOTAL;
+    var used = elapsed();
+    document.getElementById('timeUsed').textContent = state.start ? 'Time used ' + fmt(used) + ' of 40:00' : 'Timer not started';
+    var bars = document.getElementById('lessonBars'); bars.innerHTML = '';
+    Object.keys(T).forEach(function(k){ var p = per[k], d = document.createElement('div'); d.className = 'ls'; d.innerHTML = '<div class="small">' + esc(T[k]) + '</div><div class="n">' + fmtPts(p[0]) + ' / ' + p[1] + '</div><div class="b"><i style="width:' + Math.round(100*p[0]/p[1]) + '%"></i></div>'; bars.appendChild(d); });
+    var order = Object.keys(STUDY).filter(function(id){ return weak.indexOf(id) >= 0; });
+    document.getElementById('studyBox').innerHTML = '<div class="study"><h3>What to study</h3>' + (order.length ? '<ul>' + order.map(function(id){ return '<li><a href="https://cosmeticaura.github.io/chemistry/unit-2/?s=' + id + '">' + esc(STUDY[id]) + '</a></li>'; }).join('') + '</ul>' : '<p class="small">Nothing. You marked every question as got it. Nice work.</p>') + '</div>';
+  }
+  document.getElementById('honestBox').addEventListener('change', function(e){ state.honest = e.target.checked; save(state); tally(); });
+  document.getElementById('markNext').addEventListener('click', function(){ var q = QS.find(function(x){ return !state.mk[x.n]; }); if(q) q.ack.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'center'}); });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+  form.addEventListener('keydown', function(e){ if(e.key === 'Enter' && e.target.tagName === 'INPUT') e.preventDefault(); });
+  document.getElementById('gradeBtn').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = false; document.getElementById('gradeYes').focus(); });
+  document.getElementById('gradeNo').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = true; });
+  document.getElementById('gradeYes').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = true; grade(true); });
+  if(state.graded) grade(false);
+
+  document.getElementById('resetBtn').addEventListener('click', function(){ document.getElementById('resetConfirm').hidden = false; });
+  document.getElementById('resetNo').addEventListener('click', function(){ document.getElementById('resetConfirm').hidden = true; });
+  document.getElementById('resetYes').addEventListener('click', function(){
+    state = {a:{}, mk:{}}; save(state); if(tick) clearInterval(tick);
+    form.reset(); document.querySelectorAll('.fb, .sc, .ack').forEach(function(n){ n.remove(); }); QS.forEach(function(q){ q.ack = null; q.card.classList.remove('need'); }); document.getElementById('markBar').hidden = true; document.body.classList.remove('graded');
+    document.querySelectorAll('button.box').forEach(function(b){ setBox(b, 0); });
+    document.getElementById('results').hidden = true; document.getElementById('resetConfirm').hidden = true; document.getElementById('honestBox').checked = false;
+    startBtn.textContent = 'Start timer'; startBtn.disabled = false; draw(); countAnswered(); window.scrollTo(0,0);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var dock = document.createElement('div'); dock.className = 'dock'; dock.id = 'dock'; dock.hidden = true; document.body.appendChild(dock);
+  var pt = document.getElementById('ptPanel'), ck = document.getElementById('calcPanel');
+  dock.appendChild(pt); dock.appendChild(ck);
+  function sync(){ var open = !pt.hidden || !ck.hidden; dock.hidden = !open; document.body.classList.toggle('docked', open); }
+  new MutationObserver(sync).observe(pt, {attributes:true, attributeFilter:['hidden']});
+  new MutationObserver(sync).observe(ck, {attributes:true, attributeFilter:['hidden']});
+  function ld(k,d){ try{ var v = parseFloat(localStorage.getItem(k)); return isFinite(v) ? v : d; }catch(e){ return d; } }
+  function st(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
+  var saved = ld('chemmock:cell2', 0), cell = saved || 44, keyh = ld('chemmock:ck', 44);
+  function fit(){ if(saved) return; var w = document.querySelector('.ptscroll').clientWidth || 600; cell = Math.max(30, Math.min(64, Math.floor((w - 34) / 18))); apply(); }
+  new MutationObserver(function(){ if(!pt.hidden) requestAnimationFrame(fit); }).observe(pt, {attributes:true, attributeFilter:['hidden']});
+  addEventListener('resize', function(){ if(!pt.hidden) fit(); });
+  function apply(){ document.getElementById('ptGrid').classList.toggle('tiny', cell < 42); document.documentElement.style.setProperty('--cell', cell + 'px'); document.documentElement.style.setProperty('--ck', keyh + 'px'); }
+  apply();
+  document.getElementById('ptZi').onclick = function(){ cell = Math.min(80, cell + 6); saved = cell; st('chemmock:cell2', cell); apply(); };
+  document.getElementById('ptZo').onclick = function(){ cell = Math.max(30, cell - 6); saved = cell; st('chemmock:cell2', cell); apply(); };
+  document.getElementById('ckZi').onclick = function(){ keyh = Math.min(64, keyh + 6); st('chemmock:ck', keyh); apply(); };
+  document.getElementById('ckZo').onclick = function(){ keyh = Math.max(32, keyh - 6); st('chemmock:ck', keyh); apply(); };
+})();
+</script>
+</body>
+</html>
