@@ -127,6 +127,21 @@ input.cfg{max-width:420px;font-family:var(--font)}
 .ptab{display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:8px;align-items:center;max-width:460px}
 .ptab .h{color:var(--ink-3);font-size:13px;font-weight:600}
 .ptab input{max-width:none}
+textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
+.sc{display:grid;gap:8px;border-radius:var(--radius-control);padding:10px 12px;background:var(--accent-wash);font-size:15px}
+.sc .mod b{font-weight:600}
+.sc ul{margin:0;padding-left:20px;display:grid;gap:2px;color:var(--ink-2)}
+.sc .btns{display:flex;gap:8px;flex-wrap:wrap}
+.sc .btns button{min-height:40px;font-size:14px}
+.sc .btns button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.sc .pts{color:var(--ink-3);font-size:13px}
+.ob{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.ob .sub{display:grid;gap:4px;justify-items:center}
+.ob .sub .lab{font-size:13px;color:var(--ink-3)}
+.ob .bx{display:flex}
+.ob button.box{min-height:44px;min-width:44px;width:44px;height:44px;padding:0;border-radius:0;border:1.5px solid var(--ink);background:var(--raised);font-size:22px;line-height:1;margin-left:-1.5px}
+.ob button.box:first-child{margin-left:0}
+.ob button.box:active{transform:none}
 .diag{display:grid;gap:8px}
 .opts.rule{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
 </style>
@@ -138,18 +153,19 @@ input.cfg{max-width:420px;font-family:var(--font)}
   <span class="clock" id="clock">40:00</span>
   <button id="startBtn" class="pri" type="button">Start timer</button>
   <span class="sp"></span>
-  <span class="meta" id="answered">0 of 30 answered</span>
+  <span class="meta" id="answered">0 of 26 answered</span>
 </div></div>
 
 <main class="wrap">
   <header>
     <h1>Chemistry unit 2 mock test</h1>
-    <p class="lede">Atomic theories, atoms and ions, isotopes, average atomic mass, configurations and orbital diagrams. 40 minutes, 30 points.</p>
+    <p class="lede">Atomic theories, atoms and ions, isotopes, average atomic mass, configurations and orbital diagrams. All written, like the real test. 40 minutes, 30 points.</p>
   </header>
 
   <section class="card how">
     <ul>
-      <li>Work on paper first (Bohr diagrams, orbital boxes, the average atomic mass math). Type only the final answer here.</li>
+      <li>Everything is written, no multiple choice. Numbers, configurations and orbital diagrams grade themselves. Written answers show a model answer after grading, and you mark them yourself with I got it or I missed it. Be strict.</li>
+      <li>Do the average atomic mass math on paper and show your work.</li>
       <li>Configurations: type <code>1s2 2s2 2p6</code>, superscripts work too, spaces are optional, and noble gas cores like <code>[Ne]</code> count.</li>
       <li>When you finish, press Grade my test, then Copy results and send them to Claude.</li>
     </ul>
@@ -159,31 +175,21 @@ input.cfg{max-width:420px;font-family:var(--font)}
   <div style="display:flex;flex-direction:column;gap:14px">
   <section class="card">
     <div class="qh"><span class="qn">1</span><span class="tag">Atomic theories</span></div>
-    <p class="qt">Which model came right before Bohr's planetary model (1913)?</p>
-    <div class="opts " data-mc="t1"><label class="opt"><input type="radio" name="t1" value="a"> Dalton's solid sphere</label><label class="opt"><input type="radio" name="t1" value="b"> Thomson's plum pudding</label><label class="opt"><input type="radio" name="t1" value="c"> Rutherford's nuclear model</label><label class="opt"><input type="radio" name="t1" value="d"> Schrödinger's electron cloud</label></div>
+    <p class="qt">Who discovered the electron, in what year, and what model of the atom did he propose? Describe the model.</p>
+    <textarea class="ans" id="t1" data-k="t1" aria-label="Your answer"></textarea>
   </section>
   <section class="card">
     <div class="qh"><span class="qn">2</span><span class="tag">Atomic theories</span></div>
-    <p class="qt">Who discovered the electron in 1897 and proposed the plum pudding model?</p>
-    <div class="opts " data-mc="t2"><label class="opt"><input type="radio" name="t2" value="a"> Dalton</label><label class="opt"><input type="radio" name="t2" value="b"> Thomson</label><label class="opt"><input type="radio" name="t2" value="c"> Rutherford</label><label class="opt"><input type="radio" name="t2" value="d"> Democritus</label></div>
+    <p class="qt">Rutherford fired alpha particles at thin gold foil (1911). Most went straight through, but a few bounced back. What two conclusions did he draw from these results? (2 points)</p>
+    <textarea class="ans" id="t2" data-k="t2" aria-label="Your answer"></textarea>
   </section>
   <section class="card">
     <div class="qh"><span class="qn">3</span><span class="tag">Atomic theories</span></div>
-    <p class="qt">In the gold foil experiment, most alpha particles went straight through the foil. What did that show?</p>
-    <div class="opts " data-mc="t3"><label class="opt"><input type="radio" name="t3" value="a"> Atoms are solid spheres</label><label class="opt"><input type="radio" name="t3" value="b"> The atom is mostly empty space</label><label class="opt"><input type="radio" name="t3" value="c"> Electrons orbit in fixed levels</label><label class="opt"><input type="radio" name="t3" value="d"> Gold has no protons</label></div>
+    <p class="qt">How is Bohr's model (1913) different from Schrödinger's model (1926)? Name each model.</p>
+    <textarea class="ans" id="t3" data-k="t3" aria-label="Your answer"></textarea>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">4</span><span class="tag">Atomic theories</span></div>
-    <p class="qt">A few alpha particles bounced straight back. What did that show?</p>
-    <div class="opts " data-mc="t4"><label class="opt"><input type="radio" name="t4" value="a"> A tiny, dense, positive nucleus</label><label class="opt"><input type="radio" name="t4" value="b"> Electrons are spread through a positive pudding</label><label class="opt"><input type="radio" name="t4" value="c"> The atom is uncuttable</label><label class="opt"><input type="radio" name="t4" value="d"> Neutrons repel alpha particles</label></div>
-  </section>
-  <section class="card">
-    <div class="qh"><span class="qn">5</span><span class="tag">Atomic theories</span></div>
-    <p class="qt">Which model describes electrons in a cloud of probability (orbitals) instead of fixed paths, and when?</p>
-    <div class="opts " data-mc="t5"><label class="opt"><input type="radio" name="t5" value="a"> Bohr, 1913</label><label class="opt"><input type="radio" name="t5" value="b"> Rutherford, 1911</label><label class="opt"><input type="radio" name="t5" value="c"> Schrödinger, 1926</label><label class="opt"><input type="radio" name="t5" value="d"> Dalton, 1803</label></div>
-  </section>
-  <section class="card">
-    <div class="qh"><span class="qn">6</span><span class="tag">Atoms and ions</span></div>
+    <div class="qh"><span class="qn">4</span><span class="tag">Atoms and ions</span></div>
     <p class="qt">Fill in the protons, neutrons and electrons for each.</p>
     <div class="ptab">
       <span></span><span class="h">Protons</span><span class="h">Neutrons</span><span class="h">Electrons</span>
@@ -193,80 +199,66 @@ input.cfg{max-width:420px;font-family:var(--font)}
     <p class="small" style="margin:0">Iron is element 26 and sulfur is element 16. The top number is the mass number.</p>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">7</span><span class="tag">Atoms and ions</span></div>
-    <p class="qt">An atom has 20 protons and 22 neutrons. What is its mass number?</p>
-    <div class="row"><span class="pre">mass number</span><input type="text" class="num" id="a3" data-k="a3" autocapitalize="off" spellcheck="false"></div>
+    <div class="qh"><span class="qn">5</span><span class="tag">Atoms and ions</span></div>
+    <p class="qt">A neutral atom gains 2 electrons. Write the charge of the ion it becomes.</p>
+    <div class="row"><span class="pre">charge</span><input type="text" class="num" id="a4" data-k="a4" autocapitalize="off" spellcheck="false"></div>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">8</span><span class="tag">Atoms and ions</span></div>
-    <p class="qt">A neutral atom gains 2 electrons. What is the charge of the ion?</p>
-    <div class="opts rule" data-mc="a4"><label class="opt"><input type="radio" name="a4" value="a"> 2+</label><label class="opt"><input type="radio" name="a4" value="b"> 2−</label><label class="opt"><input type="radio" name="a4" value="c"> 0, electrons have no charge</label><label class="opt"><input type="radio" name="a4" value="d"> It becomes a different element</label></div>
-  </section>
-  <section class="card">
-    <div class="qh"><span class="qn">9</span><span class="tag">Isotopes</span></div>
-    <p class="qt">Isotopes of the same element have different numbers of…</p>
-    <div class="opts rule" data-mc="i1"><label class="opt"><input type="radio" name="i1" value="a"> protons</label><label class="opt"><input type="radio" name="i1" value="b"> electrons</label><label class="opt"><input type="radio" name="i1" value="c"> neutrons</label><label class="opt"><input type="radio" name="i1" value="d"> energy levels</label></div>
-  </section>
-  <section class="card">
-    <div class="qh"><span class="qn">10</span><span class="tag">Isotopes</span></div>
+    <div class="qh"><span class="qn">6</span><span class="tag">Isotopes</span></div>
     <p class="qt">Magnesium has three isotopes.</p>
     <div class="fig" style="padding:4px 8px"><table class="iso"><tr><th>Isotope</th><th>Mass (amu)</th><th>Abundance</th></tr>
       <tr><td>Mg-24</td><td>23.985</td><td>78.99%</td></tr><tr><td>Mg-25</td><td>24.986</td><td>10.00%</td></tr><tr><td>Mg-26</td><td>25.983</td><td>11.01%</td></tr></table></div>
-    <div class="part"><span class="pl">a</span><div class="pb"><span>Find the average atomic mass, to 2 decimal places.</span><div class="row"><input type="text" class="num" id="i2" data-k="i2" autocapitalize="off" spellcheck="false"><span class="pre">amu</span></div></div></div>
-    <div class="part"><span class="pl">b</span><div class="pb"><span>Which isotope is the most common?</span><div class="opts rule" data-mc="i3"><label class="opt"><input type="radio" name="i3" value="a"> Mg-24</label><label class="opt"><input type="radio" name="i3" value="b"> Mg-25</label><label class="opt"><input type="radio" name="i3" value="c"> Mg-26</label><label class="opt"><input type="radio" name="i3" value="d"> They are equal</label></div></div></div>
-
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Find the average atomic mass, to 2 decimal places. Show your work on paper.</span><div class="row"><input type="text" class="num" id="i2" data-k="i2" autocapitalize="off" spellcheck="false"><span class="pre">amu</span></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Which isotope is the most common? Write its name.</span><div class="row"><input type="text" class="num" id="i3" data-k="i3" autocapitalize="off" spellcheck="false"></div></div></div>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">11</span><span class="tag">Configurations</span></div>
+    <div class="qh"><span class="qn">7</span><span class="tag">Configurations</span></div>
     <p class="qt">Write the electron configuration, in Aufbau order (4s before 3d). Type it like <code>1s2 2s2 2p6</code> or with superscripts.</p>
     <div class="part"><span class="pl">a</span><div class="pb"><span>Phosphorus (P, 15 electrons), full configuration</span><div class="row"><input type="text" class="cfg" id="c1" data-k="c1" autocapitalize="off" spellcheck="false"></div></div></div>
     <div class="part"><span class="pl">b</span><div class="pb"><span>Iron (Fe, 26 electrons), full configuration</span><div class="row"><input type="text" class="cfg" id="c2" data-k="c2" autocapitalize="off" spellcheck="false"></div></div></div>
-
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">12</span><span class="tag">Configurations</span></div>
+    <div class="qh"><span class="qn">8</span><span class="tag">Configurations</span></div>
     <p class="qt">Write the noble gas configuration. Type the core like <code>[Ar] 4s2 3d10 4p4</code>.</p>
     <div class="part"><span class="pl">a</span><div class="pb"><span>Selenium (Se, 34 electrons)</span><div class="row"><input type="text" class="cfg" id="c3" data-k="c3" autocapitalize="off" spellcheck="false"></div></div></div>
     <div class="part"><span class="pl">b</span><div class="pb"><span>Chromium (Cr, 24 electrons). Careful, it is one of the exceptions</span><div class="row"><input type="text" class="cfg" id="c4" data-k="c4" autocapitalize="off" spellcheck="false"></div></div></div>
     <div class="part"><span class="pl">c</span><div class="pb"><span>The Fe²⁺ ion (iron is 26)</span><div class="row"><input type="text" class="cfg" id="c5" data-k="c5" autocapitalize="off" spellcheck="false"></div></div></div>
-
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">13</span><span class="tag">Configurations</span></div>
-    <p class="qt">Which element has this configuration? Type the symbol or the name.</p>
-    <div class="part"><span class="pl">a</span><div class="pb"><span>[Kr] 5s² 4d³</span><div class="row"><input type="text" class="num" id="c6" data-k="c6" autocapitalize="off" spellcheck="false"></div></div></div>
-    <div class="part"><span class="pl">b</span><div class="pb"><span>1s² 2s² 2p⁶ 3s² 3p⁴</span><div class="row"><input type="text" class="num" id="c7" data-k="c7" autocapitalize="off" spellcheck="false"></div></div></div>
-
-  </section>
-  <section class="card">
-    <div class="qh"><span class="qn">14</span><span class="tag">Configurations</span></div>
+    <div class="qh"><span class="qn">9</span><span class="tag">Configurations</span></div>
     <p class="qt">This Bohr diagram shows a neutral atom.</p>
     <div class="fig"><svg id="bohr" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Bohr diagram with 2 electrons in the first ring, 8 in the second and 7 in the third, nucleus marked with a question mark"></svg></div>
     <div class="part"><span class="pl">a</span><div class="pb"><span>Which element is it? Symbol or name.</span><div class="row"><input type="text" class="num" id="b1" data-k="b1" autocapitalize="off" spellcheck="false"></div></div></div>
-    <div class="part"><span class="pl">b</span><div class="pb"><span>How many valence electrons does it have?</span><div class="row"><input type="text" class="num" id="b2" data-k="b2" autocapitalize="off" spellcheck="false"></div></div></div>
-
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Sodium (Na) has 11 electrons. Write how many electrons go in each shell of its Bohr diagram, like <code>2, 8, 7</code>.</span><div class="row"><input type="text" class="num" id="b3" data-k="b3" autocapitalize="off" spellcheck="false" style="max-width:160px"></div></div></div>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">15</span><span class="tag">Orbital diagrams</span></div>
-    <p class="qt">Each orbital diagram below either breaks a rule or is correct. Pick the rule it breaks.</p>
-    <div class="diag"><div class="fig"><svg id="svd1" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram A"></svg></div>
-    <div class="part"><span class="pl">A</span><div class="pb"><span>Which rule does it break?</span><div class="opts rule" data-mc="d1"><label class="opt"><input type="radio" name="d1" value="a"> Aufbau</label><label class="opt"><input type="radio" name="d1" value="p"> Pauli</label><label class="opt"><input type="radio" name="d1" value="h"> Hund's rule</label><label class="opt"><input type="radio" name="d1" value="n"> None, it is correct</label></div></div></div>
-    </div>
-    <div class="diag"><div class="fig"><svg id="svd2" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram B"></svg></div>
-    <div class="part"><span class="pl">B</span><div class="pb"><span>Which rule does it break?</span><div class="opts rule" data-mc="d2"><label class="opt"><input type="radio" name="d2" value="a"> Aufbau</label><label class="opt"><input type="radio" name="d2" value="p"> Pauli</label><label class="opt"><input type="radio" name="d2" value="h"> Hund's rule</label><label class="opt"><input type="radio" name="d2" value="n"> None, it is correct</label></div></div></div>
-    </div>
-    <div class="diag"><div class="fig"><svg id="svd3" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram C"></svg></div>
-    <div class="part"><span class="pl">C</span><div class="pb"><span>Which rule does it break?</span><div class="opts rule" data-mc="d3"><label class="opt"><input type="radio" name="d3" value="a"> Aufbau</label><label class="opt"><input type="radio" name="d3" value="p"> Pauli</label><label class="opt"><input type="radio" name="d3" value="h"> Hund's rule</label><label class="opt"><input type="radio" name="d3" value="n"> None, it is correct</label></div></div></div>
-    </div>
-    <div class="diag"><div class="fig"><svg id="svd4" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram D"></svg></div>
-    <div class="part"><span class="pl">D</span><div class="pb"><span>Which rule does it break?</span><div class="opts rule" data-mc="d4"><label class="opt"><input type="radio" name="d4" value="a"> Aufbau</label><label class="opt"><input type="radio" name="d4" value="p"> Pauli</label><label class="opt"><input type="radio" name="d4" value="h"> Hund's rule</label><label class="opt"><input type="radio" name="d4" value="n"> None, it is correct</label></div></div></div>
-    </div>
-
+    <div class="qh"><span class="qn">10</span><span class="tag">Orbital diagrams</span></div>
+    <p class="qt">Build each orbital diagram. Tap a box to cycle it: empty, then ↑, then ↑↓, then empty again.</p>
+    <div class="part"><span class="pl">a</span><div class="pb"><span>Oxygen (8 electrons)</span><div class="ob" id="o1"><div class="sub"><div class="bx"><button type="button" class="box" data-s="1s" aria-label="1s box 1, empty"> </button></div><span class="lab">1s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2s" aria-label="2s box 1, empty"> </button></div><span class="lab">2s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2p" aria-label="2p box 1, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 2, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 3, empty"> </button></div><span class="lab">2p</span></div></div></div></div>
+    <div class="part"><span class="pl">b</span><div class="pb"><span>Nitrogen (7 electrons)</span><div class="ob" id="o2"><div class="sub"><div class="bx"><button type="button" class="box" data-s="1s" aria-label="1s box 1, empty"> </button></div><span class="lab">1s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2s" aria-label="2s box 1, empty"> </button></div><span class="lab">2s</span></div><div class="sub"><div class="bx"><button type="button" class="box" data-s="2p" aria-label="2p box 1, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 2, empty"> </button><button type="button" class="box" data-s="2p" aria-label="2p box 3, empty"> </button></div><span class="lab">2p</span></div></div></div></div>
   </section>
   <section class="card">
-    <div class="qh"><span class="qn">16</span><span class="tag">Orbital diagrams</span></div>
-    <p class="qt">How many unpaired electrons does oxygen (8 electrons) have in its orbital diagram?</p>
-    <div class="row"><input type="text" class="num" id="d5" data-k="d5" autocapitalize="off" spellcheck="false"></div>
+    <div class="qh"><span class="qn">11</span><span class="tag">Orbital diagrams</span></div>
+    <p class="qt">Each orbital diagram below breaks a rule. Name the rule and explain what is wrong.</p>
+    <div class="diag"><div class="fig"><svg id="svd1" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram A: 1s up down, 2s up down, 2p with one box up down and two empty boxes"></svg></div>
+    <div class="part"><span class="pl">A</span><div class="pb"><textarea class="ans" id="r1" data-k="r1" aria-label="Diagram A answer"></textarea></div></div></div>
+    <div class="diag"><div class="fig"><svg id="svd2" viewBox="0 0 260 72" width="260" height="72" role="img" aria-label="Orbital diagram B: 1s with two up arrows, 2s up down"></svg></div>
+    <div class="part"><span class="pl">B</span><div class="pb"><textarea class="ans" id="r2" data-k="r2" aria-label="Diagram B answer"></textarea></div></div></div>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">12</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why two isotopes of the same element have different masses but react the same way in chemistry. (2 points)</p>
+    <textarea class="ans" id="e1" data-k="e1" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">13</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why the Mg²⁺ ion has 10 electrons. Magnesium is element 12. (2 points)</p>
+    <textarea class="ans" id="e2" data-k="e2" aria-label="Your answer"></textarea>
+  </section>
+  <section class="card">
+    <div class="qh"><span class="qn">14</span><span class="tag">Explain</span></div>
+    <p class="qt">Explain why 4s fills before 3d, and what happens to the 4s electrons when iron forms an ion. (2 points)</p>
+    <textarea class="ans" id="e3" data-k="e3" aria-label="Your answer"></textarea>
   </section>
   <section class="card">
     <div class="confirm">
@@ -315,7 +307,7 @@ input.cfg{max-width:420px;font-family:var(--font)}
   })();
   function boxes(id, groups){
     var svg = document.getElementById(id), x = 34, W = 34, H = 34, y = 14;
-    el(svg,'text',{x:6,y:y+H/2+6,style:'font-size:17px;font-weight:700'}, id.slice(-1) === '1' ? 'A' : id.slice(-1) === '2' ? 'B' : id.slice(-1) === '3' ? 'C' : 'D');
+    el(svg,'text',{x:6,y:y+H/2+6,style:'font-size:17px;font-weight:700'}, id.slice(-1) === '1' ? 'A' : 'B');
     groups.forEach(function(g){
       el(svg,'text',{x:x + g[1].length*W/2, y:y+H+16, 'text-anchor':'middle', 'class':'m'}, g[0]);
       g[1].forEach(function(b){
@@ -330,64 +322,73 @@ input.cfg{max-width:420px;font-family:var(--font)}
   }
   boxes('svd1', [['1s',['ud']],['2s',['ud']],['2p',['ud','','']]]);
   boxes('svd2', [['1s',['uu']],['2s',['ud']]]);
-  boxes('svd3', [['1s',['ud']],['2s',['']],['2p',['u','u','']]]);
-  boxes('svd4', [['1s',['ud']],['2s',['ud']],['2p',['u','u','u']]]);
 
   // ---------- items ----------
-  var KEY = 'chem-u2-mock-v1';
-  var T = {T:'Atomic theories', A:'Atoms and ions', I:'Isotopes', C:'Configurations', O:'Orbital diagrams'};
+  var KEY = 'chem-u2-mock-v2';
+  var T = {T:'Atomic theories', A:'Atoms and ions', I:'Isotopes', C:'Configurations', O:'Orbital diagrams', E:'Explain'};
   var ITEMS = [
-    {id:'t1',L:'T',t:'mc',v:'c',ans:"Rutherford's nuclear model (1911). Order: Dogs Trust Really Big Squirrels",what:'Q1 model before Bohr'},
-    {id:'t2',L:'T',t:'mc',v:'b',ans:'Thomson (electron 1897, plum pudding 1904)',what:'Q2 electron and plum pudding'},
-    {id:'t3',L:'T',t:'mc',v:'b',ans:'The atom is mostly empty space',what:'Q3 gold foil, most went through'},
-    {id:'t4',L:'T',t:'mc',v:'a',ans:'A tiny, dense, positive nucleus (positive alpha particles were repelled)',what:'Q4 gold foil, some bounced back'},
-    {id:'t5',L:'T',t:'mc',v:'c',ans:'Schrödinger, 1926 (quantum, electron cloud model)',what:'Q5 electron cloud model'},
-    {id:'a1p',L:'A',t:'num',v:26,ans:'26 (atomic number)',what:'Q6 Fe-56 3+ protons'},
-    {id:'a1n',L:'A',t:'num',v:30,ans:'56 − 26 = 30',what:'Q6 Fe-56 3+ neutrons'},
-    {id:'a1e',L:'A',t:'num',v:23,ans:'26 − 3 = 23 (lost 3 electrons)',what:'Q6 Fe-56 3+ electrons'},
-    {id:'a2p',L:'A',t:'num',v:16,ans:'16',what:'Q6 S-32 2− protons'},
-    {id:'a2n',L:'A',t:'num',v:16,ans:'32 − 16 = 16',what:'Q6 S-32 2− neutrons'},
-    {id:'a2e',L:'A',t:'num',v:18,ans:'16 + 2 = 18 (gained 2 electrons)',what:'Q6 S-32 2− electrons'},
-    {id:'a3',L:'A',t:'num',v:42,ans:'20 + 22 = 42 (mass number = protons + neutrons)',what:'Q7 mass number'},
-    {id:'a4',L:'A',t:'mc',v:'b',ans:'2− (electrons are negative)',what:'Q8 charge after gaining 2 electrons'},
-    {id:'i1',L:'I',t:'mc',v:'c',ans:'Neutrons (same protons, different mass number)',what:'Q9 isotopes differ in'},
-    {id:'i2',L:'I',t:'num',v:24.31,tol:0.02,ans:'(23.985 × 78.99 + 24.986 × 10.00 + 25.983 × 11.01) ÷ 100 = 24.31 amu',what:'Q10a average atomic mass of Mg'},
-    {id:'i3',L:'I',t:'mc',v:'a',ans:'Mg-24 (78.99%, and the average is closest to 24)',what:'Q10b most common isotope'},
-    {id:'c1',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p3',ans:'1s² 2s² 2p⁶ 3s² 3p³',what:'Q11a phosphorus'},
-    {id:'c2',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p6 4s2 3d6',ans:'1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶',what:'Q11b iron'},
-    {id:'c3',L:'C',t:'cfg',v:'[Ar] 4s2 3d10 4p4',ans:'[Ar] 4s² 3d¹⁰ 4p⁴',what:'Q12a selenium noble gas'},
-    {id:'c4',L:'C',t:'cfg',v:'[Ar] 4s1 3d5',ans:'[Ar] 4s¹ 3d⁵ (exception: a half full d is more stable)',what:'Q12b chromium noble gas'},
-    {id:'c5',L:'C',t:'cfg',v:'[Ar] 3d6',ans:'[Ar] 3d⁶ (ions lose 4s first)',what:'Q12c Fe2+ noble gas'},
-    {id:'c6',L:'C',t:'el',v:['nb','niobium'],ans:'Nb, niobium (36 + 2 + 3 = 41)',what:'Q13a [Kr] 5s2 4d3'},
-    {id:'c7',L:'C',t:'el',v:['s','sulfur','sulphur'],ans:'S, sulfur (16 electrons)',what:'Q13b 1s2 2s2 2p6 3s2 3p4'},
-    {id:'b1',L:'C',t:'el',v:['cl','chlorine'],ans:'Cl, chlorine (2 + 8 + 7 = 17)',what:'Q14a element from Bohr diagram'},
-    {id:'b2',L:'C',t:'num',v:7,ans:'7 (electrons in the outer ring)',what:'Q14b valence electrons'},
-    {id:'d1',L:'O',t:'mc',v:'h',ans:"Hund's rule (2p electrons should spread out one per box first)",what:'Q15A diagram A'},
-    {id:'d2',L:'O',t:'mc',v:'p',ans:'Pauli (two electrons in one box need opposite spins)',what:'Q15B diagram B'},
-    {id:'d3',L:'O',t:'mc',v:'a',ans:'Aufbau (2s must fill before 2p)',what:'Q15C diagram C'},
-    {id:'d4',L:'O',t:'mc',v:'n',ans:'None, it is nitrogen done right',what:'Q15D diagram D'},
-    {id:'d5',L:'O',t:'num',v:2,ans:'2 (2p⁴: one pair and two singles)',what:'Q16 unpaired electrons in oxygen'}
+    {id:'t1',L:'T',t:'sc',pts:1,what:'Q1 electron and plum pudding',model:'J.J. Thomson discovered the electron in 1897. His plum pudding model (1904) is a positive sphere with negative electrons scattered through it.',keys:['Thomson','1897','plum pudding','electrons spread in a positive sphere']},
+    {id:'t2',L:'T',t:'sc',pts:2,what:'Q2 gold foil conclusions',model:'Most went through, so the atom is mostly empty space. A few bounced back, so there is a tiny, dense, positive nucleus that repels the positive alpha particles.',keys:['mostly empty space','tiny, dense nucleus','nucleus is positive']},
+    {id:'t3',L:'T',t:'sc',pts:1,what:'Q3 Bohr vs Schrödinger',model:"Bohr's planetary model has electrons in fixed orbits (energy levels). Schrödinger's quantum (electron cloud) model has no fixed paths, only regions where electrons are likely to be (orbitals).",keys:['Bohr: fixed orbits or energy levels','Schrödinger: electron cloud or orbitals','probability, not exact paths']},
+    {id:'a1p',L:'A',t:'num',v:26,ans:'26 (atomic number)',what:'Q4 Fe-56 3+ protons'},
+    {id:'a1n',L:'A',t:'num',v:30,ans:'56 − 26 = 30',what:'Q4 Fe-56 3+ neutrons'},
+    {id:'a1e',L:'A',t:'num',v:23,ans:'26 − 3 = 23 (lost 3 electrons)',what:'Q4 Fe-56 3+ electrons'},
+    {id:'a2p',L:'A',t:'num',v:16,ans:'16',what:'Q4 S-32 2− protons'},
+    {id:'a2n',L:'A',t:'num',v:16,ans:'32 − 16 = 16',what:'Q4 S-32 2− neutrons'},
+    {id:'a2e',L:'A',t:'num',v:18,ans:'16 + 2 = 18 (gained 2 electrons)',what:'Q4 S-32 2− electrons'},
+    {id:'a4',L:'A',t:'chg',v:-2,ans:'2− (electrons are negative)',what:'Q5 charge after gaining 2 electrons'},
+    {id:'i2',L:'I',t:'num',v:24.31,tol:0.02,ans:'(23.985 × 78.99 + 24.986 × 10.00 + 25.983 × 11.01) ÷ 100 = 24.31 amu',what:'Q6a average atomic mass of Mg'},
+    {id:'i3',L:'I',t:'el',v:['mg24','magnesium24','24'],ans:'Mg-24 (78.99%, and the average is closest to 24)',what:'Q6b most common isotope'},
+    {id:'c1',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p3',ans:'1s² 2s² 2p⁶ 3s² 3p³',what:'Q7a phosphorus'},
+    {id:'c2',L:'C',t:'cfg',v:'1s2 2s2 2p6 3s2 3p6 4s2 3d6',ans:'1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶',what:'Q7b iron'},
+    {id:'c3',L:'C',t:'cfg',v:'[Ar] 4s2 3d10 4p4',ans:'[Ar] 4s² 3d¹⁰ 4p⁴',what:'Q8a selenium noble gas'},
+    {id:'c4',L:'C',t:'cfg',v:'[Ar] 4s1 3d5',ans:'[Ar] 4s¹ 3d⁵ (exception: a half full d is more stable)',what:'Q8b chromium noble gas'},
+    {id:'c5',L:'C',t:'cfg',v:'[Ar] 3d6',ans:'[Ar] 3d⁶ (ions lose 4s first)',what:'Q8c Fe2+ noble gas'},
+    {id:'b1',L:'C',t:'el',v:['cl','chlorine'],ans:'Cl, chlorine (2 + 8 + 7 = 17)',what:'Q9a element from Bohr diagram'},
+    {id:'b3',L:'C',t:'shell',v:[2,8,1],ans:'2, 8, 1',what:'Q9b sodium shells'},
+    {id:'o1',L:'O',t:'ob',v:{'1s':[2],'2s':[2],'2p':[2,1,1]},ans:'1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑ (Hund: one in each 2p box first, then pair)',what:'Q10a oxygen diagram'},
+    {id:'o2',L:'O',t:'ob',v:{'1s':[2],'2s':[2],'2p':[1,1,1]},ans:'1s ↑↓, 2s ↑↓, 2p ↑ ↑ ↑ (Hund: spread out, no pairs)',what:'Q10b nitrogen diagram'},
+    {id:'r1',L:'O',t:'sc',pts:1,what:'Q11A rule broken',model:"Hund's rule. The 2p electrons should go one per box (↑ ↑ in two boxes) before any box gets a pair.",keys:["Hund's rule","spread out one per box before pairing"]},
+    {id:'r2',L:'O',t:'sc',pts:1,what:'Q11B rule broken',model:'Pauli exclusion principle. Two electrons in the same box must have opposite spins, ↑↓, not ↑↑.',keys:['Pauli','opposite spins in one box']},
+    {id:'e1',L:'E',t:'sc',pts:2,what:'Q12 isotopes',model:'Isotopes have the same number of protons and electrons but different numbers of neutrons. Neutrons add mass, so the masses differ. Chemistry depends on electrons, and the electrons are the same, so they react the same way.',keys:['same protons (same element)','different neutrons, so different mass','chemistry depends on electrons, which are the same']},
+    {id:'e2',L:'E',t:'sc',pts:2,what:'Q13 Mg2+ electrons',model:'Magnesium has 12 protons, so a neutral atom has 12 electrons. The 2+ charge means it lost 2 electrons (12 − 2 = 10). It now has 2 more protons than electrons.',keys:['12 protons, 12 electrons when neutral','2+ means it lost 2 electrons','12 − 2 = 10']},
+    {id:'e3',L:'E',t:'sc',pts:2,what:'Q14 4s before 3d',model:'4s is lower in energy than 3d, and Aufbau fills the lowest energy orbitals first, so 4s fills before 3d. When iron forms an ion, it loses its 4s electrons first (Fe²⁺ is [Ar] 3d⁶).',keys:['4s is lower energy','Aufbau: lowest energy first','ions lose 4s electrons first']}
   ];
-  var MCTEXT = {};
-  document.querySelectorAll('[data-mc]').forEach(function(g){ g.querySelectorAll('input').forEach(function(r){ MCTEXT[g.dataset.mc+':'+r.value] = r.parentNode.textContent.trim(); }); });
+  ITEMS.forEach(function(it){ if(!it.pts) it.pts = 1; });
+  var TOTAL = ITEMS.reduce(function(a,it){ return a + it.pts; }, 0);
 
   function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
   function save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
-  var state = load(); state.a = state.a || {};
+  var state = load(); state.a = state.a || {}; state.sc = state.sc || {};
+  var ARROW = [' ','↑','↑↓'], WORD = ['empty','one electron, up','two electrons, up and down'];
+  function setBox(btn, n){ btn.dataset.n = n; btn.textContent = ARROW[n]; btn.setAttribute('aria-label', btn.dataset.s + ' box ' + (btn.dataset.i) + ', ' + WORD[n]); }
+  document.querySelectorAll('.ob').forEach(function(ob){
+    var saved = state.a[ob.id] ? state.a[ob.id].split(',') : [];
+    ob.querySelectorAll('button.box').forEach(function(btn, i){
+      btn.dataset.i = Array.prototype.indexOf.call(btn.parentNode.children, btn) + 1;
+      setBox(btn, +(saved[i] || 0));
+      btn.addEventListener('click', function(){ setBox(btn, (+btn.dataset.n + 1) % 3); var it = ITEMS.find(function(x){ return x.id === ob.id; }); state.a[ob.id] = getVal(it); save(state); countAnswered(); });
+    });
+  });
   ITEMS.forEach(function(it){
+    if(it.t === 'ob') return;
     var v = state.a[it.id]; if(v == null) return;
-    if(it.t === 'mc'){ var r = document.querySelector('input[name="'+it.id+'"][value="'+v+'"]'); if(r) r.checked = true; }
-    else { var e = document.getElementById(it.id); if(e) e.value = v; }
+    var e = document.getElementById(it.id); if(e) e.value = v;
   });
   function getVal(it){
-    if(it.t === 'mc'){ var r = document.querySelector('input[name="'+it.id+'"]:checked'); return r ? r.value : ''; }
+    if(it.t === 'ob'){ var ns = Array.prototype.map.call(document.getElementById(it.id).querySelectorAll('button.box'), function(b){ return b.dataset.n || '0'; }); return ns.every(function(n){ return n === '0'; }) ? '' : ns.join(','); }
     return (document.getElementById(it.id).value || '').trim();
   }
+  function obRead(it){
+    var out = {}; document.getElementById(it.id).querySelectorAll('button.box').forEach(function(b){ (out[b.dataset.s] = out[b.dataset.s] || []).push(+b.dataset.n); }); return out;
+  }
+  function obText(m){ return Object.keys(m).map(function(k){ return k + ' ' + m[k].map(function(n){ return n === 0 ? '_' : ARROW[n]; }).join(' '); }).join(', '); }
   function countAnswered(){ var n = ITEMS.filter(function(it){ return getVal(it) !== ''; }).length; document.getElementById('answered').textContent = n + ' of ' + ITEMS.length + ' answered'; }
-  function onChange(e){ var k = e.target.dataset.k || e.target.name; var it = ITEMS.find(function(i){ return i.id === k; }); if(!it) return; state.a[it.id] = getVal(it); save(state); countAnswered(); }
+  function onChange(e){ var k = e.target.dataset.k; var it = ITEMS.find(function(i){ return i.id === k; }); if(!it) return; state.a[it.id] = getVal(it); save(state); countAnswered(); }
   var form = document.getElementById('test');
   form.addEventListener('input', onChange); form.addEventListener('change', onChange);
   countAnswered();
+  document.getElementById('answered').textContent = document.getElementById('answered').textContent;
 
   // ---------- parsing ----------
   var SUP = {'⁰':'0','¹':'1','²':'2','³':'3','⁴':'4','⁵':'5','⁶':'6','⁷':'7','⁸':'8','⁹':'9'};
@@ -409,10 +410,12 @@ input.cfg{max-width:420px;font-family:var(--font)}
   }
   function check(it, v){
     if(v === '') return false;
-    if(it.t === 'mc') return v === it.v;
+    if(it.t === 'chg'){ var c = String(v).replace(/[−–—]/g,'-').replace(/\s/g,''); var m = c.match(/^([+-]?)(\d*)([+-]?)$/); if(!m) return false; var sign = m[1] || m[3]; if(!sign || (m[1] && m[3])) return false; var mag = m[2] === '' ? 1 : +m[2]; return (sign === '-' ? -mag : mag) === it.v; }
+    if(it.t === 'shell'){ var arr = (String(v).match(/\d+/g) || []).map(Number); return arr.join(',') === it.v.join(','); }
+    if(it.t === 'ob'){ var got = obRead(it); return Object.keys(it.v).every(function(k){ var g = (got[k] || []).slice().sort().join(','), w = it.v[k].slice().sort().join(','); return g === w; }); }
     if(it.t === 'num'){ var n = toNum(v); return isFinite(n) && Math.abs(n - it.v) <= (it.tol || 1e-6); }
     if(it.t === 'cfg'){ var a = tokens(v), b = tokens(it.v); return !!a && a.join(' ') === b.join(' '); }
-    if(it.t === 'el'){ var w = v.trim().toLowerCase().replace(/[^a-z]/g,''); return it.v.indexOf(w) >= 0; }
+    if(it.t === 'el'){ var w = v.trim().toLowerCase().replace(/[^a-z0-9]/g,''); return it.v.indexOf(w) >= 0; }
     return false;
   }
 
@@ -429,33 +432,50 @@ input.cfg{max-width:420px;font-family:var(--font)}
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   function grade(scroll){
     if(state.start && !state.stop){ state.stop = Date.now(); save(state); if(tick) clearInterval(tick); draw(); startBtn.textContent = 'Stopped'; }
-    var per = {}, score = 0, misses = [];
-    Object.keys(T).forEach(function(k){ per[k] = [0,0]; });
-    document.querySelectorAll('.fb').forEach(function(n){ n.remove(); });
+    document.querySelectorAll('.fb, .sc').forEach(function(n){ n.remove(); });
     ITEMS.forEach(function(it){
+      var host = document.getElementById(it.id);
+      if(it.t === 'sc'){
+        var box = document.createElement('div'); box.className = 'sc'; box.dataset.for = it.id;
+        box.innerHTML = '<div class="mod"><b>Model answer.</b> ' + esc(it.model) + '</div><div><span class="pts">Check for</span><ul>' + it.keys.map(function(k){ return '<li>' + esc(k) + '</li>'; }).join('') + '</ul></div>' +
+          '<div class="btns"><button type="button" data-v="got">I got it</button><button type="button" data-v="miss">I missed it</button>' + (it.pts > 1 ? '<span class="pts">' + it.pts + ' points, mark got only if you had every point</span>' : '') + '</div>';
+        box.querySelectorAll('button').forEach(function(btn){
+          btn.setAttribute('aria-pressed', state.sc[it.id] === btn.dataset.v ? 'true' : 'false');
+          btn.addEventListener('click', function(){ state.sc[it.id] = btn.dataset.v; save(state); box.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === btn ? 'true' : 'false'); }); tally(); });
+        });
+        host.insertAdjacentElement('afterend', box); return;
+      }
       var v = getVal(it), ok = check(it, v);
-      per[it.L][1]++; if(ok){ per[it.L][0]++; score++; }
-      var shown = it.t === 'mc' ? (v ? MCTEXT[it.id+':'+v] : '') : v;
-      if(!ok) misses.push({it:it, v:shown});
-      var host = it.t === 'mc' ? document.querySelector('[data-mc="'+it.id+'"]') : (document.getElementById(it.id).closest('.row') || document.getElementById(it.id).closest('.ptab'));
+      var anchor = it.t === 'ob' ? host : (host.closest('.row') || host.closest('.ptab'));
       var fb = document.createElement('div'); fb.className = 'fb ' + (ok ? 'ok' : 'no');
       fb.innerHTML = ok ? '<b>Correct.</b> ' + esc(it.what.replace(/^Q\S+ /,'')) : '<b>' + (v === '' ? 'Blank.' : 'Not quite.') + '</b> ' + esc(it.what.replace(/^Q\S+ /,'')) + ': ' + esc(it.ans);
-      if(host.classList.contains('ptab')){ var last = host; while(last.nextElementSibling && last.nextElementSibling.classList.contains('fb')) last = last.nextElementSibling; last.insertAdjacentElement('afterend', fb); } else host.insertAdjacentElement('afterend', fb);
+      if(anchor.classList.contains('ptab')){ var last = anchor; while(last.nextElementSibling && last.nextElementSibling.classList.contains('fb')) last = last.nextElementSibling; last.insertAdjacentElement('afterend', fb); } else anchor.insertAdjacentElement('afterend', fb);
     });
-    var res = document.getElementById('results'); res.hidden = false;
-    document.getElementById('scoreBig').textContent = score + ' / ' + ITEMS.length;
+    document.getElementById('results').hidden = false;
+    state.graded = true; save(state);
+    tally();
+    if(scroll) document.getElementById('results').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+  }
+  function tally(){
+    var per = {}, score = 0, misses = [], selfs = [];
+    Object.keys(T).forEach(function(k){ per[k] = [0,0]; });
+    ITEMS.forEach(function(it){
+      var v = getVal(it), ok;
+      if(it.t === 'sc'){ ok = state.sc[it.id] === 'got'; selfs.push('- ' + it.what + ' [' + T[it.L] + ', ' + it.pts + ' pt' + (it.pts > 1 ? 's' : '') + ']: self marked ' + (state.sc[it.id] === 'got' ? 'got' : state.sc[it.id] === 'miss' ? 'missed' : 'not marked (counts as missed)') + '. I wrote: ' + (v || '(blank)')); }
+      else { ok = check(it, v); if(!ok) misses.push('- ' + it.what + ' [' + T[it.L] + ']. I wrote: ' + (it.t === 'ob' ? (v ? obText(obRead(it)) : '(blank)') : (v || '(blank)')) + '. Answer: ' + it.ans); }
+      per[it.L][1] += it.pts; if(ok){ per[it.L][0] += it.pts; score += it.pts; }
+    });
+    document.getElementById('scoreBig').textContent = score + ' / ' + TOTAL;
     var used = elapsed();
     document.getElementById('timeUsed').textContent = state.start ? 'Time used ' + fmt(used) + ' of 40:00' : 'Timer not started';
     var bars = document.getElementById('lessonBars'); bars.innerHTML = '';
     Object.keys(T).forEach(function(k){ var p = per[k], d = document.createElement('div'); d.className = 'ls'; d.innerHTML = '<div class="small">' + esc(T[k]) + '</div><div class="n">' + p[0] + ' / ' + p[1] + '</div><div class="b"><i style="width:' + Math.round(100*p[0]/p[1]) + '%"></i></div>'; bars.appendChild(d); });
-    var lines = ['Chemistry unit 2 mock test: ' + score + '/' + ITEMS.length + ' (' + Math.round(100*score/ITEMS.length) + '%)', state.start ? 'Time used: ' + fmt(used) + ' of 40:00' : 'Timer: not started'];
+    var lines = ['Chemistry unit 2 mock test (written): ' + score + '/' + TOTAL + ' (' + Math.round(100*score/TOTAL) + '%)', state.start ? 'Time used: ' + fmt(used) + ' of 40:00' : 'Timer: not started'];
     Object.keys(T).forEach(function(k){ lines.push(T[k] + ': ' + per[k][0] + '/' + per[k][1]); });
     lines.push('');
-    if(misses.length){ lines.push('Missed:'); misses.forEach(function(m){ lines.push('- ' + m.it.what + ' [' + T[m.it.L] + ']. I wrote: ' + (m.v || '(blank)') + '. Answer: ' + m.it.ans); }); }
-    else lines.push('Missed: none');
+    lines.push(misses.length ? 'Missed (auto graded):' : 'Missed (auto graded): none'); lines = lines.concat(misses);
+    lines.push(''); lines.push('Written answers:'); lines = lines.concat(selfs);
     document.getElementById('resultText').value = lines.join('\n');
-    state.graded = true; save(state);
-    if(scroll) res.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
   }
   form.addEventListener('submit', function(e){ e.preventDefault(); grade(true); });
   if(state.graded) grade(false);
@@ -468,8 +488,9 @@ input.cfg{max-width:420px;font-family:var(--font)}
   document.getElementById('resetBtn').addEventListener('click', function(){ document.getElementById('resetConfirm').hidden = false; });
   document.getElementById('resetNo').addEventListener('click', function(){ document.getElementById('resetConfirm').hidden = true; });
   document.getElementById('resetYes').addEventListener('click', function(){
-    state = {a:{}}; save(state); if(tick) clearInterval(tick);
-    form.reset(); document.querySelectorAll('.fb').forEach(function(n){ n.remove(); });
+    state = {a:{}, sc:{}}; save(state); if(tick) clearInterval(tick);
+    form.reset(); document.querySelectorAll('.fb, .sc').forEach(function(n){ n.remove(); });
+    document.querySelectorAll('button.box').forEach(function(b){ setBox(b, 0); });
     document.getElementById('results').hidden = true; document.getElementById('resetConfirm').hidden = true;
     startBtn.textContent = 'Start timer'; startBtn.disabled = false; draw(); countAnswered(); window.scrollTo(0,0);
   });
