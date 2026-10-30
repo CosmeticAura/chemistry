@@ -120,8 +120,8 @@ textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink)
 .ptbtn{min-height:36px;padding:0 14px;font-size:13px}
 
 .ptsearch{font-size:15px;min-height:36px;padding:6px 12px;border:1px solid var(--line-edge);border-radius:var(--radius-control);background:var(--raised);width:220px;max-width:100%}
-.el.hit{background:var(--ink);border-color:var(--ink)}.el.hit .z,.el.hit .s,.el.hit .m{color:var(--on-accent)}
-.el.dim{opacity:.28}
+.el.hit{outline:3px solid var(--ink);outline-offset:-2px;z-index:1}
+.el.dim{opacity:.25}
 .pthead{flex-wrap:wrap}
 
 .calcwrap[hidden]{display:none}
@@ -136,7 +136,7 @@ textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink)
 .calc .keys .op{background:var(--accent-wash)}
 .calc .keys .eq{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 
-:root{--cell:34px;--ck:44px;--dockw:min(660px,46vw)}
+:root{--cell:44px;--ck:44px;--dockw:min(720px,50vw)}
 .dock{position:fixed;top:calc(env(safe-area-inset-top,0px) + 64px);right:max(12px,env(safe-area-inset-right,0px));bottom:12px;width:var(--dockw);z-index:6;display:flex;flex-direction:column;gap:10px;overflow:auto;pointer-events:none}
 .dock > *{pointer-events:auto}
 .dock[hidden],.dock .ptwrap[hidden],.dock .calcwrap[hidden]{display:none}
@@ -156,12 +156,28 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 .pthead b{font-size:15px}.pthead .sp{flex:1}
 .ptinfo{font-size:13px;color:var(--ink-2);min-height:18px}
 .ptscroll{overflow-x:auto;max-width:100%}
-.ptgrid{display:grid;grid-template-columns:repeat(18,var(--cell));grid-template-rows:repeat(7,calc(var(--cell)*1.13)) 8px repeat(2,calc(var(--cell)*1.13));gap:2px;width:max-content}
-.el{border:1px solid var(--line-inner);border-radius:6px;background:var(--raised);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;cursor:pointer;padding:0;min-height:0;font-weight:400}
-.el:hover,.el.sel{border-color:var(--ink)}
-.el .z{font-size:calc(var(--cell)*.2);color:var(--ink-3)}.el .s{font-size:calc(var(--cell)*.34);font-weight:600}.el .m{font-size:calc(var(--cell)*.19);color:var(--ink-3);font-variant-numeric:tabular-nums}
+.ptgrid{display:grid;grid-template-columns:repeat(18,var(--cell));grid-template-rows:repeat(7,var(--cell)) calc(var(--cell)*.4) repeat(2,var(--cell));gap:2px;width:max-content}
+.el{position:relative;border:1px solid rgb(0 0 0 / .35);border-radius:4px;background:var(--cat);color:var(--cat-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;cursor:pointer;padding:0 2px;min-height:0;font-weight:400;overflow:hidden}
+.el:hover,.el.sel{outline:2px solid var(--ink);outline-offset:-1px}
+.ptgrid.tiny .el .nm{display:none}.ptgrid.tiny .el .s{margin-top:calc(var(--cell)*.18)}
+.el .z{position:absolute;top:2px;left:3px;font-size:calc(var(--cell)*.2)}.el .s{font-size:calc(var(--cell)*.44);font-weight:500;margin-top:calc(var(--cell)*.08)}.el .nm{font-size:calc(var(--cell)*.17);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ptgap{grid-column:1/-1;height:6px}
 .ptnote{font-size:12px;color:var(--ink-3)}
+.c-alk{--cat:#bfe0e2;--cat-ink:#10302f}.c-ae{--cat:#f0c9cf;--cat-ink:#3a141b}.c-tm{--cat:#d6d0f0;--cat-ink:#221a44}.c-pt{--cat:#c7e3d3;--cat-ink:#12321f}
+.c-md{--cat:#ece0b0;--cat-ink:#3a2e08}.c-nm{--cat:#c9d8f2;--cat-ink:#14254a}.c-ng{--cat:#ecc6d2;--cat-ink:#3d1422}.c-la{--cat:#bcd6ec;--cat-ink:#0e2c46}
+.c-ac{--cat:#ecd0bd;--cat-ink:#3d200c}.c-un{--cat:#dcdcdf;--cat-ink:#2a2a2e}
+:root[data-theme="dark"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="dark"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="dark"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="dark"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="dark"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="dark"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="dark"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="dark"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="dark"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="dark"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+@media (prefers-color-scheme:dark){
+:root[data-theme="system"] .c-alk{--cat:#2e5156;--cat-ink:#eaf7f7}:root[data-theme="system"] .c-ae{--cat:#5b2f39;--cat-ink:#fbecef}:root[data-theme="system"] .c-tm{--cat:#463d6c;--cat-ink:#f1eeff}:root[data-theme="system"] .c-pt{--cat:#2f5142;--cat-ink:#eaf7ef}
+:root[data-theme="system"] .c-md{--cat:#5c4b22;--cat-ink:#fbf5e3}:root[data-theme="system"] .c-nm{--cat:#2c4368;--cat-ink:#edf2fd}:root[data-theme="system"] .c-ng{--cat:#5a3442;--cat-ink:#fbecf1}:root[data-theme="system"] .c-la{--cat:#1f4b70;--cat-ink:#e8f2fb}
+:root[data-theme="system"] .c-ac{--cat:#5f3b25;--cat-ink:#fbefe7}:root[data-theme="system"] .c-un{--cat:#48484c;--cat-ink:#f2f2f4}
+}
+.ptlegend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2)}
+.lgi{display:inline-flex;align-items:center;gap:6px}
+.lgi i{width:12px;height:12px;border-radius:50%;background:var(--cat);border:1px solid rgb(0 0 0 / .3)}
+
 </style>
 <style>
 .iso{border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums;width:100%;max-width:420px}
@@ -390,7 +406,8 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
     <div class="pthead"><b>Periodic table</b><span class="sp"></span><span class="zoom"><button type="button" id="ptZo" aria-label="Zoom out">−</button><button type="button" id="ptZi" aria-label="Zoom in">+</button></span><button type="button" id="ptClose">Close</button></div>
     <div class="pthead"><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span></div>
     <div class="ptscroll"><div class="ptgrid" id="ptGrid"></div></div>
-    <div class="ptnote">Atomic number on top, average atomic mass below. Masses in parentheses are the most stable isotope.</div>
+    <div class="ptlegend" id="ptLegend"></div>
+    <div class="ptnote">Tap or search an element for its average atomic mass.</div>
   </div>
 </div>
 <script>
@@ -401,18 +418,22 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
     if(z<=4) return [2,z-2]; if(z<=10) return [2,z+3];
     if(z<=12) return [3,z-10]; if(z<=18) return [3,z-5];
     if(z<=36) return [4,z-18]; if(z<=54) return [5,z-36];
-    if(z<=56) return [6,z-54]; if(z<=71) return [9,z-54]; if(z<=86) return [6,z-68];
-    if(z<=88) return [7,z-86]; if(z<=103) return [10,z-86]; return [7,z-100];
+    if(z<=56) return [6,z-54]; if(z===57) return [6,3]; if(z<=71) return [9,z-54]; if(z<=86) return [6,z-68];
+    if(z<=88) return [7,z-86]; if(z===89) return [7,3]; if(z<=103) return [10,z-86]; return [7,z-100];
   }
+  var CAT = {}, CN = {alk:'Alkali metals', ae:'Alkaline earth metals', tm:'Transition metals', pt:'Post-transition metals', md:'Metalloids', nm:'Reactive nonmetals', ng:'Noble gases', la:'Lanthanides', ac:'Actinides', un:'Unknown properties'};
+  [[3,11,19,37,55,87,'alk'],[4,12,20,38,56,88,'ae'],[13,31,49,50,81,82,83,84,85,'pt'],[5,14,32,33,51,52,'md'],[1,6,7,8,9,15,16,17,34,35,53,'nm'],[2,10,18,36,54,86,'ng']].forEach(function(a){ var c = a.pop(); a.forEach(function(z){ CAT[z] = c; }); });
+  function cat(z){ if(CAT[z]) return CAT[z]; if(z>=57&&z<=71) return 'la'; if(z>=89&&z<=103) return 'ac'; if(z>=109) return 'un'; return 'tm'; }
   var g = document.getElementById('ptGrid'), info = document.getElementById('ptInfo'), sel = null;
   E.forEach(function(e){
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'el';
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'el c-' + cat(e[0]);
     var p = pos(e[0]); b.style.gridRow = p[0] > 7 ? p[0] : p[0]; b.style.gridColumn = p[1];
-    b.innerHTML = '<span class="z">'+e[0]+'</span><span class="s">'+e[1]+'</span><span class="m">'+e[3]+'</span>';
+    b.innerHTML = '<span class="z">'+e[0]+'</span><span class="s">'+e[1]+'</span><span class="nm">'+e[2]+'</span>';
     b.setAttribute('aria-label', e[2]+', atomic number '+e[0]+', mass '+e[3]);
-    b.onclick = function(){ if(sel) sel.classList.remove('sel'); sel = b; b.classList.add('sel'); info.textContent = e[2]+' ('+e[1]+'), atomic number '+e[0]+', mass '+e[3]; };
+    b.onclick = function(){ if(sel) sel.classList.remove('sel'); sel = b; b.classList.add('sel'); info.textContent = e[2]+' ('+e[1]+'), atomic number '+e[0]+', mass '+e[3]+', '+CN[cat(e[0])].toLowerCase().replace(/s$/,''); };
     g.appendChild(b);
   });
+  var lg = document.getElementById('ptLegend'); Object.keys(CN).forEach(function(k){ var d = document.createElement('span'); d.className = 'lgi'; d.innerHTML = '<i class="c-'+k+'"></i>'+CN[k]; lg.appendChild(d); });
   var gap = document.createElement('div'); gap.style.gridRow = 8; gap.style.gridColumn = '1 / -1'; gap.style.height = '6px'; g.appendChild(gap);
   var cells = Array.prototype.slice.call(g.querySelectorAll('.el'));
   var search = document.getElementById('ptSearch');
@@ -667,11 +688,14 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
   new MutationObserver(sync).observe(ck, {attributes:true, attributeFilter:['hidden']});
   function ld(k,d){ try{ var v = parseFloat(localStorage.getItem(k)); return isFinite(v) ? v : d; }catch(e){ return d; } }
   function st(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
-  var cell = ld('chemmock:cell', 34), keyh = ld('chemmock:ck', 44);
-  function apply(){ document.documentElement.style.setProperty('--cell', cell + 'px'); document.documentElement.style.setProperty('--ck', keyh + 'px'); }
+  var saved = ld('chemmock:cell2', 0), cell = saved || 44, keyh = ld('chemmock:ck', 44);
+  function fit(){ if(saved) return; var w = document.querySelector('.ptscroll').clientWidth || 600; cell = Math.max(30, Math.min(64, Math.floor((w - 34) / 18))); apply(); }
+  new MutationObserver(function(){ if(!pt.hidden) requestAnimationFrame(fit); }).observe(pt, {attributes:true, attributeFilter:['hidden']});
+  addEventListener('resize', function(){ if(!pt.hidden) fit(); });
+  function apply(){ document.getElementById('ptGrid').classList.toggle('tiny', cell < 42); document.documentElement.style.setProperty('--cell', cell + 'px'); document.documentElement.style.setProperty('--ck', keyh + 'px'); }
   apply();
-  document.getElementById('ptZi').onclick = function(){ cell = Math.min(64, cell + 4); st('chemmock:cell', cell); apply(); };
-  document.getElementById('ptZo').onclick = function(){ cell = Math.max(26, cell - 4); st('chemmock:cell', cell); apply(); };
+  document.getElementById('ptZi').onclick = function(){ cell = Math.min(80, cell + 6); saved = cell; st('chemmock:cell2', cell); apply(); };
+  document.getElementById('ptZo').onclick = function(){ cell = Math.max(30, cell - 6); saved = cell; st('chemmock:cell2', cell); apply(); };
   document.getElementById('ckZi').onclick = function(){ keyh = Math.min(64, keyh + 6); st('chemmock:ck', keyh); apply(); };
   document.getElementById('ckZo').onclick = function(){ keyh = Math.max(32, keyh - 6); st('chemmock:ck', keyh); apply(); };
 })();
