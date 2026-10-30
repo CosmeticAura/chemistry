@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chemistry unit 2 plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<style>
+/* Same look as the studynow study sites: Apple grouped greys, light first, graphite for structure, green only for correct. Appearance is shared with the study sites (System, Light, Dark). */
+:root{
+  color-scheme:light;
+  --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
+  --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
+  --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
+  --accent:#000000; --on-accent:#ffffff;
+  --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
+  --accent-wash:rgb(118 118 128 / .10);
+  --go:#248a3d; --stop:#d70015;
+  --radius-control:10px; --radius-capsule:999px; --radius-group:12px; --radius-surface:16px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
+  --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+  --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+  --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+  --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+  --go:#30d158; --stop:#ff453a;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="system"]{
+    color-scheme:dark;
+    --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+    --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+    --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+    --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+    --go:#30d158; --stop:#ff453a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.47 var(--font);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button,select,input{font:inherit;color:inherit;accent-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+h1{margin:0;font-size:26px;line-height:1.2;text-wrap:balance;font-weight:600}
+h2{margin:0;font-size:17px;font-weight:600}h3{margin:6px 0 0;font-size:15px;font-weight:600}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-inner)}
+.bar .in{max-width:760px;margin:0 auto;min-height:56px;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:12px}
+.bar .home{color:var(--ink-2);font-size:13px;text-decoration:none;padding:4px 8px 4px 0;border-right:1px solid var(--line-inner)}
+.bar .bt{font-size:15px;font-weight:600}.bar .sp{flex:1}.bar .meta{color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+.lede{color:var(--ink-3);margin:6px 0 0;font-size:15px}
+.card{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card ul,.card ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.bars{display:grid;gap:10px}
+.bt2{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:15px}
+.bt2 i{grid-column:1/-1;height:4px;border-radius:2px;background:linear-gradient(var(--ink),var(--ink)) 0/var(--w) 100% no-repeat,var(--line-edge)}
+.bt2.low span:first-child{font-weight:600}.num{font:600 15px var(--font-round);font-variant-numeric:tabular-nums}
+.fix{color:var(--ink-2)}
+.sts{display:grid}
+.st{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line-inner);cursor:pointer;min-height:44px;font-size:15px}
+.st:first-child{border-top:0}
+.st input{width:22px;height:22px;margin:0}
+.st input:checked + .tx{color:var(--ink-3);text-decoration:line-through}
+.go{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line-edge);border-radius:999px;padding:5px 12px}
+[id]{scroll-margin-top:72px}
+:target{animation:flash 1.6s ease-out 1}@keyframes flash{0%,40%{background:var(--accent-wash)}100%{background:transparent}}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line-inner)}th{color:var(--ink-2);font-weight:600;font-size:13px}
+details summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-2);min-height:32px}
+details p{margin:6px 0 0;font-size:15px}
+.settings{display:flex;justify-content:flex-end}.settings button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-edge);background:var(--raised);font-size:13px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="in"><a class="home" href="../">&lsaquo; Chemistry</a><span class="bt">Weekend plan</span><span class="sp"></span><span class="meta" id="count">0 done</span></div></div>
+<main class="wrap">
+<header><h1>Chemistry unit 2 test, Monday Nov 2</h1><p class="lede">A weekend plan for the unit 2 test. Take the practice test first so you know where you stand, then work the checklist. Every item opens the exact section you need, and your checks save on this device.</p></header>
+<section class="card" id="start"><h2>Start here</h2><div class="sts"><label class="st"><input type="checkbox" data-id="p0"><span class="tx">Take the practice test with no notes. Use the periodic table and calculator on the page, then grade it yourself against the answer key</span> <a class="go" href="../mock-test-share/">Open</a></label></div>
+<p class="fix" style="font-size:15px;margin:14px 0 4px">Your score shows which topics to spend the most time on. These five cost the most points:</p>
+<ol class="fix"><li><b>Atomic theories:</b> learn the five models table. Pure memorizing.</li><li><b>Explain answers:</b> learn the four model answers below.</li><li><b>Cr and Cu</b> are exceptions, and <b>ions lose 4s first</b>.</li><li><b>Average atomic mass:</b> percent as a decimal times mass, then add.</li><li><b>Rule names:</b> Aufbau builds, Pauli pairs, Hund spreads.</li></ol></section>
+<section class="card"><h2>Friday night (optional)</h2><div class="sts"><label class="st"><input type="checkbox" data-id="f1"><span class="tx">Learn the five models table below until you can write it from memory</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="f2"><span class="tx">Dalton loop: read and flashcards</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label></div></section>
+<section class="card"><h2>Saturday</h2><div class="sts"><label class="st"><input type="checkbox" data-id="s1"><span class="tx">Early atomic theory and Dalton: full loop</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label><label class="st"><input type="checkbox" data-id="s2"><span class="tx">Thomson, Rutherford and the gold foil: full loop. Say both observations and both conclusions out loud</span> <a class="go" href="../unit-2/?s=goldfoil">Open</a></label><label class="st"><input type="checkbox" data-id="s3"><span class="tx">Bohr model: read and flashcards only</span> <a class="go" href="../unit-2/?s=bohr">Open</a></label><label class="st"><input type="checkbox" data-id="s4"><span class="tx">Quantum mechanical model: read and flashcards only</span> <a class="go" href="../unit-2/?s=qmmodel">Open</a></label><label class="st"><input type="checkbox" data-id="s5"><span class="tx">Write the five models table from memory on paper, check it, fix misses</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="s6"><span class="tx">Isotopes and average atomic mass: full loop</span> <a class="go" href="../unit-2/?s=isotopes">Open</a></label><label class="st"><input type="checkbox" data-id="s7"><span class="tx">Do the 4 average atomic mass problems below with the calculator</span> <a class="go" href="#mass">Open</a></label></div></section>
+<section class="card"><h2>Sunday</h2><div class="sts"><label class="st"><input type="checkbox" data-id="u1"><span class="tx">Electron configurations and Aufbau: full loop</span> <a class="go" href="../unit-2/?s=econfig">Open</a></label><label class="st"><input type="checkbox" data-id="u2"><span class="tx">Noble gas notation, exceptions and ions: full loop</span> <a class="go" href="../unit-2/?s=noblegas">Open</a></label><label class="st"><input type="checkbox" data-id="u3"><span class="tx">Do the 8 configuration drills below on paper</span> <a class="go" href="#drills">Open</a></label><label class="st"><input type="checkbox" data-id="u4"><span class="tx">Orbital diagrams, Pauli and Hund: full loop</span> <a class="go" href="../unit-2/?s=orbdiag">Open</a></label><label class="st"><input type="checkbox" data-id="u5"><span class="tx">Write the 4 explain answers below from memory, then compare</span> <a class="go" href="#explain">Open</a></label><label class="st"><input type="checkbox" data-id="u6"><span class="tx">Retake the practice test timed with no notes, and grade it honestly</span> <a class="go" href="../mock-test-share/">Open</a></label><label class="st"><input type="checkbox" data-id="u7"><span class="tx">Redo every miss until you get it right. Use the study links in your results</span> <a class="go" href="../mock-test-share/">Open</a></label></div></section>
+<section class="card"><h2>Monday morning</h2><div class="sts"><label class="st"><input type="checkbox" data-id="m1"><span class="tx">Memory jog</span> <a class="go" href="../unit-2/?s=jog">Open</a></label><label class="st"><input type="checkbox" data-id="m2"><span class="tx">Reread the must know section on this page once</span> <a class="go" href="#must">Open</a></label></div></section>
+<section class="card" id="must"><h2>Must know cold</h2>
+<h3 id="models">The five models (Dogs Trust Really Big Squirrels)</h3>
+<div class="tw"><table><tr><th>Scientist</th><th>Year</th><th>Model</th><th>Key idea</th></tr>
+<tr><td>Dalton</td><td>1803</td><td>Solid sphere</td><td>Atoms are tiny solid balls that can't be divided</td></tr>
+<tr><td>Thomson</td><td>1904 (electron 1897)</td><td>Plum pudding</td><td>Negative electrons scattered in a positive sphere</td></tr>
+<tr><td>Rutherford</td><td>1911</td><td>Nuclear</td><td>Gold foil: most went straight through, so mostly empty space. A few bounced back, so a tiny, dense, positive nucleus</td></tr>
+<tr><td>Bohr</td><td>1913</td><td>Planetary</td><td>Electrons in fixed energy levels</td></tr>
+<tr><td>Schrödinger</td><td>1926</td><td>Quantum (electron cloud)</td><td>No fixed paths, only regions where electrons are likely to be (orbitals)</td></tr></table></div>
+<h3>Configurations</h3>
+<ul><li>Filling order: 1s 2s 2p 3s 3p <b>4s 3d</b> 4p 5s 4d 5p</li><li>s holds 2, p holds 6, d holds 10. Add the superscripts: they must equal the electron count.</li>
+<li><b>Exceptions:</b> Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰ (a half full or full d is more stable)</li>
+<li><b>Ions:</b> positive ions lose <b>4s first</b>: Fe²⁺ = [Ar] 3d⁶. Negative ions gain into the next open spot: Cl⁻ = [Ar]</li>
+<li><b>Rules:</b> Aufbau builds (lowest energy first), Pauli pairs (2 per box, opposite spins ↑↓), Hund spreads (one in each box before pairing)</li></ul>
+<h3>Particles and mass</h3>
+<ul><li>Protons = atomic number. Neutrons = mass number − atomic number. Electrons = protons − charge.</li>
+<li>Average atomic mass = (mass × decimal %) + (mass × decimal %) + …</li></ul>
+<h3 id="explain">The four explain answers</h3>
+<ul><li><b>Isotopes:</b> same number of protons, different numbers of <b>neutrons</b>, so different masses. Same electrons, so the same chemistry.</li>
+<li><b>Ion electrons (Mg²⁺):</b> protons can't change. A 2+ charge means 2 more protons than electrons, so 12 − 2 = 10 electrons.</li>
+<li><b>4s before 3d:</b> 4s is lower in energy, so it fills first. But 4s is farther from the nucleus, so it loses electrons first when an ion forms.</li>
+<li><b>Cr and Cu exceptions:</b> one 4s electron moves into 3d because a half full (d⁵) or full (d¹⁰) d subshell is more stable.</li></ul></section>
+<section class="card"><h2>Practice</h2>
+<h3 id="mass">Average atomic mass (use the calculator)</h3>
+<ol><li>Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%)</li><li>Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element?</li><li>Copper: 62.930 amu (69.15%), 64.928 amu (30.85%)</li><li>Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%)</li></ol>
+<details><summary>Answers</summary><p>1. 35.45 amu &nbsp; 2. 10.81 amu, boron &nbsp; 3. 63.55 amu &nbsp; 4. 28.09 amu</p></details>
+<h3 id="drills">Configuration drills (noble gas notation)</h3>
+<ol><li>Cu</li><li>Cr</li><li>Ni</li><li>Zn²⁺</li><li>Mn²⁺</li><li>Fe³⁺</li><li>Co²⁺</li><li>Cl⁻</li></ol>
+<details><summary>Answers</summary><p>1. [Ar] 4s¹ 3d¹⁰ &nbsp; 2. [Ar] 4s¹ 3d⁵ &nbsp; 3. [Ar] 4s² 3d⁸ &nbsp; 4. [Ar] 3d¹⁰ &nbsp; 5. [Ar] 3d⁵ &nbsp; 6. [Ar] 3d⁵ &nbsp; 7. [Ar] 3d⁷ &nbsp; 8. [Ar] (same as 1s² 2s² 2p⁶ 3s² 3p⁶)</p></details></section>
+<section class="card"><h2>On the test</h2><ul>
+<li>First thing: write "Dogs Trust Really Big Squirrels" and the filling order in the margin.</li>
+<li>Find every element on the periodic table by atomic number before you write anything.</li>
+<li>After every configuration, add the superscripts and check they equal the electron count.</li>
+<li>For an ion, write the neutral atom first, then take from 4s.</li>
+<li>Explain questions: say what and why, and use the key word (neutrons, Pauli, Hund, more stable).</li></ul></section>
+<div class="settings"><button type="button" id="reset">Uncheck all</button></div>
+</main>
+<script>
+(function(){
+  var K='chem-share-plan-v1', d={}; try{ d=JSON.parse(localStorage.getItem(K))||{}; }catch(e){}
+  var boxes=[].slice.call(document.querySelectorAll('.st input'));
+  function count(){ document.getElementById('count').textContent = boxes.filter(function(b){return b.checked}).length + ' of ' + boxes.length + ' done'; }
+  boxes.forEach(function(b){ b.checked=!!d[b.dataset.id]; b.addEventListener('change',function(){ d[b.dataset.id]=b.checked; try{localStorage.setItem(K,JSON.stringify(d))}catch(e){} count(); }); });
+  document.getElementById('reset').onclick=function(){ d={}; try{localStorage.setItem(K,'{}')}catch(e){} boxes.forEach(function(b){b.checked=false}); count(); };
+  count();
+})();
+</script>
+</body>
+</html>
