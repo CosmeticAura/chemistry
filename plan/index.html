@@ -70,10 +70,22 @@ h2{margin:0;font-size:17px;font-weight:600}h3{margin:6px 0 0;font-size:15px;font
 .go{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line-edge);border-radius:999px;padding:5px 12px}
 [id]{scroll-margin-top:72px}
 :target{animation:flash 1.6s ease-out 1}@keyframes flash{0%,40%{background:var(--accent-wash)}100%{background:transparent}}
-.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line-inner)}th{color:var(--ink-2);font-weight:600;font-size:13px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--line-inner)}th{color:var(--ink-2);font-weight:600;font-size:13px}
 details summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-2);min-height:32px}
 details p{margin:6px 0 0;font-size:15px}
 .settings{display:flex;justify-content:flex-end}.settings button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-edge);background:var(--raised);font-size:13px;cursor:pointer}
+.hook{font-size:14px;color:var(--ink-2);margin:4px 0 8px}
+.dbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0 8px}
+.dbar button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-edge);background:var(--raised);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer}
+.dbar .dt.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.dc{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tip{font-size:13px;color:var(--ink-3);margin:0 0 8px}
+.hd{border-radius:6px;transition:background .15s}
+.hd.hid{color:transparent;background:rgb(118 118 128 / .32);cursor:pointer;user-select:none;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:1px 3px}
+.hd.hid *{color:transparent}
+.hd.live{cursor:pointer}
+.hd.miss{outline:2px solid #E8461A;outline-offset:1px}
+[hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -91,18 +103,20 @@ details p{margin:6px 0 0;font-size:15px}
 <div class="bt2 low"><span>Atomic theories</span><span class="num">0/4</span><i style="--w:3%"></i></div>
 </div>
 <ol class="fix"><li><b>Atomic theories:</b> learn the five models table. Pure memorizing, 4 points.</li><li><b>Explain answers:</b> learn the four model answers below, 3 points.</li><li><b>Cr and Cu</b> are exceptions, and <b>ions lose 4s first</b>, 2 points.</li><li><b>Average atomic mass:</b> percent as a decimal times mass, then add, 1 point.</li><li><b>Rule names:</b> Aufbau builds, Pauli pairs, Hund spreads, 1 point.</li></ol></section>
-<section class="card"><h2>Friday night (optional, 30 min)</h2><div class="sts"><label class="st"><input type="checkbox" data-id="f1"><span class="tx">Learn the five models table below until you can write it from memory</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="f2"><span class="tx">Dalton loop: read and flashcards</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label></div></section>
-<section class="card"><h2>Saturday, 2:00 to 4:00</h2><div class="sts"><label class="st"><input type="checkbox" data-id="s1"><span class="tx">Early atomic theory and Dalton: full loop</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label><label class="st"><input type="checkbox" data-id="s2"><span class="tx">Thomson, Rutherford and the gold foil: full loop. Say both observations and both conclusions out loud</span> <a class="go" href="../unit-2/?s=goldfoil">Open</a></label><label class="st"><input type="checkbox" data-id="s3"><span class="tx">Bohr model: read and flashcards only</span> <a class="go" href="../unit-2/?s=bohr">Open</a></label><label class="st"><input type="checkbox" data-id="s4"><span class="tx">Quantum mechanical model: read and flashcards only</span> <a class="go" href="../unit-2/?s=qmmodel">Open</a></label><label class="st"><input type="checkbox" data-id="s5"><span class="tx">Write the five models table from memory on paper, check it, fix misses</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="s6"><span class="tx">Isotopes and average atomic mass: full loop</span> <a class="go" href="../unit-2/?s=isotopes">Open</a></label><label class="st"><input type="checkbox" data-id="s7"><span class="tx">Do the 4 average atomic mass problems below with the calculator</span> <a class="go" href="#mass">Open</a></label></div></section>
-<section class="card"><h2>Sunday</h2><div class="sts"><label class="st"><input type="checkbox" data-id="u1"><span class="tx">11:30 Electron configurations and Aufbau: full loop</span> <a class="go" href="../unit-2/?s=econfig">Open</a></label><label class="st"><input type="checkbox" data-id="u2"><span class="tx">11:30 Noble gas notation, exceptions and ions: full loop</span> <a class="go" href="../unit-2/?s=noblegas">Open</a></label><label class="st"><input type="checkbox" data-id="u3"><span class="tx">Do the 8 configuration drills below on paper</span> <a class="go" href="#drills">Open</a></label><label class="st"><input type="checkbox" data-id="u4"><span class="tx">1:30 Orbital diagrams, Pauli and Hund: full loop</span> <a class="go" href="../unit-2/?s=orbdiag">Open</a></label><label class="st"><input type="checkbox" data-id="u5"><span class="tx">Write the 4 explain answers below from memory, then compare</span> <a class="go" href="#explain">Open</a></label><label class="st"><input type="checkbox" data-id="u6"><span class="tx">4:00 Mock test B, timed, no notes. Mark your written answers, then send Claude the results</span> <a class="go" href="../mock-test-2/">Open</a></label><label class="st"><input type="checkbox" data-id="u7"><span class="tx">4:45 Redo every miss from mock test B until you get it right</span> <a class="go" href="../mock-test-2/">Open</a></label></div></section>
+<section class="card"><h2>Friday night (optional, 30 min)</h2><div class="sts"><label class="st"><input type="checkbox" data-id="f1"><span class="tx">Five models: tap Test me, loop Redo misses until zero</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="f2"><span class="tx">Dalton loop: read and flashcards</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label></div></section>
+<section class="card"><h2>Saturday, 2:00 to 4:00</h2><div class="sts"><label class="st"><input type="checkbox" data-id="s1"><span class="tx">Early atomic theory and Dalton: full loop</span> <a class="go" href="../unit-2/?s=dalton">Open</a></label><label class="st"><input type="checkbox" data-id="s2"><span class="tx">Thomson, Rutherford and the gold foil: full loop. Say both observations and both conclusions out loud</span> <a class="go" href="../unit-2/?s=goldfoil">Open</a></label><label class="st"><input type="checkbox" data-id="s3"><span class="tx">Bohr model: read and flashcards only</span> <a class="go" href="../unit-2/?s=bohr">Open</a></label><label class="st"><input type="checkbox" data-id="s4"><span class="tx">Quantum mechanical model: read and flashcards only</span> <a class="go" href="../unit-2/?s=qmmodel">Open</a></label><label class="st"><input type="checkbox" data-id="s5"><span class="tx">Five models again: Test me until zero misses</span> <a class="go" href="#models">Open</a></label><label class="st"><input type="checkbox" data-id="s6"><span class="tx">Isotopes and average atomic mass: full loop</span> <a class="go" href="../unit-2/?s=isotopes">Open</a></label><label class="st"><input type="checkbox" data-id="s7"><span class="tx">4 average atomic mass problems, tap to check each</span> <a class="go" href="#mass">Open</a></label></div></section>
+<section class="card"><h2>Sunday</h2><div class="sts"><label class="st"><input type="checkbox" data-id="u1"><span class="tx">11:30 Electron configurations and Aufbau: full loop</span> <a class="go" href="../unit-2/?s=econfig">Open</a></label><label class="st"><input type="checkbox" data-id="u2"><span class="tx">11:30 Noble gas notation, exceptions and ions: full loop</span> <a class="go" href="../unit-2/?s=noblegas">Open</a></label><label class="st"><input type="checkbox" data-id="u3"><span class="tx">8 configuration drills on paper, tap to check each</span> <a class="go" href="#drills">Open</a></label><label class="st"><input type="checkbox" data-id="u4"><span class="tx">1:30 Orbital diagrams, Pauli and Hund: full loop</span> <a class="go" href="../unit-2/?s=orbdiag">Open</a></label><label class="st"><input type="checkbox" data-id="u5"><span class="tx">4 explain answers: Test me until zero misses</span> <a class="go" href="#explain">Open</a></label><label class="st"><input type="checkbox" data-id="u6"><span class="tx">4:00 Mock test B, timed, no notes. Mark your written answers, then send Claude the results</span> <a class="go" href="../mock-test-2/">Open</a></label><label class="st"><input type="checkbox" data-id="u7"><span class="tx">4:45 Redo every miss from mock test B until you get it right</span> <a class="go" href="../mock-test-2/">Open</a></label></div></section>
 <section class="card"><h2>Monday morning</h2><div class="sts"><label class="st"><input type="checkbox" data-id="m1"><span class="tx">8:45 Memory jog</span> <a class="go" href="../unit-2/?s=jog">Open</a></label><label class="st"><input type="checkbox" data-id="m2"><span class="tx">Reread the must know section on this page once</span> <a class="go" href="#must">Open</a></label></div></section>
 <section class="card" id="must"><h2>Must know cold</h2>
 <h3 id="models">The five models (Dogs Trust Really Big Squirrels)</h3>
+<p class="hook">Picture it: Dalton a billiard ball, Thomson a chocolate chip cookie, Rutherford bullets through tissue paper, Bohr planets on rings, Schrödinger a spinning fan blur.</p>
+<div class="dbar" data-g="models"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="models" hidden>Say or write the answer first, then tap the grey box to check. Wrong? Tap it again to mark it. Then hit Redo misses until none are left.</p>
 <div class="tw"><table><tr><th>Scientist</th><th>Year</th><th>Model</th><th>Key idea</th></tr>
-<tr><td>Dalton</td><td>1803</td><td>Solid sphere</td><td>Atoms are tiny solid balls that can't be divided</td></tr>
-<tr><td>Thomson</td><td>1904 (electron 1897)</td><td>Plum pudding</td><td>Negative electrons scattered in a positive sphere</td></tr>
-<tr><td>Rutherford</td><td>1911</td><td>Nuclear</td><td>Gold foil: most went straight through, so mostly empty space. A few bounced back, so a tiny, dense, positive nucleus</td></tr>
-<tr><td>Bohr</td><td>1913</td><td>Planetary</td><td>Electrons in fixed energy levels</td></tr>
-<tr><td>Schrödinger</td><td>1926</td><td>Quantum (electron cloud)</td><td>No fixed paths, only regions where electrons are likely to be (orbitals)</td></tr></table></div>
+<tr><td><b>Dalton</b></td><td><span class="hd" data-g="models">1803</span></td><td><span class="hd" data-g="models">Solid sphere</span></td><td><span class="hd" data-g="models">Atoms are tiny solid balls that can't be divided</span></td></tr>
+<tr><td><b>Thomson</b></td><td><span class="hd" data-g="models">1904 (electron 1897)</span></td><td><span class="hd" data-g="models">Plum pudding</span></td><td><span class="hd" data-g="models">Negative electrons scattered in a positive sphere</span></td></tr>
+<tr><td><b>Rutherford</b></td><td><span class="hd" data-g="models">1911</span></td><td><span class="hd" data-g="models">Nuclear</span></td><td><span class="hd" data-g="models">Gold foil: most went straight through, so mostly empty space. A few bounced back, so a tiny, dense, positive nucleus</span></td></tr>
+<tr><td><b>Bohr</b></td><td><span class="hd" data-g="models">1913</span></td><td><span class="hd" data-g="models">Planetary</span></td><td><span class="hd" data-g="models">Electrons in fixed energy levels</span></td></tr>
+<tr><td><b>Schrödinger</b></td><td><span class="hd" data-g="models">1926</span></td><td><span class="hd" data-g="models">Quantum (electron cloud)</span></td><td><span class="hd" data-g="models">No fixed paths, only regions where electrons are likely to be (orbitals)</span></td></tr></table></div>
 <h3>Configurations</h3>
 <ul><li>Filling order: 1s 2s 2p 3s 3p <b>4s 3d</b> 4p 5s 4d 5p</li><li>s holds 2, p holds 6, d holds 10. Add the superscripts: they must equal the electron count.</li>
 <li><b>Exceptions:</b> Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰ (a half full or full d is more stable)</li>
@@ -112,17 +126,18 @@ details p{margin:6px 0 0;font-size:15px}
 <ul><li>Protons = atomic number. Neutrons = mass number − atomic number. Electrons = protons − charge.</li>
 <li>Average atomic mass = (mass × decimal %) + (mass × decimal %) + …</li></ul>
 <h3 id="explain">The four explain answers</h3>
-<ul><li><b>Isotopes:</b> same number of protons, different numbers of <b>neutrons</b>, so different masses. Same electrons, so the same chemistry.</li>
-<li><b>Ion electrons (Mg²⁺):</b> protons can't change. A 2+ charge means 2 more protons than electrons, so 12 − 2 = 10 electrons.</li>
-<li><b>4s before 3d:</b> 4s is lower in energy, so it fills first. But 4s is farther from the nucleus, so it loses electrons first when an ion forms.</li>
-<li><b>Cr and Cu exceptions:</b> one 4s electron moves into 3d because a half full (d⁵) or full (d¹⁰) d subshell is more stable.</li></ul></section>
+<div class="dbar" data-g="explain"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="explain" hidden>Say or write the answer first, then tap the grey box to check. Wrong? Tap it again to mark it. Then hit Redo misses until none are left.</p>
+<ul><li><b>Isotopes:</b> <span class="hd" data-g="explain">same number of protons, different numbers of <b>neutrons</b>, so different masses. Same electrons, so the same chemistry.</span></li>
+<li><b>Ion electrons (Mg²⁺):</b> <span class="hd" data-g="explain">protons can't change. A 2+ charge means 2 more protons than electrons, so 12 − 2 = 10 electrons.</span></li>
+<li><b>4s before 3d:</b> <span class="hd" data-g="explain">4s is lower in energy, so it fills first. But 4s is farther from the nucleus, so it loses electrons first when an ion forms.</span></li>
+<li><b>Cr and Cu exceptions:</b> <span class="hd" data-g="explain">one 4s electron moves into 3d because a half full (d⁵) or full (d¹⁰) d subshell is more stable.</span></li></ul></section>
 <section class="card"><h2>Practice</h2>
 <h3 id="mass">Average atomic mass (use the calculator)</h3>
-<ol><li>Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%)</li><li>Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element?</li><li>Copper: 62.930 amu (69.15%), 64.928 amu (30.85%)</li><li>Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%)</li></ol>
-<details><summary>Answers</summary><p>1. 35.45 amu &nbsp; 2. 10.81 amu, boron &nbsp; 3. 63.55 amu &nbsp; 4. 28.09 amu</p></details>
+<div class="dbar" data-g="mass"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="mass" hidden>Work it on paper with the calculator, then tap to check.</p>
+<ol><li>Chlorine: 34.969 amu (75.78%), 36.966 amu (24.22%) <span class="hd" data-g="mass">= 35.45 amu</span></li><li>Element X: 10.013 amu (19.9%), 11.009 amu (80.1%). Which element? <span class="hd" data-g="mass">= 10.81 amu, boron</span></li><li>Copper: 62.930 amu (69.15%), 64.928 amu (30.85%) <span class="hd" data-g="mass">= 63.55 amu</span></li><li>Silicon: 27.977 (92.23%), 28.976 (4.68%), 29.974 (3.09%) <span class="hd" data-g="mass">= 28.09 amu</span></li></ol>
 <h3 id="drills">Configuration drills (noble gas notation)</h3>
-<ol><li>Cu</li><li>Cr</li><li>Ni</li><li>Zn²⁺</li><li>Mn²⁺</li><li>Fe³⁺</li><li>Co²⁺</li><li>Cl⁻</li></ol>
-<details><summary>Answers</summary><p>1. [Ar] 4s¹ 3d¹⁰ &nbsp; 2. [Ar] 4s¹ 3d⁵ &nbsp; 3. [Ar] 4s² 3d⁸ &nbsp; 4. [Ar] 3d¹⁰ &nbsp; 5. [Ar] 3d⁵ &nbsp; 6. [Ar] 3d⁵ &nbsp; 7. [Ar] 3d⁷ &nbsp; 8. [Ar] (same as 1s² 2s² 2p⁶ 3s² 3p⁶)</p></details></section>
+<div class="dbar" data-g="drills"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="drills" hidden>Write it on paper first, then tap to check. For ions, write the neutral atom, then take from 4s.</p>
+<ol><li>Cu <span class="hd" data-g="drills">[Ar] 4s¹ 3d¹⁰</span></li><li>Cr <span class="hd" data-g="drills">[Ar] 4s¹ 3d⁵</span></li><li>Ni <span class="hd" data-g="drills">[Ar] 4s² 3d⁸</span></li><li>Zn²⁺ <span class="hd" data-g="drills">[Ar] 3d¹⁰</span></li><li>Mn²⁺ <span class="hd" data-g="drills">[Ar] 3d⁵</span></li><li>Fe³⁺ <span class="hd" data-g="drills">[Ar] 3d⁵</span></li><li>Co²⁺ <span class="hd" data-g="drills">[Ar] 3d⁷</span></li><li>Cl⁻ <span class="hd" data-g="drills">[Ar]</span></li></ol></section>
 <section class="card"><h2>On the test</h2><ul>
 <li>First thing: write "Dogs Trust Really Big Squirrels" and the filling order in the margin.</li>
 <li>Find every element on the periodic table by atomic number before you write anything.</li>
@@ -139,6 +154,22 @@ details p{margin:6px 0 0;font-size:15px}
   boxes.forEach(function(b){ b.checked=!!d[b.dataset.id]; b.addEventListener('change',function(){ d[b.dataset.id]=b.checked; try{localStorage.setItem(K,JSON.stringify(d))}catch(e){} count(); }); });
   document.getElementById('reset').onclick=function(){ d={}; try{localStorage.setItem(K,'{}')}catch(e){} boxes.forEach(function(b){b.checked=false}); count(); };
   count();
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.dbar').forEach(function(bar){
+    var g=bar.dataset.g, items=[].slice.call(document.querySelectorAll('.hd[data-g="'+g+'"]')), on=false;
+    var dt=bar.querySelector('.dt'), dr=bar.querySelector('.dr'), dc=bar.querySelector('.dc'), tip=document.querySelector('.tip[data-g="'+g+'"]');
+    function upd(){ if(!on){ dc.textContent=''; dr.hidden=true; return; }
+      var left=items.filter(function(e){return e.classList.contains('hid')}).length, miss=items.filter(function(e){return e.classList.contains('miss')}).length;
+      dc.textContent = left ? left+' to check' + (miss? ', '+miss+' missed':'') : (miss ? miss+' missed' : 'All correct');
+      dr.hidden = !(miss && !left); }
+    dt.onclick=function(){ on=!on; dt.classList.toggle('on',on); dt.textContent=on?'Show all':'Test me'; tip.hidden=!on;
+      items.forEach(function(e){ e.classList.remove('miss'); e.classList.toggle('hid',on); e.classList.toggle('live',on); }); upd(); };
+    dr.onclick=function(){ items.forEach(function(e){ if(e.classList.contains('miss')){ e.classList.remove('miss'); e.classList.add('hid'); } }); upd(); };
+    items.forEach(function(e){ e.addEventListener('click',function(){ if(!on) return; if(e.classList.contains('hid')) e.classList.remove('hid'); else e.classList.toggle('miss'); upd(); }); });
+  });
 })();
 </script>
 </body>
