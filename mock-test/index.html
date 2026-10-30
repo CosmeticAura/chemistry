@@ -123,6 +123,18 @@ textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink)
 .el.hit{background:var(--ink);border-color:var(--ink)}.el.hit .z,.el.hit .s,.el.hit .m{color:var(--on-accent)}
 .el.dim{opacity:.28}
 .pthead{flex-wrap:wrap}
+.calcwrap{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:19}
+.calcwrap[hidden]{display:none}
+.calc{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:12px;width:248px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 24px rgb(0 0 0 / .14)}
+.calc .ch{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-3)}
+.calc .ch button{min-height:32px;padding:0 10px;font-size:13px}
+.calc .disp{background:var(--raised);border:1px solid var(--line-inner);border-radius:var(--radius-control);padding:8px 10px;text-align:right;min-height:58px;display:flex;flex-direction:column;justify-content:center}
+.calc .ex{font-size:13px;color:var(--ink-3);word-break:break-all;min-height:16px}
+.calc .rs{font:600 24px var(--font-round);font-variant-numeric:tabular-nums;word-break:break-all}
+.calc .keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.calc .keys button{min-height:44px;padding:0;border-radius:12px;font-size:17px;font-weight:500}
+.calc .keys .op{background:var(--accent-wash)}
+.calc .keys .eq{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .ptwrap[hidden]{display:none}
 .ptcard{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:14px;max-width:100%;display:flex;flex-direction:column;gap:10px}
 .pthead{display:flex;align-items:center;gap:10px}
@@ -172,6 +184,7 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
   <span class="clock" id="clock">40:00</span>
   <button id="startBtn" class="pri" type="button">Start timer</button>
   <button type="button" class="ptbtn" id="ptOpen">Periodic table</button>
+  <button type="button" class="ptbtn" id="calcOpen">Calculator</button>
   <span class="sp"></span>
   <span class="meta" id="answered">0 of 26 answered</span>
 </div></div>
@@ -308,6 +321,50 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
   </section>
   <div class="settings"><label>Appearance <select id="ap"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label></div>
 </main>
+<div class="calcwrap" id="calcPanel" hidden role="dialog" aria-label="Calculator">
+  <div class="calc">
+    <div class="ch"><span>Calculator</span><button type="button" id="calcClose">Close</button></div>
+    <div class="disp"><div class="ex" id="calcEx"></div><div class="rs" id="calcRs" aria-live="polite">0</div></div>
+    <div class="keys" id="calcKeys"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var K = [['C','op'],['(','op'],[')','op'],['÷','op'],['7'],['8'],['9'],['×','op'],['4'],['5'],['6'],['−','op'],['1'],['2'],['3'],['+','op'],['0'],['.'],['⌫','op'],['=','eq']];
+  var keys = document.getElementById('calcKeys'), ex = document.getElementById('calcEx'), rs = document.getElementById('calcRs');
+  var cur = '', justDone = false;
+  function show(){ rs.textContent = cur || '0'; }
+  function evaluate(str){
+    var t = str.replace(/×/g,'*').replace(/÷/g,'/').replace(/−/g,'-'), i = 0;
+    function peek(){ while(t[i] === ' ') i++; return t[i]; }
+    function num(){ var m = t.slice(i).match(/^\d*\.?\d+(e[+-]?\d+)?/i); if(!m) throw 0; i += m[0].length; return parseFloat(m[0]); }
+    function factor(){ var c = peek(); if(c === '-'){ i++; return -factor(); } if(c === '+'){ i++; return factor(); } if(c === '('){ i++; var v = expr(); if(peek() !== ')') throw 0; i++; return v; } return num(); }
+    function term(){ var v = factor(); for(;;){ var c = peek(); if(c === '*'){ i++; v *= factor(); } else if(c === '/'){ i++; v /= factor(); } else if(c === '(' ){ v *= factor(); } else return v; } }
+    function expr(){ var v = term(); for(;;){ var c = peek(); if(c === '+'){ i++; v += term(); } else if(c === '-'){ i++; v -= term(); } else return v; } }
+    var v = expr(); if(i < t.length) throw 0; if(!isFinite(v)) throw 0; return v;
+  }
+  function fmt(v){ var r = Math.round(v * 1e10) / 1e10; return String(r); }
+  function press(k){
+    if(k === 'C'){ cur = ''; ex.textContent = ''; justDone = false; return show(); }
+    if(k === '⌫'){ cur = cur.slice(0,-1); return show(); }
+    if(k === '='){ if(!cur) return; try{ var v = evaluate(cur); ex.textContent = cur + ' ='; cur = fmt(v); justDone = true; }catch(e){ ex.textContent = cur; rs.textContent = 'Error'; return; } return show(); }
+    if(justDone && /[0-9.(]/.test(k)){ cur = ''; ex.textContent = ''; }
+    justDone = false; cur += k; show();
+  }
+  K.forEach(function(k){ var b = document.createElement('button'); b.type = 'button'; b.textContent = k[0]; if(k[1]) b.className = k[1];
+    b.setAttribute('aria-label', {'÷':'divide','×':'times','−':'minus','⌫':'delete','C':'clear'}[k[0]] || k[0]);
+    b.onclick = function(){ press(k[0]); }; keys.appendChild(b); });
+  var panel = document.getElementById('calcPanel');
+  document.getElementById('calcOpen').onclick = function(){ panel.hidden = !panel.hidden; };
+  document.getElementById('calcClose').onclick = function(){ panel.hidden = true; };
+  document.addEventListener('keydown', function(e){
+    if(panel.hidden) return; var tag = (document.activeElement||{}).tagName; if(tag === 'INPUT' || tag === 'TEXTAREA') return;
+    var map = {'*':'×','x':'×','/':'÷','-':'−','+':'+','Enter':'=','=':'=','Backspace':'⌫','Escape':'C','(':'(',')':')','.':'.'};
+    var k = /^[0-9]$/.test(e.key) ? e.key : map[e.key]; if(!k) return; e.preventDefault(); press(k);
+  });
+})();
+</script>
+
 <div class="ptwrap" id="ptPanel" hidden role="dialog" aria-modal="true" aria-label="Periodic table">
   <div class="ptcard">
     <div class="pthead"><b>Periodic table</b><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span><span class="sp"></span><button type="button" id="ptClose">Close</button></div>
