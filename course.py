@@ -7,7 +7,8 @@ from quiz2 import QUIZ
 MOCK = {"id": "mock2", "title": "Mock test (timed, grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
   {"p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type the final answers, then press Grade my test and send the results to Claude."},
-  {"p": "**[Open the mock test](https://cosmeticaura.github.io/chemistry/mock-test/)**"}]}
+  {"p": "**[Open the mock test](https://cosmeticaura.github.io/chemistry/mock-test/)**"},
+  {"p": "Already took it? **[Mock test B](https://cosmeticaura.github.io/chemistry/mock-test-2/)** has all new questions, same format, for Sunday."}]}
 U2 = [MOCK] + [s for s in U2 if s["id"] != "packet"] + [QUIZ] + [s for s in U2 if s["id"] == "packet"]
 
 COURSE = {
@@ -17,7 +18,9 @@ COURSE = {
  "cumulative": True,
  "img": "img",
  "breakMinutes": 5, "dumpMinutes": 7,
- "extras": [{"eyebrow": "Test Mon, Nov 2", "title": "Unit 2 mock test", "text": "40 minutes, 30 points: theories, atoms and ions, isotopes, configurations and orbital diagrams. Grades itself and copies your results.", "href": "mock-test/"}],
+ "extras": [{"eyebrow": "Test Mon, Nov 2", "title": "Study plan to Monday", "text": "Your day by day plan from the diagnostic, with checkboxes and links to each section.", "href": "plan/"},
+  {"eyebrow": "Test Mon, Nov 2", "title": "Unit 2 mock test", "text": "40 minutes, 30 points: theories, atoms and ions, isotopes, configurations and orbital diagrams. Grades itself and copies your results.", "href": "mock-test/"},
+  {"eyebrow": "Sunday, new questions", "title": "Mock test B (Sunday)", "text": "Same format, all new questions, weighted to the weak spots: theories, average atomic mass, Cu, ions and the explain questions.", "href": "mock-test-2/"}],
  "units": [
   {"label": "Unit 1", "name": "Matter and measurement", "title": "Chemistry unit 1",
    "chip": "Test was Friday, Oct 16",
