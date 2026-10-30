@@ -118,33 +118,48 @@ textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink)
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 .ptbtn{min-height:36px;padding:0 14px;font-size:13px}
-.ptwrap{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 16px max(12px,env(safe-area-inset-left,0px));overflow:auto}
+
 .ptsearch{font-size:15px;min-height:36px;padding:6px 12px;border:1px solid var(--line-edge);border-radius:var(--radius-control);background:var(--raised);width:220px;max-width:100%}
 .el.hit{background:var(--ink);border-color:var(--ink)}.el.hit .z,.el.hit .s,.el.hit .m{color:var(--on-accent)}
 .el.dim{opacity:.28}
 .pthead{flex-wrap:wrap}
-.calcwrap{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:19}
+
 .calcwrap[hidden]{display:none}
-.calc{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:12px;width:248px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 24px rgb(0 0 0 / .14)}
+.calc{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:12px;width:calc(var(--ck)*5.6);max-width:100%;display:flex;flex-direction:column;gap:8px}
 .calc .ch{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-3)}
 .calc .ch button{min-height:32px;padding:0 10px;font-size:13px}
 .calc .disp{background:var(--raised);border:1px solid var(--line-inner);border-radius:var(--radius-control);padding:8px 10px;text-align:right;min-height:58px;display:flex;flex-direction:column;justify-content:center}
 .calc .ex{font-size:13px;color:var(--ink-3);word-break:break-all;min-height:16px}
-.calc .rs{font:600 24px var(--font-round);font-variant-numeric:tabular-nums;word-break:break-all}
+.calc .rs{font:600 calc(var(--ck)*.55) var(--font-round);font-variant-numeric:tabular-nums;word-break:break-all}
 .calc .keys{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.calc .keys button{min-height:44px;padding:0;border-radius:12px;font-size:17px;font-weight:500}
+.calc .keys button{min-height:var(--ck);padding:0;border-radius:12px;font-size:calc(var(--ck)*.4);font-weight:500}
 .calc .keys .op{background:var(--accent-wash)}
 .calc .keys .eq{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.ptwrap[hidden]{display:none}
+
+:root{--cell:34px;--ck:44px;--dockw:min(660px,46vw)}
+.dock{position:fixed;top:calc(env(safe-area-inset-top,0px) + 64px);right:max(12px,env(safe-area-inset-right,0px));bottom:12px;width:var(--dockw);z-index:6;display:flex;flex-direction:column;gap:10px;overflow:auto;pointer-events:none}
+.dock > *{pointer-events:auto}
+.dock[hidden],.dock .ptwrap[hidden],.dock .calcwrap[hidden]{display:none}
+.calcwrap{align-self:flex-end;max-width:100%}
+.zoom{display:inline-flex;gap:4px}
+.zoom button{min-height:32px;min-width:36px;padding:0 8px;font-size:15px}
+body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
+@media (max-width:900px){
+  :root{--dockw:auto}
+  .dock{top:auto;left:max(8px,env(safe-area-inset-left,0px));right:max(8px,env(safe-area-inset-right,0px));bottom:max(8px,env(safe-area-inset-bottom,0px));max-height:52vh;width:auto}
+  body.docked .wrap{margin-right:auto;padding-bottom:54vh}
+  .calcwrap{align-self:stretch}.calc{width:auto}
+}
+
 .ptcard{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:14px;max-width:100%;display:flex;flex-direction:column;gap:10px}
 .pthead{display:flex;align-items:center;gap:10px}
 .pthead b{font-size:15px}.pthead .sp{flex:1}
 .ptinfo{font-size:13px;color:var(--ink-2);min-height:18px}
 .ptscroll{overflow-x:auto;max-width:100%}
-.ptgrid{display:grid;grid-template-columns:repeat(18,46px);grid-template-rows:repeat(7,52px) 10px repeat(2,52px);gap:3px;width:max-content}
+.ptgrid{display:grid;grid-template-columns:repeat(18,var(--cell));grid-template-rows:repeat(7,calc(var(--cell)*1.13)) 8px repeat(2,calc(var(--cell)*1.13));gap:2px;width:max-content}
 .el{border:1px solid var(--line-inner);border-radius:6px;background:var(--raised);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;cursor:pointer;padding:0;min-height:0;font-weight:400}
 .el:hover,.el.sel{border-color:var(--ink)}
-.el .z{font-size:9px;color:var(--ink-3)}.el .s{font-size:15px;font-weight:600}.el .m{font-size:8.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.el .z{font-size:calc(var(--cell)*.2);color:var(--ink-3)}.el .s{font-size:calc(var(--cell)*.34);font-weight:600}.el .m{font-size:calc(var(--cell)*.19);color:var(--ink-3);font-variant-numeric:tabular-nums}
 .ptgap{grid-column:1/-1;height:6px}
 .ptnote{font-size:12px;color:var(--ink-3)}
 </style>
@@ -295,8 +310,13 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
   </section>
   <section class="card">
     <div class="confirm">
-      <button class="pri" type="submit" id="gradeBtn">Grade my test</button>
+      <button class="pri" type="button" id="gradeBtn">Done, grade my test</button>
       <span class="small">You can grade with blanks. Blanks count as wrong.</span>
+    </div>
+    <div class="confirm" id="gradeConfirm" hidden>
+      <span class="small">Grade now? The answers will show and the timer stops.</span>
+      <button class="pri" type="button" id="gradeYes">Grade it</button>
+      <button type="button" id="gradeNo">Keep working</button>
     </div>
   </section>
   </div>
@@ -323,7 +343,7 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
 </main>
 <div class="calcwrap" id="calcPanel" hidden role="dialog" aria-label="Calculator">
   <div class="calc">
-    <div class="ch"><span>Calculator</span><button type="button" id="calcClose">Close</button></div>
+    <div class="ch"><span>Calculator</span><span class="zoom"><button type="button" id="ckZo" aria-label="Zoom out">−</button><button type="button" id="ckZi" aria-label="Zoom in">+</button><button type="button" id="calcClose">Close</button></span></div>
     <div class="disp"><div class="ex" id="calcEx"></div><div class="rs" id="calcRs" aria-live="polite">0</div></div>
     <div class="keys" id="calcKeys"></div>
   </div>
@@ -365,9 +385,10 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
 })();
 </script>
 
-<div class="ptwrap" id="ptPanel" hidden role="dialog" aria-modal="true" aria-label="Periodic table">
+<div class="ptwrap" id="ptPanel" hidden role="dialog" aria-label="Periodic table">
   <div class="ptcard">
-    <div class="pthead"><b>Periodic table</b><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span><span class="sp"></span><button type="button" id="ptClose">Close</button></div>
+    <div class="pthead"><b>Periodic table</b><span class="sp"></span><span class="zoom"><button type="button" id="ptZo" aria-label="Zoom out">−</button><button type="button" id="ptZi" aria-label="Zoom in">+</button></span><button type="button" id="ptClose">Close</button></div>
+    <div class="pthead"><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span></div>
     <div class="ptscroll"><div class="ptgrid" id="ptGrid"></div></div>
     <div class="ptnote">Atomic number on top, average atomic mass below. Masses in parentheses are the most stable isotope.</div>
   </div>
@@ -412,9 +433,8 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
     cells[hits[0]].scrollIntoView({block:'nearest', inline:'center'});
   });
   var panel = document.getElementById('ptPanel');
-  document.getElementById('ptOpen').onclick = function(){ panel.hidden = false; search.focus(); search.select(); };
+  document.getElementById('ptOpen').onclick = function(){ panel.hidden = !panel.hidden; if(!panel.hidden){ search.focus(); search.select(); } };
   document.getElementById('ptClose').onclick = function(){ panel.hidden = true; document.getElementById('ptOpen').focus(); };
-  panel.addEventListener('click', function(e){ if(e.target === panel) panel.hidden = true; });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !panel.hidden){ panel.hidden = true; } });
 })();
 </script>
@@ -608,7 +628,16 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
     lines.push(''); lines.push('Written answers:'); lines = lines.concat(selfs);
     document.getElementById('resultText').value = lines.join('\n');
   }
-  form.addEventListener('submit', function(e){ e.preventDefault(); grade(true); });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+  form.addEventListener('keydown', function(e){ if(e.key === 'Enter' && e.target.tagName === 'INPUT') e.preventDefault(); });
+  document.getElementById('gradeBtn').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = false; document.getElementById('gradeYes').focus(); });
+  document.getElementById('gradeNo').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = true; });
+  document.getElementById('gradeYes').addEventListener('click', function(){ document.getElementById('gradeConfirm').hidden = true; grade(true); });
+  if(state.graded && !state.ug1){
+    state.graded = false;
+    if(state.start && state.stop){ state.start = Date.now() - (state.stop - state.start); state.stop = null; startBtn.textContent = 'Running'; run(); }
+    state.ug1 = true; save(state);
+  }
   if(state.graded) grade(false);
 
   document.getElementById('copyBtn').addEventListener('click', function(){
@@ -628,5 +657,24 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
 })();
 </script>
 
+<script>
+(function(){
+  var dock = document.createElement('div'); dock.className = 'dock'; dock.id = 'dock'; dock.hidden = true; document.body.appendChild(dock);
+  var pt = document.getElementById('ptPanel'), ck = document.getElementById('calcPanel');
+  dock.appendChild(pt); dock.appendChild(ck);
+  function sync(){ var open = !pt.hidden || !ck.hidden; dock.hidden = !open; document.body.classList.toggle('docked', open); }
+  new MutationObserver(sync).observe(pt, {attributes:true, attributeFilter:['hidden']});
+  new MutationObserver(sync).observe(ck, {attributes:true, attributeFilter:['hidden']});
+  function ld(k,d){ try{ var v = parseFloat(localStorage.getItem(k)); return isFinite(v) ? v : d; }catch(e){ return d; } }
+  function st(k,v){ try{ localStorage.setItem(k, v); }catch(e){} }
+  var cell = ld('chemmock:cell', 34), keyh = ld('chemmock:ck', 44);
+  function apply(){ document.documentElement.style.setProperty('--cell', cell + 'px'); document.documentElement.style.setProperty('--ck', keyh + 'px'); }
+  apply();
+  document.getElementById('ptZi').onclick = function(){ cell = Math.min(64, cell + 4); st('chemmock:cell', cell); apply(); };
+  document.getElementById('ptZo').onclick = function(){ cell = Math.max(26, cell - 4); st('chemmock:cell', cell); apply(); };
+  document.getElementById('ckZi').onclick = function(){ keyh = Math.min(64, keyh + 6); st('chemmock:ck', keyh); apply(); };
+  document.getElementById('ckZo').onclick = function(){ keyh = Math.max(32, keyh - 6); st('chemmock:ck', keyh); apply(); };
+})();
+</script>
 </body>
 </html>
