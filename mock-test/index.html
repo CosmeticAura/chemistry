@@ -119,6 +119,10 @@ textarea{width:100%;min-height:180px;font:13px/1.45 var(--mono);color:var(--ink)
 
 .ptbtn{min-height:36px;padding:0 14px;font-size:13px}
 .ptwrap{position:fixed;inset:0;z-index:20;background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 16px max(12px,env(safe-area-inset-left,0px));overflow:auto}
+.ptsearch{font-size:15px;min-height:36px;padding:6px 12px;border:1px solid var(--line-edge);border-radius:var(--radius-control);background:var(--raised);width:220px;max-width:100%}
+.el.hit{background:var(--ink);border-color:var(--ink)}.el.hit .z,.el.hit .s,.el.hit .m{color:var(--on-accent)}
+.el.dim{opacity:.28}
+.pthead{flex-wrap:wrap}
 .ptwrap[hidden]{display:none}
 .ptcard{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:14px;max-width:100%;display:flex;flex-direction:column;gap:10px}
 .pthead{display:flex;align-items:center;gap:10px}
@@ -306,7 +310,7 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
 </main>
 <div class="ptwrap" id="ptPanel" hidden role="dialog" aria-modal="true" aria-label="Periodic table">
   <div class="ptcard">
-    <div class="pthead"><b>Periodic table</b><span class="ptinfo" id="ptInfo">Tap an element for its name.</span><span class="sp"></span><button type="button" id="ptClose">Close</button></div>
+    <div class="pthead"><b>Periodic table</b><input type="search" id="ptSearch" class="ptsearch" placeholder="Search name, symbol or number" aria-label="Search the periodic table" autocomplete="off"><span class="ptinfo" id="ptInfo">Tap an element for its name.</span><span class="sp"></span><button type="button" id="ptClose">Close</button></div>
     <div class="ptscroll"><div class="ptgrid" id="ptGrid"></div></div>
     <div class="ptnote">Atomic number on top, average atomic mass below. Masses in parentheses are the most stable isotope.</div>
   </div>
@@ -332,8 +336,26 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
     g.appendChild(b);
   });
   var gap = document.createElement('div'); gap.style.gridRow = 8; gap.style.gridColumn = '1 / -1'; gap.style.height = '6px'; g.appendChild(gap);
+  var cells = Array.prototype.slice.call(g.querySelectorAll('.el'));
+  var search = document.getElementById('ptSearch');
+  function norm(t){ return String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').trim(); }
+  search.addEventListener('input', function(){
+    var q = norm(search.value), hits = [];
+    var exact = q && E.some(function(e){ return String(e[0]) === q || norm(e[1]) === q; });
+    cells.forEach(function(c, i){
+      var e = E[i], ok = false;
+      if(q){ ok = String(e[0]) === q || norm(e[1]) === q || (!exact && (norm(e[2]).indexOf(q) === 0 || (q.length > 2 && norm(e[2]).indexOf(q) >= 0))); }
+      c.classList.toggle('hit', ok); c.classList.toggle('dim', !!q && !ok);
+      if(ok) hits.push(i);
+    });
+    if(!q){ info.textContent = 'Tap an element for its name.'; return; }
+    if(!hits.length){ info.textContent = 'No element matches.'; return; }
+    var e = E[hits[0]];
+    info.textContent = hits.length === 1 ? e[2]+' ('+e[1]+'), atomic number '+e[0]+', mass '+e[3] : hits.length+' matches';
+    cells[hits[0]].scrollIntoView({block:'nearest', inline:'center'});
+  });
   var panel = document.getElementById('ptPanel');
-  document.getElementById('ptOpen').onclick = function(){ panel.hidden = false; document.getElementById('ptClose').focus(); };
+  document.getElementById('ptOpen').onclick = function(){ panel.hidden = false; search.focus(); search.select(); };
   document.getElementById('ptClose').onclick = function(){ panel.hidden = true; document.getElementById('ptOpen').focus(); };
   panel.addEventListener('click', function(e){ if(e.target === panel) panel.hidden = true; });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !panel.hidden){ panel.hidden = true; } });
