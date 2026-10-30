@@ -469,10 +469,10 @@ textarea.ans{min-height:84px;font:16px/1.45 var(--font);max-width:none}
   var NS = 'http://www.w3.org/2000/svg';
   function el(svg, tag, attrs, text){ var n = document.createElementNS(NS, tag); for(var k in attrs) n.setAttribute(k, attrs[k]); if(text != null) n.textContent = text; svg.appendChild(n); return n; }
   (function(){
-    var svg = document.getElementById('bohr'), cx = 120, cy = 120, rings = [2, 8, 7], radii = [42, 70, 100];
+    var svg = document.getElementById('bohr'), cx = 120, cy = 120, rings = [2, 8, 7], radii = [42, 70, 100], RC = ['#2f6fd0', '#7a4fd6', '#1f8a5b'];
     rings.forEach(function(n, i){
-      el(svg,'circle',{cx:cx,cy:cy,r:radii[i],fill:'none',stroke:'var(--line-edge)','stroke-width':1.5});
-      for(var k = 0; k < n; k++){ var a = -Math.PI/2 + k * 2 * Math.PI / n; el(svg,'circle',{cx:cx + radii[i]*Math.cos(a), cy:cy + radii[i]*Math.sin(a), r:5.5, fill:'var(--ink)'}); }
+      el(svg,'circle',{cx:cx,cy:cy,r:radii[i],fill:'none',stroke:RC[i],'stroke-opacity':.35,'stroke-width':1.5});
+      for(var k = 0; k < n; k++){ var a = -Math.PI/2 + k * 2 * Math.PI / n; el(svg,'circle',{cx:cx + radii[i]*Math.cos(a), cy:cy + radii[i]*Math.sin(a), r:6, fill:RC[i], stroke:'var(--surface)', 'stroke-width':1.5}); }
     });
     el(svg,'circle',{cx:cx,cy:cy,r:22,fill:'var(--accent-wash)',stroke:'var(--ink)','stroke-width':1.5});
     el(svg,'text',{x:cx,y:cy+6,'text-anchor':'middle',style:'font-size:17px;font-weight:700'},'?');
