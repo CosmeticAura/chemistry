@@ -25,3 +25,5 @@ unit-2/           atomic structure
 review/           all units combined
 img/              diagrams and lab tool pictures
 ```
+
+- `last-three/` covers average atomic mass, the Cr and Cu exceptions and three facts.
