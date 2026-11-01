@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry unit 1</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
@@ -2401,7 +2401,8 @@ const DECK = {
     "Rate of change = change in y ÷ change in x with units (5 °C per minute example)"
    ]
   }
- ]
+ ],
+ "aliases": {}
 };
 /* DECK_END */
 (function(){
@@ -2773,7 +2774,7 @@ let lastNarrow=matchMedia("(max-width:860px)").matches;
 addEventListener("resize",()=>{const n=matchMedia("(max-width:860px)").matches;if(n!==lastNarrow){lastNarrow=n;renderSide()}});
 document.title=DECK.title;
 render();
-function fromHash(){let h=decodeURIComponent((location.hash||"").slice(1));if(!h){try{h=new URLSearchParams(location.search).get("s")||""}catch(e){}}if(h&&(h==="jog"||secs.some(x=>x.id===h)))go(h)}
+function fromHash(){let h=decodeURIComponent((location.hash||"").slice(1));if(!h){try{h=new URLSearchParams(location.search).get("s")||""}catch(e){}}h=(DECK.aliases||{})[h]||h;if(h&&(h==="jog"||secs.some(x=>x.id===h)))go(h)}
 fromHash();addEventListener("hashchange",fromHash);
 })();
 </script>

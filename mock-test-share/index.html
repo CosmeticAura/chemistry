@@ -554,8 +554,8 @@ body.graded main{padding-bottom:84px}
   var TOTAL = ITEMS.reduce(function(a,it){ return a + it.pts; }, 0);
 
 
-  var STUDY = {dalton:'Early atomic theory and Dalton', goldfoil:'Thomson, Rutherford and the gold foil', nucleus:'The nucleus, atomic number and mass number', ions:'Ions, charges and the size of the atom', isotopes:'Isotopes and average atomic mass', bohr:'Bohr model and energy levels', qmmodel:'Quantum mechanical model and orbitals', econfig:'Electron configurations and the Aufbau principle', orbdiag:"Orbital diagrams, Pauli and Hund's rule", noblegas:'Noble gas notation, exceptions and ions'};
-  var QSTUDY = [['goldfoil'],['goldfoil'],['bohr','qmmodel'],['nucleus','ions'],['ions'],['isotopes'],['econfig'],['noblegas','econfig'],['bohr'],['orbdiag'],['orbdiag'],['isotopes'],['ions'],['econfig','noblegas']];
+  var STUDY = {models:'Atomic models and the gold foil', atoms:'Atoms, ions and isotopes', bohr:'Bohr model and spectra', quantum:'Quantum model and quantum numbers', config:'Electron configurations and orbital diagrams'};
+  var QSTUDY = [['models'],['models'],['bohr','quantum'],['atoms'],['atoms'],['atoms'],['config'],['config'],['bohr'],['config'],['config'],['atoms'],['atoms'],['config']];
   var QS = [];
   ITEMS.forEach(function(it){ var card = document.getElementById(it.id).closest('section.card'); var q = QS.find(function(x){ return x.card === card; }); if(!q){ q = {card:card, items:[], pts:0, L:it.L}; QS.push(q); } q.items.push(it); q.pts += it.pts; });
   QS.forEach(function(q, i){ q.n = i + 1; q.study = QSTUDY[i] || []; });
