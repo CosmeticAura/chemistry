@@ -23,7 +23,7 @@ COURSE = {
  "intro": "Quizzes can be unannounced and run about 1 minute per point.",
  "cumulative": True,
  "img": "img",
- "breakMinutes": 5, "dumpMinutes": 7,
+ "breakMinutes": 2.5, "dumpMinutes": 7,
  "extras": [{"eyebrow": "Test Mon, Nov 2", "title": "Study plan to Monday", "text": "Your day by day plan from the diagnostic, with checkboxes and links to each section.", "href": "plan/"},
   {"eyebrow": "Test Mon, Nov 2", "title": "Unit 2 mock test", "text": "40 minutes, 30 points: theories, atoms and ions, isotopes, configurations and orbital diagrams. Grades itself and copies your results.", "href": "mock-test/"},
   {"eyebrow": "Sunday, new questions", "title": "Mock test B (Sunday)", "text": "Same format, all new questions, weighted to the weak spots: theories, average atomic mass, Cu, ions and the explain questions.", "href": "mock-test-2/"}],
