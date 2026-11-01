@@ -6,11 +6,14 @@ from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
 from plan2 import PLAN_SECTIONS
 from merge2 import merge
+from merge1 import merge as merge1
 MOCK = {"id": "mock2", "title": "Mock test (timed, grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
   {"p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type the final answers, then press Grade my test and send the results to Claude."},
   {"p": "**[Open the mock test](https://cosmeticaura.github.io/chemistry/mock-test/)**"},
   {"p": "Already took it? **[Mock test B](https://cosmeticaura.github.io/chemistry/mock-test-2/)** has all new questions, same format, for Sunday."}]}
+U1, _R1REST, ALIASES1, R1 = merge1(U1, R1)
+U1 = U1 + _R1REST
 GROUPED, REST, ALIASES, R2 = merge(PLAN_SECTIONS + U2, R2)
 U2 = [MOCK] + GROUPED + [s for s in REST if s["id"] != "packet"] + [QUIZ] + [s for s in REST if s["id"] == "packet"]
 
@@ -29,7 +32,7 @@ COURSE = {
    "chip": "Test was Friday, Oct 16",
    "topics": "Classification of matter, properties and changes, states of matter, separation, lab tools, metric system, scientific notation, sig figs, density, accuracy and precision, graphs",
    "source": "From your study guide doc, sections 1 to 11",
-   "sections": U1, "review": R1},
+   "sections": U1, "review": R1, "aliases": ALIASES1},
   {"label": "Unit 2", "name": "Atomic structure", "title": "Chemistry unit 2",
    "chip": "Test Mon, Nov 2",
    "topics": "Dalton's theory, plum pudding, gold foil, the nucleus, ions, isotopes, average atomic mass, Bohr model, ground and excited states, quantum mechanical model, orbitals, quantum numbers, electron configurations, Aufbau, Pauli, Hund's rule, noble gas notation, valence electrons",
