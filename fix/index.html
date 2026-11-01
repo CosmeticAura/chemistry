@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chemistry fix list</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
+<style>
+/* Same look as the studynow study sites: Apple grouped greys, light first, graphite for structure, green only for correct. Appearance is shared with the study sites (System, Light, Dark). */
+:root{
+  color-scheme:light;
+  --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
+  --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
+  --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
+  --accent:#000000; --on-accent:#ffffff;
+  --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
+  --accent-wash:rgb(118 118 128 / .10);
+  --go:#248a3d; --stop:#d70015;
+  --radius-control:10px; --radius-capsule:999px; --radius-group:12px; --radius-surface:16px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter",system-ui,sans-serif;
+  --font-round:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Inter",system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+  --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+  --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+  --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+  --go:#30d158; --stop:#ff453a;
+}
+@media (prefers-color-scheme:dark){
+  :root[data-theme="system"]{
+    color-scheme:dark;
+    --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
+    --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
+    --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
+    --accent:#ffffff; --on-accent:#000000; --accent-wash:rgb(118 118 128 / .24);
+    --go:#30d158; --stop:#ff453a;
+  }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:17px/1.47 var(--font);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button,select,input{font:inherit;color:inherit;accent-color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent-focus);outline-offset:2px}
+h1{margin:0;font-size:26px;line-height:1.2;text-wrap:balance;font-weight:600}
+h2{margin:0;font-size:17px;font-weight:600}h3{margin:6px 0 0;font-size:15px;font-weight:600}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-inner)}
+.bar .in{max-width:760px;margin:0 auto;min-height:56px;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;align-items:center;gap:12px}
+.bar .home{color:var(--ink-2);font-size:13px;text-decoration:none;padding:4px 8px 4px 0;border-right:1px solid var(--line-inner)}
+.bar .bt{font-size:15px;font-weight:600}.bar .sp{flex:1}.bar .meta{color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
+.wrap{max-width:760px;margin:0 auto;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+.lede{color:var(--ink-3);margin:6px 0 0;font-size:15px}
+.card{background:var(--surface);border:1px solid var(--line-edge);border-radius:var(--radius-surface);padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card ul,.card ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.bars{display:grid;gap:10px}
+.bt2{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:15px}
+.bt2 i{grid-column:1/-1;height:4px;border-radius:2px;background:linear-gradient(var(--ink),var(--ink)) 0/var(--w) 100% no-repeat,var(--line-edge)}
+.bt2.low span:first-child{font-weight:600}.num{font:600 15px var(--font-round);font-variant-numeric:tabular-nums}
+.fix{color:var(--ink-2)}
+.sts{display:grid}
+.st{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line-inner);cursor:pointer;min-height:44px;font-size:15px}
+.st:first-child{border-top:0}
+.st input{width:22px;height:22px;margin:0}
+.st input:checked + .tx{color:var(--ink-3);text-decoration:line-through}
+.go{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border:1px solid var(--line-edge);border-radius:999px;padding:5px 12px}
+[id]{scroll-margin-top:72px}
+:target{animation:flash 1.6s ease-out 1}@keyframes flash{0%,40%{background:var(--accent-wash)}100%{background:transparent}}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--line-inner)}th{color:var(--ink-2);font-weight:600;font-size:13px}
+details summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--ink-2);min-height:32px}
+details p{margin:6px 0 0;font-size:15px}
+.settings{display:flex;justify-content:flex-end}.settings button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-edge);background:var(--raised);font-size:13px;cursor:pointer}
+.hook{font-size:14px;color:var(--ink-2);margin:4px 0 8px}
+.dbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0 8px}
+.dbar button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-edge);background:var(--raised);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer}
+.dbar .dt.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.dc{font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tip{font-size:13px;color:var(--ink-3);margin:0 0 8px}
+.hd{border-radius:6px;transition:background .15s}
+.hd.hid{color:transparent;background:rgb(118 118 128 / .32);cursor:pointer;user-select:none;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:1px 3px}
+.hd.hid *{color:transparent}
+.hd.live{cursor:pointer}
+.hd.miss{outline:2px solid #E8461A;outline-offset:1px}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>.tag{font-size:12px;font-weight:500;color:var(--ink-3);margin-left:6px}.key{border-left:2px solid var(--ink);padding:8px 12px;background:var(--accent-wash);border-radius:0 6px 6px 0;font-size:15px}.card ol{display:grid;gap:8px;padding-left:22px}.card ol li{font-size:15px}.card > p{font-size:15px;margin:8px 0}</style>
+</head>
+<body>
+<div class="bar"><div class="in"><a class="home" href="../">&lsaquo; Chemistry</a><span class="bt">Fix list</span><span class="sp"></span><span class="meta" id="count">0 done</span></div></div>
+<main class="wrap">
+<header><h1>Your fix list for Monday</h1><p class="lede">Built from mock test B (19.5 of 30). Atoms, ions and the models are solid now. Every point you're still losing is one of the six fixes below. About 25 minutes: read the idea, then press Test me and work each one on paper until you get zero misses.</p></header>
+
+<section class="card" id="f2"><h2>1. The periodic table is the filling order <span class="tag">about 4 points, 8 min</span></h2>
+<p>Read the table left to right, row by row. The two left columns are the s block (holds 2), the six right columns are the p block (holds 6), the middle is the d block (holds 10). The d block is always one number lower than its row.</p>
+<p class="key">1s 2s <b>2p</b> 3s <b>3p</b> 4s <b>3d</b> 4p. s is never more than 2, so it's never 2s⁶. After 3s comes 3p, never 4p. Add the superscripts at the end: they must equal the atomic number.</p>
+<div class="dbar" data-g="order"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="order" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
+<ol><li>Si (14) <span class="hd" data-g="order">1s² 2s² 2p⁶ 3s² 3p²</span></li><li>Mn (25) <span class="hd" data-g="order">1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵ (2+2+6+2+6+2 = 20, then 5)</span></li><li>Ca (20), noble gas form <span class="hd" data-g="order">[Ar] 4s²</span></li><li>Fe (26), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d⁶</span></li><li>Zn (30), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d¹⁰</span></li><li>Br (35), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d¹⁰ 4p⁵</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x1"><span class="tx">Zero misses on all six</span></label></section>
+
+<section class="card" id="f4"><h2>2. 4s fills first and leaves first <span class="tag">about 4 points, 6 min</span></h2>
+<p>4s is lower in energy, so it fills before 3d. But 4s is the outer shell (n = 4 is farther out than n = 3), and atoms always lose their outermost electrons first. So a positive ion loses 4s before 3d. Write the neutral atom, then take from 4s.</p>
+<p class="key">Q14 answer to memorize: "4s fills before 3d because 4s is lower in energy. But 4s is farther from the nucleus, so when an ion forms, its electrons are removed first."</p>
+<div class="dbar" data-g="ions"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="ions" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
+<ol><li>Co²⁺ (Co is [Ar] 4s² 3d⁷) <span class="hd" data-g="ions">[Ar] 3d⁷</span></li><li>Fe²⁺ <span class="hd" data-g="ions">[Ar] 3d⁶</span></li><li>Fe³⁺ <span class="hd" data-g="ions">[Ar] 3d⁵</span></li><li>Mn²⁺ <span class="hd" data-g="ions">[Ar] 3d⁵</span></li><li>Zn²⁺ <span class="hd" data-g="ions">[Ar] 3d¹⁰</span></li><li>Cl⁻ <span class="hd" data-g="ions">[Ar] (gains 1 into 3p)</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x2"><span class="tx">Zero misses, and I can write the Q14 answer from memory</span></label></section>
+
+<section class="card" id="f3"><h2>3. Cr and Cu are exceptions <span class="tag">about 3 points, 3 min</span></h2>
+<p>A d subshell is more stable exactly half full (d⁵) or completely full (d¹⁰), so one 4s electron moves into 3d. It only happens to Cr and Cu.</p>
+<p class="key">Q15 answer to memorize: "Copper is [Ar] 4s¹ 3d¹⁰ instead of 4s² 3d⁹ because one 4s electron moves into 3d. A completely full d subshell is more stable."</p>
+<div class="dbar" data-g="exc"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="exc" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
+<ol><li>Cu <span class="hd" data-g="exc">[Ar] 4s¹ 3d¹⁰</span></li><li>Cr <span class="hd" data-g="exc">[Ar] 4s¹ 3d⁵</span></li><li>Why? <span class="hd" data-g="exc">A half full (d⁵) or full (d¹⁰) d subshell is more stable</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x3"><span class="tx">I can write the Q15 answer from memory</span></label></section>
+
+<section class="card" id="f1"><h2>4. Average atomic mass <span class="tag">2 points, 5 min</span></h2>
+<p>It's a weighted average: the common isotope counts more. Turn each percent into a decimal, multiply by its mass, add. The answer lands between the masses, closest to the most common one.</p>
+<p class="key">Cl: (34.969 × 0.7578) + (36.966 × 0.2422) = 26.50 + 8.95 = 35.45 amu</p>
+<div class="dbar" data-g="mass"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="mass" hidden>Use a calculator. Answer first, then tap to check.</p>
+<ol><li>X: 10.013 (19.9%), 11.009 (80.1%). Which element? <span class="hd" data-g="mass">10.81 amu, boron</span></li><li>Cu: 62.930 (69.15%), 64.928 (30.85%) <span class="hd" data-g="mass">63.55 amu</span></li><li>X: 39.96 (92.0%), 41.96 (5.0%), 42.96 (3.0%) <span class="hd" data-g="mass">40.15 amu</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x4"><span class="tx">All three right with the calculator</span></label></section>
+
+<section class="card" id="f5"><h2>5. Name the rule <span class="tag">2 points, 2 min</span></h2>
+<p>You already describe the mistakes right. Just say the name: Aufbau builds, Pauli pairs, Hund spreads.</p>
+<div class="dbar" data-g="rules"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="rules" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
+<ol><li>Skips a sublevel or fills out of order <span class="hd" data-g="rules">Aufbau</span></li><li>Pairs up before every box has one arrow <span class="hd" data-g="rules">Hund</span></li><li>Three arrows in one box, or two arrows pointing the same way <span class="hd" data-g="rules">Pauli</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x5"><span class="tx">All three, no hesitation</span></label></section>
+
+<section class="card" id="f6"><h2>6. Three small facts <span class="tag">about 1.5 points, 1 min</span></h2>
+<div class="dbar" data-g="facts"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="facts" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
+<ol><li>Year Thomson found the electron, and the plum pudding model <span class="hd" data-g="facts">1897. Negative electrons scattered in a positive sphere</span></li><li>Charge of an alpha particle, and why some bounced back <span class="hd" data-g="facts">Positive. They were repelled by the small, dense, positive nucleus</span></li><li>Year of the Bohr model <span class="hd" data-g="facts">1913</span></li></ol>
+<label class="st"><input type="checkbox" data-id="x6"><span class="tx">All three</span></label></section>
+
+<section class="card"><h2>When all six are checked</h2><p>Stop chem for today and switch to gov. Tomorrow at lunch, run the memory jog once: <a href="../unit-2/?s=jog">memory jog</a>.</p></section>
+<div class="settings"><button type="button" id="reset">Uncheck all</button></div>
+</main>
+<script>
+(function(){
+  var K='chem-fix-v1', d={}; try{ d=JSON.parse(localStorage.getItem(K))||{}; }catch(e){}
+  var boxes=[].slice.call(document.querySelectorAll('.st input'));
+  function count(){ document.getElementById('count').textContent = boxes.filter(function(b){return b.checked}).length + ' of ' + boxes.length + ' done'; }
+  boxes.forEach(function(b){ b.checked=!!d[b.dataset.id]; b.addEventListener('change',function(){ d[b.dataset.id]=b.checked; try{localStorage.setItem(K,JSON.stringify(d))}catch(e){} count(); }); });
+  document.getElementById('reset').onclick=function(){ d={}; try{localStorage.setItem(K,'{}')}catch(e){} boxes.forEach(function(b){b.checked=false}); count(); };
+  count();
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('.dbar').forEach(function(bar){
+    var g=bar.dataset.g, items=[].slice.call(document.querySelectorAll('.hd[data-g="'+g+'"]')), on=false;
+    var dt=bar.querySelector('.dt'), dr=bar.querySelector('.dr'), dc=bar.querySelector('.dc'), tip=document.querySelector('.tip[data-g="'+g+'"]');
+    function upd(){ if(!on){ dc.textContent=''; dr.hidden=true; return; }
+      var left=items.filter(function(e){return e.classList.contains('hid')}).length, miss=items.filter(function(e){return e.classList.contains('miss')}).length;
+      dc.textContent = left ? left+' to check' + (miss? ', '+miss+' missed':'') : (miss ? miss+' missed' : 'All correct');
+      dr.hidden = !(miss && !left); }
+    dt.onclick=function(){ on=!on; dt.classList.toggle('on',on); dt.textContent=on?'Show all':'Test me'; tip.hidden=!on;
+      items.forEach(function(e){ e.classList.remove('miss'); e.classList.toggle('hid',on); e.classList.toggle('live',on); }); upd(); };
+    dr.onclick=function(){ items.forEach(function(e){ if(e.classList.contains('miss')){ e.classList.remove('miss'); e.classList.add('hid'); } }); upd(); };
+    items.forEach(function(e){ e.addEventListener('click',function(){ if(!on) return; if(e.classList.contains('hid')) e.classList.remove('hid'); else e.classList.toggle('miss'); upd(); }); });
+  });
+})();
+</script>
+</body>
+</html>
