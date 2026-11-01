@@ -88,7 +88,7 @@ details p{margin:6px 0 0;font-size:15px}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
-<style>.tag{font-size:12px;font-weight:500;color:var(--ink-3);margin-left:6px}.key{border-left:2px solid var(--ink);padding:8px 12px;background:var(--accent-wash);border-radius:0 6px 6px 0;font-size:15px}.card ol{display:grid;gap:8px;padding-left:22px}.card ol li{font-size:15px}.card > p{font-size:15px;margin:8px 0}</style>
+<style>.tag{font-size:12px;font-weight:500;color:var(--ink-3);margin-left:6px}.key{border-left:2px solid var(--ink);padding:8px 12px;background:var(--accent-wash);border-radius:0 6px 6px 0;font-size:15px}.card ol{display:grid;gap:8px;padding-left:22px}.card ol li{font-size:15px}.card > p{font-size:15px;margin:8px 0}.card ul{padding-left:22px;font-size:15px;display:grid;gap:4px}.tw{overflow-x:auto}table{border-collapse:collapse;font-size:14px}th,td{padding:6px 10px;border-bottom:1px solid var(--line-inner);text-align:center}th{text-align:left;color:var(--ink-2);font-weight:600;font-size:13px}</style>
 </head>
 <body>
 <div class="bar"><div class="in"><a class="home" href="../">&lsaquo; Chemistry</a><span class="bt">Fix list</span><span class="sp"></span><span class="meta" id="count">0 done</span></div></div>
@@ -96,8 +96,19 @@ details p{margin:6px 0 0;font-size:15px}
 <header><h1>Your fix list for Monday</h1><p class="lede">Built from mock test B (19.5 of 30). Atoms, ions and the models are solid now. Every point you're still losing is one of the six fixes below. About 25 minutes: read the idea, then press Test me and work each one on paper until you get zero misses.</p></header>
 
 <section class="card" id="f2"><h2>1. The periodic table is the filling order <span class="tag">about 4 points, 8 min</span></h2>
-<p>Read the table left to right, row by row. The two left columns are the s block (holds 2), the six right columns are the p block (holds 6), the middle is the d block (holds 10). The d block is always one number lower than its row.</p>
-<p class="key">1s 2s <b>2p</b> 3s <b>3p</b> 4s <b>3d</b> 4p. s is never more than 2, so it's never 2s⁶. After 3s comes 3p, never 4p. Add the superscripts at the end: they must equal the atomic number.</p>
+<p><b>What you're writing.</b> An electron configuration lists where every electron in the atom goes. Each piece, like <b>2p⁶</b>, has three parts:</p>
+<ul><li><b>2</b> is the energy level (the row of the periodic table)</li><li><b>p</b> is the type of spot: s, p or d</li><li><b>⁶</b> is the <b>superscript</b>, the small raised number. It's how many electrons are in that spot.</li></ul>
+<p><b>How many each one holds.</b> s holds 2, p holds 6, d holds 10. So 2s² is fine, but 2s⁶ is impossible.</p>
+<p><b>The order you fill them in</b> (the same every time):</p>
+<div class="tw"><table><tr><th>Spot</th><td>1s</td><td>2s</td><td>2p</td><td>3s</td><td>3p</td><td>4s</td><td>3d</td><td>4p</td></tr><tr><th>Holds</th><td>2</td><td>2</td><td>6</td><td>2</td><td>6</td><td>2</td><td>10</td><td>6</td></tr><tr><th>Running total</th><td>2</td><td>4</td><td>10</td><td>12</td><td>18</td><td>20</td><td>30</td><td>36</td></tr></table></div>
+<p>The bold ones in the box below are where you went wrong on mock test B. You wrote 2s⁶ where it's 2p⁶, 4p where it's 3p, and 3d is the one that comes after 4s even though the number goes down.</p>
+<p><b>How to do one, step by step:</b></p>
+<ol><li>Find the atomic number on the periodic table. That's how many electrons you have to place.</li><li>Go through the order above, filling each spot all the way, and keep a running total.</li><li>When the next full spot would go past your number, put only the leftover electrons there and stop.</li><li>Check: add up all the superscripts. They must equal the atomic number.</li></ol>
+<p><b>Silicon (14):</b> 1s² (total 2), 2s² (4), 2p⁶ (10), 3s² (12), then 3p would be 18, which is too many. 14 − 12 = 2 left, so 3p². Answer: 1s² 2s² 2p⁶ 3s² 3p². Check: 2+2+6+2+2 = 14.</p>
+<p><b>Manganese (25):</b> fill up to 4s² (total 20). 3d holds 10 but you only have 25 − 20 = 5 left, so 3d⁵. Answer: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵.</p>
+<p><b>Why "the periodic table is the order".</b> Each row of the table is one energy level. The two left columns are s spots, the six right columns are p spots, and the ten middle columns (row 4 and down) are d spots. Walk across a row left to right and you're walking through the filling order. Row 4 goes 4s, then the middle block (that's 3d, one number lower), then 4p. So you can read the order straight off the table instead of memorizing it.</p>
+<p><b>Noble gas form</b> is a shortcut. [Ar] stands for the first 18 electrons (1s² 2s² 2p⁶ 3s² 3p⁶), so you start writing at 4s. Mn = [Ar] 4s² 3d⁵.</p>
+<p class="key">The order to know: 1s 2s <b>2p</b> 3s <b>3p</b> 4s <b>3d</b> 4p</p>
 <div class="dbar" data-g="order"><button type="button" class="dt">Test me</button><button type="button" class="dr" hidden>Redo misses</button><span class="dc"></span></div><p class="tip" data-g="order" hidden>Answer on paper first, then tap the grey box to check. Wrong? Tap it again to mark it, then Redo misses.</p>
 <ol><li>Si (14) <span class="hd" data-g="order">1s² 2s² 2p⁶ 3s² 3p²</span></li><li>Mn (25) <span class="hd" data-g="order">1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁵ (2+2+6+2+6+2 = 20, then 5)</span></li><li>Ca (20), noble gas form <span class="hd" data-g="order">[Ar] 4s²</span></li><li>Fe (26), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d⁶</span></li><li>Zn (30), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d¹⁰</span></li><li>Br (35), noble gas form <span class="hd" data-g="order">[Ar] 4s² 3d¹⁰ 4p⁵</span></li></ol>
 <label class="st"><input type="checkbox" data-id="x1"><span class="tx">Zero misses on all six</span></label></section>
