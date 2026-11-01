@@ -260,19 +260,35 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 
 
 <section class="card" id="f1"><h2>2. Average atomic mass <span class="tag">2 points, 5 min</span></h2>
-<p>It's a weighted average: the common isotope counts more. Turn each percent into a decimal, multiply by its mass, add. The answer lands between the masses, closest to the most common one.</p>
-<p class="key">Cl: (34.969 × 0.7578) + (36.966 × 0.2422) = 26.50 + 8.95 = 35.45 amu</p>
+<p><b>Why it's an average at all.</b> Real chlorine is a mix of two isotopes: some atoms weigh 35 (34.969) and some weigh 37 (36.966). The mass on the periodic table (35.45) is the average weight of one atom from that mix.</p>
+<p><b>Picture 100 chlorine atoms.</b> About 76 of them weigh 34.969 and about 24 weigh 36.966 (because the percents are 75.78% and 24.22%).</p>
+<ul><li>Weight of the 76 light ones: 34.969 × 75.78 = 2650</li><li>Weight of the 24 heavy ones: 36.966 × 24.22 = 895</li><li>All 100 together: 2650 + 895 = 3545</li><li>One atom on average: 3545 ÷ 100 = <b>35.45</b></li></ul>
+<p>Dividing by 100 at the end is the same as turning each percent into a decimal at the start. That's the whole method:</p>
+<p class="key">For each isotope: <b>mass × (percent ÷ 100)</b>. Then <b>add</b> them. (34.969 × 0.7578) + (36.966 × 0.2422) = 26.50 + 8.95 = 35.45</p>
+<p><b>Check yourself:</b> the answer has to land between the masses, closest to the most common one. 35.45 is between 35 and 37, closer to 35 because 76% of the atoms are 35.</p>
+<p><b>Three isotopes?</b> Same thing, just three products to add.</p>
 <p class="tip2">Type your answer and press Enter to check it, or press Check for the whole section. Empty boxes are skipped.</p>
 <ol><li><span class="q">X: 10.013 (19.9%), 11.009 (80.1%). Which element?</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="num" data-a="10.81" data-k="mass0" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="mass">10.81 amu, boron</span></li><li><span class="q">Cu: 62.930 (69.15%), 64.928 (30.85%)</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="num" data-a="63.55" data-k="mass1" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="mass">63.55 amu</span></li><li><span class="q">X: 39.96 (92.0%), 41.96 (5.0%), 42.96 (3.0%)</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="num" data-a="40.15" data-k="mass2" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="mass">40.15 amu</span></li></ol><div class="chkbar" data-g="mass"><button type="button" class="chk">Check</button><button type="button" class="again" hidden>Try the misses again</button><span class="score"></span></div>
 <label class="st"><input type="checkbox" data-id="x4"><span class="tx">All three right with the calculator</span></label></section>
 
 
 
+<section class="card" id="cu"><h2>Copper and chromium: the only two exceptions <span class="tag">3 points</span></h2>
+<p><b>This has nothing to do with charge.</b> It's about the normal, neutral atom. Only two elements break the filling order on your test: <b>Cr</b> and <b>Cu</b>. Every other element follows the order.</p>
+<div class="tw"><table class="voc"><tr><th></th><th>Cr (24)</th><th>Cu (29)</th></tr>
+<tr><td>What the order predicts</td><td>[Ar] 4s² 3d⁴</td><td>[Ar] 4s² 3d⁹</td></tr>
+<tr><td>The d sublevel is</td><td>4 of 5 orbitals, one short of half full</td><td>9 of 10, one short of full</td></tr>
+<tr><td>So one 4s electron moves to 3d</td><td><b>[Ar] 4s¹ 3d⁵</b> (half full)</td><td><b>[Ar] 4s¹ 3d¹⁰</b> (full)</td></tr></table></div>
+<p><b>Why:</b> a d sublevel that is exactly half full (one electron in each of its 5 orbitals) or completely full (10) is extra stable, so the atom gives up one 4s electron to get there. Count check: 4s¹ 3d⁵ is still 6 electrons after [Ar], 18 + 6 = 24.</p>
+<p><b>Charge is a separate idea.</b> That's ions: a positive ion loses its 4s electrons first (Co²⁺ = [Ar] 3d⁷). If a test ever asks for Cu⁺, start from the exception and remove the single 4s: Cu⁺ = [Ar] 3d¹⁰.</p>
+<label class="st"><input type="checkbox" data-id="x8"><span class="tx">I can write Cr and Cu and say why</span></label></section>
 <section class="card" id="words"><h2>Write these two word for word <span class="tag">4 points</span></h2>
 <p class="key">4s fills first, leaves first: "4s fills before 3d because 4s is lower in energy. But 4s is farther from the nucleus, so when an ion forms, its electrons are removed first."</p>
 <p class="key">Copper: "Copper is [Ar] 4s¹ 3d¹⁰ instead of 4s² 3d⁹ because one 4s electron moves into 3d. A completely full d subshell is more stable."</p>
 <label class="st"><input type="checkbox" data-id="x7"><span class="tx">I can write both from memory</span></label></section>
 <section class="card" id="f6"><h2>3. Three small facts <span class="tag">about 1.5 points, 1 min</span></h2>
+<p><b>Alpha particles are positive</b> (2 protons and 2 neutrons, no electrons). The nucleus is also positive, and like charges push each other away. That's why the few alpha particles that came close to the tiny nucleus bounced back. On your mock test you called them negative: a negative particle would be pulled in, not bounced back, so the charge is what makes the story work.</p>
+<p><b>Dates:</b> Thomson found the electron in <b>1897</b> (the plum pudding model came in 1904: negative electrons scattered in a positive sphere). Bohr's model is <b>1913</b>.</p>
 <p class="tip2">Type your answer and press Enter to check it, or press Check for the whole section. Empty boxes are skipped.</p>
 <ol><li><span class="q">Year Thomson found the electron, and the plum pudding model</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="self" data-a="" data-k="facts0" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="facts">1897. Negative electrons scattered in a positive sphere</span></li><li><span class="q">Charge of an alpha particle, and why some bounced back</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="self" data-a="" data-k="facts1" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="facts">Positive. They were repelled by the small, dense, positive nucleus</span></li><li><span class="q">Year of the Bohr model</span><input class="ans" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-t="self" data-a="" data-k="facts2" placeholder="Your answer"><span class="res"></span><span class="hd" data-g="facts">1913</span></li></ol><div class="chkbar" data-g="facts"><button type="button" class="chk">Check</button><button type="button" class="again" hidden>Try the misses again</button><span class="score"></span></div>
 <label class="st"><input type="checkbox" data-id="x6"><span class="tx">All three</span></label></section>
