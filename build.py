@@ -99,7 +99,7 @@ for i, u in enumerate(units, 1):
     all_ids |= ids
     rv = u.get("review") or {"must": [], "secs": {}}
     deck = {"home": "../index.html", "review": rv, "title": u["title"], "subtitle": u.get("chip", ""),
-            "source": u.get("source", ""), "breakMinutes": brk, "dumpMinutes": dump, "sections": u["sections"]}
+            "source": u.get("source", ""), "breakMinutes": brk, "dumpMinutes": dump, "sections": u["sections"], "aliases": u.get("aliases", {})}
     page(deck, u["slug"], u["title"])
 
 def join_labels(ls):
@@ -114,13 +114,14 @@ if review:
     for u in units:
         for s in copy.deepcopy(u["sections"]):
             s["group"] = u["label"] + ", " + lower_first(u["name"]); A.append(s)
-    must, secs = [], {}
+    must, secs, als = [], {}, {}
     for u in units:
+        als.update(u.get("aliases", {}))
         rv = u.get("review") or {}
         must += rv.get("must", []); secs.update(rv.get("secs", {}))
     page({"home": "../index.html", "review": {"must": must, "secs": secs}, "title": short + ", everything so far",
           "subtitle": join_labels([u["label"] for u in units]),
-          "source": "Every section from every unit so far, for cumulative review", "breakMinutes": brk,
+          "source": "Every section from every unit so far, for cumulative review", "aliases": als, "breakMinutes": brk,
           "dumpMinutes": dump, "sections": A}, "review", short + " review")
 
 # home page
