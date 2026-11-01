@@ -188,6 +188,20 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 .ptbtn{min-height:34px;padding:0 12px;font-size:13px;font-weight:600}
 .bar .in{flex-wrap:wrap;gap:8px}
 </style>
+<style>
+.story h3{font-size:15px;margin:0 0 4px}
+.pts2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:12px 0}
+.pts2 > div{border:1px solid var(--line-inner);border-radius:10px;padding:12px 14px;background:var(--raised)}
+.pts2 p{margin:0;font-size:14.5px;line-height:1.5}
+.bld{display:grid;gap:6px;margin:12px 0;padding:12px;border:1px solid var(--line-edge);border-radius:12px;background:var(--surface)}
+.fl{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13px}
+.fl b{width:58px;color:var(--ink-2);font-weight:600}
+.rt{display:inline-flex;align-items:center;gap:3px}
+.rl{font-weight:600;margin-right:3px;font-size:13px}
+.rt i{width:20px;height:20px;border:1.5px solid var(--ink);border-radius:4px;display:inline-block}
+.fl em{font-style:normal;color:var(--ink-3);font-size:12px}
+.lob{text-align:center;font-size:12px;font-weight:600;color:var(--on-accent);background:var(--ink);border-radius:8px;padding:6px}
+</style>
 </head>
 <body>
 <div class="bar"><div class="in"><a class="home" href="../">&lsaquo; Chemistry</a><span class="bt">Fix list</span><button type="button" class="ptbtn" id="ptOpen">Periodic table</button><button type="button" class="ptbtn" id="calcOpen">Calculator</button><span class="sp"></span><span class="meta" id="count">0 done</span></div></div>
@@ -195,6 +209,27 @@ body.docked .wrap{margin-right:calc(var(--dockw) + 24px)}
 <header><h1>Your fix list for Monday</h1><p class="lede">Built from mock test B (19.5 of 30). Atoms, ions and the models are solid now. Every point you're still losing is one of the six fixes below. About 25 minutes. For each fix, read the idea, work each question out on paper using the periodic table on the side, type your answer in its box and press Enter to check just that one. Check marks the whole section. It marks you right or wrong and shows the correct answer. Press "Try the misses again" until you get them all.</p></header>
 
 
+<section class="card story" id="why"><h2>Read this first: why any of it works</h2>
+<p>Picture the atom as an <b>apartment building</b>. Electrons are the <b>tenants</b>. Every rule on the test is just how tenants behave.</p>
+<div class="bld">
+<div class="fl"><b>Floor 4</b><span class="rt"><span class="rl">4s</span><i></i></span><span class="rt"><span class="rl">4p</span><i></i><i></i><i></i></span><em>4s is cheap, so it fills before 3d</em></div>
+<div class="fl"><b>Floor 3</b><span class="rt"><span class="rl">3s</span><i></i></span><span class="rt"><span class="rl">3p</span><i></i><i></i><i></i></span><span class="rt"><span class="rl">3d</span><i></i><i></i><i></i><i></i><i></i></span><em>3d is pricey, so it fills after 4s</em></div>
+<div class="fl"><b>Floor 2</b><span class="rt"><span class="rl">2s</span><i></i></span><span class="rt"><span class="rl">2p</span><i></i><i></i><i></i></span></div>
+<div class="fl"><b>Floor 1</b><span class="rt"><span class="rl">1s</span><i></i></span></div>
+<div class="lob">Nucleus (the lobby)</div></div>
+<div class="pts2">
+<div><h3>Floors and rooms</h3><p><b>Floors</b> are energy levels (the 2 in 2p). Each floor has <b>room types</b>: s is 1 room, p is 3 rooms, d is 5 rooms. <b>Every room fits 2 tenants.</b> That's why s holds 2, p holds 6 and d holds 10. Nothing to memorize: it's rooms × 2.</p></div>
+<div><h3>The superscript</h3><p>The small raised number in 2p⁶ is a <b>head count</b>: how many tenants live in that room type. Add them all up and you get the total tenants, which is the atomic number.</p></div>
+<div><h3>Aufbau: cheapest room first</h3><p>Lower energy = cheaper rent. Nobody takes a pricey room while a cheap one is empty. <b>Skipping a room breaks Aufbau.</b></p></div>
+<div><h3>Hund: the bus seat rule</h3><p>Electrons are all negative, so they push each other away. Like strangers on a bus, each takes an <b>empty room first</b>, then they pair up. <b>Pairing too early breaks Hund.</b></p></div>
+<div><h3>Pauli: two per room, opposite ways</h3><p>A room fits 2, and they face opposite ways (↑↓). <b>Three in a room, or ↑↑, breaks Pauli.</b></p></div>
+<div><h3>Why 4s comes before 3d</h3><p>3d is on floor 3 but it's <b>expensive</b>. 4s is on floor 4 but <b>cheap</b>. Tenants go for cheap, so 4s fills first, then 3d.</p></div>
+<div><h3>Why 4s leaves first (ions)</h3><p>A positive ion loses tenants, and the first to leave are the ones <b>closest to the exit: the highest floor</b>. 4s is on floor 4, 3d on floor 3. Cheap to move into, first out the door. Co is [Ar] 4s² 3d⁷, so Co²⁺ loses the two 4s tenants: [Ar] 3d⁷.</p></div>
+<div><h3>Why Cr and Cu cheat</h3><p>A d floor is happiest <b>exactly half full (5) or completely full (10)</b>, like finishing a set. So one tenant moves down from 4s to finish it. Cr: 4s² 3d⁴ becomes <b>4s¹ 3d⁵</b>. Cu: 4s² 3d⁹ becomes <b>4s¹ 3d¹⁰</b>.</p></div>
+<div><h3>Why the periodic table is the order</h3><p>Each element has <b>one more tenant</b> than the one before. Walking across a row is moving tenants in one at a time, and the <b>block</b> tells you which room type the newest one took. Row 4: 2 s columns, 10 d columns, 6 p columns = 4s, 3d, 4p.</p></div>
+<div><h3>Average atomic mass: a weighted grade</h3><p>If 75% of your grade is 35 and 25% is 37, you end up near 35, not 36. Most chlorine atoms weigh 35, so the average is 35.45. <b>Mass × percent as a decimal, for each, then add.</b></p></div>
+</div>
+<p class="key">Test it: say out loud why Co²⁺ is [Ar] 3d⁷ using the building. If you can, you understand it. Then do the fixes below.</p></section>
 <section class="card" id="f2"><h2>1. The periodic table is the filling order <span class="tag">about 4 points, 8 min</span></h2>
 <p><b>What you're writing.</b> An electron configuration lists where every electron in the atom goes. Each piece, like <b>2p⁶</b>, has three parts:</p>
 <ul><li><b>2</b> is the energy level (the row of the periodic table)</li><li><b>p</b> is the type of spot: s, p or d</li><li><b>⁶</b> is the <b>superscript</b>, the small raised number. It's how many electrons are in that spot.</li></ul>
