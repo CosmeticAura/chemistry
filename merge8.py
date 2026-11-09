@@ -126,4 +126,36 @@ def merge(sections, review):
     new_secs["emspec"] = ["Order: Radio, Microwave, Infrared, Visible, UV, X-ray, Gamma", "Short wavelength = high frequency = high energy", "Red least energy, violet most", "Emission = bright lines, absorption = dark lines"]
     new_secs = {k: v for k, v in new_secs.items() if v}
     rest = [s for s in sections if s["id"] == "packet"]
+    G = {g["id"]: g for g in groups}
+    # Class one-pager reference (Nov 9): steps, reactivity, dot diagrams, orbital shapes, box diagrams
+    am = G["avgmass"]
+    am["notes"] = [{"key": "**The class's 4 steps:**\n1. Identify the isotopes.\n2. Find each isotope's mass and abundance.\n3. Multiply each mass by its abundance (as a decimal).\n4. Add all the results together."}] + am["notes"]
+    am["cards"] = [["Average atomic mass, the 4 class steps", "1. Identify the isotopes. 2. Find mass and abundance. 3. Multiply mass by abundance. 4. Add the results."]] + am["cards"]
+    b = G["bohr"]
+    b["notes"] += [
+        {"p": "Chemists use Bohr diagrams to **predict how reactive an element is**: the outer ring shows the **valence electrons**, and an atom with a nearly full or nearly empty outer ring reacts easily."},
+        {"h": "Electron dot diagrams"},
+        {"p": "A dot diagram (Lewis dot) shows only the **valence electrons**: the last number of the Bohr configuration. Write the symbol, then place dots **clockwise** starting at the top, one per side, and only start pairing after all four sides have one."},
+        {"img": "img/u2/dot-diagrams.png"},
+        {"alt": "Dot diagrams for Na (1 dot), Mg (2), N (5), Cl (7) and Ne (8)"},
+        {"key": "Chlorine is 2-8-7, so 7 dots: three pairs and one single. Neon is 2-8, so 8 dots, a full octet."}]
+    b["cards"] += [["Electron dot diagram", "The symbol with one dot per valence electron"],
+                   ["How do you place dots in a dot diagram?", "Clockwise from the top, one per side, then pair them up (max 8)"],
+                   ["Dot diagram for chlorine (2-8-7)", "Cl with 7 dots: three pairs and one single dot"],
+                   ["What do chemists use Bohr models for?", "To predict reactivity: the outer ring shows the valence electrons"]]
+    b["points"] = b["points"] + ["Dot diagram: valence electrons only, clockwise from the top, pair after all four sides have one"]
+    e = G["emspec"]
+    e["notes"].insert(2, {"p": "Another way to say it: the EM spectrum is the **full range of all types of electromagnetic radiation, ordered by frequency and wavelength**."})
+    o = G["orbdiag"]
+    for n in o["notes"]:
+        if "table" in n:
+            for r in n["table"]["rows"]:
+                if r[0] == "s": r[3] = "Sphere"
+                if r[0] == "d": r[3] = "Cloverleaf"
+                if r[0] == "f": r[3] = "Complex"
+    i = next((k for k, n in enumerate(o["notes"]) if n.get("h", "").startswith("Orbital diagrams")), len(o["notes"]))
+    o["notes"][i + 1:i + 1] = [{"img": "img/u2/orbital-boxes.png"}, {"alt": "Orbital box diagrams: fluorine, nitrogen drawn right, nitrogen breaking Hund's rule, helium breaking Pauli"},
+                               {"p": "Draw one box per orbital: 1 box for s, 3 for p, 5 for d, 7 for f. Put one arrow of each spin in each box before you double up."}]
+    o["cards"] += [["Shape of an s orbital", "Sphere"], ["Shape of a p orbital", "Dumbbell"], ["Shape of a d orbital", "Cloverleaf"], ["Shape of an f orbital", "Complex shapes"],
+                   ["Boxes per sublevel in an orbital diagram", "s 1, p 3, d 5, f 7"]]
     return groups, rest, aliases, dict(review, secs=new_secs)
