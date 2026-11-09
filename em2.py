@@ -3,6 +3,7 @@
 EM = {"id": "emspec", "title": "Electromagnetic spectra",
  "notes": [
   {"p": "Light is energy that travels as a wave. The **electromagnetic (EM) spectrum** is every kind of light lined up by wavelength, from radio waves to gamma rays. Visible light, the part your eyes see, is a tiny slice in the middle."},
+  {"key": "**Class vocab, word for word on the test:**\n**Electromagnetic spectrum:** the amount of light given off by an object at a range of wavelengths.\n**Bright line spectrum:** an electron can absorb or emit specific amounts of energy by changing energy levels."},
   {"img": "img/u2/em-spectrum.png"},
   {"alt": "The electromagnetic spectrum from radio to gamma, with the wave getting shorter to the right and visible light zoomed in as ROYGBIV"},
   {"key": "**Long wavelength to short:** Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma.\nTrick: **R**aging **M**artians **I**nvaded **V**enus **U**sing **X**-ray **G**uns."},
@@ -23,6 +24,8 @@ EM = {"id": "emspec", "title": "Electromagnetic spectra",
   {"p": "**Flame tests** use this. Heat a metal salt and its electrons get excited, then fall back and color the flame: sodium is yellow-orange, lithium and strontium are red, copper is blue-green, potassium is light purple."},
  ],
  "cards": [
+  ["Electromagnetic spectrum (class vocab)", "The amount of light given off by an object at a range of wavelengths"],
+  ["Bright line spectrum (class vocab)", "An electron can absorb or emit specific amounts of energy by changing energy levels"],
   ["Electromagnetic spectrum", "Every kind of light lined up by wavelength: radio, microwave, infrared, visible, ultraviolet, X-ray, gamma"],
   ["Order of the EM spectrum (long to short wavelength)", "Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma (Raging Martians Invaded Venus Using X-ray Guns)"],
   ["Wavelength", "The distance from one wave peak to the next"],

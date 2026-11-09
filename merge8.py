@@ -74,7 +74,7 @@ def merge(sections, review):
             ("Thomson, Rutherford and the gold foil", by["goldfoil"]["notes"], by["goldfoil"]["cards"]),
             ("The quantum mechanical model", qm_theory, qm_cards_t)],
             [P("dalton", 1), P("dalton", 3), P("goldfoil", 0), P("goldfoil", 6),
-             "Order: Democritus, Dalton (solid sphere), Thomson (plum pudding), Rutherford (nucleus), Bohr (levels), Schrödinger (cloud)",
+             "Class order: Democritus (first atomic theory), Dalton (atoms can't be created, divided or destroyed), Thomson (plum pudding), Rutherford (gold foil, nucleus), Bohr (electrons in paths around the nucleus), modern theory (electron clouds)",
              qm["points"][0], qm["points"][2]]),
         group("atoms", "Atoms, ions and isotopes", [
             ("The nucleus, atomic number and mass number", by["nucleus"]["notes"], by["nucleus"]["cards"]),
