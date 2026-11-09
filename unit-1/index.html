@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry unit 1</title>
-
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
@@ -15,10 +15,10 @@
   --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
   --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
   --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
-  --accent:#000000; --on-accent:#ffffff;
+  --accent:#007aff; --on-accent:#ffffff;
   --accent-selection:color-mix(in srgb,var(--accent) 10%,transparent);
   --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
-  --accent-wash:rgb(118 118 128 / .10);
+  --accent-wash:rgb(0 122 255 / .10);
   --success:var(--ink); --error:var(--ink-2); --warning:var(--ink-3);
   --go:#248a3d; --warn:#c93400; --stop:#d70015;
   --space-tight:4px; --space-inline:8px; --space-row:12px; --space-group:20px; --space-page:16px; --space-s:32px; --space-m:48px;
@@ -32,7 +32,7 @@
   --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
   --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
   --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
-  --accent:#ffffff; --on-accent:#000000;
+  --accent:#0a84ff; --on-accent:#ffffff;
   --accent-wash:rgb(118 118 128 / .24);
   --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
 }
@@ -42,7 +42,7 @@
     --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
     --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
     --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
-    --accent:#ffffff; --on-accent:#000000;
+    --accent:#0a84ff; --on-accent:#ffffff;
     --accent-wash:rgb(118 118 128 / .24);
     --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
   }
@@ -2014,7 +2014,7 @@ function overview(){
   const nextSec=secs.find(s=>statusOf(s.id)==="active")||secs.find(s=>statusOf(s.id)==="new")||secs.find(s=>statusOf(s.id)==="revisit");
   const rows=secs.map((s,i)=>{const st0=statusOf(s.id),g=lastGrade(s.id);return '<li><button class="row" data-go="'+esc(s.id)+'"><span class="n num">'+(i+1)+'</span><span class="t">'+esc(s.title)+'<br><span class="meta num">'+s.cards.length+" cards"+(secSteps(s).includes(5)?", "+s.points.length+" key points":", flashcards only")+(g===null?"":", last brain dump "+pct(g))+'</span></span><span class="chip '+st0+'">'+esc(statusLabel(s.id))+"</span></button></li>"}).join("");
   return '<div class="head"><div class="txt"><span class="eyebrow num">'+done+" of "+secs.length+' sections done</span><h2>'+esc(DECK.title)+"</h2>"+(DECK.source?'<span class="small">'+esc(DECK.source)+"</span>":"")+"</div></div>"+
-  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 5 minute brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
+  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 2 min 30 s brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
   '<div class="actions"><button class="btn" data-go="jog">Memory jog, every topic fast</button>'+(nextSec?'<button class="btn primary" data-go="'+esc(nextSec.id)+'">'+(statusOf(nextSec.id)==="new"?"Start ":"Continue ")+(idx(nextSec.id)+1)+". "+esc(nextSec.title)+"</button>":'<span class="muted">Every section is done. Loop any one again to keep it fresh.</span>')+"</div>"+
   '<div class="settings"><label>Appearance <select id="ap">'+[["system","System"],["light","Light"],["dark","Dark"]].map(([v,n])=>'<option value="'+v+'"'+(document.documentElement.dataset.theme===v?" selected":"")+">"+n+"</option>").join("")+'</select></label><label>Breaks <select id="bk">'+[2.5,3,5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.breakMin===v?" selected":"")+">"+(v===2.5?"2 min 30 s":v+" min")+"</option>").join("")+'</select></label><label>Brain dump goal <select id="dm">'+[5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.dumpMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label><input type="checkbox" id="snd"'+(S.settings.sound?" checked":"")+"> Chime when a break ends</label></div></section>"+
   '<section class="panel"><h3>Sections</h3><ul class="rows">'+rows+'</ul><div class="actions"><span class="grow"></span><button class="btn quiet" id="reset">Reset progress</button></div><div id="confirm"></div></section>';

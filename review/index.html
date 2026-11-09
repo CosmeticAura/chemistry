@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chemistry review</title>
-
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("studynow:appearance")||"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 
@@ -15,10 +15,10 @@
   --bg:#f2f2f7; --surface:#ffffff; --raised:#ffffff;
   --ink:#000000; --ink-2:rgb(60 60 67 / .80); --ink-3:rgb(60 60 67 / .76); --ink-4:rgb(60 60 67 / .30);
   --line-edge:rgb(60 60 67 / .22); --line-inner:rgb(60 60 67 / .12);
-  --accent:#000000; --on-accent:#ffffff;
+  --accent:#007aff; --on-accent:#ffffff;
   --accent-selection:color-mix(in srgb,var(--accent) 10%,transparent);
   --accent-focus:color-mix(in srgb,var(--accent) 55%,transparent);
-  --accent-wash:rgb(118 118 128 / .10);
+  --accent-wash:rgb(0 122 255 / .10);
   --success:var(--ink); --error:var(--ink-2); --warning:var(--ink-3);
   --go:#248a3d; --warn:#c93400; --stop:#d70015;
   --space-tight:4px; --space-inline:8px; --space-row:12px; --space-group:20px; --space-page:16px; --space-s:32px; --space-m:48px;
@@ -32,7 +32,7 @@
   --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
   --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
   --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
-  --accent:#ffffff; --on-accent:#000000;
+  --accent:#0a84ff; --on-accent:#ffffff;
   --accent-wash:rgb(118 118 128 / .24);
   --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
 }
@@ -42,7 +42,7 @@
     --bg:#000000; --surface:#1c1c1e; --raised:#2c2c2e;
     --ink:#ffffff; --ink-2:rgb(235 235 245 / .72); --ink-3:rgb(235 235 245 / .58); --ink-4:rgb(235 235 245 / .26);
     --line-edge:rgb(84 84 88 / .65); --line-inner:rgb(84 84 88 / .40);
-    --accent:#ffffff; --on-accent:#000000;
+    --accent:#0a84ff; --on-accent:#ffffff;
     --accent-wash:rgb(118 118 128 / .24);
     --go:#30d158; --warn:#ff9f0a; --stop:#ff453a;
   }
@@ -375,7 +375,7 @@ const DECK = {
     "IV changed on purpose, x axis. DV measured, y axis. Controlled variables stay the same",
     "Complete graph: title (DV vs IV), axes with units, even scales. Slope = Δy ÷ Δx with units"
    ],
-   "models": [
+   "theories": [
     "Dalton 1803: atoms are **indivisible**, same element atoms are **identical**, atoms join in **whole number ratios**, reactions **rearrange** atoms",
     "Wrong parts: atoms can be divided, and isotopes differ in mass",
     "Dalton's model: solid sphere",
@@ -397,26 +397,23 @@ const DECK = {
    "bohr": [
     "Bohr 1913: electrons in fixed **energy levels**",
     "Absorb energy → jump up (excited). Fall back → give off light (**bright line spectrum**, unique per element)",
-    "2n² per level. Sodium 2-8-1, last number = **valence electrons**",
+    "2n² per level. Sodium 2-8-1, last number = **valence electrons**"
+   ],
+   "emspec": [
+    "Order: Radio, Microwave, Infrared, Visible, UV, X-ray, Gamma",
+    "Short wavelength = high frequency = high energy",
+    "Red least energy, violet most",
+    "Emission = bright lines, absorption = dark lines"
+   ],
+   "excited": [
     "**Ground state** matches the reference table. **Excited:** same electrons, one moved up (S 2-8-5-1)",
     "Up = **absorb**, down = **release** light (spectral lines)",
     "Unknown spectrum: an element is there only if all its lines match"
    ],
-   "quantum": [
-    "Schrödinger 1926: electrons act like waves, **electron cloud** of probability",
-    "**Orbital**: region with about 90% chance of an electron, max 2 electrons",
-    "s 1 orbital (2), p 3 (6), d 5 (10), f 7 (14). Orbit is a path, orbital is a region",
-    "n level, l shape (0 s, 1 p, 2 d, 3 f), mₗ orbital (−l to +l), mₛ spin (±½)",
-    "**Pauli**: no two electrons share all four, so 2 per orbital",
-    "n = 3 → l = 0, 1, 2. l = 1 → mₗ = −1, 0, +1"
-   ],
-   "config": [
+   "econfig": [
     "**Aufbau:** lowest energy first, 4s before 3d",
     "Fe: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d⁶. Superscripts add to the electrons",
     "Skipping a sublevel breaks Aufbau, overfilling breaks Pauli",
-    "**Pauli:** max 2 arrows per box, opposite spins",
-    "**Hund:** one in each box first, then pair",
-    "N 2p ↑ ↑ ↑, O 2p ↑↓ ↑ ↑",
     "[noble gas] + the rest: Ca = **[Ar] 4s²**",
     "**Cr** [Ar] 4s¹ 3d⁵, **Cu** [Ar] 4s¹ 3d¹⁰",
     "Ions: negative add electrons, positive remove from 4s first (Fe²⁺ = [Ar] 3d⁶)",
@@ -424,8 +421,13 @@ const DECK = {
     "Period = highest level, block = last sublevel filled",
     "Dots = valence electrons. Metals lose, nonmetals gain"
    ],
-   "packet": [
-    "Packet answer key, with the fixes listed at the top"
+   "orbdiag": [
+    "Schrödinger 1926: electrons act like waves, **electron cloud** of probability",
+    "**Orbital**: region with about 90% chance of an electron, max 2 electrons",
+    "s 1 orbital (2), p 3 (6), d 5 (10), f 7 (14). Orbit is a path, orbital is a region",
+    "**Pauli:** max 2 arrows per box, opposite spins",
+    "**Hund:** one in each box first, then pair",
+    "N 2p ↑ ↑ ↑, O 2p ↑↓ ↑ ↑"
    ]
   }
  },
@@ -443,20 +445,22 @@ const DECK = {
   "density": "measure",
   "accuracy": "data",
   "graphs": "data",
-  "dalton": "models",
-  "goldfoil": "models",
+  "dalton": "theories",
+  "goldfoil": "theories",
+  "models": "theories",
+  "qmmodel": "orbdiag",
   "nucleus": "atoms",
   "ions": "atoms",
   "isotopes": "atoms",
-  "mass": "atoms",
-  "excited": "bohr",
-  "qmmodel": "quantum",
-  "qnumbers": "quantum",
-  "econfig": "config",
-  "orbdiag": "config",
-  "noblegas": "config",
-  "valence": "config",
-  "drills": "config"
+  "mass": "avgmass",
+  "excited": "excited",
+  "noblegas": "econfig",
+  "valence": "econfig",
+  "drills": "econfig",
+  "explain": "econfig",
+  "qnumbers": "orbdiag",
+  "quantum": "orbdiag",
+  "config": "econfig"
  },
  "breakMinutes": 2.5,
  "dumpMinutes": 7,
@@ -1964,32 +1968,82 @@ const DECK = {
    "group": "Unit 1, matter and measurement"
   },
   {
-   "id": "mock2",
-   "title": "Mock test (timed, grades itself)",
-   "steps": [
-    0
-   ],
-   "cards": [],
-   "points": [],
-   "notes": [
-    {
-     "p": "40 minutes, 30 points: atomic theories, atoms and ions, isotopes and average atomic mass, configurations, noble gas notation and orbital diagrams. Work on paper, type the final answers, then press Grade my test and send the results to Claude."
-    },
-    {
-     "p": "**[Open the mock test](https://cosmeticaura.github.io/chemistry/mock-test/)**"
-    },
-    {
-     "p": "Already took it? **[Mock test B](https://cosmeticaura.github.io/chemistry/mock-test-2/)** has all new questions, same format, for Sunday."
-    }
-   ],
-   "quizlet": "",
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "models",
-   "title": "Atomic models and the gold foil",
+   "id": "theories",
+   "title": "Atomic theories",
    "quizlet": "",
    "notes": [
+    {
+     "h": "The five models side by side"
+    },
+    {
+     "key": "Order: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger."
+    },
+    {
+     "table": {
+      "head": [
+       "Scientist",
+       "Year",
+       "Model",
+       "Key idea"
+      ],
+      "rows": [
+       [
+        "Dalton",
+        "1803",
+        "Solid sphere",
+        "Atoms are tiny solid balls that can't be divided"
+       ],
+       [
+        "Thomson",
+        "1897 electron, 1904 model",
+        "Plum pudding",
+        "Negative electrons scattered in a positive sphere"
+       ],
+       [
+        "Rutherford",
+        "1911",
+        "Nuclear",
+        "Gold foil showed a tiny, dense, positive nucleus and mostly empty space"
+       ],
+       [
+        "Bohr",
+        "1913",
+        "Planetary",
+        "Electrons in fixed energy levels"
+       ],
+       [
+        "Schrödinger",
+        "1926",
+        "Quantum (electron cloud)",
+        "No fixed paths, only regions where electrons are likely to be (orbitals)"
+       ]
+      ]
+     }
+    },
+    {
+     "h": "Picture each one"
+    },
+    {
+     "list": [
+      "Dalton: a billiard ball, solid and unbreakable",
+      "Thomson: a chocolate chip cookie, the chips are the electrons",
+      "Rutherford: bullets fired through tissue paper",
+      "Bohr: planets on fixed rings",
+      "Schrödinger: a fan spinning so fast you only see a blur"
+     ]
+    },
+    {
+     "h": "Gold foil, word for word"
+    },
+    {
+     "list": [
+      "**Observation 1:** most alpha particles went straight through. **Conclusion:** the atom is mostly empty space.",
+      "**Observation 2:** a few bounced back. **Conclusion:** there is a tiny, dense, positive nucleus."
+     ]
+    },
+    {
+     "p": "Dalton is about 100 years before the rest. After that they come fast: 1904, 1911, 1913, 1926."
+    },
     {
      "h": "Early atomic theory and Dalton"
     },
@@ -2116,79 +2170,55 @@ const DECK = {
      }
     },
     {
-     "h": "The five models side by side"
+     "h": "The quantum mechanical model"
     },
     {
-     "key": "Order: **Dogs Trust Really Big Squirrels** = Dalton, Thomson, Rutherford, Bohr, Schrödinger."
+     "p": "**Schrödinger (1926)**, building on de Broglie and Heisenberg: electrons behave like **waves**. You can't pin down an electron's exact path, so the model gives **probabilities** instead."
     },
     {
-     "table": {
-      "head": [
-       "Scientist",
-       "Year",
-       "Model",
-       "Key idea"
-      ],
-      "rows": [
-       [
-        "Dalton",
-        "1803",
-        "Solid sphere",
-        "Atoms are tiny solid balls that can't be divided"
-       ],
-       [
-        "Thomson",
-        "1897 electron, 1904 model",
-        "Plum pudding",
-        "Negative electrons scattered in a positive sphere"
-       ],
-       [
-        "Rutherford",
-        "1911",
-        "Nuclear",
-        "Gold foil showed a tiny, dense, positive nucleus and mostly empty space"
-       ],
-       [
-        "Bohr",
-        "1913",
-        "Planetary",
-        "Electrons in fixed energy levels"
-       ],
-       [
-        "Schrödinger",
-        "1926",
-        "Quantum (electron cloud)",
-        "No fixed paths, only regions where electrons are likely to be (orbitals)"
-       ]
-      ]
-     }
+     "p": "**Heisenberg uncertainty principle:** you can't know an electron's exact position and exact speed at the same time."
     },
     {
-     "h": "Picture each one"
-    },
-    {
-     "list": [
-      "Dalton: a billiard ball, solid and unbreakable",
-      "Thomson: a chocolate chip cookie, the chips are the electrons",
-      "Rutherford: bullets fired through tissue paper",
-      "Bohr: planets on fixed rings",
-      "Schrödinger: a fan spinning so fast you only see a blur"
-     ]
-    },
-    {
-     "h": "Gold foil, word for word"
-    },
-    {
-     "list": [
-      "**Observation 1:** most alpha particles went straight through. **Conclusion:** the atom is mostly empty space.",
-      "**Observation 2:** a few bounced back. **Conclusion:** there is a tiny, dense, positive nucleus."
-     ]
-    },
-    {
-     "p": "Dalton is about 100 years before the rest. After that they come fast: 1904, 1911, 1913, 1926."
+     "p": "The **electron cloud** is the region where electrons are likely to be. An **orbital** is a region with about a 90% chance of finding an electron. Each orbital holds **at most 2 electrons**, with opposite spins."
     }
    ],
    "cards": [
+    [
+     "Order of the five models (mnemonic)",
+     "Dogs Trust Really Big Squirrels: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
+    ],
+    [
+     "Dalton: year and model",
+     "1803, solid sphere"
+    ],
+    [
+     "Dalton's key idea",
+     "Atoms are tiny solid balls that can't be divided"
+    ],
+    [
+     "Thomson: year and model",
+     "Electron 1897, plum pudding model 1904"
+    ],
+    [
+     "Plum pudding model",
+     "Negative electrons scattered in a positive sphere"
+    ],
+    [
+     "Rutherford: year and model",
+     "1911, nuclear model"
+    ],
+    [
+     "Gold foil: most particles went straight through, so...",
+     "The atom is mostly empty space"
+    ],
+    [
+     "Gold foil: a few bounced back, so...",
+     "There is a tiny, dense, positive nucleus"
+    ],
+    [
+     "Bohr: year and model",
+     "1913, planetary model, electrons in fixed energy levels"
+    ],
     [
      "Democritus",
      "Greek thinker (about 400 BC) who said matter is made of tiny uncuttable pieces he called atomos. He had no experiments to back it up."
@@ -2226,20 +2256,12 @@ const DECK = {
      "A solid, indivisible sphere, like a tiny billiard ball"
     ],
     [
-     "Law of conservation of mass",
-     "Mass is not created or destroyed in a reaction. Dalton explained it: atoms are only rearranged."
-    ],
-    [
      "J.J. Thomson's experiment",
      "The cathode ray tube (1897). The beam bent toward the positive plate, so it was made of negative particles."
     ],
     [
      "What Thomson discovered",
      "The electron, so atoms are not indivisible"
-    ],
-    [
-     "Plum pudding model",
-     "Thomson's model: a ball of positive charge with negative electrons scattered through it, like raisins in a pudding"
     ],
     [
      "Why the plum pudding atom is neutral",
@@ -2266,62 +2288,38 @@ const DECK = {
      "Alpha particles are positive, and like charges repel, so they were pushed away by something positive"
     ],
     [
-     "Rutherford's nuclear model",
-     "A tiny, dense, positive nucleus holding almost all the mass, with electrons moving in the empty space around it"
+     "Quantum mechanical model (who, when)",
+     "Erwin Schrödinger, 1926, built on Heisenberg and de Broglie"
     ],
     [
-     "Order of the five models (mnemonic)",
-     "Dogs Trust Really Big Squirrels: Dalton, Thomson, Rutherford, Bohr, Schrödinger"
+     "Quantum mechanical model",
+     "Electrons act like waves. We can't know their exact path, only where they are likely to be."
     ],
     [
-     "Dalton: year and model",
-     "1803, solid sphere"
+     "Electron cloud",
+     "The fuzzy region around the nucleus where electrons are likely to be found. Denser means more likely."
     ],
     [
-     "Dalton's key idea",
-     "Atoms are tiny solid balls that can't be divided"
+     "Heisenberg uncertainty principle",
+     "You can't know both the exact position and the exact speed of an electron at the same time"
     ],
     [
-     "Thomson: year and model",
-     "Electron 1897, plum pudding model 1904"
+     "The modern model of the atom",
+     "The quantum mechanical model, also called the electron cloud or quantum model (Schrödinger, 1926). It's still the accepted model."
     ],
     [
-     "Rutherford: year and model",
-     "1911, nuclear model"
-    ],
-    [
-     "Gold foil: most particles went straight through, so...",
-     "The atom is mostly empty space"
-    ],
-    [
-     "Gold foil: a few bounced back, so...",
-     "There is a tiny, dense, positive nucleus"
-    ],
-    [
-     "Bohr: year and model",
-     "1913, planetary model, electrons in fixed energy levels"
-    ],
-    [
-     "Schrödinger: year and model",
-     "1926, quantum mechanical (electron cloud) model"
-    ],
-    [
-     "Quantum model's key idea",
-     "No fixed paths, only regions where electrons are likely to be (orbitals)"
+     "Do electrons travel in definite paths?",
+     "No. Their movement is unpredictable, so we only know where they're likely to be (the electron cloud)."
     ]
    ],
    "points": [
-    "Order: Dalton, Thomson, Rutherford, Bohr, Schrödinger (Dogs Trust Really Big Squirrels)",
     "Dalton's four points: atoms are indivisible, same element atoms are identical, atoms combine in whole number ratios, reactions rearrange atoms",
-    "Dalton 1803, solid sphere, indivisible",
     "Wrong parts: atoms are divisible, and isotopes mean same element atoms can differ in mass",
     "Thomson's cathode ray tube found the electron, a negative particle",
-    "Thomson 1897/1904, plum pudding, electrons in a positive sphere",
-    "Gold foil: most went through, so mostly empty space",
-    "Gold foil: a few bounced back, so a tiny, dense, positive nucleus",
     "Chadwick found the neutron in 1932",
-    "Bohr 1913, electrons in fixed energy levels",
-    "Schrödinger 1926, electron cloud, orbitals are probability regions"
+    "Order: Democritus, Dalton (solid sphere), Thomson (plum pudding), Rutherford (nucleus), Bohr (levels), Schrödinger (cloud)",
+    "Schrödinger 1926: electrons act like waves, the model gives probabilities",
+    "Electron cloud and orbitals are regions where electrons are likely to be"
    ],
    "group": "Unit 2, atomic structure"
   },
@@ -2387,7 +2385,7 @@ const DECK = {
      "p": "Your class vocab sheet calls protons + neutrons the **atomic mass**. On a question that wants a whole number for one atom, that's the mass number. The decimal on the periodic table is the average atomic mass."
     },
     {
-     "h": "Ions, charges and the size of the atom"
+     "h": "Ions"
     },
     {
      "p": "An **ion** is an atom that gained or lost **electrons**, so it has a charge. The protons never change, because changing protons changes the element."
@@ -2475,7 +2473,7 @@ const DECK = {
      "p": "**Mass:** in carbon-12, the nucleus holds (12 − 0.003) ÷ 12 = **99.975%** of the mass. **Size:** the atom is about **10,000 times wider** than the nucleus. If a chlorine nucleus were a dime, the whole atom would be a football stadium (100 pm ÷ 4.0 fm = 25,000, and 17 mm × 25,000 = 425 m)."
     },
     {
-     "h": "Isotopes and average atomic mass"
+     "h": "Isotopes"
     },
     {
      "p": "**Isotopes** are atoms of the same element with the **same protons** but **different neutrons**, so different mass numbers. They react the same way chemically."
@@ -2487,8 +2485,175 @@ const DECK = {
      ]
     },
     {
-     "h": "Average atomic mass"
+     "p": "**Not isotopes:** carbon-14 and nitrogen-14 have the same mass number but different protons, so they are different elements."
     },
+    {
+     "h": "Explain it"
+    },
+    {
+     "p": "Explain questions are 2 points: one for **what** happens, one for **why**. Use the key word every time."
+    },
+    {
+     "h": "Why are isotopes the same element but different masses?"
+    },
+    {
+     "p": "Same number of **protons**, so the same element. Different numbers of **neutrons**, so different masses. Same electrons, so the same chemistry."
+    },
+    {
+     "h": "How many electrons does Mg²⁺ have, and why?"
+    },
+    {
+     "p": "Protons can't change, Mg always has 12. A 2+ charge means 2 more protons than electrons, so 12 − 2 = **10 electrons**."
+    }
+   ],
+   "cards": [
+    [
+     "Proton",
+     "Charge +1, mass about 1 amu, found in the nucleus"
+    ],
+    [
+     "Neutron",
+     "Charge 0, mass about 1 amu, found in the nucleus"
+    ],
+    [
+     "Electron",
+     "Charge −1, mass about 0 amu (about 1/1840 of a proton), found in the electron cloud around the nucleus"
+    ],
+    [
+     "Nucleons",
+     "The particles in the nucleus: protons and neutrons"
+    ],
+    [
+     "Where is almost all of an atom's mass?",
+     "In the nucleus"
+    ],
+    [
+     "How big is the nucleus compared to the atom?",
+     "Tiny. The atom is about 10,000 times wider than its nucleus. The rest is the electron cloud."
+    ],
+    [
+     "Atomic number",
+     "The number of protons. It decides which element it is."
+    ],
+    [
+     "In a neutral atom, electrons =",
+     "Protons (the atomic number)"
+    ],
+    [
+     "Mass number",
+     "Protons + neutrons (always a whole number)"
+    ],
+    [
+     "Number of neutrons",
+     "Mass number − atomic number"
+    ],
+    [
+     "Oxygen-16: protons, neutrons, electrons",
+     "8 protons, 8 neutrons, 8 electrons"
+    ],
+    [
+     "Ion",
+     "An atom with a charge because it gained or lost electrons. The protons never change."
+    ],
+    [
+     "Cation",
+     "A positive ion. It lost electrons. Examples: Na⁺, Ca²⁺, Al³⁺"
+    ],
+    [
+     "Anion",
+     "A negative ion. It gained electrons. Examples: Cl⁻, O²⁻, N³⁻"
+    ],
+    [
+     "Charge of an atom or ion",
+     "Protons − electrons. Each proton is +1, each electron is −1, neutrons are 0."
+    ],
+    [
+     "Electrons in a positive ion",
+     "Protons − charge. Al³⁺: 13 − 3 = 10 electrons"
+    ],
+    [
+     "Electrons in a negative ion",
+     "Protons + charge. S²⁻: 16 + 2 = 18 electrons"
+    ],
+    [
+     "Fe³⁺: protons and electrons",
+     "26 protons, 23 electrons"
+    ],
+    [
+     "Cl⁻: protons and electrons",
+     "17 protons, 18 electrons"
+    ],
+    [
+     "Pt²⁺: electrons",
+     "78 − 2 = 76"
+    ],
+    [
+     "Atom or ion: 19 p⁺ and 18 e⁻?",
+     "Ion (K⁺). Protons and electrons don't match. If they match, it's a neutral atom."
+    ],
+    [
+     "What happens if the number of protons changes?",
+     "It becomes a different element"
+    ],
+    [
+     "Isotopes",
+     "Atoms of the same element (same protons) with different numbers of neutrons, so different mass numbers"
+    ],
+    [
+     "Carbon-12 vs carbon-14",
+     "Both have 6 protons. C-12 has 6 neutrons, C-14 has 8."
+    ],
+    [
+     "Isotopes of hydrogen",
+     "Hydrogen-1 (0 neutrons), hydrogen-2 or deuterium (1 neutron), hydrogen-3 or tritium (2 neutrons)"
+    ],
+    [
+     "Do isotopes react differently?",
+     "No. Same protons and electrons, so the same chemical properties. Only the mass is different."
+    ],
+    [
+     "Why aren't carbon-14 and nitrogen-14 isotopes?",
+     "They have different numbers of protons (6 and 7), so they're different elements. Isotopes must have the same protons."
+    ],
+    [
+     "Same mass number, different element. Isotopes?",
+     "No. Isotopes are the same element with different mass numbers."
+    ],
+    [
+     "Why are isotopes the same element?",
+     "Same number of protons"
+    ],
+    [
+     "Why do isotopes have different masses?",
+     "Different numbers of neutrons"
+    ],
+    [
+     "Why do isotopes react the same way?",
+     "Same number of electrons"
+    ],
+    [
+     "Electrons in Mg²⁺ and why",
+     "10. Protons stay 12, a 2+ charge means 2 fewer electrons"
+    ]
+   ],
+   "points": [
+    "Proton +1 and about 1 amu, neutron 0 and about 1 amu, both in the nucleus",
+    "Atomic number = protons, it identifies the element",
+    "Mass number = protons + neutrons, neutrons = mass number − atomic number",
+    "Cation is positive (lost electrons), anion is negative (gained electrons)",
+    "Charge = protons − electrons",
+    "Al³⁺ has 10 electrons, S²⁻ has 18",
+    "Isotopes: same protons, different neutrons, different mass numbers",
+    "Isotopes have the same chemical properties",
+    "C-14 and N-14 are not isotopes, they have different protons"
+   ],
+   "group": "Unit 2, atomic structure"
+  },
+  {
+   "id": "avgmass",
+   "title": "Average atomic mass",
+   "quizlet": "",
+   "notes": [
     {
      "p": "The decimal on the periodic table is a **weighted average** of the isotopes, based on how common each one is (its **abundance**)."
     },
@@ -2552,13 +2717,10 @@ const DECK = {
      ]
     },
     {
-     "p": "**Not isotopes:** carbon-14 and nitrogen-14 have the same mass number but different protons, so they are different elements."
-    },
-    {
      "p": "Video from the class drive: [how to calculate average atomic mass](https://www.youtube.com/watch?v=xirPkCI1sMA)."
     },
     {
-     "h": "Average atomic mass practice"
+     "h": "Practice"
     },
     {
      "key": "Average atomic mass = (mass × percent as a decimal) + (mass × percent as a decimal) + ..."
@@ -2579,102 +2741,6 @@ const DECK = {
     }
    ],
    "cards": [
-    [
-     "Proton",
-     "Charge +1, mass about 1 amu, found in the nucleus"
-    ],
-    [
-     "Neutron",
-     "Charge 0, mass about 1 amu, found in the nucleus"
-    ],
-    [
-     "Electron",
-     "Charge −1, mass about 0 amu (about 1/1840 of a proton), found in the electron cloud around the nucleus"
-    ],
-    [
-     "Nucleons",
-     "The particles in the nucleus: protons and neutrons"
-    ],
-    [
-     "Where is almost all of an atom's mass?",
-     "In the nucleus"
-    ],
-    [
-     "How big is the nucleus compared to the atom?",
-     "Tiny. The atom is about 10,000 times wider than its nucleus. The rest is the electron cloud."
-    ],
-    [
-     "Atomic number",
-     "The number of protons. It decides which element it is."
-    ],
-    [
-     "In a neutral atom, electrons =",
-     "Protons (the atomic number)"
-    ],
-    [
-     "Mass number",
-     "Protons + neutrons (always a whole number)"
-    ],
-    [
-     "Number of neutrons",
-     "Mass number − atomic number"
-    ],
-    [
-     "Ion",
-     "An atom with a charge because it gained or lost electrons. The protons never change."
-    ],
-    [
-     "Cation",
-     "A positive ion. It lost electrons. Examples: Na⁺, Ca²⁺, Al³⁺"
-    ],
-    [
-     "Anion",
-     "A negative ion. It gained electrons. Examples: Cl⁻, O²⁻, N³⁻"
-    ],
-    [
-     "Charge of an atom or ion",
-     "Protons − electrons. Each proton is +1, each electron is −1, neutrons are 0."
-    ],
-    [
-     "Electrons in a positive ion",
-     "Protons − charge. Al³⁺: 13 − 3 = 10 electrons"
-    ],
-    [
-     "Electrons in a negative ion",
-     "Protons + charge. S²⁻: 16 + 2 = 18 electrons"
-    ],
-    [
-     "Fe³⁺: protons and electrons",
-     "26 protons, 23 electrons"
-    ],
-    [
-     "Cl⁻: protons and electrons",
-     "17 protons, 18 electrons"
-    ],
-    [
-     "Pt²⁺: electrons",
-     "78 − 2 = 76"
-    ],
-    [
-     "Atom or ion: 19 p⁺ and 18 e⁻?",
-     "Ion (K⁺). Protons and electrons don't match. If they match, it's a neutral atom."
-    ],
-    [
-     "Isotopes",
-     "Atoms of the same element (same protons) with different numbers of neutrons, so different mass numbers"
-    ],
-    [
-     "Carbon-12 vs carbon-14",
-     "Both have 6 protons. C-12 has 6 neutrons, C-14 has 8."
-    ],
-    [
-     "Isotopes of hydrogen",
-     "Hydrogen-1 (0 neutrons), hydrogen-2 or deuterium (1 neutron), hydrogen-3 or tritium (2 neutrons)"
-    ],
-    [
-     "Do isotopes react differently?",
-     "No. Same protons and electrons, so the same chemical properties. Only the mass is different."
-    ],
     [
      "Average atomic mass",
      "The weighted average of the masses of all of an element's isotopes, based on how common each one is"
@@ -2698,24 +2764,51 @@ const DECK = {
     [
      "Chlorine: 75% Cl-35, 25% Cl-37",
      "(35 × 75 + 37 × 25) ÷ 100 = 35.5 amu"
+    ],
+    [
+     "Boron: 20% B-10, 80% B-11",
+     "(10 × 20 + 11 × 80) ÷ 100 = 10.8 amu"
+    ],
+    [
+     "Mass number vs atomic mass",
+     "Mass number is a whole number for one isotope (protons + neutrons). Atomic mass is the average of all isotopes, a decimal."
+    ],
+    [
+     "Lithium averages 6.941 amu (Li-6 and Li-7). Most abundant?",
+     "Lithium-7, because the average is much closer to 7"
+    ],
+    [
+     "Silicon averages 28.086 amu (Si-28, 29, 30). What does that tell you?",
+     "Silicon-28 is by far the most common. Si-29 and Si-30 are rare."
+    ],
+    [
+     "Cesium: 75% Cs-133, 20% Cs-132, 5% Cs-134",
+     "0.75 × 133 + 0.20 × 132 + 0.05 × 134 = 132.85 amu"
+    ],
+    [
+     "Copper: 69.2% at 62.93 amu, 30.8% at 64.93 amu",
+     "43.548 + 19.998 = 63.546 amu"
+    ],
+    [
+     "Element Z averages 208.99 amu, 67% is Z-208. Other isotope?",
+     "0.67 × 208 = 139.36. 208.99 − 139.36 = 69.63. 69.63 ÷ 0.33 = 211, so Z-211."
+    ],
+    [
+     "Cl-35 (34.969 amu) and Cl-37 (36.966 amu) average 35.453. Abundances?",
+     "34.969x + 36.966(1 − x) = 35.453, so x = 0.7576. 75.76% Cl-35 and 24.24% Cl-37."
     ]
    ],
    "points": [
-    "Proton +1 and about 1 amu, neutron 0 and about 1 amu, both in the nucleus",
-    "Atomic number = protons, it identifies the element",
-    "Mass number = protons + neutrons, neutrons = mass number − atomic number",
-    "Cation is positive (lost electrons), anion is negative (gained electrons)",
-    "Charge = protons − electrons",
-    "Al³⁺ has 10 electrons, S²⁻ has 18",
-    "Isotopes: same protons, different neutrons, different mass numbers",
-    "Isotopes have the same chemical properties",
+    "Average atomic mass is a weighted average by abundance",
     "Formula: (mass × % + mass × %) ÷ 100",
     "The average is closest to the most abundant isotope",
+    "Decimal way: 0.75 × 133 + 0.20 × 132 + ... with no ÷ 100",
+    "Backwards: (average − known part) ÷ other fraction gives the missing mass",
     "Practice answers: Cl 35.45, X 10.81 (boron), Cu 63.55, Si 28.09"
    ],
    "dump": [
     {
-     "p": "Write everything you remember about atoms, ions and isotopes. Then solve these with a calculator and add your answers."
+     "p": "Write the formula and the steps from memory. Then solve these with a calculator."
     },
     {
      "list": [
@@ -2730,12 +2823,118 @@ const DECK = {
   },
   {
    "id": "bohr",
-   "title": "Bohr model and spectra",
-   "quizlet": "",
+   "title": "Bohr's model",
+   "cards": [
+    [
+     "Bohr model (who, when)",
+     "Niels Bohr, 1913"
+    ],
+    [
+     "Bohr model",
+     "Electrons move around the nucleus in fixed paths called energy levels (shells), each with a set amount of energy"
+    ],
+    [
+     "Can an electron be between energy levels?",
+     "No. It can only be in one level or another."
+    ],
+    [
+     "Ground state",
+     "All electrons in the lowest energy levels they can be in"
+    ],
+    [
+     "Excited state",
+     "An electron has absorbed energy and jumped to a higher level"
+    ],
+    [
+     "What happens when an electron falls back down?",
+     "It gives off the extra energy as light of a specific color (wavelength)"
+    ],
+    [
+     "Bright line spectrum",
+     "The set of colored lines an element gives off. Each element's is unique, like a fingerprint."
+    ],
+    [
+     "Energy levels closer to the nucleus have...",
+     "Lower energy"
+    ],
+    [
+     "Most electrons a level can hold",
+     "2n². Level 1: 2, level 2: 8, level 3: 18, level 4: 32"
+    ],
+    [
+     "Electron configuration of sodium (Bohr style)",
+     "2-8-1 (11 electrons)"
+    ],
+    [
+     "Electron configuration of chlorine (Bohr style)",
+     "2-8-7 (17 electrons)"
+    ],
+    [
+     "Valence electrons",
+     "The electrons in the outermost energy level"
+    ],
+    [
+     "How many valence electrons does oxygen (2-6) have?",
+     "6"
+    ],
+    [
+     "What the Bohr model got right",
+     "It explained hydrogen's bright line spectrum"
+    ],
+    [
+     "Bohr model's weakness",
+     "It only worked for hydrogen. Electrons don't really travel in neat circles."
+    ],
+    [
+     "How to draw a Bohr diagram",
+     "Protons and neutrons in the center, then electrons from the inside out: 2 in ring 1, 8 in ring 2, 8 in ring 3 (for the first 20 elements)"
+    ],
+    [
+     "Bohr diagram: carbon (6)",
+     "2-4"
+    ],
+    [
+     "Bohr diagram: silicon (14)",
+     "2-8-4"
+    ],
+    [
+     "Bohr diagram: argon (18)",
+     "2-8-8"
+    ],
+    [
+     "Bohr diagram: potassium (19)",
+     "2-8-8-1"
+    ],
+    [
+     "Bohr diagram: calcium (20)",
+     "2-8-8-2"
+    ],
+    [
+     "Bohr diagram: bromine (35)",
+     "2-8-18-7 (read it off the reference table)"
+    ],
+    [
+     "Where to find any element's shell configuration",
+     "On your reference table, printed under the atomic number in every box (Na says 2-8-1)"
+    ],
+    [
+     "Bohr's model name",
+     "The planetary model (1913)"
+    ],
+    [
+     "Quantized",
+     "Energy comes only in fixed amounts. A Bohr electron can only have the energy of one level, nothing in between."
+    ],
+    [
+     "Photon emission",
+     "When an electron drops to a lower orbit, it gives off light of an exact wavelength"
+    ],
+    [
+     "What was wrong with Bohr's model?",
+     "Moving electrons should give off energy and spiral into the nucleus, and the model didn't work for atoms heavier than hydrogen"
+    ]
+   ],
    "notes": [
-    {
-     "h": "Bohr model and energy levels"
-    },
     {
      "img": "../img/u2/bohr-levels.png",
      "alt": "Bohr model with four energy levels and an electron jumping up and falling back"
@@ -2846,114 +3045,184 @@ const DECK = {
        ]
       ]
      }
+    }
+   ],
+   "points": [
+    "Bohr 1913: electrons in fixed energy levels",
+    "Ground state is lowest energy, excited state is after absorbing energy",
+    "Falling back gives off light, making a bright line spectrum unique to each element",
+    "Max electrons per level is 2n²: 2, 8, 18, 32",
+    "Configurations like 2-8-1, the last number is the valence electrons",
+    "It only worked for hydrogen",
+    "Bohr diagrams fill 2, 8, 8 from the inside out",
+    "K is 2-8-8-1, Ca is 2-8-8-2, bigger ones come from the reference table"
+   ],
+   "quizlet": "",
+   "group": "Unit 2, atomic structure"
+  },
+  {
+   "id": "emspec",
+   "title": "Electromagnetic spectra",
+   "notes": [
+    {
+     "p": "Light is energy that travels as a wave. The **electromagnetic (EM) spectrum** is every kind of light lined up by wavelength, from radio waves to gamma rays. Visible light, the part your eyes see, is a tiny slice in the middle."
     },
     {
-     "h": "Ground state, excited state and spectra"
+     "img": "../img/u2/em-spectrum.png"
     },
     {
-     "p": "**Ground state:** every electron is in the lowest level it can be. That's the configuration printed on the reference table."
+     "alt": "The electromagnetic spectrum from radio to gamma, with the wave getting shorter to the right and visible light zoomed in as ROYGBIV"
     },
     {
-     "p": "**Excited state:** the atom took in energy and an electron jumped up. The total number of electrons doesn't change, but the pattern does."
+     "key": "**Long wavelength to short:** Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma.\nTrick: **R**aging **M**artians **I**nvaded **V**enus **U**sing **X**-ray **G**uns."
     },
     {
-     "table": {
-      "head": [
-       "Element",
-       "Ground state",
-       "An excited state"
-      ],
-      "rows": [
-       [
-        "Sulfur (16)",
-        "2-8-6",
-        "2-8-5-1"
-       ],
-       [
-        "Sodium (11)",
-        "2-8-1",
-        "2-7-2"
-       ],
-       [
-        "Neon (10)",
-        "2-8",
-        "2-7-1"
-       ]
-      ]
-     }
+     "h": "Wavelength, frequency and energy"
     },
     {
-     "key": "**Up = absorb, down = release.**\nFalling down releases light, which makes the **spectral lines**. Bigger jump, more energy."
+     "p": "**Wavelength** is the distance from one wave peak to the next. **Frequency** is how many waves pass a point every second. Picture the wave in the diagram: on the left the peaks are far apart (long wavelength, few waves per second), on the right they're packed together (short wavelength, lots of waves per second)."
     },
     {
-     "p": "Each element's **bright line spectrum** is unique. To find which elements are in an unknown, an element counts only if **all** of its lines appear in the unknown's spectrum."
+     "key": "**Wavelength and frequency are opposites.** When one goes up, the other goes down.\n**Energy follows frequency.** Short wavelength = high frequency = **high energy**."
+    },
+    {
+     "p": "So gamma rays carry the most energy (that's why they're dangerous) and radio waves the least. All of them travel at the same speed in empty space, the **speed of light**."
+    },
+    {
+     "h": "Visible light: ROYGBIV"
+    },
+    {
+     "p": "Inside visible light the same rule holds. **Red** has the longest wavelength and the least energy. **Violet** has the shortest wavelength and the most energy. Just past red is infrared, just past violet is ultraviolet."
+    },
+    {
+     "h": "Three kinds of spectra"
+    },
+    {
+     "img": "../img/u2/spectra.png"
+    },
+    {
+     "alt": "A continuous rainbow, hydrogen's four bright lines on black, and a rainbow with dark gaps at the same four colors"
+    },
+    {
+     "list": [
+      "**Continuous spectrum:** every color with no gaps. White light (the sun, a light bulb) through a prism.",
+      "**Bright line (emission) spectrum:** a hot gas only gives off certain colors, so you see a few bright lines on a dark background.",
+      "**Absorption spectrum:** white light shines through a cool gas, and the gas soaks up those same colors, leaving dark lines in the rainbow."
+     ]
+    },
+    {
+     "h": "Why each element has its own lines"
+    },
+    {
+     "p": "Electrons can only sit in certain energy levels, never in between. When an excited electron falls back down, it gives off exactly the energy of that drop as one color of light. Each element has its own spacing of levels, so it gives off its own set of colors, like a **fingerprint**. A bigger drop gives off more energy, so a line toward the violet end means a bigger drop than a line toward the red end."
+    },
+    {
+     "p": "**Flame tests** use this. Heat a metal salt and its electrons get excited, then fall back and color the flame: sodium is yellow-orange, lithium and strontium are red, copper is blue-green, potassium is light purple."
     }
    ],
    "cards": [
     [
-     "Bohr model (who, when)",
-     "Niels Bohr, 1913"
+     "Electromagnetic spectrum",
+     "Every kind of light lined up by wavelength: radio, microwave, infrared, visible, ultraviolet, X-ray, gamma"
     ],
     [
-     "Bohr model",
-     "Electrons move around the nucleus in fixed paths called energy levels (shells), each with a set amount of energy"
+     "Order of the EM spectrum (long to short wavelength)",
+     "Radio, Microwave, Infrared, Visible, Ultraviolet, X-ray, Gamma (Raging Martians Invaded Venus Using X-ray Guns)"
     ],
     [
-     "Can an electron be between energy levels?",
-     "No. It can only be in one level or another."
+     "Wavelength",
+     "The distance from one wave peak to the next"
     ],
     [
-     "Ground state",
-     "All electrons in the lowest energy levels they can be in"
+     "Frequency",
+     "How many waves pass a point every second"
     ],
     [
-     "Excited state",
-     "An electron has absorbed energy and jumped to a higher level"
+     "Wavelength vs frequency",
+     "Opposites. Longer wavelength means lower frequency, shorter wavelength means higher frequency."
     ],
     [
-     "What happens when an electron falls back down?",
-     "It gives off the extra energy as light of a specific color (wavelength)"
+     "Which has more energy, high or low frequency?",
+     "High frequency. Energy goes up with frequency (and down with wavelength)."
     ],
     [
-     "Bright line spectrum",
-     "The set of colored lines an element gives off. Each element's is unique, like a fingerprint."
+     "Most energy on the EM spectrum",
+     "Gamma rays (shortest wavelength, highest frequency)"
     ],
     [
-     "Energy levels closer to the nucleus have...",
-     "Lower energy"
+     "Least energy on the EM spectrum",
+     "Radio waves (longest wavelength, lowest frequency)"
     ],
     [
-     "Most electrons a level can hold",
-     "2n². Level 1: 2, level 2: 8, level 3: 18, level 4: 32"
+     "Visible color with the most energy",
+     "Violet: shortest wavelength, highest frequency"
     ],
     [
-     "Electron configuration of sodium (Bohr style)",
-     "2-8-1 (11 electrons)"
+     "Visible color with the least energy",
+     "Red: longest wavelength, lowest frequency"
     ],
     [
-     "Electron configuration of chlorine (Bohr style)",
-     "2-8-7 (17 electrons)"
+     "Order of visible colors",
+     "ROYGBIV: red, orange, yellow, green, blue, indigo, violet (red is the long wavelength end)"
     ],
     [
-     "Valence electrons",
-     "The electrons in the outermost energy level"
+     "Speed of all EM waves in a vacuum",
+     "The same: the speed of light"
     ],
     [
-     "How many valence electrons does oxygen (2-6) have?",
-     "6"
+     "Continuous spectrum",
+     "Every color with no gaps, like white light through a prism"
     ],
     [
-     "What the Bohr model got right",
-     "It explained hydrogen's bright line spectrum"
+     "Bright line (emission) spectrum",
+     "Only certain colors as bright lines on a dark background, given off when excited electrons fall back down"
     ],
     [
-     "Bohr model's weakness",
-     "It only worked for hydrogen. Electrons don't really travel in neat circles."
+     "Absorption spectrum",
+     "A rainbow with dark lines where a cool gas soaked up those colors"
     ],
     [
-     "How to draw a Bohr diagram",
-     "Protons and neutrons in the center, then electrons from the inside out: 2 in ring 1, 8 in ring 2, 8 in ring 3 (for the first 20 elements)"
+     "Why does each element have its own line spectrum?",
+     "Each element has its own spacing of energy levels, so the drops (and the colors of light they give off) are different"
     ],
+    [
+     "Line near violet vs line near red",
+     "The violet line came from a bigger energy drop"
+    ],
+    [
+     "Flame test",
+     "Heating a metal excites its electrons. They fall back and give the flame a color unique to that metal."
+    ]
+   ],
+   "points": [
+    "Order: Radio, Microwave, Infrared, Visible, UV, X-ray, Gamma (Raging Martians...)",
+    "Wavelength and frequency are opposites",
+    "Short wavelength = high frequency = high energy",
+    "Visible: red least energy, violet most",
+    "Continuous = every color, emission = bright lines, absorption = dark lines",
+    "Each element's lines are unique because its energy levels are unique",
+    "Bigger drop gives higher energy light (toward violet)"
+   ],
+   "dump": [
+    {
+     "p": "Write everything you remember about the electromagnetic spectrum. Then answer these in full sentences."
+    },
+    {
+     "list": [
+      "Put in order of increasing energy: visible, gamma, radio, ultraviolet, microwave, X-ray, infrared",
+      "Red light vs blue light: which has the longer wavelength, the higher frequency, the more energy?",
+      "Why does hydrogen give off only four colors of visible light instead of a full rainbow?",
+      "What's the difference between an emission spectrum and an absorption spectrum?"
+     ]
+    }
+   ],
+   "quizlet": "",
+   "group": "Unit 2, atomic structure"
+  },
+  {
+   "id": "excited",
+   "title": "Ground state vs excited state",
+   "cards": [
     [
      "Ground state configuration",
      "Every electron in the lowest level possible. It matches the reference table, like sulfur 2-8-6."
@@ -2995,6 +3264,10 @@ const DECK = {
      "The biggest jump down, like 5 to 2"
     ],
     [
+     "Bright line spectrum",
+     "The pattern of colored lines an element gives off. Every element has its own, like a fingerprint."
+    ],
+    [
      "Finding elements in an unknown spectrum",
      "An element is in the mixture only if every one of its lines shows up in the unknown"
     ],
@@ -3005,281 +3278,62 @@ const DECK = {
     [
      "Excited state (class vocab)",
      "Any configuration that isn't the one on the periodic table"
-    ],
-    [
-     "Electromagnetic spectrum",
-     "The full range of light at all wavelengths. A spectrum shows how much light something gives off at each wavelength."
     ]
    ],
+   "notes": [
+    {
+     "p": "**Ground state:** every electron is in the lowest level it can be. That's the configuration printed on the reference table."
+    },
+    {
+     "p": "**Excited state:** the atom took in energy and an electron jumped up. The total number of electrons doesn't change, but the pattern does."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "Ground state",
+       "An excited state"
+      ],
+      "rows": [
+       [
+        "Sulfur (16)",
+        "2-8-6",
+        "2-8-5-1"
+       ],
+       [
+        "Sodium (11)",
+        "2-8-1",
+        "2-7-2"
+       ],
+       [
+        "Neon (10)",
+        "2-8",
+        "2-7-1"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Up = absorb, down = release.**\nFalling down releases light, which makes the **spectral lines**. Bigger jump, more energy."
+    },
+    {
+     "p": "Each element's **bright line spectrum** is unique. To find which elements are in an unknown, an element counts only if **all** of its lines appear in the unknown's spectrum."
+    }
+   ],
    "points": [
-    "Bohr 1913: electrons in fixed energy levels",
-    "Max electrons per level is 2n²: 2, 8, 18, 32",
-    "Configurations like 2-8-1, the last number is the valence electrons",
-    "Bohr diagrams fill 2, 8, 8 from the inside out",
-    "It only worked for hydrogen",
     "Ground state: lowest levels, matches the reference table",
     "Excited state: same electrons, one moved up (S 2-8-5-1)",
     "Going up absorbs energy, coming down releases light",
     "Spectral lines come from electrons falling to lower levels",
+    "Biggest jump means the most energy",
     "Every element has a unique bright line spectrum, match all lines"
    ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "quantum",
-   "title": "Quantum model and quantum numbers",
    "quizlet": "",
-   "notes": [
-    {
-     "h": "Quantum mechanical model and orbitals"
-    },
-    {
-     "p": "**Schrödinger (1926)**, building on de Broglie and Heisenberg: electrons behave like **waves**. You can't pin down an electron's exact path, so the model gives **probabilities** instead."
-    },
-    {
-     "p": "**Heisenberg uncertainty principle:** you can't know an electron's exact position and exact speed at the same time."
-    },
-    {
-     "p": "The **electron cloud** is the region where electrons are likely to be. An **orbital** is a region with about a 90% chance of finding an electron. Each orbital holds **at most 2 electrons**, with opposite spins."
-    },
-    {
-     "table": {
-      "head": [
-       "Sublevel",
-       "Orbitals",
-       "Electrons",
-       "Shape"
-      ],
-      "rows": [
-       [
-        "s",
-        "1",
-        "2",
-        "Sphere"
-       ],
-       [
-        "p",
-        "3",
-        "6",
-        "Dumbbell"
-       ],
-       [
-        "d",
-        "5",
-        "10",
-        "More complex"
-       ],
-       [
-        "f",
-        "7",
-        "14",
-        "More complex"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**s2 p6 d10 f14.** Energy level n has n sublevels and n² orbitals: level 2 has s and p (4 orbitals, 8 electrons)."
-    },
-    {
-     "p": "**Orbit vs orbital:** a Bohr orbit is an exact circle. An orbital is a fuzzy region where the electron probably is."
-    },
-    {
-     "p": "Filling order (aufbau, lowest energy first): 1s, 2s, 2p, 3s, 3p, 4s, 3d. Oxygen (8 electrons) is 1s² 2s² 2p⁴."
-    },
-    {
-     "h": "Quantum numbers"
-    },
-    {
-     "p": "Four **quantum numbers** give each electron an address, from the biggest area to the smallest."
-    },
-    {
-     "table": {
-      "head": [
-       "Quantum number",
-       "Symbol",
-       "Tells you",
-       "Allowed values"
-      ],
-      "rows": [
-       [
-        "Principal",
-        "n",
-        "Energy level and size",
-        "1, 2, 3, ..."
-       ],
-       [
-        "Angular momentum",
-        "l",
-        "Sublevel shape (s, p, d, f)",
-        "0 to n − 1"
-       ],
-       [
-        "Magnetic",
-        "mₗ",
-        "Which orbital (direction)",
-        "−l to +l"
-       ],
-       [
-        "Spin",
-        "mₛ",
-        "Spin direction",
-        "+½ or −½"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**l letters:** 0 = s, 1 = p, 2 = d, 3 = f.\nAddress idea: n is the street, l is the building, mₗ is the apartment, mₛ is which of the 2 roommates."
-    },
-    {
-     "p": "**Pauli exclusion principle:** no two electrons in one atom share all four quantum numbers. That's why an orbital holds only 2 electrons, with opposite spins."
-    },
-    {
-     "list": [
-      "n = 3 → l can be 0, 1, 2 (3s, 3p, 3d)",
-      "l = 1 → mₗ can be −1, 0, +1 (three p orbitals)",
-      "A 2p electron: n = 2, l = 1, mₗ = −1, 0 or +1, mₛ = +½ or −½",
-      "n = 1, l = 1 is impossible, because l only goes up to n − 1"
-     ]
-    }
-   ],
-   "cards": [
-    [
-     "Quantum mechanical model (who, when)",
-     "Erwin Schrödinger, 1926, built on Heisenberg and de Broglie"
-    ],
-    [
-     "Quantum mechanical model",
-     "Electrons act like waves. We can't know their exact path, only where they are likely to be."
-    ],
-    [
-     "Electron cloud",
-     "The fuzzy region around the nucleus where electrons are likely to be found. Denser means more likely."
-    ],
-    [
-     "Heisenberg uncertainty principle",
-     "You can't know both the exact position and the exact speed of an electron at the same time"
-    ],
-    [
-     "Orbital",
-     "A region of space where there is a high chance (about 90%) of finding an electron"
-    ],
-    [
-     "Most electrons in one orbital",
-     "2, and they must have opposite spins"
-    ],
-    [
-     "s sublevel",
-     "1 orbital, holds 2 electrons, sphere shaped"
-    ],
-    [
-     "p sublevel",
-     "3 orbitals, holds 6 electrons, dumbbell shaped"
-    ],
-    [
-     "d sublevel",
-     "5 orbitals, holds 10 electrons"
-    ],
-    [
-     "f sublevel",
-     "7 orbitals, holds 14 electrons"
-    ],
-    [
-     "Sublevels in energy level n",
-     "n sublevels. Level 1: s. Level 2: s, p. Level 3: s, p, d. Level 4: s, p, d, f."
-    ],
-    [
-     "Orbitals in energy level n",
-     "n² orbitals (so 2n² electrons)"
-    ],
-    [
-     "Bohr orbit vs orbital",
-     "A Bohr orbit is an exact circular path. An orbital is a probability region with no exact path."
-    ],
-    [
-     "Filling order (aufbau)",
-     "1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p... lowest energy first"
-    ],
-    [
-     "The modern model of the atom",
-     "The quantum mechanical model, also called the electron cloud or quantum model (Schrödinger, 1926). It's still the accepted model."
-    ],
-    [
-     "Do electrons travel in definite paths?",
-     "No. Their movement is unpredictable, so we only know where they're likely to be (the electron cloud)."
-    ],
-    [
-     "What quantum numbers describe",
-     "The address of an electron in an atom. There are four."
-    ],
-    [
-     "Principal quantum number (n)",
-     "The energy level and size: 1, 2, 3... Bigger n is farther from the nucleus and higher energy."
-    ],
-    [
-     "Angular momentum quantum number (l)",
-     "The sublevel shape. It goes from 0 to n − 1."
-    ],
-    [
-     "l values and their letters",
-     "0 = s, 1 = p, 2 = d, 3 = f"
-    ],
-    [
-     "Magnetic quantum number (mₗ)",
-     "Which orbital, its direction in space. It goes from −l to +l."
-    ],
-    [
-     "mₗ values for a p sublevel (l = 1)",
-     "−1, 0, +1 (3 orbitals)"
-    ],
-    [
-     "Spin quantum number (mₛ)",
-     "The electron's spin: +½ or −½"
-    ],
-    [
-     "Pauli exclusion principle",
-     "No two electrons in the same atom can have the same four quantum numbers. So an orbital holds 2 electrons, with opposite spins."
-    ],
-    [
-     "If n = 3, what can l be?",
-     "0, 1 or 2 (s, p or d)"
-    ],
-    [
-     "If l = 2, what can mₗ be?",
-     "−2, −1, 0, +1, +2 (5 d orbitals)"
-    ],
-    [
-     "Quantum numbers for a 2p electron",
-     "n = 2, l = 1, mₗ = −1, 0 or +1, mₛ = +½ or −½"
-    ],
-    [
-     "Can n = 1 have l = 1?",
-     "No. l can only go up to n − 1, so n = 1 only has l = 0 (1s)."
-    ],
-    [
-     "Order of the four quantum numbers",
-     "n, l, mₗ, mₛ: level, shape, orbital, spin"
-    ]
-   ],
-   "points": [
-    "Schrödinger 1926: electrons act like waves, the model gives probabilities",
-    "Heisenberg: can't know exact position and speed together",
-    "Electron cloud and orbitals are regions where electrons are likely to be",
-    "An orbital holds at most 2 electrons with opposite spins",
-    "s2 p6 d10 f14, with 1, 3, 5, 7 orbitals",
-    "Orbit is an exact path, orbital is a probability region",
-    "Four quantum numbers: n, l, mₗ, mₛ",
-    "l is the shape, 0 to n − 1, with 0 s, 1 p, 2 d, 3 f",
-    "mₗ is the orbital, −l to +l",
-    "mₛ is spin, +½ or −½",
-    "Pauli: no two electrons share all four, so 2 per orbital"
-   ],
    "group": "Unit 2, atomic structure"
   },
   {
-   "id": "config",
-   "title": "Electron configurations and orbital diagrams",
+   "id": "econfig",
+   "title": "Electron configuration",
    "quizlet": "",
    "notes": [
     {
@@ -3378,158 +3432,6 @@ const DECK = {
       "Too many electrons in a sublevel (3s³) breaks **Pauli**: s holds 2, p holds 6.",
       "Using a core that isn't a noble gas ([Ra] instead of [Rn]) is not allowed."
      ]
-    },
-    {
-     "h": "Orbital diagrams, Pauli and Hund's rule"
-    },
-    {
-     "table": {
-      "head": [
-       "Rule",
-       "What it says",
-       "In the diagram"
-      ],
-      "rows": [
-       [
-        "**Aufbau**",
-        "Fill the lowest energy first",
-        "Fill boxes left to right in the filling order"
-       ],
-       [
-        "**Pauli exclusion**",
-        "Max 2 electrons per orbital, opposite spins",
-        "Never more than ↑↓ in one box"
-       ],
-       [
-        "**Hund's rule**",
-        "Spread out before pairing",
-        "One ↑ in every box of a sublevel, then go back and add ↓"
-       ]
-      ]
-     }
-    },
-    {
-     "key": "**Aufbau builds, Pauli pairs, Hund spreads.**\nBus seat rule: nobody shares a seat until every seat has one person."
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "1s",
-       "2s",
-       "2p",
-       "3s",
-       "3p"
-      ],
-      "rows": [
-       [
-        "Be (4)",
-        "↑↓",
-        "↑↓",
-        "_ _ _",
-        "",
-        ""
-       ],
-       [
-        "N (7)",
-        "↑↓",
-        "↑↓",
-        "↑ ↑ ↑",
-        "",
-        ""
-       ],
-       [
-        "O (8)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑ ↑",
-        "",
-        ""
-       ],
-       [
-        "Ne (10)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "",
-        ""
-       ],
-       [
-        "Na (11)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑",
-        ""
-       ],
-       [
-        "Si (14)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑ ↑ _"
-       ],
-       [
-        "Cl (17)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑"
-       ],
-       [
-        "Ar (18)",
-        "↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "For the 4s and 3d part (everything up to 3p is full, like argon):"
-    },
-    {
-     "table": {
-      "head": [
-       "Element",
-       "4s",
-       "3d (5 boxes)"
-      ],
-      "rows": [
-       [
-        "Ti (22)",
-        "↑↓",
-        "↑ ↑ _ _ _"
-       ],
-       [
-        "V (23)",
-        "↑↓",
-        "↑ ↑ ↑ _ _"
-       ],
-       [
-        "Fe (26)",
-        "↑↓",
-        "↑↓ ↑ ↑ ↑ ↑"
-       ],
-       [
-        "Ni (28)",
-        "↑↓",
-        "↑↓ ↑↓ ↑↓ ↑ ↑"
-       ],
-       [
-        "Cu (29)",
-        "↑",
-        "↑↓ ↑↓ ↑↓ ↑↓ ↑↓"
-       ]
-      ]
-     }
-    },
-    {
-     "p": "**Ions:** draw the neutral atom, then add arrows (negative ion) or remove them (positive ion). Ca²⁺ looks like argon, O²⁻ looks like neon."
     },
     {
      "h": "Noble gas notation, exceptions and ions"
@@ -3714,7 +3616,7 @@ const DECK = {
      "p": "For transition metals, electrons leave **4s before 3d**, because 4s is the outermost level."
     },
     {
-     "h": "Valence electrons, blocks and dot diagrams"
+     "h": "Valence electrons"
     },
     {
      "p": "**Valence electrons** are in the outermost energy level, counting only s and p. They're the electrons that react, so they matter most to chemists."
@@ -3850,7 +3752,25 @@ const DECK = {
      }
     },
     {
-     "h": "Configuration drills"
+     "h": "Explain it"
+    },
+    {
+     "h": "Why does 4s fill before 3d, but empty first?"
+    },
+    {
+     "p": "4s is **lower in energy**, so it fills first. But 4s is **farther from the nucleus**, so a positive ion loses its 4s electrons first."
+    },
+    {
+     "h": "Why are Cr and Cu exceptions?"
+    },
+    {
+     "p": "One 4s electron moves into 3d because a **half full (d⁵) or full (d¹⁰) d subshell is more stable**. Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰."
+    },
+    {
+     "key": "Every explain answer: what happens, then why, with the key word (neutrons, charge, energy, more stable)."
+    },
+    {
+     "h": "Drills"
     },
     {
      "key": "Filling order: 1s 2s 2p 3s 3p **4s 3d** 4p 5s 4d 5p. s holds 2, p holds 6, d holds 10."
@@ -3899,6 +3819,379 @@ const DECK = {
      "1s² 2s² 2p³"
     ],
     [
+     "Sodium (11)",
+     "1s² 2s² 2p⁶ 3s¹"
+    ],
+    [
+     "Chlorine (17)",
+     "1s² 2s² 2p⁶ 3s² 3p⁵"
+    ],
+    [
+     "Noble gas notation",
+     "Put the noble gas before the element in brackets, then write only what comes after it. Ca = [Ar] 4s²"
+    ],
+    [
+     "Noble gas cores",
+     "[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86"
+    ],
+    [
+     "Core electrons vs valence electrons",
+     "The bracket is the core (inner electrons). What comes after holds the valence electrons."
+    ],
+    [
+     "Chlorine, noble gas notation",
+     "[Ne] 3s² 3p⁵"
+    ],
+    [
+     "Iron, noble gas notation",
+     "[Ar] 4s² 3d⁶"
+    ],
+    [
+     "Cobalt, noble gas notation",
+     "[Ar] 4s² 3d⁷"
+    ],
+    [
+     "Tin, noble gas notation",
+     "[Kr] 5s² 4d¹⁰ 5p²"
+    ],
+    [
+     "Silver, noble gas notation",
+     "[Kr] 5s¹ 4d¹⁰"
+    ],
+    [
+     "Lead, noble gas notation",
+     "[Xe] 6s² 4f¹⁴ 5d¹⁰ 6p²"
+    ],
+    [
+     "Valence electrons",
+     "The electrons in the outermost energy level (the highest s and p). They're the ones used in reactions and bonding."
+    ],
+    [
+     "Why valence electrons matter to chemists",
+     "They decide how an atom reacts and bonds"
+    ],
+    [
+     "Valence electrons from the group number",
+     "Groups 1 and 2: 1 and 2. Groups 13 to 18: subtract 10 (group 17 → 7). Helium has 2."
+    ],
+    [
+     "Most valence electrons an atom can have",
+     "8, a full s and p (an octet)"
+    ],
+    [
+     "Valence electrons in fluorine",
+     "7"
+    ],
+    [
+     "Valence electrons in gallium [Ar] 4s² 3d¹⁰ 4p¹",
+     "3 (the 4s² and 4p¹). The 3d doesn't count."
+    ],
+    [
+     "Lewis dot diagram",
+     "The element's symbol with one dot for each valence electron"
+    ],
+    [
+     "Dots for B, Cl and Fe",
+     "B 3, Cl 7, Fe 2 (from 4s²)"
+    ],
+    [
+     "Period from a configuration",
+     "The highest energy level number. [Ne] 3s² 3p⁵ is period 3."
+    ],
+    [
+     "Why does 4s empty before 3d in an ion?",
+     "4s is farther from the nucleus"
+    ],
+    [
+     "Why are Cr and Cu exceptions?",
+     "A half full (d⁵) or full (d¹⁰) d subshell is more stable, so one 4s electron moves to 3d"
+    ],
+    [
+     "Cr configuration",
+     "[Ar] 4s¹ 3d⁵"
+    ],
+    [
+     "Cu configuration",
+     "[Ar] 4s¹ 3d¹⁰"
+    ]
+   ],
+   "points": [
+    "Aufbau: fill the lowest energy first",
+    "Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
+    "s 2, p 6, d 10, f 14",
+    "Noble gas notation: [noble gas] then the rest, Ca = [Ar] 4s²",
+    "Cr [Ar] 4s¹ 3d⁵ and Cu [Ar] 4s¹ 3d¹⁰, half full and full d are stable",
+    "Transition metal ions lose 4s electrons first: Fe²⁺ = [Ar] 3d⁶",
+    "Groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10",
+    "Drills: Ni [Ar] 4s² 3d⁸, Zn²⁺ [Ar] 3d¹⁰, Mn²⁺ and Fe³⁺ [Ar] 3d⁵, Co²⁺ [Ar] 3d⁷, Cl⁻ [Ar]"
+   ],
+   "dump": [
+    {
+     "p": "Write the filling order and every rule you remember. Then write these, full and in noble gas notation."
+    },
+    {
+     "list": [
+      "Cu",
+      "Cr",
+      "Ni",
+      "Zn²⁺",
+      "Mn²⁺",
+      "Fe³⁺",
+      "Co²⁺",
+      "Cl⁻"
+     ]
+    }
+   ],
+   "group": "Unit 2, atomic structure"
+  },
+  {
+   "id": "orbdiag",
+   "title": "Orbital diagrams",
+   "quizlet": "",
+   "notes": [
+    {
+     "h": "Orbitals: s, p, d and f"
+    },
+    {
+     "table": {
+      "head": [
+       "Sublevel",
+       "Orbitals",
+       "Electrons",
+       "Shape"
+      ],
+      "rows": [
+       [
+        "s",
+        "1",
+        "2",
+        "Sphere"
+       ],
+       [
+        "p",
+        "3",
+        "6",
+        "Dumbbell"
+       ],
+       [
+        "d",
+        "5",
+        "10",
+        "More complex"
+       ],
+       [
+        "f",
+        "7",
+        "14",
+        "More complex"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**s2 p6 d10 f14.** Energy level n has n sublevels and n² orbitals: level 2 has s and p (4 orbitals, 8 electrons)."
+    },
+    {
+     "p": "**Orbit vs orbital:** a Bohr orbit is an exact circle. An orbital is a fuzzy region where the electron probably is."
+    },
+    {
+     "p": "Filling order (aufbau, lowest energy first): 1s, 2s, 2p, 3s, 3p, 4s, 3d. Oxygen (8 electrons) is 1s² 2s² 2p⁴."
+    },
+    {
+     "h": "Orbital diagrams, Pauli and Hund's rule"
+    },
+    {
+     "table": {
+      "head": [
+       "Rule",
+       "What it says",
+       "In the diagram"
+      ],
+      "rows": [
+       [
+        "**Aufbau**",
+        "Fill the lowest energy first",
+        "Fill boxes left to right in the filling order"
+       ],
+       [
+        "**Pauli exclusion**",
+        "Max 2 electrons per orbital, opposite spins",
+        "Never more than ↑↓ in one box"
+       ],
+       [
+        "**Hund's rule**",
+        "Spread out before pairing",
+        "One ↑ in every box of a sublevel, then go back and add ↓"
+       ]
+      ]
+     }
+    },
+    {
+     "key": "**Aufbau builds, Pauli pairs, Hund spreads.**\nBus seat rule: nobody shares a seat until every seat has one person."
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "1s",
+       "2s",
+       "2p",
+       "3s",
+       "3p"
+      ],
+      "rows": [
+       [
+        "Be (4)",
+        "↑↓",
+        "↑↓",
+        "_ _ _",
+        "",
+        ""
+       ],
+       [
+        "N (7)",
+        "↑↓",
+        "↑↓",
+        "↑ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "O (8)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑ ↑",
+        "",
+        ""
+       ],
+       [
+        "Ne (10)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "",
+        ""
+       ],
+       [
+        "Na (11)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑",
+        ""
+       ],
+       [
+        "Si (14)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑ ↑ _"
+       ],
+       [
+        "Cl (17)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑"
+       ],
+       [
+        "Ar (18)",
+        "↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "For the 4s and 3d part (everything up to 3p is full, like argon):"
+    },
+    {
+     "table": {
+      "head": [
+       "Element",
+       "4s",
+       "3d (5 boxes)"
+      ],
+      "rows": [
+       [
+        "Ti (22)",
+        "↑↓",
+        "↑ ↑ _ _ _"
+       ],
+       [
+        "V (23)",
+        "↑↓",
+        "↑ ↑ ↑ _ _"
+       ],
+       [
+        "Fe (26)",
+        "↑↓",
+        "↑↓ ↑ ↑ ↑ ↑"
+       ],
+       [
+        "Ni (28)",
+        "↑↓",
+        "↑↓ ↑↓ ↑↓ ↑ ↑"
+       ],
+       [
+        "Cu (29)",
+        "↑",
+        "↑↓ ↑↓ ↑↓ ↑↓ ↑↓"
+       ]
+      ]
+     }
+    },
+    {
+     "p": "**Ions:** draw the neutral atom, then add arrows (negative ion) or remove them (positive ion). Ca²⁺ looks like argon, O²⁻ looks like neon."
+    }
+   ],
+   "cards": [
+    [
+     "Orbital",
+     "A region of space where there is a high chance (about 90%) of finding an electron"
+    ],
+    [
+     "Most electrons in one orbital",
+     "2, and they must have opposite spins"
+    ],
+    [
+     "s sublevel",
+     "1 orbital, holds 2 electrons, sphere shaped"
+    ],
+    [
+     "p sublevel",
+     "3 orbitals, holds 6 electrons, dumbbell shaped"
+    ],
+    [
+     "d sublevel",
+     "5 orbitals, holds 10 electrons"
+    ],
+    [
+     "f sublevel",
+     "7 orbitals, holds 14 electrons"
+    ],
+    [
+     "Sublevels in energy level n",
+     "n sublevels. Level 1: s. Level 2: s, p. Level 3: s, p, d. Level 4: s, p, d, f."
+    ],
+    [
+     "Orbitals in energy level n",
+     "n² orbitals (so 2n² electrons)"
+    ],
+    [
+     "Bohr orbit vs orbital",
+     "A Bohr orbit is an exact circular path. An orbital is a probability region with no exact path."
+    ],
+    [
+     "Filling order (aufbau)",
+     "1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p... lowest energy first"
+    ],
+    [
      "Orbital diagram",
      "A box or line for every orbital, with arrows for electrons. ↑ and ↓ are the two spins."
     ],
@@ -3931,177 +4224,33 @@ const DECK = {
      "1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"
     ],
     [
-     "Noble gas notation",
-     "Put the noble gas before the element in brackets, then write only what comes after it. Ca = [Ar] 4s²"
+     "Nitrogen drawn as 2p ↑↓ ↑ _",
+     "Wrong, breaks Hund's rule. Each p box gets one electron before any pairs."
     ],
     [
-     "Noble gas cores",
-     "[He] 2, [Ne] 10, [Ar] 18, [Kr] 36, [Xe] 54, [Rn] 86"
+     "A box drawn ↑↑",
+     "Wrong, breaks Pauli. Two electrons in one orbital must have opposite spins."
     ],
     [
-     "Core electrons vs valence electrons",
-     "The bracket is the core (inner electrons). What comes after holds the valence electrons."
+     "Unpaired electrons in nitrogen",
+     "3"
     ],
     [
-     "Chlorine, noble gas notation",
-     "[Ne] 3s² 3p⁵"
+     "Iron's 3d orbital diagram",
+     "↑↓ ↑ ↑ ↑ ↑ (6 electrons, 4 unpaired)"
     ],
     [
-     "Iron, noble gas notation",
-     "[Ar] 4s² 3d⁶"
-    ],
-    [
-     "Cobalt, noble gas notation",
-     "[Ar] 4s² 3d⁷"
-    ],
-    [
-     "Tin, noble gas notation",
-     "[Kr] 5s² 4d¹⁰ 5p²"
-    ],
-    [
-     "Valence electrons",
-     "The electrons in the outermost energy level (the highest s and p). They're the ones used in reactions and bonding."
-    ],
-    [
-     "Why valence electrons matter to chemists",
-     "They decide how an atom reacts and bonds"
-    ],
-    [
-     "Valence electrons from the group number",
-     "Groups 1 and 2: 1 and 2. Groups 13 to 18: subtract 10 (group 17 → 7). Helium has 2."
-    ],
-    [
-     "Most valence electrons an atom can have",
-     "8, a full s and p (an octet)"
-    ],
-    [
-     "Valence electrons in fluorine",
-     "7"
-    ],
-    [
-     "Valence electrons in gallium [Ar] 4s² 3d¹⁰ 4p¹",
-     "3 (the 4s² and 4p¹). The 3d doesn't count."
-    ],
-    [
-     "Lewis dot diagram",
-     "The element's symbol with one dot for each valence electron"
+     "Orbital diagram of an ion",
+     "Same as the neutral atom with arrows added (negative) or removed (positive). Na⁺: 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑↓ ↑↓"
     ]
    ],
    "points": [
-    "Aufbau: fill the lowest energy first",
-    "Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f",
-    "s 2, p 6, d 10, f 14",
-    "Superscripts add up to the number of electrons",
+    "An orbital holds at most 2 electrons with opposite spins",
+    "s2 p6 d10 f14, with 1, 3, 5, 7 orbitals",
+    "Orbital diagram: a box per orbital, arrows for electrons",
+    "s 1 box, p 3, d 5, f 7",
     "Pauli: max 2 per box, opposite spins",
-    "Hund: one in each box first, then pair",
-    "Noble gas notation: [noble gas] then the rest, Ca = [Ar] 4s²",
-    "Cr [Ar] 4s¹ 3d⁵ and Cu [Ar] 4s¹ 3d¹⁰, half full and full d are stable",
-    "Transition metal ions lose 4s electrons first: Fe²⁺ = [Ar] 3d⁶",
-    "Groups 1 and 2 have 1 and 2, groups 13 to 18 have group − 10",
-    "Drills: Ni [Ar] 4s² 3d⁸, Zn²⁺ [Ar] 3d¹⁰, Mn²⁺ and Fe³⁺ [Ar] 3d⁵, Co²⁺ [Ar] 3d⁷, Cl⁻ [Ar]"
-   ],
-   "dump": [
-    {
-     "p": "Write everything you remember about configurations and orbital diagrams. Then write these in noble gas notation."
-    },
-    {
-     "list": [
-      "Cu",
-      "Cr",
-      "Ni",
-      "Zn²⁺",
-      "Mn²⁺",
-      "Fe³⁺",
-      "Co²⁺",
-      "Cl⁻"
-     ]
-    }
-   ],
-   "group": "Unit 2, atomic structure"
-  },
-  {
-   "id": "explain",
-   "title": "The four explain answers",
-   "quizlet": "",
-   "notes": [
-    {
-     "p": "Explain questions are 2 points: one for **what** happens, one for **why**. Use the key word every time."
-    },
-    {
-     "h": "Why are isotopes the same element but different masses?"
-    },
-    {
-     "p": "Same number of **protons**, so the same element. Different numbers of **neutrons**, so different masses. Same electrons, so the same chemistry."
-    },
-    {
-     "h": "How many electrons does Mg²⁺ have, and why?"
-    },
-    {
-     "p": "Protons can't change, Mg always has 12. A 2+ charge means 2 more protons than electrons, so 12 − 2 = **10 electrons**."
-    },
-    {
-     "h": "Why does 4s fill before 3d, but empty first?"
-    },
-    {
-     "p": "4s is **lower in energy**, so it fills first. But 4s is **farther from the nucleus**, so a positive ion loses its 4s electrons first."
-    },
-    {
-     "h": "Why are Cr and Cu exceptions?"
-    },
-    {
-     "p": "One 4s electron moves into 3d because a **half full (d⁵) or full (d¹⁰) d subshell is more stable**. Cr = [Ar] 4s¹ 3d⁵, Cu = [Ar] 4s¹ 3d¹⁰."
-    },
-    {
-     "key": "Every explain answer: what happens, then why, with the key word (neutrons, charge, energy, more stable)."
-    }
-   ],
-   "cards": [
-    [
-     "Why are isotopes the same element?",
-     "Same number of protons"
-    ],
-    [
-     "Why do isotopes have different masses?",
-     "Different numbers of neutrons"
-    ],
-    [
-     "Why do isotopes react the same way?",
-     "Same number of electrons"
-    ],
-    [
-     "Electrons in Mg²⁺ and why",
-     "10. Protons stay 12, a 2+ charge means 2 fewer electrons"
-    ],
-    [
-     "Why does 4s fill before 3d?",
-     "4s is lower in energy"
-    ],
-    [
-     "Why does 4s empty before 3d in an ion?",
-     "4s is farther from the nucleus"
-    ],
-    [
-     "Why are Cr and Cu exceptions?",
-     "A half full (d⁵) or full (d¹⁰) d subshell is more stable, so one 4s electron moves to 3d"
-    ],
-    [
-     "Cr configuration",
-     "[Ar] 4s¹ 3d⁵"
-    ],
-    [
-     "Cu configuration",
-     "[Ar] 4s¹ 3d¹⁰"
-    ]
-   ],
-   "points": [
-    "Isotopes: same protons, so same element",
-    "Isotopes: different neutrons, so different masses",
-    "Mg²⁺ has 10 electrons: 12 protons minus a 2+ charge",
-    "Protons never change in an ion, only electrons",
-    "4s fills first because it is lower in energy",
-    "4s empties first because it is farther from the nucleus",
-    "Cr and Cu: a half full or full d subshell is more stable",
-    "Cr = [Ar] 4s¹ 3d⁵ and Cu = [Ar] 4s¹ 3d¹⁰"
+    "Hund: one in each box first, then pair"
    ],
    "group": "Unit 2, atomic structure"
   },
@@ -5131,7 +5280,7 @@ function overview(){
   const nextSec=secs.find(s=>statusOf(s.id)==="active")||secs.find(s=>statusOf(s.id)==="new")||secs.find(s=>statusOf(s.id)==="revisit");
   const rows=secs.map((s,i)=>{const st0=statusOf(s.id),g=lastGrade(s.id);return '<li><button class="row" data-go="'+esc(s.id)+'"><span class="n num">'+(i+1)+'</span><span class="t">'+esc(s.title)+'<br><span class="meta num">'+s.cards.length+" cards"+(secSteps(s).includes(5)?", "+s.points.length+" key points":", flashcards only")+(g===null?"":", last brain dump "+pct(g))+'</span></span><span class="chip '+st0+'">'+esc(statusLabel(s.id))+"</span></button></li>"}).join("");
   return '<div class="head"><div class="txt"><span class="eyebrow num">'+done+" of "+secs.length+' sections done</span><h2>'+esc(DECK.title)+"</h2>"+(DECK.source?'<span class="small">'+esc(DECK.source)+"</span>":"")+"</div></div>"+
-  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 5 minute brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
+  '<section class="panel"><h3>How each section works</h3><ol class="how"><li>Read everything and write it in Cornell notes on paper.</li><li>Take a 2 min 30 s brain break (you can skip it).</li><li>Do the flashcards, on sections where they make sense. Loop them as long as you want.</li><li>Take another brain break.</li><li>Brain dump: write everything you remember with the notes closed.</li><li>Mark what you missed, then loop on it or move to the next section.</li></ol>'+
   '<div class="actions"><button class="btn" data-go="jog">Memory jog, every topic fast</button>'+(nextSec?'<button class="btn primary" data-go="'+esc(nextSec.id)+'">'+(statusOf(nextSec.id)==="new"?"Start ":"Continue ")+(idx(nextSec.id)+1)+". "+esc(nextSec.title)+"</button>":'<span class="muted">Every section is done. Loop any one again to keep it fresh.</span>')+"</div>"+
   '<div class="settings"><label>Appearance <select id="ap">'+[["system","System"],["light","Light"],["dark","Dark"]].map(([v,n])=>'<option value="'+v+'"'+(document.documentElement.dataset.theme===v?" selected":"")+">"+n+"</option>").join("")+'</select></label><label>Breaks <select id="bk">'+[2.5,3,5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.breakMin===v?" selected":"")+">"+(v===2.5?"2 min 30 s":v+" min")+"</option>").join("")+'</select></label><label>Brain dump goal <select id="dm">'+[5,7,10].map(v=>'<option value="'+v+'"'+(S.settings.dumpMin===v?" selected":"")+">"+v+" min</option>").join("")+'</select></label><label><input type="checkbox" id="snd"'+(S.settings.sound?" checked":"")+"> Chime when a break ends</label></div></section>"+
   '<section class="panel"><h3>Sections</h3><ul class="rows">'+rows+'</ul><div class="actions"><span class="grow"></span><button class="btn quiet" id="reset">Reset progress</button></div><div id="confirm"></div></section>';
