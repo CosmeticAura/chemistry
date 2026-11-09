@@ -128,6 +128,10 @@ def merge(sections, review):
     rest = [s for s in sections if s["id"] == "packet"]
     G = {g["id"]: g for g in groups}
     # Class one-pager reference (Nov 9): steps, reactivity, dot diagrams, orbital shapes, box diagrams
+    th = G["theories"]
+    th["cards"] = [["Atom (class vocab)", "The basic building block of matter, the smallest particle an element can be divided into"],
+                   ["Law of conservation of mass (class vocab)", "Even though matter can change form, its total mass stays the same"]] + th["cards"]
+    th["notes"] = [{"key": "**Class vocab:** an **atom** is the basic building block of matter, the smallest particle an element can be divided into. **Law of conservation of mass:** even though matter can change form, its total mass stays the same."}] + th["notes"]
     am = G["avgmass"]
     am["notes"] = [{"key": "**The class's 4 steps:**\n1. Identify the isotopes.\n2. Find each isotope's mass and abundance.\n3. Multiply each mass by its abundance (as a decimal).\n4. Add all the results together."}] + am["notes"]
     am["cards"] = [["Average atomic mass, the 4 class steps", "1. Identify the isotopes. 2. Find mass and abundance. 3. Multiply mass by abundance. 4. Add the results."]] + am["cards"]
