@@ -6,7 +6,6 @@ from unit2 import SECTIONS as U2, REVIEW as R2
 from quiz2 import QUIZ
 from plan2 import PLAN_SECTIONS
 from merge8 import merge
-from onepager_sec import section as onepager_section
 from merge1 import merge as merge1
 MOCK = {"id": "mock2", "title": "Mock test (timed, grades itself)", "steps": [0], "cards": [], "points": [],
  "notes": [
@@ -16,7 +15,7 @@ MOCK = {"id": "mock2", "title": "Mock test (timed, grades itself)", "steps": [0]
 U1, _R1REST, ALIASES1, R1 = merge1(U1, R1)
 U1 = U1 + _R1REST
 GROUPED, REST, ALIASES, R2 = merge(PLAN_SECTIONS + U2, R2)
-U2 = GROUPED + [onepager_section(True), QUIZ] + REST
+U2 = GROUPED + [QUIZ] + REST
 
 COURSE = {
  "name": "Chemistry, 10th grade",
