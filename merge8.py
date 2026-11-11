@@ -136,10 +136,18 @@ def merge(sections, review):
     am["notes"] = [{"key": "**The class's 4 steps:**\n1. Identify the isotopes.\n2. Find each isotope's mass and abundance.\n3. Multiply each mass by its abundance (as a decimal).\n4. Add all the results together."}] + am["notes"]
     am["cards"] = [["Average atomic mass, the 4 class steps", "1. Identify the isotopes. 2. Find mass and abundance. 3. Multiply mass by abundance. 4. Add the results."]] + am["cards"]
     b = G["bohr"]
+    b["notes"] = [{"key": "**What a ring can hold vs what an atom has.** Ring 1 holds up to **2** electrons, ring 2 up to **8**, ring 3 up to **8**. You fill from the inside out and stop when you run out.\nMagnesium has 12: ring 1 takes 2 (10 left), ring 2 takes 8 (2 left), ring 3 gets the last 2. So **Mg = 2-8-2**. Chlorine has 17: **2-8-7**.\nIt matches the configuration: ring 1 is 1s (2), ring 2 is 2s + 2p (2 + 6 = 8), ring 3 is 3s + 3p."}] + b["notes"]
     b["notes"] += [
         {"p": "Chemists use Bohr diagrams to **predict how reactive an element is**: the outer ring shows the **valence electrons**, and an atom with a nearly full or nearly empty outer ring reacts easily."},
         {"h": "Electron dot diagrams"},
         {"p": "A dot diagram (Lewis dot) shows only the **valence electrons**: the last number of the Bohr configuration. Write the symbol, then place dots **clockwise** starting at the top, one per side, and only start pairing after all four sides have one."},
+        {"list": ["Write the element's symbol, like **Cl**.",
+                  "Count the valence electrons: the last number of the Bohr configuration. Cl is 2-8-7, so **7**.",
+                  "Dots 1 to 4: one on the **top**, one on the **right**, one on the **bottom**, one on the **left**.",
+                  "Dots 5 to 8: go around again in the same order, putting each new dot next to the first one to make a **pair**.",
+                  "Cl ends with three pairs and one single dot on the left. 8 dots is the most a dot diagram ever has."]},
+        {"img": "img/u2/cl-dot-steps.png"},
+        {"alt": "Chlorine's 7 dots numbered in the order you draw them, then the finished diagram"},
         {"img": "img/u2/dot-diagrams.png"},
         {"alt": "Dot diagrams for Na (1 dot), Mg (2), N (5), Cl (7) and Ne (8)"},
         {"key": "Chlorine is 2-8-7, so 7 dots: three pairs and one single. Neon is 2-8, so 8 dots, a full octet."}]
@@ -150,6 +158,20 @@ def merge(sections, review):
     b["points"] = b["points"] + ["Dot diagram: valence electrons only, clockwise from the top, pair after all four sides have one"]
     e = G["emspec"]
     e["notes"].insert(2, {"p": "Another way to say it: the EM spectrum is the **full range of all types of electromagnetic radiation, ordered by frequency and wavelength**."})
+    ec = G["econfig"]
+    ec["notes"] = [{"h": "One element, written three ways"},
+                   {"p": "Tests often ask for the same element as a **normal** configuration, in **noble gas** notation, and as an **orbital diagram**. Oxygen has only 8 electrons, so all three are short."},
+                   {"img": "img/u2/oxygen-three-ways.png"},
+                   {"alt": "Oxygen: 1s² 2s² 2p⁴, [He] 2s² 2p⁴, and boxes 1s ↑↓, 2s ↑↓, 2p ↑↓ ↑ ↑"},
+                   {"list": ["**Normal:** write every sublevel: 1s² 2s² 2p⁴ (2 + 2 + 4 = 8).",
+                             "**Noble gas:** the noble gas before oxygen is helium (1s²), so swap that part for [He]: **[He] 2s² 2p⁴**.",
+                             "**Orbital diagram:** one box per orbital (1s, 2s, three 2p). In 2p put one ↑ in each box first (Hund), then the 4th electron pairs up in the first box: ↑↓ ↑ ↑.",
+                             "**Unpaired** means an electron alone in its box. Oxygen has **2 unpaired**, nitrogen (2p³: ↑ ↑ ↑) has 3."]}] + ec["notes"]
+    ec["cards"] = [["Oxygen, normal configuration", "1s² 2s² 2p⁴"], ["Oxygen, noble gas notation", "[He] 2s² 2p⁴"],
+                   ["Oxygen orbital diagram", "1s ↑↓ · 2s ↑↓ · 2p ↑↓ ↑ ↑ (2 unpaired)"],
+                   ["What does unpaired mean?", "An electron alone in its orbital box (no ↓ partner)"]] + ec["cards"]
+    b["cards"] = [["How many electrons can rings 1, 2 and 3 hold?", "Up to 2, then 8, then 8 (fill inside out, stop when you run out)"],
+                  ["Why is Mg 2-8-2 and not 2-8-8?", "Mg only has 12 electrons: 2 + 8 uses 10, so ring 3 only gets the last 2"]] + b["cards"]
     o = G["orbdiag"]
     for n in o["notes"]:
         if "table" in n:
